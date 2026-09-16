@@ -5,6 +5,11 @@ Das Entwicklungsrepository ist separat und privat. Dieses Repository enthält
 freigegebene Anwendungspakete einschließlich des darin benötigten Anwendungscodes,
 aber keine Vereinsdaten, PINs oder Zugangsdaten.
 
+## Eine vollständig neue Anlage einrichten
+
+Die [Schritt-für-Schritt-Anleitung für Raspberry Pi, LG-Display und Webserver](NEUINSTALLATION-LG-UND-CLOUD.md)
+beginnt mit einem leeren Raspberry Pi, einer neuen Webinstallation und einer neuen Datenbank.
+
 ## Vorhandenen Raspberry Pi aktualisieren
 
 In der Trainingssteuerung als Administrator anmelden und **Sicherung & Updates →
