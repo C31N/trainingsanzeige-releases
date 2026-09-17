@@ -12,22 +12,24 @@ beginnt mit einem leeren Raspberry Pi, einer neuen Webinstallation und einer neu
 
 ## Vorhandenen Raspberry Pi aktualisieren
 
-In der Trainingssteuerung als Administrator anmelden und **Sicherung & Updates →
-Trainingssoftware → Neue Version prüfen** öffnen. Installation mit Admin-PIN
-bestätigen. Der Pi benötigt ausgehenden HTTPS-Zugriff auf GitHub und dessen
+In der Trainingssteuerung als Administrator anmelden und ganz unten **Sicherung & Updates →
+Trainingssystem → Version prüfen** öffnen. Die gemeinsame Installation mit Admin-PIN
+bestätigen. Raspberry Pi und gekoppelte Online-App werden dabei auf dieselbe Version
+gebracht. Der Pi benötigt ausgehenden HTTPS-Zugriff auf GitHub und dessen
 Release-Downloads; eine eingehende SSH-Freigabe oder ein GitHub-Konto ist nicht nötig.
 
 Der Prüfschlüssel muss unabhängig vom Downloadkanal auf dem Gerät eingerichtet
 sein. Pakete werden anhand einer Ed25519-Signatur und einer SHA-256-Prüfsumme geprüft.
 Während eines geladenen Trainings ist die Installation gesperrt. Vor dem Wechsel
-werden Anwendung und Daten gesichert; ein fehlgeschlagener Start löst eine Rückkehr
-zur vorherigen Version aus.
+werden Anwendung, Daten und verwaltete Webdateien gesichert; ein Fehler löst die
+Rückkehr beider Anwendungen zur vorherigen Version aus.
 
 ## Dateien eines Releases
 
 - `trainingsanzeige.tar.gz`: Anwendung, lokales Frontend und Betriebsdateien.
 - `trainingsanzeige.json`: Version, Hinweise und SHA-256-Prüfsumme.
 - `trainingsanzeige.sig`: abgetrennte Ed25519-Signatur des Manifests.
+- `trainingsanzeige-web.json`: bereinigte Online-App ohne Zugangsdaten oder Vereinsdaten.
 - `INSTALLATION.md`: Installationsanleitung für eine neue Anlage.
 - `ANWENDUNGSUPDATES.md`: Update- und Wiederherstellungsverfahren.
 

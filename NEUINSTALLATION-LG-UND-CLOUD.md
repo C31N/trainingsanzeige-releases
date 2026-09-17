@@ -72,14 +72,15 @@ Im Browser des Pi die [Releaseübersicht](https://github.com/C31N/trainingsanzei
 - `trainingsanzeige.tar.gz`
 - `trainingsanzeige.json`
 - `trainingsanzeige.sig`
+- `trainingsanzeige-web.json`
 
 Nicht „Source code“ verwenden: Das öffentliche Repository ist der Downloadkanal, nicht das vollständige Entwicklungsrepository.
 
-Den öffentlichen Prüfschlüssel `release-signing.pub` über die verantwortliche Technik beziehen und unabhängig vom Download bestätigen lassen. Für den Stand 2.8.0 lautet er:
+Den öffentlichen Prüfschlüssel `release-signing.pub` über die verantwortliche Technik beziehen und unabhängig vom Download bestätigen lassen. Seit Version 2.9.0 lautet er:
 
 ```text
 -----BEGIN PUBLIC KEY-----
-MCowBQYDK2VwAyEA5sZ6KEPKD1q544gPhj8XUS8Wq3zcdC2mKPQPwxMbIkc=
+MCowBQYDK2VwAyEAUESVrdRd6cUgzaKvDwq2pDt9sFYZ6SEHpf5aPPlVCwE=
 -----END PUBLIC KEY-----
 ```
 
@@ -88,7 +89,7 @@ Der Schlüssel ist öffentlich. **Der private Signierschlüssel gehört niemals 
 ```bash
 openssl pkeyutl -verify -pubin -inkey release-signing.pub -rawin \
   -in trainingsanzeige.json -sigfile trainingsanzeige.sig
-python3 -c 'import json,hashlib,pathlib; m=json.loads(pathlib.Path("trainingsanzeige.json").read_text()); assert hashlib.sha256(pathlib.Path("trainingsanzeige.tar.gz").read_bytes()).hexdigest()==m["sha256"], "Pruefsumme falsch"; print("Paket geprueft, Version",m["version"])'
+python3 -c 'import json,hashlib,pathlib; m=json.loads(pathlib.Path("trainingsanzeige.json").read_text()); a=m["artifacts"]; assert all(hashlib.sha256(pathlib.Path(v["name"]).read_bytes()).hexdigest()==v["sha256"] for v in a.values()), "Pruefsumme falsch"; print("Pakete geprueft, Version",m["version"])'
 ```
 
 Nur nach `Signature Verified Successfully` und erfolgreicher Prüfsumme fortfahren. Bei einem Fehler nicht installieren.
@@ -272,11 +273,11 @@ Erwartet: Dienste `active`, Health `status: ok`. Ein aktiver Syncdienst allein b
 
 ## 10. Spätere Updates in der Schwimmhalle
 
-**Pi-Anwendung:** Admin → Sicherung & Updates → Trainingssoftware → Neue Version prüfen → installieren und Admin-PIN bestätigen. Kein Training geladen lassen; Stromversorgung nicht trennen. Signaturprüfung, Sicherung und automatische Rückkehr bei Startfehlern sind integriert.
+**Trainingssystem:** Ganz unten Admin → Sicherung & Updates → Trainingssystem → Version prüfen → aktualisieren und Admin-PIN bestätigen. Derselbe Auftrag aktualisiert Raspberry Pi und gekoppelte Online-App. Kein Training geladen lassen; Stromversorgung nicht trennen. Signaturprüfung, gemeinsame Sicherung und automatische Rückkehr beider Seiten bei Fehlern sind integriert.
 
 **Betriebssystem:** eigener Systemupdatebereich; nicht mit Anwendungsupdates verwechseln.
 
-**Webserver:** wird vom Pi-Updateknopf nicht mit aktualisiert. Die Technik sichert Webdateien/MariaDB und veröffentlicht den zur Pi-Version passenden Cloudbuild separat. `config.php` mit den vorhandenen Zugangsdaten erhalten. Datenbankschema nur über die für die Zielversion vorgesehene Migration ändern.
+**Webserver:** wird nach der einmaligen Installation der Updatebrücke automatisch mitgeführt. Ist er nicht erreichbar, bleibt auch der Pi unverändert. `config.php`, Geräteschlüssel und MariaDB werden nie aus dem öffentlichen Release ersetzt.
 
 Details: [Anwendungsupdates](ANWENDUNGSUPDATES.md).
 
