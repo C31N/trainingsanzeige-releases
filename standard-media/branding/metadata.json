@@ -1,0 +1,32 @@
+{
+  "revision": "ea0db9efa99581be2294a16814b8fa5b",
+  "format": "svg",
+  "texts": [
+    {
+      "id": "editable-text-1",
+      "text": "Wasserfreunde",
+      "color": "#d7191c",
+      "font_size": 160.0,
+      "font_family": "DejaVu Sans Condensed",
+      "font_weight": "normal",
+      "font_style": "normal",
+      "text_decoration": "none",
+      "x": 768.0,
+      "y": 418.0,
+      "editable": true
+    },
+    {
+      "id": "editable-text-2",
+      "text": "Dalum",
+      "color": "#d7191c",
+      "font_size": 160.0,
+      "font_family": "DejaVu Sans Condensed",
+      "font_weight": "normal",
+      "font_style": "normal",
+      "text_decoration": "none",
+      "x": 765.0,
+      "y": 1256.0,
+      "editable": true
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "revision": "07cb6f98a1d64178b043bc1be06e2a2f",
+  "sounds": [
+    {
+      "id": "04b7bac495d846b38e71d2b8a08c5b8e",
+      "name": "Swim Start",
+      "extension": "mp3",
+      "duration": 1.9962916666666666,
+      "bytes": 224799,
+      "sha256": "f24ef87c5aad86b45d1208f829992cb9af37c2d9194a7a3366dfe29096291f3d",
+      "original_sha256": "0060878549e1e2104c4e8108b88586c7c8b51cbd7c50b4e1908a1a3f73fb6fa8"
+    },
+    {
+      "id": "414377cb8830461f8f0a06e67d3ad6f9",
+      "name": "Short beep countdown",
+      "extension": "mp3",
+      "duration": 3.5265416666666667,
+      "bytes": 451475,
+      "sha256": "f98a46dd194f038ff366da5d33d4f36ebf7d90cdf03bf7bfadfbfa6eb2c255aa",
+      "original_sha256": "c9f1ace7658e2f3f2da022a7e3570c71c8ea1d3607add3b01b5108a7d9387e1e"
+    },
+    {
+      "id": "3b0a1846c37a427696ea2854770170cb",
+      "name": "Female Vocal 321 Count",
+      "extension": "mp3",
+      "duration": 2.847354166666667,
+      "bytes": 364539,
+      "sha256": "da5c2892121614aeea71f4e08f7ec78203325eed65f96d6b57cbfc624198a8fc",
+      "original_sha256": "9141b27cad15a5988a6fcf84be8c201cd17fb17ca34d282b51cb4f78c227c25d"
+    },
+    {
+      "id": "5a04409c195f4f64ae0c2858a8d20a82",
+      "name": "Game Countdown 62",
+      "extension": "mp3",
+      "duration": 4.049,
+      "bytes": 518349,
+      "sha256": "110370c555563350799642bd257314c98e74d22e7da82bd92f21ab562acbfd7d",
+      "original_sha256": "d8a04c85add15fb8eef38e4ebe15aca305c62378da81a622f207b704528f06ce"
+    },
+    {
+      "id": "38c9a509d5524ccfad2bee897a374010",
+      "name": "Robotic Countdown",
+      "extension": "mp3",
+      "duration": 4.344,
+      "bytes": 503982,
+      "sha256": "b9a27145fbb13cf12a662c50b8463fe38c9f8befb45e6fa507239fdaae19feaa",
+      "original_sha256": "a2da4ec80031d8b620a1e72fc5f28df4cd1f4780d4c8e4a3d9880477c6775eb2"
+    },
+    {
+      "id": "c03474b533a347a199e59756d279cb49",
+      "name": "Arcade Countdown",
+      "extension": "mp3",
+      "duration": 3.6,
+      "bytes": 417678,
+      "sha256": "8f4721b481af4f4361b0b0c18fb3ae3eccfd6844e0f0c9e3858c66dd75855563",
+      "original_sha256": "9e82a07a513763880a95570fee629aea18ae84d03ce7852bf12fc3a3e668dfc5"
+    },
+    {
+      "id": "403c4557e1ee47ce94460641b4bf7188",
+      "name": "Countdown To Fight",
+      "extension": "mp3",
+      "duration": 3.576,
+      "bytes": 414894,
+      "sha256": "d88f8bcd168d8b7e1abdc15b2dd429b4d0c1cbd3b7588b7f7ee574c9b291fb02",
+      "original_sha256": "a77ac9e1219260f024e4a911f9485748d8b76724bfba89d6aafb11e03234583c"
+    },
+    {
+      "id": "c710b42900b64c389e821126e4d8f235",
+      "name": "countdown 3 2 1 jump",
+      "extension": "mp3",
+      "duration": 5.352,
+      "bytes": 620910,
+      "sha256": "65cabd9156f35fe646c488891a7a6dfbdbd0374505cb8382ad59f089853a61f3",
+      "original_sha256": "a121c77f12a54bacd251ce938999492ac179015548d1fb0d24cc89804bd8ea5d"
+    },
+    {
+      "id": "466ccb53f8c54737acd90797708dd570",
+      "name": "3 2 1 countdown deep v",
+      "extension": "mp3",
+      "duration": 6.456,
+      "bytes": 748974,
+      "sha256": "2796aceb90eb2a573997ed208846b96dfb7a8501dc41241eb6192cf1e37a8ec5",
+      "original_sha256": "e4be9eea246671c5779c1545f446d9a6b8c71788bff574ee78d1b2f9fc5e62eb"
+    },
+    {
+      "id": "51bc52b158214368a5be0fb116566347",
+      "name": "Power-on-Sequenz",
+      "extension": "mp3",
+      "duration": 6.024,
+      "bytes": 771150,
+      "sha256": "e5ff0a614754aca56b2f267cc6c357c0cf4fecfb50cb0aadb83e3fde952d3615",
+      "original_sha256": "0f86ffe47a4649e90641932eb068f48daaf55c310a07b91e1135d5557a6c99e7"
+    },
+    {
+      "id": "c4462676fbb6473cace4ce71670b7093",
+      "name": "Game-Boy-Start",
+      "extension": "mp3",
+      "duration": 5.928,
+      "bytes": 758862,
+      "sha256": "65b9eb0725153ffbde7cd014bbc72fe5c54a74e45da9a7672b647a52d7ed6f33",
+      "original_sha256": "f4b5f4f20ad67ec39b1e5e93a8b74675a854475c7f5a16cc8dfc7474648fffea"
+    },
+    {
+      "id": "f526cde10db94e15991f4f340a2837c7",
+      "name": "Computer-Start",
+      "extension": "mp3",
+      "duration": 8.097979166666667,
+      "bytes": 1036618,
+      "sha256": "76f43e07fb5d5f6002246936fbeda7f3cf6d8e8f9fb6f2bbdb2449eb53ab7e72",
+      "original_sha256": "52d6b9545aa131150457845dd8ccbf585ba6e7c5c5e13a5ec5bf84812b416f5e"
+    },
+    {
+      "id": "f88da5f320cf412fa28d73a5827183c3",
+      "name": "Rennstart",
+      "extension": "mp3",
+      "duration": 4.049,
+      "bytes": 518349,
+      "sha256": "20195aba7a71a4e3702bfabf6c9d431e8faa3764e2454a0547f1d456ae8f3a7b",
+      "original_sha256": "7eb950fbcc44247db326cfc4843ae5ee789175eb4cc27147f9b5006bbdb16af1"
+    },
+    {
+      "id": "d09c5f5bb9494067ab625de351174f38",
+      "name": "Startup Variation 4",
+      "extension": "mp3",
+      "duration": 7.2098125,
+      "bytes": 922933,
+      "sha256": "9249fd219c658837f0f3d9052ccc86be24a7b718d616b1fac017d5598ee0dab6",
+      "original_sha256": "e77af27a515de34c185a9d20f4ca55acd278c4369b9d8fa48aef533887d08e05"
+    }
+  ],
+  "lanes": {
+    "1": {
+      "start": "04b7bac495d846b38e71d2b8a08c5b8e",
+      "countdown": "466ccb53f8c54737acd90797708dd570",
+      "complete": "builtin"
+    },
+    "2": {
+      "start": "04b7bac495d846b38e71d2b8a08c5b8e",
+      "countdown": "38c9a509d5524ccfad2bee897a374010",
+      "complete": "builtin"
+    },
+    "3": {
+      "start": "04b7bac495d846b38e71d2b8a08c5b8e",
+      "countdown": "c710b42900b64c389e821126e4d8f235",
+      "complete": "builtin"
+    },
+    "4": {
+      "start": "04b7bac495d846b38e71d2b8a08c5b8e",
+      "countdown": "3b0a1846c37a427696ea2854770170cb",
+      "complete": "builtin"
+    },
+    "5": {
+      "start": "04b7bac495d846b38e71d2b8a08c5b8e",
+      "countdown": "38c9a509d5524ccfad2bee897a374010",
+      "complete": "builtin"
+    },
+    "6": {
+      "start": "04b7bac495d846b38e71d2b8a08c5b8e",
+      "countdown": "403c4557e1ee47ce94460641b4bf7188",
+      "complete": "builtin"
+    },
+    "7": {
+      "start": "builtin",
+      "countdown": "builtin",
+      "complete": "builtin"
+    },
+    "8": {
+      "start": "builtin",
+      "countdown": "builtin",
+      "complete": "builtin"
+    },
+    "9": {
+      "start": "builtin",
+      "countdown": "builtin",
+      "complete": "builtin"
+    },
+    "10": {
+      "start": "builtin",
+      "countdown": "builtin",
+      "complete": "builtin"
+    }
+  },
+  "updated_at_ns": 1790538323355716087
+}

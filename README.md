@@ -3,7 +3,16 @@
 Öffentlicher Downloadkanal für die eigenständige Trainingsanzeige für Schwimmvereine.
 Das Entwicklungsrepository ist separat und privat. Dieses Repository enthält
 freigegebene Anwendungspakete einschließlich des darin benötigten Anwendungscodes,
-aber keine Vereinsdaten, PINs oder Zugangsdaten.
+und die freigegebenen Vereinsgrafiken und Trainingssounds. Private Gerätedaten,
+PIN-Hashes und Zugangsschlüssel sind nicht enthalten. Die öffentlich bekannten
+Start-PINs für neue Anlagen stehen unter [Standardausstattung](STANDARD-AUSSTATTUNG.md).
+
+## Medien und Trainingssignale
+
+Ab Version 2.11.51 enthalten die Installationspakete die aktuelle SVG-/PNG-Grafik
+und 14 Sounds der Testanlage. Sie sind zusätzlich unter `standard-media/`
+einzeln verfügbar. Bestehende Bibliotheken werden nicht überschrieben.
+Siehe [Trainingssignale einstellen](TRAININGSSIGNALE.md).
 
 ## Eine vollständig neue Anlage einrichten
 

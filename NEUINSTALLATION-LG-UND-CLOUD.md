@@ -1,6 +1,11 @@
 # Neuer Raspberry Pi + LG-Bildschirm + Online-Steuerung
 
-Schritt-für-Schritt-Anleitung für Wasserfreunde Dalum. Stand: 16.09.2026, Software 2.8.0.
+Schritt-für-Schritt-Anleitung für Wasserfreunde Dalum. Medien-/PIN-Ergänzung: 27.09.2026, Software 2.11.51.
+
+Neuinstallationen erhalten jetzt die [Standardausstattung mit 14 Sounds,
+SVG-/PNG-Vereinslogo und öffentlichen Start-PINs](STANDARD-AUSSTATTUNG.md).
+Die dort genannten Start-PINs ersetzen Angaben zu zufällig erzeugten Erst-PINs
+in älteren Anleitungen. Vor der Internetfreigabe alle Start-PINs ändern.
 
 **Ziel:** Der Raspberry Pi zeigt das Training am LG 65UH5Q-E. Trainer bedienen ihn im Hallennetz oder über `https://wasserfreunde-dalum.de/trainingsanzeige/`. Der lokale Trainingsbetrieb funktioniert auch ohne Internet.
 
