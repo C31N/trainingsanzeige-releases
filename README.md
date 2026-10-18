@@ -16,6 +16,12 @@ Siehe [Trainingssignale einstellen](TRAININGSSIGNALE.md).
 
 ## WFD Games und IPTV
 
+**Update 2.12.1:** Buzzerzuordnungen und Beckenskizze aktualisieren sich direkt
+nach dem Speichern. Die Skizze richtet sich nach den Startblöcken (unten), der
+gegenüberliegenden Seite (oben), links und rechts. Spiel-Eingabefelder erscheinen
+ohne auf Bestenlisten zu warten. Rückmeldungen im Adminmenü stehen an der
+jeweiligen Aktion, nicht mehr gesammelt weit oben.
+
 Ab **2.12.0** stehen **WFD-Run**, **WFD-Cup** und **Reaktionsduell** unter
 **Aktiv → Spiele** für Trainer und Administratoren bereit. Vor dem ersten Spiel
 unter **Admin → Spiele** Beckenbreite und vier Buzzer einrichten und prüfen.
