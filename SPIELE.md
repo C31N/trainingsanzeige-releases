@@ -2,6 +2,14 @@
 
 Unter **Aktiv** öffnet die zusätzliche Pille **Spiele** die Spielauswahl für Trainer und Administratoren. Ein geladenes Training muss vor dem Laden eines Spiels beendet werden. Die Spiele benötigen keinen weiteren PIN.
 
+## Aktualisierung und Highscores ab 2.12.3
+
+Eine nach einem Update noch geöffnete ältere App kann die alte Kennung des Reaktionsduells senden. Das startet kein Schwimmrennen: Die App fordert verständlich zum Neuladen und zur Wahl von WFD-Sprint samt Strecke auf. Neue Oberflächen vergleichen zusätzlich die Spielregel-Revision und bieten bei einer abweichenden Auswahl **App aktualisieren** an. Laufende Trainings, Spiele und Timer werden nicht automatisch durch ein Neuladen unterbrochen.
+
+Unter **Admin → Spiele → Highscores verwalten** können Administratoren einen einzelnen Spieler-Eintrag oder **Alle Highscores löschen** wählen, jeweils nach Bestätigung. Andere Spieler-Einträge bleiben beim einzelnen Löschen erhalten. Die ursprünglichen Rennergebnisse und deren Platzierungen bleiben als Historie gespeichert; die gelöschten Einträge werden nicht mehr in Bestenlisten gewertet. Neue Rennen können neue Highscores erzeugen. Trainer dürfen nicht löschen. Die Verwaltung zeigt zunächst 50 Einträge; weitere lassen sich nachladen. Änderungen erscheinen sofort, lokal und online.
+
+Die Grafik ist je Spielmodus unterschiedlich: WFD-Run zeigt farbige Wege zu den Zielbuzzern, WFD-Cup die noch übrigen virtuellen Becher und Sprint separate Rennfelder mit festen Buzzerfarben und Platzierungen. Die Sprint-Grafik behauptet keinen Streckenfortschritt: Ohne zusätzliche Sensoren wird nur der Zielanschlag erkannt. Die Gestaltung verwendet keine dauerhaft laufenden Dekorationsanimationen.
+
 ### Hallenbad Dalum
 
 Laut Hallenangaben beträgt das Becken 16,66 × 8 Meter. Der Hubboden ermöglicht eine variable Wassertiefe von 0,90 bis 2,00 Metern. Die Spiele verwenden Länge und Breite für die Streckenberechnung; sie erkennen oder steuern den Hubboden nicht. Die tatsächliche Tiefe muss vor Ort geprüft werden. Die Beckenbreite wird unter **Admin → Spiele** auf **8 m** eingestellt; die Länge bleibt in der Halleneinrichtung bearbeitbar.
@@ -62,6 +70,6 @@ Die Hallenanzeige bestätigt Bild- und Klangbereitschaft, bevor sich das Spiel s
 
 Eine geschlossene Handyansicht beendet das Spiel nicht. **Spiel beenden** oder **Zur Spielauswahl** gibt die Anzeige wieder frei: Bei weiterlaufender Musik erscheint die Musikansicht, sonst die Uhr mit Standby-Countdown. Ergebnisse schließen nach zwei Minuten automatisch; eine unbediente Vorbereitung oder Pause endet nach zehn Minuten.
 
-Ergebnisse liegen auf dem Raspberry und werden für die angemeldete Online-App gespiegelt. Bestenlisten gruppieren nach Spiel, Rundenzahl, Teilnehmerzahl und Beckenmaßen, beim Sprint zusätzlich nach Schwimmstrecke/Längenzahl. Die Sprint-Bestenliste enthält alle vollständigen Zielzeiten, nicht nur die Siegerzeit. Gespeichert werden höchstens 500 Durchgänge. Admins können einzelne Ergebnisse oder alle Bestenlisten löschen. Anwendungssicherungen enthalten Spieleinstellungen und Ergebnisse, jedoch kein automatisch fortzusetzendes Spiel.
+Ergebnisse liegen auf dem Raspberry und werden für die angemeldete Online-App gespiegelt. Bestenlisten gruppieren nach Spiel, Rundenzahl, Teilnehmerzahl und Beckenmaßen, beim Sprint zusätzlich nach Schwimmstrecke/Längenzahl. Die Sprint-Bestenliste enthält alle vollständigen Zielzeiten, nicht nur die Siegerzeit. Gespeichert werden höchstens 500 Durchgänge. Admins können einzelne Highscores oder die gesamte Highscore-Liste leeren; die ursprünglichen Rennergebnisse bleiben erhalten. Anwendungssicherungen enthalten Spieleinstellungen, Ergebnisse und gelöschte Highscore-Markierungen, jedoch kein automatisch fortzusetzendes Spiel.
 
 Nach einem Neustart wird ein unterbrochenes Spiel nicht fortgesetzt. Anwendungs- und Systemupdates sind während eines geladenen Spiels gesperrt.
