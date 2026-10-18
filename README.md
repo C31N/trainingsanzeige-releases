@@ -16,13 +16,21 @@ Siehe [Trainingssignale einstellen](TRAININGSSIGNALE.md).
 
 ## WFD Games und IPTV
 
+**Update 2.12.2:** Neue TV-Fernansicht mit großen Zielnummern, Seiten, Zeiten
+und Spielständen. Bei Run/Cup liegen die Buzzer direkt an den Beckenrändern.
+Neu statt Reaktionsduell: **WFD-Sprint** für zwei bis vier Personen mit 1/2
+Beckenlängen oder 50/100 m, gemeinsamem Countdown, eigenem Zielbuzzer,
+Platzierung, Zielzeiten und Revanche. Der Sprint zeigt große Spielerfelder.
+Run-/Cup-Regeln und gespeicherte Zuordnungen bleiben erhalten. Lesbarkeit aus
+ungefähr 20 m bitte in der Halle am tatsächlichen Display bestätigen.
+
 **Update 2.12.1:** Buzzerzuordnungen und Beckenskizze aktualisieren sich direkt
 nach dem Speichern. Die Skizze richtet sich nach den Startblöcken (unten), der
 gegenüberliegenden Seite (oben), links und rechts. Spiel-Eingabefelder erscheinen
 ohne auf Bestenlisten zu warten. Rückmeldungen im Adminmenü stehen an der
 jeweiligen Aktion, nicht mehr gesammelt weit oben.
 
-Ab **2.12.0** stehen **WFD-Run**, **WFD-Cup** und **Reaktionsduell** unter
+Ab **2.12.2** stehen **WFD-Run**, **WFD-Cup** und **WFD-Sprint** unter
 **Aktiv → Spiele** für Trainer und Administratoren bereit. Vor dem ersten Spiel
 unter **Admin → Spiele** Beckenbreite und vier Buzzer einrichten und prüfen.
 Dort lassen sich Spiele auch deaktivieren, Farben und Klänge ändern sowie
