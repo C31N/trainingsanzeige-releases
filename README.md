@@ -14,6 +14,30 @@ und 14 Sounds der Testanlage. Sie sind zusätzlich unter `standard-media/`
 einzeln verfügbar. Bestehende Bibliotheken werden nicht überschrieben.
 Siehe [Trainingssignale einstellen](TRAININGSSIGNALE.md).
 
+## WFD Games und IPTV
+
+Ab **2.12.0** stehen **WFD-Run**, **WFD-Cup** und **Reaktionsduell** unter
+**Aktiv → Spiele** für Trainer und Administratoren bereit. Vor dem ersten Spiel
+unter **Admin → Spiele** Beckenbreite und vier Buzzer einrichten und prüfen.
+Dort lassen sich Spiele auch deaktivieren, Farben und Klänge ändern sowie
+Bestenlisten verwalten. Ein geladenes Training muss vorher beendet werden.
+Die reale Prüfung von Buzzerpositionen und HDMI-Spielton bleibt erforderlich.
+
+**IPTV** öffnet sich am normalen Anmeldeschirm über den separaten **Start-PIN
+654322**. Dieser änderbare Startwert ist kein fest eingebauter Zugang und gibt
+keine Trainer-/Adminrechte. Unter **Admin → Zugang & PINs** kann er geändert
+werden. Senderauswahl, Lautstärke und Beenden erfolgen am Handy; Bild und Ton
+laufen im Vollbild über den Raspberry und HDMI auf dem Display.
+
+Unter **Admin → IPTV** Sender samt Logos pflegen, eigene Sender ergänzen und
+die tägliche Aktualisierung der Standard-M3U-Liste aktivieren. Regionalsender
+wie **ems TV** sind ebenfalls enthalten. Lokale Änderungen bleiben bei einem
+Listenabgleich erhalten. Geladene Trainings und Spiele blockieren IPTV;
+Online-Steuerung setzt einen aktuell verbundenen Pi voraus.
+
+- [Spiele: Einrichtung und Regeln](SPIELE.md)
+- [IPTV: Zugang, Sender und Bedienung](IPTV.md)
+
 ## Eine vollständig neue Anlage einrichten
 
 Die [Schritt-für-Schritt-Anleitung für Raspberry Pi, LG-Display und Webserver](NEUINSTALLATION-LG-UND-CLOUD.md)
@@ -21,24 +45,25 @@ beginnt mit einem leeren Raspberry Pi, einer neuen Webinstallation und einer neu
 
 ## Vorhandenen Raspberry Pi aktualisieren
 
-In der Trainingssteuerung als Administrator anmelden und ganz unten **Sicherung & Updates →
-Trainingssystem → Version prüfen** öffnen. Die gemeinsame Installation mit Admin-PIN
-bestätigen. Raspberry Pi und gekoppelte Online-App werden dabei auf dieselbe Version
-gebracht. Der Pi benötigt ausgehenden HTTPS-Zugriff auf GitHub und dessen
+In der Trainingssteuerung als Administrator anmelden und **Sicherung & Updates →
+Trainingssystem → Version prüfen** öffnen. Installation mit Admin-PIN
+bestätigen. Der Pi benötigt ausgehenden HTTPS-Zugriff auf GitHub und dessen
 Release-Downloads; eine eingehende SSH-Freigabe oder ein GitHub-Konto ist nicht nötig.
 
 Der Prüfschlüssel muss unabhängig vom Downloadkanal auf dem Gerät eingerichtet
 sein. Pakete werden anhand einer Ed25519-Signatur und einer SHA-256-Prüfsumme geprüft.
-Während eines geladenen Trainings ist die Installation gesperrt. Vor dem Wechsel
-werden Anwendung, Daten und verwaltete Webdateien gesichert; ein Fehler löst die
-Rückkehr beider Anwendungen zur vorherigen Version aus.
+Während eines geladenen Trainings oder Spiels ist die Installation gesperrt. Vor dem Wechsel
+werden Anwendung und Daten gesichert; ein fehlgeschlagener Start löst eine Rückkehr
+zur vorherigen Version aus.
+Gekoppelte Pi- und Online-App werden gemeinsam aktualisiert; Sicherungen des
+Anwendungsupdaters bleiben auf zwei vorherige Stände begrenzt.
 
 ## Dateien eines Releases
 
 - `trainingsanzeige.tar.gz`: Anwendung, lokales Frontend und Betriebsdateien.
 - `trainingsanzeige.json`: Version, Hinweise und SHA-256-Prüfsumme.
 - `trainingsanzeige.sig`: abgetrennte Ed25519-Signatur des Manifests.
-- `trainingsanzeige-web.json`: bereinigte Online-App ohne Zugangsdaten oder Vereinsdaten.
+- `trainingsanzeige-web.json`: geprüfte Dateien der gekoppelten Online-App.
 - `INSTALLATION.md`: Installationsanleitung für eine neue Anlage.
 - `ANWENDUNGSUPDATES.md`: Update- und Wiederherstellungsverfahren.
 
