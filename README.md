@@ -16,6 +16,12 @@ Siehe [Trainingssignale einstellen](TRAININGSSIGNALE.md).
 
 ## WFD Games und IPTV
 
+**Update 2.12.3:** Klare Aktualisierungsmeldung für noch geöffnete alte
+Spielauswahlen, statt technischer Validierungsfehler. Admins können unter
+**Spiele → Highscores verwalten** einzelne Einträge oder alle Highscores löschen;
+die Rennergebnisse bleiben erhalten. Neue Modusgrafiken zeigen Schwimmwege bei
+Run, virtuelle Becher bei Cup und Rennfelder mit Platzierungen beim Sprint.
+
 **Update 2.12.2:** Neue TV-Fernansicht mit großen Zielnummern, Seiten, Zeiten
 und Spielständen. Bei Run/Cup liegen die Buzzer direkt an den Beckenrändern.
 Neu statt Reaktionsduell: **WFD-Sprint** für zwei bis vier Personen mit 1/2
