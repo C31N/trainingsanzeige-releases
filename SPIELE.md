@@ -9,10 +9,12 @@ Laut Hallenangaben beträgt das Becken 16,66 × 8 Meter. Der Hubboden ermöglich
 ## Einmal einrichten
 
 1. Unter **Admin → Spiele** die Beckenbreite eingeben. Die Länge stammt aus der Halleneinrichtung.
-2. Vier unterschiedliche aktive Funktaster den Stationen Nord, Ost, Süd und West zuweisen. Die Bezeichnungen beschreiben die Skizze; eine Ausrichtung nach dem tatsächlichen Kompass ist nicht erforderlich.
+2. Vier unterschiedliche aktive Funktaster den vier Beckenseiten zuweisen. Die Skizze zeigt den Blick von den Startblöcken ins Becken: unten **Startblockseite**, oben **Gegenüberliegende Seite**, rechts **Rechts**, links **Links**. Stationsnummern und bisher gespeicherte Buzzerzuordnungen bleiben unverändert. Individuelle Beschriftungen sind weiterhin möglich.
 3. Die Buzzer jeweils mittig an der entsprechenden Beckenseite aufstellen. Beschriftung und Farbe müssen zum tatsächlichen Buzzer passen. Die ursprünglichen Zuordnungen zu Trainingsbahnen bleiben erhalten.
 4. Maße und Positionen bestätigen und speichern. Ohne geladenes Training oder Spiel **Buzzer 30 Sekunden testen** starten und jede Taste einmal drücken. Die erkannte Station wird angezeigt.
 5. Lautstärke, Sprachansagen und die vier Spielklänge einstellen. Eigene Klänge aus der vorhandenen Klangbibliothek können ausgewählt werden.
+
+Ab Version **2.12.1** übernimmt Speichern die bestätigten Einstellungen unmittelbar in Beckenskizze und Spielbereitschaft, lokal wie online. Rückmeldungen stehen direkt bei der jeweiligen Aktion. Veraltete Statusantworten setzen gespeicherte Werte nicht zurück. Spielkarten und ihre Eingabefelder wechseln sofort; Bestenlisten laden unabhängig im Hintergrund, ohne Eingaben oder Fokus zu ersetzen.
 
 Der Aktivierungsschalter blendet die Spiele bei Trainern und Administratoren aus. Während eines geladenen Spiels erfordert das Deaktivieren die Bestätigung, dass der laufende Durchgang beendet wird.
 
