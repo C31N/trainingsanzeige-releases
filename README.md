@@ -16,6 +16,12 @@ Siehe [Trainingssignale einstellen](TRAININGSSIGNALE.md).
 
 ## WFD Games und IPTV
 
+**Update 2.12.6:** Kurze DNS-/TLS-Verbindungsfehler werden vor einer Rücksetzung
+begrenzt erneut versucht. Schreibbefehle mit unklarem Ausgang werden nicht blind
+wiederholt. Die Online-Gesundheitsprüfung erhält drei Versuche; nach einem
+Rollback zeigt die App den verursachenden Schritt an. Enthält die Spielklang-
+Vorschau aus 2.12.5. Installation weiterhin manuell im Update-Menü.
+
 **Update 2.12.5:** Unter Admin → Spiele lassen sich Start-, Treffer-, Fehler-
 und Siegklang mit „Auf Anzeige anhören“ am Display testen. Aktuelle Auswahl
 und Spielpegel gelten auch ohne Speichern. Wiedergabestart und Fehler werden
