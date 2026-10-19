@@ -18,7 +18,7 @@ Laut Hallenangaben beträgt das Becken 16,66 × 8 Meter. Der Hubboden ermöglich
 
 1. Unter **Admin → Spiele** die Beckenbreite eingeben. Die Länge stammt aus der Halleneinrichtung.
 2. Vier unterschiedliche aktive Funktaster den vier Beckenseiten zuweisen. Die Skizze zeigt den Blick von den Startblöcken ins Becken: unten **Startblockseite**, oben **Gegenüberliegende Seite**, rechts **Rechts**, links **Links**. Stationsnummern und bisher gespeicherte Buzzerzuordnungen bleiben unverändert. Individuelle Beschriftungen sind weiterhin möglich.
-3. Für WFD-Run/Cup die Buzzer jeweils mittig an der entsprechenden Beckenseite aufstellen. Für den Sprint die verwendeten Buzzer nebeneinander an die Startblockseite setzen, je einer pro Schwimmbahn/Person. Spieler 1 verwendet Buzzer 1 usw. Beschriftung und Farbe müssen zum tatsächlichen Buzzer passen. Die ursprünglichen Zuordnungen zu Trainingsbahnen bleiben erhalten.
+3. Für WFD-Run die Buzzer mittig an jeder Beckenseite aufstellen. Für WFD-Cup Buzzer 1/3 an die Startblöcke und 2/4 gegenüber stellen (Team 1 links: 1/2, Team 2 rechts: 3/4). Für den Sprint die verwendeten Buzzer nebeneinander an die Startblockseite setzen, je einer pro Schwimmbahn/Person. Spieler 1 verwendet Buzzer 1 usw. Beschriftung und Farbe müssen zum tatsächlichen Buzzer passen. Die ursprünglichen Zuordnungen zu Trainingsbahnen bleiben erhalten.
 4. Maße und Positionen bestätigen und speichern. Ohne geladenes Training oder Spiel **Buzzer 30 Sekunden testen** starten und jede Taste einmal drücken. Die erkannte Station wird angezeigt.
 5. Lautstärke, Sprachansagen und die vier Spielklänge einstellen. Eigene Klänge aus der vorhandenen Klangbibliothek können ausgewählt werden.
 
@@ -36,7 +36,12 @@ Nach 90 Sekunden ohne beide Ziele pausiert das Spiel. Für eine Wiederholung mü
 
 ## WFD-Cup
 
-Team 1 pendelt zwischen Station 1 und 2, Team 2 zwischen Station 3 und 4. Jeder korrekte Anschlag räumt einen virtuellen Becher ab und schaltet auf die andere eigene Station um. Beide Teams schwimmen damit dieselbe Gesamtstrecke. Das zuerst fertige Team gewinnt; nahe Zieleinläufe werden anhand der Empfangszeitstempel verglichen.
+Ab 2.12.4 stehen **zwei Buzzer an der Startblockseite und zwei gegenüber**:
+
+- Links: Buzzer **1 an den Startblöcken**, **2 gegenüber** (Team 1).
+- Rechts: Buzzer **3 an den Startblöcken**, **4 gegenüber** (Team 2).
+
+Beide Teams starten an der Startblockseite und pendeln über ganze Beckenlängen zwischen ihren beiden Buzzern. Jeder korrekte Anschlag räumt einen virtuellen Becher ab und schaltet auf die andere eigene Station um. Beide Teams schwimmen dieselbe Gesamtstrecke. Das zuerst fertige Team gewinnt; nahe Zieleinläufe werden anhand der Empfangszeitstempel verglichen. Die Buzzerkennungen und Farben bleiben erhalten; die geänderte Aufstellung gilt nur für Cup. Frühere diagonale Cup-Ergebnisse werden nicht mit diesem Parcours in derselben Bestenliste verglichen.
 
 Sechs Becher sind voreingestellt; alternativ sind zehn möglich. Einzelduell und Staffel funktionieren mit denselben Regeln. Bei einer Staffel erfolgt die Übergabe am jeweils erreichten Ziel. Echte Becher oder Bälle werden nicht benötigt.
 
@@ -53,7 +58,7 @@ Das ist Trainingszeitmessung anhand vollständiger Funktelegramme, keine wettkam
 ### TV-Fernansicht ab 2.12.2
 
 Die großen Zahlen entsprechen weiterhin denselben vier gespeicherten Stationen.
-Auf dem TV sitzen die Buzzer direkt auf den vier Beckenrändern. Die kurzen
+Auf dem TV sitzen die Buzzer bei Run an den vier Beckenrändern, bei Cup zu zweit an jeder Stirnseite. Die kurzen
 Seitenbezeichnungen **Startblöcke**, **Gegenüber**, **Links** und **Rechts**
 orientieren sich am Blick von den Startblöcken ins Becken. Zielnummer, Seite,
 Zeit und Spielstand haben Vorrang vor Zusatzinformationen. Bei WFD-Cup steht
