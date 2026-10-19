@@ -16,6 +16,13 @@ Siehe [Trainingssignale einstellen](TRAININGSSIGNALE.md).
 
 ## WFD Games und IPTV
 
+**Update 2.12.4:** Sofortige IPTV-Senderanzeige ohne Rücksprünge, stabiler
+Lautstärkeregler und HDMI-Hauptpegel auf 100 % (0 dB, keine Verstärkung).
+Musik und IPTV haben getrennte Regler. WFD-Cup nutzt zwei Buzzer an jeder
+Stirnseite: 1/3 Startblöcke, 2/4 gegenüber, ganze Beckenlängen.
+Das Löschen der Highscore-Liste funktioniert auch über die Online-App,
+einschließlich älterer Anfragen mit leerer Liste. Rennergebnisse bleiben erhalten.
+
 **Update 2.12.3:** Klare Aktualisierungsmeldung für noch geöffnete alte
 Spielauswahlen, statt technischer Validierungsfehler. Admins können unter
 **Spiele → Highscores verwalten** einzelne Einträge oder alle Highscores löschen;
