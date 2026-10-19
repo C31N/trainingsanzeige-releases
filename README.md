@@ -16,6 +16,12 @@ Siehe [Trainingssignale einstellen](TRAININGSSIGNALE.md).
 
 ## WFD Games und IPTV
 
+**Update 2.12.10:** Behebt „Updatepaket überschreitet die Größenbegrenzung“.
+Die Sprachansagen werden verlustfrei komprimiert; Klang, Lautstärke und Dauer
+bleiben identisch. Alle Schutzgrenzen bleiben aktiv. Die Release-Erstellung
+prüft jetzt auch die doppelt Base64-kodierte Online-Übertragung vor der Freigabe.
+Von 2.12.8 direkt auf 2.12.10 aktualisieren; 2.12.9 muss nicht installiert werden.
+
 **Update 2.12.9:** Korrigierte gemeinsame Paketerstellung. Das Pi-Paket 2.12.8
 enthielt trotz neuer Versionsnummer noch einen älteren Oberflächenbuild.
 Pi und Online-Oberfläche werden jetzt zwingend frisch gebaut und ihre
