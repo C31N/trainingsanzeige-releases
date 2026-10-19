@@ -43,6 +43,17 @@ Die Streamadressen werden ausschließlich in der administrierten Liste gepflegt.
 
 ## Wenn Bild oder Ton fehlen
 
+Ab 2.12.4 wird der gewählte Sender sofort angezeigt. Bestätigte Live-Zustände
+ersetzen die Ladeanzeige ohne Neuladen; verspätete alte Antworten setzen die
+Auswahl nicht zurück. Schnelle Lautstärkeänderungen übernehmen den letzten Wert.
+Während des Senderstarts wird eine Änderung bis zur Wiedergabebereitschaft gehalten.
+
+Der ausgewählte HDMI-Hauptausgang arbeitet mit 100 % (0 dB, keine Verstärkung).
+Die Lautstärke wird pro Quelle geregelt; Musik beeinflusst IPTV nicht.
+Die eigene Lautstärke beziehungsweise Stummschaltung des Fernsehers bleibt
+zusätzlich wirksam. HDMI-Reparatur hebt keine Stummschaltung auf und verändert
+keine USB-/anderen Audioausgänge.
+
 Zuerst einen anderen Sender testen und den Fehlertext in der App prüfen.
 Einzelne öffentlich erreichbare Streams können ausfallen oder regional gesperrt
 sein. Für HDMI-Ton müssen der richtige Pi-Audioausgang und die Lautstärke am
