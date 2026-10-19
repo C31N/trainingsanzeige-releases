@@ -87,10 +87,31 @@ Ab **2.12.7** bleibt der Testbutton bis zum tatsächlichen Audio-Ende einschlie�
 kurzem Ausgabepuffer gesperrt. Die Rückmeldung bestätigt die vollständige
 Software-Wiedergabe der lokalen Hallenanzeige; sie bestätigt nicht die Lautstärke
 oder Stummschaltung am TV. Eigene Dateien werden nicht gekürzt. Vorschauen haben
-350 ms stummen Vorlauf und 250 ms Nachlauf. Während geladener Spiele und Trainings
-hält ein winziger Nullsignal-Puffer den Audiokanal bereit; beim Wechsel zur Uhr
-wird er freigegeben. Reale Start- und Countdown-Zeitpunkte werden nicht verschoben.
+ab **2.12.8** 1 s Bereitschaftsvorlauf und 250 ms Nachlauf. Während geladener
+Spiele und Trainings hält derselbe Bereitschaftspuffer den Audiokanal offen;
+beim Wechsel zur Uhr wird er freigegeben. Reale Start- und Countdown-Zeitpunkte
+werden nicht verschoben.
 Online funktioniert der Test nur live und wird nicht für später vorgemerkt.
+
+#### HDMI-Kompatibilität und Abnahme 2.12.8
+
+Die unveränderte Datei „Wrong Buzzer“ dauert rund 0,522 s. Bei der Diagnose
+kam ihre gesamte Länge am digitalen HDMI-Mischer an, am TV fehlte aber Klang.
+Ein hörbarer Vorbereitungston ließ die vollständige Datei erklingen. Reine
+Nullsignale und ein Bereitschaftspegel von nur einem 16-Bit-Schritt lösten es
+nicht. Mit dem anschließend getesteten Bereitschaftspegel wurden beide
+Wiederholungen vollständig und ohne wahrgenommenes Störgeräusch bestätigt –
+auch in einem isolierten Chromium-Test mit dem tatsächlichen neuen
+Browser-Tonmodul, 1 s Vorlauf und unveränderter Datei/Lautstärke.
+
+Der feste, symmetrische Bereitschaftspegel liegt bei -60,2 dBFS (32/32768,
+23,4 Hz). Er wird nicht vom Spiel-/Trainingslautstärkeregler verstärkt und
+überlagert sich bei mehreren Vorschauen desselben Audiokontexts nicht mehrfach.
+Ein kleiner Schleifenpuffer ersetzt zusätzliche Prozesse und Abfragetimer.
+Er läuft nur während einer geladenen Einheit oder eines Klangtests, nicht
+dauerhaft bei der Uhr, und sendet keine CEC-Befehle. Auf anderen Displays
+und Tonanlagen die vollständige Wiedergabe und Störgeräuschfreiheit erneut
+prüfen; die Bestätigung im Adminmenü allein belegt keine physische Tonausgabe.
 
 Eine geschlossene Handyansicht beendet das Spiel nicht. **Spiel beenden** oder **Zur Spielauswahl** gibt die Anzeige wieder frei: Bei weiterlaufender Musik erscheint die Musikansicht, sonst die Uhr mit Standby-Countdown. Ergebnisse schließen nach zwei Minuten automatisch; eine unbediente Vorbereitung oder Pause endet nach zehn Minuten.
 
