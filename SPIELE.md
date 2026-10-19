@@ -1,6 +1,6 @@
 # WFD Games mit vier Funktastern
 
-Unter **Aktiv** öffnet die zusätzliche Pille **Spiele** die Spielauswahl für Trainer und Administratoren. Ein geladenes Training muss vor dem Laden eines Spiels beendet werden. Die Spiele benötigen keinen weiteren PIN.
+Unter **Aktiv** öffnet die zusätzliche Pille **Spiele** die Spielauswahl für Trainer und Administratoren. Ab 2.12.9 ist sie während eines geladenen Trainings ausgeblendet und erscheint nach dem Beenden wieder. Ein Training blockiert auch direkte Spielaufrufe. Die Spiele benötigen keinen weiteren PIN.
 
 ## Aktualisierung und Highscores ab 2.12.3
 
@@ -28,7 +28,9 @@ Der Aktivierungsschalter blendet die Spiele bei Trainern und Administratoren aus
 
 ## WFD-Run
 
-Zwei Spieler starten an den gegenüberliegenden Stationen 1 und 3. Nach der Zielansage und dem Countdown schwimmen sie jeweils zu einer benachbarten Station und drücken ihren Zielbuzzer. Die Ziele sind stets um 180 Grad gespiegelt. Beide schwimmen pro Etappe dieselbe direkte Strecke: `sqrt((Beckenlänge / 2)² + (Beckenbreite / 2)²)`. Gegenkurse zur gegenüberliegenden Beckenseite sind ausgeschlossen.
+Zwei Spieler oder Gruppen starten an den gegenüberliegenden Stationen 1 und 3. Ab 2.12.9 wird für jeden Durchlauf eine neue Route geplant; das erste Zielpaar unterscheidet sich vom vorherigen Spiel. Diagonalwege zu benachbarten Stationen wechseln mit Begegnungsstrecken zur gegenüberliegenden Seite. Die Ziele bleiben um 180 Grad gespiegelt: Beide Teams schwimmen in jeder Etappe dieselbe Strecke und damit auch insgesamt gleich weit. Diagonalen haben die Länge `sqrt((Beckenlänge / 2)² + (Beckenbreite / 2)²)`, Begegnungsstrecken je nach Ausgangsseite Beckenlänge oder -breite. Etappen- und Gesamtstrecke werden aus dem tatsächlichen Kurs berechnet.
+
+**Begegnungsstrecken nur bei freiem, von der Aufsicht freigegebenem Becken nutzen. Rechts aneinander vorbeischwimmen, keine Gegenkurse auf derselben Linie.** Die TV-Pfeile zeigen getrennte Passierseiten und der Hinweis „Rechts aneinander vorbei“ steht bei diesen Etappen auf der Anzeige. Das System erkennt weder andere Schwimmer noch Kollisionen. Der Countdown ist keine Sicherheitsfreigabe. Eine Etappenwiederholung behält dieselben Ziele und Entfernungen. Variable Kurse werden nicht mit alten Diagonal-Kursen oder anderen Streckenprofilen in derselben Bestenliste verglichen.
 
 Der schnellere Anschlag erhält einen Punkt. Innerhalb von 0,01 Sekunden erhalten beide einen Punkt. Nach beiden Anschlägen folgen die nächste Zielansage und der Countdown. Standard sind sechs Etappen; möglich sind drei bis zwölf. Bei Punktgleichheit entscheidet die summierte Schwimmzeit.
 
@@ -73,6 +75,10 @@ ersetzt diesen Test nicht. Zeitmessung, Wertung und Tonabläufe von Run und Cup 
 
 Die Hallenanzeige bestätigt Bild- und Klangbereitschaft, bevor sich das Spiel starten lässt. Alle Sprachclips werden lokal vorgehalten. Die Lautstärke der Spielsignale und die Musiklautstärke sind getrennt einstellbar. Bestehende Bluetooth- oder Webradio-Wiedergabe kann weiterlaufen.
 
+Ab **2.12.9** endet der vollständige Startklang bei null/GO, statt dort erst zu beginnen. Eigene Dateien werden um ihre tatsächliche Dauer vor dem gemeinsamen Start eingeplant. Zuerst kommen die Zielansagen, dann mit Abstand der Startklang; bei langen Dateien verlängert sich die Vorbereitungszeit entsprechend. Zu spät eingetroffene Startdateien werden nicht verkürzt nachgespielt. Die Browser-Ausgabepuffer werden über den gemeldeten Audio-Ausgabezeitstempel berücksichtigt, soweit verfügbar. Ein eigener Startklang erhält keine zusätzlich darübergelegten Countdown-Pieptöne.
+
+Die deutschen Ansagen werden langsamer als vollständige Sätze erzeugt (48 kHz/16-Bit-Mono), nicht mehr als schnell zusammengefügte Spieler-/Stationsfragmente. Alle Sprachsegmente laufen mit Abstand nacheinander. Die Siegansage folgt erst nach dem vollständigen Siegklang. Verständlichkeit und akustischen Nachhall vor Ort prüfen; das Trainingssystem verändert die Musiklautstärke dafür nicht.
+
 ### Spielklänge auf dem Display testen (ab 2.12.5)
 
 Unter **Admin → Spiele → Spiele & Buzzer** gibt es bei Start, Treffer,
@@ -94,6 +100,14 @@ werden nicht verschoben.
 Online funktioniert der Test nur live und wird nicht für später vorgemerkt.
 
 #### HDMI-Kompatibilität und Abnahme 2.12.8
+
+**Auslieferungskorrektur 2.12.9:** Das Pi-Paket 2.12.8 hatte noch einen alten
+lokalen Oberflächenbuild enthalten; die unten beschriebene, isoliert geprüfte
+Korrektur fehlte daher auf dem real installierten Kiosk. Der Releasebuilder
+baut jetzt beide Oberflächen selbst frisch, statt einen vorhandenen Ordner
+zu übernehmen. Wiederholte Klangtests mit eigenen Dateien werden direkt am
+fertigen Paket geprüft. Ein späterer separater Entwicklungsbuild genügt nicht
+mehr als Abnahme des Installationspakets.
 
 Die unveränderte Datei „Wrong Buzzer“ dauert rund 0,522 s. Bei der Diagnose
 kam ihre gesamte Länge am digitalen HDMI-Mischer an, am TV fehlte aber Klang.
