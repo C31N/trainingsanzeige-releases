@@ -20,6 +20,18 @@ auf dem Pi nicht.
 
 ## Was das Update schützt
 
+- Ab 2.12.10 prüft der Releasebuild die vorhandenen Größenlimits vor Freigabe:
+  maximal 6 MiB dekodierte Webdateien, 250 Dateien, 8 MiB Web-Download und
+  8 MiB Geräteanfrage einschließlich beider Base64-Schichten. Die bestehenden
+  Pi- und Server-Schutzgrenzen bleiben unverändert. Die mitgelieferten
+  Spielansagen werden ohne Klang- oder Zeitverlust als FLAC transportiert.
+
+Für Änderungen an den mitgelieferten Spielansagen erzeugt
+`ops/build-game-voices.ps1` die WAV-Originale und mit FFmpeg die FLAC-Dateien.
+Bei Bedarf `-Ffmpeg <Pfad>` und `-Python <Pfad>` angeben. Das nachgeschaltete
+`ops/compress-game-voices.py` dekodiert jede erzeugte Datei und vergleicht die
+PCM-Prüfsumme mit dem Original. Die Browser-Abnahme prüft zusätzlich alle
+17 Dateien aus dem signierten Paket auf identische Samples und Dauer.
 - Ed25519-Signatur des gemeinsamen Manifests und eigene SHA-256-Prüfsummen für Pi- und Webpaket.
 - Feste GitHub-Downloadquellen; keine freien URLs oder Shellbefehle im Browser.
 - Ein gemeinsames Schloss verhindert parallele Anwendungs- und Systemupdates.
@@ -30,8 +42,8 @@ auf dem Pi nicht.
 - Nach Stromausfall während des Wechsels: Wiederherstellungsdienst vor dem Anwendungsstart.
 
 Die Sicherungen liegen unter `/var/lib/trainingsanzeige-updater/backup-*`.
-Fehlgeschlagene Stände werden dort zur Diagnose aufbewahrt. Keine automatische
-Löschung von Sicherungen. Speicher bei regelmäßigen Updates kontrollieren.
+Nach einem erfolgreichen Update bleiben die zwei neuesten Rückfallstände erhalten;
+ein laufender oder fehlgeschlagener Updatevorgang wird nicht automatisch bereinigt.
 
 ## Einmalige Einrichtung durch die Technik
 
@@ -48,7 +60,9 @@ GitHub-Release-Downloads erlauben; HTTPS allein garantiert keine Firewallfreigab
 
 Der öffentliche Prüfschlüssel liegt unter `/etc/trainingsanzeige-release.pub`.
 Der private Signierschlüssel bleibt ausschließlich auf dem Veröffentlichungsrechner.
-Verlust des privaten Schlüssels erfordert einen bewusst eingerichteten Schlüsselwechsel.
+Verlust des privaten Schlüssels erfordert einen bewusst eingerichteten Schlüsselwechsel
+auf Pi und Webserver, bevor ein neues Release bereitgestellt wird. Eine neue Signatur
+allein lässt sich mit den alten Prüfschlüsseln nicht installieren.
 
 ## Neue Version veröffentlichen
 
