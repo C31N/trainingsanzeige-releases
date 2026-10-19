@@ -57,6 +57,34 @@ Das ist Trainingszeitmessung anhand vollständiger Funktelegramme, keine wettkam
 
 ## Anzeige, Musik und Ergebnisse
 
+### Bereitschaft und Autostart ab 2.12.11
+
+Bei WFD-Run und WFD-Cup drückt jeder Spieler/Team seinen eigenen Startbuzzer.
+Erst wenn beide „Bereit“ melden und der Kiosk Bild und Spielklänge bestätigt hat,
+beginnen drei Sekunden bis zur **vollständigen Startsequenz**. Die verbleibenden
+Sekunden laufen lokal flüssig auf TV und Handy. Zusätzliche Tastendrücke setzen
+die Frist nicht zurück. Danach folgen die gewohnten Zielansagen und der ganze
+Startklang bis null/GO; die drei Sekunden sind noch nicht der Schwimmstart.
+„Autostart abbrechen“ setzt beide Bereitschaftsmeldungen zurück. Anschließend
+beide Startbuzzer erneut drücken oder manuell starten. Spiel beenden verwirft
+auch einen anstehenden Autostart. Dies ist keine Sicherheitsfreigabe der Aufsicht.
+
+Beim Sprint bleibt der gemeinsame Trainerstart bestehen: Die Zielbuzzer stehen
+je nach Streckenlänge am anderen Ende als die startenden Schwimmer und belegen
+deshalb keine Bereitschaft am Start. Etappenwiederholung und Folgerunden behalten
+ihren bisherigen Ablauf.
+
+### Sieger klar erkennen ab 2.12.11
+
+TV und Handy zeigen nach abgeschlossener Wertung groß **„Gewonnen!“**, einen
+Pokal sowie Siegername und das entscheidende Ergebnis. Die betreffende Karte
+ist zusätzlich goldfarben markiert; die Buzzerfarben bleiben unverändert.
+Bei Gleichstand werden alle gemeinsamen Sieger unter **„Unentschieden!“** genannt.
+Run zeigt Punkte und die Gesamtzeit aller Etappen, Cup abgeräumte Becher und Zeit,
+Sprint die bestätigte Zielzeit/Platzierung. Die UI übernimmt immer das Urteil
+des Pi und berechnet keinen eigenen Sieger aus Reihenfolge oder Punkten allein.
+Während eines laufenden oder noch ausgewerteten Rennens erscheint kein Sieger.
+
 ### TV-Fernansicht ab 2.12.2
 
 Die großen Zahlen entsprechen weiterhin denselben vier gespeicherten Stationen.
