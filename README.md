@@ -16,6 +16,13 @@ Siehe [Trainingssignale einstellen](TRAININGSSIGNALE.md).
 
 ## WFD Games und IPTV
 
+**Update 2.12.11:** Sieger sind auf TV und Handy eindeutig mit Pokal,
+„Gewonnen!“, Name/Ergebnis und goldener Siegerkarte erkennbar. Bei Gleichstand
+werden alle gemeinsamen Sieger genannt. WFD-Run und WFD-Cup beginnen automatisch
+die vollständige Startsequenz, nachdem beide Startbuzzer bereit melden und drei
+Sekunden abgelaufen sind. Die Hallenanzeige muss zuvor bereit sein. Autostart
+ist abbrechbar; Sprint behält wegen der getrennten Start-/Zielseite den Trainerstart.
+
 **Update 2.12.10:** Behebt „Updatepaket überschreitet die Größenbegrenzung“.
 Die Sprachansagen werden verlustfrei komprimiert; Klang, Lautstärke und Dauer
 bleiben identisch. Alle Schutzgrenzen bleiben aktiv. Die Release-Erstellung
