@@ -16,6 +16,18 @@ Siehe [Trainingssignale einstellen](TRAININGSSIGNALE.md).
 
 ## WFD Games und IPTV
 
+**Update 2.12.9:** Korrigierte gemeinsame Paketerstellung. Das Pi-Paket 2.12.8
+enthielt trotz neuer Versionsnummer noch einen älteren Oberflächenbuild.
+Pi und Online-Oberfläche werden jetzt zwingend frisch gebaut und ihre
+Version, Cachekennung sowie Anwendungspfade geprüft. Damit kommt die bereits
+am TV getestete HDMI-Tonkorrektur tatsächlich auf dem Pi an. Wiederholte
+Klangtests mit eigenen Dateien werden am fertigen Installationspaket geprüft.
+Zusätzlich endet der vollständige Startklang jetzt bei null/GO. Die Spiele-Pille
+ist während geladener Trainings ausgeblendet. WFD-Run plant neue, für beide
+Teams pro Etappe gleich lange Diagonal- und Begegnungsstrecken. Nur bei freiem
+Becken unter Aufsicht und mit Rechtsverkehr spielen. Die Sprachansagen bestehen
+aus langsameren vollständigen Sätzen; Siegklang und Ansage überlagern sich nicht.
+
 **Update 2.12.8:** Kurze Klänge am HDMI-Ausgang nach digitaler Stille abgesichert.
 Reine Nullsignal-Puffer aus 2.12.7 genügten beim realen Display nicht. Der neue,
 sehr leise Bereitschaftspegel wurde mit „Wrong Buzzer“ über den Browser-Tonweg
