@@ -16,6 +16,13 @@ Siehe [Trainingssignale einstellen](TRAININGSSIGNALE.md).
 
 ## WFD Games und IPTV
 
+**Update 2.12.8:** Kurze Klänge am HDMI-Ausgang nach digitaler Stille abgesichert.
+Reine Nullsignal-Puffer aus 2.12.7 genügten beim realen Display nicht. Der neue,
+sehr leise Bereitschaftspegel wurde mit „Wrong Buzzer“ über den Browser-Tonweg
+am angeschlossenen TV erfolgreich geprüft. Keine Änderung der Sounddateien,
+Musiklautstärke oder Trainings-/Countdown-Zeitpunkte. Nur bei geladenem
+Spiel/Training oder Vorschau aktiv, bei der Uhr wieder freigegeben.
+
 **Update 2.12.7:** Vollständige Wiedergabe kurzer Spielklänge und eigener
 Dateien in der Vorschau. Das echte Audio-Ende mit kurzem Ausgabepuffer gibt
 den Testbutton wieder frei – kein vorzeitiger Abschluss per Timer. Auch
