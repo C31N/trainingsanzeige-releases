@@ -16,6 +16,12 @@ Siehe [Trainingssignale einstellen](TRAININGSSIGNALE.md).
 
 ## WFD Games und IPTV
 
+**Update 2.12.7:** Vollständige Wiedergabe kurzer Spielklänge und eigener
+Dateien in der Vorschau. Das echte Audio-Ende mit kurzem Ausgabepuffer gibt
+den Testbutton wieder frei – kein vorzeitiger Abschluss per Timer. Auch
+Tonbibliothek und allgemeiner Testton sind abgesichert. Geladene Spiele und
+Trainings halten den Audioausgang bereit; die Leerlaufuhr tut das nicht.
+
 **Update 2.12.6:** Kurze DNS-/TLS-Verbindungsfehler werden vor einer Rücksetzung
 begrenzt erneut versucht. Schreibbefehle mit unklarem Ausgang werden nicht blind
 wiederholt. Die Online-Gesundheitsprüfung erhält drei Versuche; nach einem
