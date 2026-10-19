@@ -73,6 +73,20 @@ ersetzt diesen Test nicht. Zeitmessung, Wertung und Tonabläufe von Run und Cup 
 
 Die Hallenanzeige bestätigt Bild- und Klangbereitschaft, bevor sich das Spiel starten lässt. Alle Sprachclips werden lokal vorgehalten. Die Lautstärke der Spielsignale und die Musiklautstärke sind getrennt einstellbar. Bestehende Bluetooth- oder Webradio-Wiedergabe kann weiterlaufen.
 
+### Spielklänge auf dem Display testen (ab 2.12.5)
+
+Unter **Admin → Spiele → Spiele & Buzzer** gibt es bei Start, Treffer,
+falschem Buzzer und Sieg jeweils **Auf Anzeige anhören**. Die Vorschau nutzt
+die gerade gewählte Datei beziehungsweise den Spielklang und den eingestellten
+Spielpegel – auch vor dem Speichern. Sie verändert keine Einstellungen oder
+Spielstände. „Kein Ton“ deaktiviert die Vorschau des betreffenden Signals.
+
+Das Display muss eingeschaltet und der Kiosk verbunden sein. Während eines
+geladenen Trainings/Spiels, IPTV oder Miracast ist die Vorschau gesperrt.
+Die Rückmeldung direkt am Button bestätigt den Wiedergabestart der lokalen
+Hallenanzeige; sie bestätigt nicht die Lautstärke oder Stummschaltung am TV.
+Online funktioniert der Test nur live und wird nicht für später vorgemerkt.
+
 Eine geschlossene Handyansicht beendet das Spiel nicht. **Spiel beenden** oder **Zur Spielauswahl** gibt die Anzeige wieder frei: Bei weiterlaufender Musik erscheint die Musikansicht, sonst die Uhr mit Standby-Countdown. Ergebnisse schließen nach zwei Minuten automatisch; eine unbediente Vorbereitung oder Pause endet nach zehn Minuten.
 
 Ergebnisse liegen auf dem Raspberry und werden für die angemeldete Online-App gespiegelt. Bestenlisten gruppieren nach Spiel, Rundenzahl, Teilnehmerzahl und Beckenmaßen, beim Sprint zusätzlich nach Schwimmstrecke/Längenzahl. Die Sprint-Bestenliste enthält alle vollständigen Zielzeiten, nicht nur die Siegerzeit. Gespeichert werden höchstens 500 Durchgänge. Admins können einzelne Highscores oder die gesamte Highscore-Liste leeren; die ursprünglichen Rennergebnisse bleiben erhalten. Anwendungssicherungen enthalten Spieleinstellungen, Ergebnisse und gelöschte Highscore-Markierungen, jedoch kein automatisch fortzusetzendes Spiel.
