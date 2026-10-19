@@ -83,8 +83,13 @@ Spielstände. „Kein Ton“ deaktiviert die Vorschau des betreffenden Signals.
 
 Das Display muss eingeschaltet und der Kiosk verbunden sein. Während eines
 geladenen Trainings/Spiels, IPTV oder Miracast ist die Vorschau gesperrt.
-Die Rückmeldung direkt am Button bestätigt den Wiedergabestart der lokalen
-Hallenanzeige; sie bestätigt nicht die Lautstärke oder Stummschaltung am TV.
+Ab **2.12.7** bleibt der Testbutton bis zum tatsächlichen Audio-Ende einschließlich
+kurzem Ausgabepuffer gesperrt. Die Rückmeldung bestätigt die vollständige
+Software-Wiedergabe der lokalen Hallenanzeige; sie bestätigt nicht die Lautstärke
+oder Stummschaltung am TV. Eigene Dateien werden nicht gekürzt. Vorschauen haben
+350 ms stummen Vorlauf und 250 ms Nachlauf. Während geladener Spiele und Trainings
+hält ein winziger Nullsignal-Puffer den Audiokanal bereit; beim Wechsel zur Uhr
+wird er freigegeben. Reale Start- und Countdown-Zeitpunkte werden nicht verschoben.
 Online funktioniert der Test nur live und wird nicht für später vorgemerkt.
 
 Eine geschlossene Handyansicht beendet das Spiel nicht. **Spiel beenden** oder **Zur Spielauswahl** gibt die Anzeige wieder frei: Bei weiterlaufender Musik erscheint die Musikansicht, sonst die Uhr mit Standby-Countdown. Ergebnisse schließen nach zwei Minuten automatisch; eine unbediente Vorbereitung oder Pause endet nach zehn Minuten.
