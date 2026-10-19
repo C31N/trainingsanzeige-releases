@@ -16,6 +16,12 @@ Siehe [Trainingssignale einstellen](TRAININGSSIGNALE.md).
 
 ## WFD Games und IPTV
 
+**Update 2.12.5:** Unter Admin → Spiele lassen sich Start-, Treffer-, Fehler-
+und Siegklang mit „Auf Anzeige anhören“ am Display testen. Aktuelle Auswahl
+und Spielpegel gelten auch ohne Speichern. Wiedergabestart und Fehler werden
+direkt am Button bestätigt. Nur live, bei eingeschaltetem Display und ohne
+geladenes Training/Spiel beziehungsweise IPTV/Miracast.
+
 **Update 2.12.4:** Sofortige IPTV-Senderanzeige ohne Rücksprünge, stabiler
 Lautstärkeregler und HDMI-Hauptpegel auf 100 % (0 dB, keine Verstärkung).
 Musik und IPTV haben getrennte Regler. WFD-Cup nutzt zwei Buzzer an jeder
