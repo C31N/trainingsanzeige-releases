@@ -7,6 +7,16 @@ und die freigegebenen Vereinsgrafiken und Trainingssounds. Private Gerätedaten,
 PIN-Hashes und Zugangsschlüssel sind nicht enthalten. Die öffentlich bekannten
 Start-PINs für neue Anlagen stehen unter [Standardausstattung](STANDARD-AUSSTATTUNG.md).
 
+## Gemeinde – Informationen & Werbung
+
+Version 2.13.0 ergänzt den getrennten Start-PIN **654323**, Bilder-Slideshow und
+wöchentliche Einschaltzeiten. Nach dem Update bleibt die Funktion deaktiviert,
+bis die Gemeinde die Einrichtung ausdrücklich abschließt. Bilder und Zeiten
+können online auch bei nicht erreichbarem Pi vorbereitet werden.
+Siehe [Gemeindeanzeige einrichten](GEMEINDEANZEIGE.md).
+Hochgeladene Gemeindeinformationen sind private Betriebsdaten und nicht Teil
+dieses Repositorys oder der Anwendungspakete.
+
 ## Medien und Trainingssignale
 
 Ab Version 2.11.51 enthalten die Installationspakete die aktuelle SVG-/PNG-Grafik
