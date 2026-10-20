@@ -18,6 +18,18 @@ Bezeichnung, Aktivierung, Reihenfolge und Dauer lassen sich je Bild einstellen:
 voreingestellt 15 Sekunden, zulässig 5–300 Sekunden. Ein einzelnes aktives Bild
 bleibt stehen; mehrere wechseln in einer Endlosschleife. Löschen muss bestätigt werden.
 
+### Bahnhofsuhr zwischen Werbebildern
+
+Unter **Bilder & Uhr → Bahnhofsuhr hinzufügen** wird die laufende Bahnhofsuhr
+mit dem aktuellen Vereinslogo als eigener Eintrag hinzugefügt. Mit **Uhr in
+Bildfolge anzeigen** lässt sie sich aktivieren oder aussetzen. **Reihenfolge**
+bestimmt ihren Platz zwischen den Bildern, **Dauer (Sekunden)** die Einblendzeit
+(5–300 Sekunden, Vorgabe 15 Sekunden). Änderungen mit **Bild speichern** übernehmen.
+Die Uhr läuft live und beginnt beim nächsten Einblenden nicht wieder bei null.
+Sie benötigt keine Bilddatei und zählt nicht zu den maximal 30 hochgeladenen Bildern.
+Es gibt höchstens einen Uhreintrag; bei Bedarf lässt er sich entfernen und erneut
+hinzufügen. Ohne aktive Bilder bleibt die Bahnhofsuhr weiterhin die Leerlaufanzeige.
+
 Die Originaldateien liegen privat. Der Pi richtet Fotos nach ihren EXIF-Daten
 aus, entfernt Metadaten aus den Anzeigedateien und erzeugt Vorschauen. Diese
 Arbeit läuft in einem begrenzten, niedrig priorisierten Prozess, nicht im
