@@ -1,8 +1,8 @@
-# Gemeinde – Informationen & Werbung
+# Infotafel – Informationen & Werbung
 
 Ab Version 2.13.0 öffnet der Start-PIN **654323** am normalen Anmeldeschirm
-einen getrennten Gemeindezugang. Er gewährt keine Trainer- oder Adminrechte.
-Administratoren ändern ihn unter **Zugang & PINs → Gemeinde-PIN**. Bereits
+einen getrennten Infotafel-Zugang. Er gewährt keine Trainer- oder Adminrechte.
+Administratoren ändern ihn unter **Zugang & PINs → Infotafel-PIN**. Bereits
 geänderte PINs bleiben bei Updates erhalten. Eine Sitzung endet nach acht Stunden.
 
 ## 1. Bilder vorbereiten
@@ -29,7 +29,23 @@ die Installation beziehungsweise Updatevorbereitung prüft `python3-pil`.
 Montag bis Sonntag können mehrere Zeitfenster hinterlegt werden. Überlappungen
 werden zusammengefasst. Ein Ende vor dem Beginn bedeutet „am Folgetag“;
 identische Beginn-/Endzeiten bedeuten 24 Stunden. Maßgeblich ist die Zeitzone
-der Halle einschließlich Sommer-/Winterzeit. Anfangs sind keine Zeiten gesetzt.
+der Halle einschließlich Sommer-/Winterzeit. Die Dalumer Öffnungszeiten sind
+als bearbeitbare Vorgabe eingetragen:
+
+| Tag | Zeiten |
+| --- | --- |
+| Montag | Geschlossen |
+| Dienstag | 06:15–07:30 und 15:30–21:00 |
+| Mittwoch | 06:15–07:30 und 15:30–21:00 |
+| Donnerstag | 15:30–21:00 |
+| Freitag | Geschlossen |
+| Samstag | 14:00–18:00 |
+| Sonntag | 08:00–13:00 |
+
+Jedes Zeitfenster hat einen eigenen **Aktiv**-Schalter. Änderungen anschließend
+mit **Einschaltzeiten speichern** übernehmen. Inaktive Zeiten bleiben gespeichert,
+halten den Bildschirm aber nicht eingeschaltet. Alle Zeiten lassen sich ändern,
+ergänzen und löschen. Bereits selbst gespeicherte Pläne bleiben bei Updates erhalten.
 
 Während eines Zeitfensters wird das Display über den bestehenden HDMI-/CEC-Weg
 eingeschaltet und bleibt an. Ein bestätigter anderer HDMI-Eingang wird nicht
@@ -41,7 +57,7 @@ Aufheben der Pause manuelles Einschalten erforderlich.
 Außerhalb dieser Zeiten gilt die normale Leerlauf-Standbyfrist. Ein Upload,
 die Anmeldung oder der Bildwechsel weckt das Display nicht. Beim Ende des
 letzten aktiven Zeitfensters beginnt die Standbyfrist neu. Der Countdown ist
-in der Gemeindeanzeige nicht sichtbar.
+in der Infotafel nicht sichtbar.
 
 Im bestätigten Standby lauscht der CEC-Monitor nur auf Ereignisse; auch eine
 bereits vorgemerkte regelmäßige Statusabfrage wird abgesagt. Ein ausdrücklicher
@@ -54,7 +70,7 @@ bestätigten Stand verbleiben.
 
 Erst **Einrichtung abschließen und aktivieren** schaltet die Funktion ein.
 Ein Update aktiviert sie nicht automatisch. Im Leerlauf erscheinen anschließend
-die aktiven Bilder, ohne aktive Bilder ausschließlich die Bahnhofsuhr – ohne
+die aktiven Bilder, ohne aktive Bilder die gewohnte Bahnhofsuhr mit Vereinslogo – ohne
 Bereit-Pille, Verbindungsstatus oder Standby-Text.
 
 Geladene Trainings, Spiele, Musikmodus, IPTV, Spiegelung, Wartung und
@@ -83,12 +99,12 @@ Dokumente, getrennte Sitzungen und nicht ausführbare Bild-BLOBs in eigenen
 die Online-Healthprüfung bestätigt die benötigten Tabellen vor Updatefreigabe.
 
 Die normalen Datenbanksicherungen und der JSON-Export (Format 11) enthalten
-die Gemeindeinhalte. Tägliche Pi-Sicherungen enthalten zusätzlich das
+die Inhalte der Infotafel. Tägliche Pi-Sicherungen enthalten zusätzlich das
 Medienverzeichnis. Nicht mehr referenzierte Bilder werden erst nach bestätigtem
-Abgleich und einer Schonfrist bereinigt. **Gemeindebilder und Originaldateien
+Abgleich und einer Schonfrist bereinigt. **Bilder der Infotafel und Originaldateien
 gehören niemals in Git, Standardmedien oder Anwendungspakete.**
 
-Editor-API, jeweils Gemeinde-/Adminberechtigung, schreibend mit CSRF-Token:
+Editor-API, jeweils Infotafel-/Adminberechtigung, schreibend mit CSRF-Token:
 
 - `GET /api/v1/municipal/status`, `GET /api/v1/municipal/session`
 - `GET/PUT /api/v1/municipal/settings`
