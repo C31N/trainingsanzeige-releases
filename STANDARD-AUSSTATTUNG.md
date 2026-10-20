@@ -18,6 +18,8 @@ und Grafik auch an die zugehörige Onlineinstallation.
 | Admin | 136542 |
 | Trainer | 123456 |
 | Musik | 654321 |
+| IPTV | 654322 |
+| Gemeinde | 654323 |
 | Spiegelung | 13698642 |
 
 **Diese PINs sind öffentlich bekannt. Vor Freigabe im Internet unter
