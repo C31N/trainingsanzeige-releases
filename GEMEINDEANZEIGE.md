@@ -42,7 +42,9 @@ als bearbeitbare Vorgabe eingetragen:
 | Samstag | 14:00–18:00 |
 | Sonntag | 08:00–13:00 |
 
-Jedes Zeitfenster hat einen eigenen **Aktiv**-Schalter. Änderungen anschließend
+Die Wochenübersicht zeigt sieben Tageskarten wie die Trainingszeiten. **Zeit
+hinzufügen** ergänzt ein Fenster direkt beim jeweiligen Wochentag. Jedes
+Zeitfenster hat einen eigenen **Aktiv**-Schalter. Änderungen anschließend
 mit **Einschaltzeiten speichern** übernehmen. Inaktive Zeiten bleiben gespeichert,
 halten den Bildschirm aber nicht eingeschaltet. Alle Zeiten lassen sich ändern,
 ergänzen und löschen. Bereits selbst gespeicherte Pläne bleiben bei Updates erhalten.
@@ -68,8 +70,11 @@ bestätigten Stand verbleiben.
 
 ## 3. Vorschau, Aktivierung und Vorrang
 
-Erst **Einrichtung abschließen und aktivieren** schaltet die Funktion ein.
-Ein Update aktiviert sie nicht automatisch. Im Leerlauf erscheinen anschließend
+Ein erfolgreicher Upload oder das Speichern von Bildern beziehungsweise
+Einschaltzeiten gibt die Infotafel direkt frei. Es gibt keinen zusätzlichen
+Einrichtungsschritt und keine dauerhafte Aktivierungsbox. Im Adminmenü unter
+**Infotafel** lässt sich die Anzeige bei Bedarf pausieren oder wieder freigeben.
+Ein Update allein aktiviert sie nicht automatisch. Im Leerlauf erscheinen anschließend
 die aktiven Bilder, ohne aktive Bilder die gewohnte Bahnhofsuhr mit Vereinslogo – ohne
 Bereit-Pille, Verbindungsstatus oder Standby-Text.
 
