@@ -14,6 +14,8 @@ wöchentliche Einschaltzeiten. Ab 2.13.2 geben erfolgreiche Uploads und gespeich
 Änderungen die Infotafel direkt frei, ohne zusätzlichen Einrichtungsschritt. Bilder und Zeiten
 können online auch bei nicht erreichbarem Pi vorbereitet werden.
 Siehe [Infotafel einrichten](GEMEINDEANZEIGE.md).
+Ab 2.13.3 lässt sich die Live-Bahnhofsuhr mit Vereinslogo als eigener Eintrag
+zwischen Werbebildern aktivieren, mit eigener Reihenfolge und Anzeigedauer.
 Hochgeladene Informationen und Werbung sind private Betriebsdaten und nicht Teil
 dieses Repositorys oder der Anwendungspakete.
 
