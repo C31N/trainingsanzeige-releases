@@ -10,8 +10,8 @@ Start-PINs für neue Anlagen stehen unter [Standardausstattung](STANDARD-AUSSTAT
 ## Infotafel – Informationen & Werbung
 
 Version 2.13.0 ergänzt den getrennten Start-PIN **654323**, Bilder-Slideshow und
-wöchentliche Einschaltzeiten. Nach dem Update bleibt die Funktion deaktiviert,
-bis die verantwortliche Person die Einrichtung ausdrücklich abschließt. Bilder und Zeiten
+wöchentliche Einschaltzeiten. Ab 2.13.2 geben erfolgreiche Uploads und gespeicherte
+Änderungen die Infotafel direkt frei, ohne zusätzlichen Einrichtungsschritt. Bilder und Zeiten
 können online auch bei nicht erreichbarem Pi vorbereitet werden.
 Siehe [Infotafel einrichten](GEMEINDEANZEIGE.md).
 Hochgeladene Informationen und Werbung sind private Betriebsdaten und nicht Teil
