@@ -194,7 +194,7 @@ python3 -c 'import uuid,secrets; print("Installations-ID: "+str(uuid.uuid4())); 
 
 Diese beiden Werte gehören zusammen. Installations-ID ist die Gerätekennung; Gerätesekret ist ein Passwort für die Synchronisierung. Beides sicher aufbewahren, nicht in Git einchecken.
 
-In einer **geschützten Datei außerhalb des Webroots und Git-Repositories** folgende sechs Zeilen mit den tatsächlichen Werten anlegen:
+In einer **geschützten UTF-8-Textdatei ohne BOM außerhalb des Webroots und Git-Repositories** folgende sechs Zeilen mit den tatsächlichen Werten anlegen:
 
 ```text
 Datenbank-Host: DATENBANKHOST
@@ -312,7 +312,8 @@ Wenn der LG seinen aktiven Eingang nicht eindeutig meldet, Automatik zunächst d
    werden separat geladen und gehören nicht zum kleinen Anwendungsupdate.
 7. Mit Lern-PIN Text, Bild und Video zeigen. Nach dem Download lokalen Betrieb
    ohne Internet prüfen. Quizfragen sind eine Übung, keine offizielle Prüfung.
-8. Trainingszeit und Vorlage beziehungsweise neuen Plan anlegen. Einheit laden,
+8. Trainingszeit anlegen und unter **Vorlagen → Neue Vorlage** den ersten Plan
+   speichern. Über **Als kommende Trainingseinheit planen** einen Termin anlegen. Einheit laden,
    unter **Aktiv** erst starten, anschließend mit Archivierung beenden.
 
 ## 10. Abschlusstest vor der Montage

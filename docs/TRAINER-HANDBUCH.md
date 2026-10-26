@@ -27,8 +27,11 @@ Einheiten. Eine neue Einheit kann aus einer Vorlage oder als neuer Plan entstehe
 
 Für eine Vorlage die Trainingszeit öffnen, unter **Vorlagen** den Plan ansehen
 und **Als kommende Trainingseinheit planen** wählen. Datum und benötigte Bahnen
-festlegen, Übungen bearbeiten und speichern. Beim neuen Plan die angebotene
-Neuanlage verwenden und den vollständigen Bahnplan ausfüllen.
+festlegen, Übungen bearbeiten und speichern.
+
+Für einen vollständig neuen Plan unter **Vorlagen → Neue Vorlage** beginnen.
+Titel, Trainingsart, Bahnen und Übungen eintragen und die Vorlage speichern.
+Anschließend öffnen und **Als kommende Trainingseinheit planen** wählen.
 
 Gleiche Bahnen gemeinsam bearbeiten; für unterschiedliche Übungen auf getrennte
 Bahnpläne wechseln. Eine Strecke muss angegeben werden. Kurze Übungen können in
