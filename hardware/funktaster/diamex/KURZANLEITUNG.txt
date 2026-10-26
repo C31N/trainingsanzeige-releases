@@ -1,0 +1,32 @@
+WASSERFREUNDE DALUM - FUNKTASTER / DIAMEX KURZANLEITUNG V7
+==========================================================
+
+Firmware V2 mit Zeitstempeln und eigenen IDs 1-255.
+ZUERST Pi-Empfaenger diamex-5 installieren. README_V2.md lesen.
+Bestandsdateien in firmware sind V1; neue Dateien in firmware/v2.
+V5-Lochrasteraufbau unveraendert. Echte Funkabnahme der V2 steht noch aus.
+
+PROGRAMMIERUNG DURCH DIE VERANTWORTLICHE TECHNIK
+
+1. DIAMEX USB ISP in den Windows-PC stecken.
+2. 6-poliges ISP-Kabel am Funktaster anschliessen. PIN 1 beachten.
+3. Am DIAMEX fuer den fertigen Funktaster BEIDE Targetspannungs-Schalter OFF lassen.
+4. START_Funktaster_Programmer.cmd doppelklicken.
+5. Grossen Taster gedrueckt halten; die Schaltung muss am ISP-Stecker
+   etwa 3,3 V liefern. Taster nicht loslassen.
+6. COM-Port auswaehlen und "Verbindung testen".
+7. V2 waehlen, diamex-5 bestaetigen und gewuenschte ID programmieren.
+   Jede physische Taste braucht eine eigene ID; ID ist keine Bahnnummer.
+8. Erst nach "ERFOLGREICH" Taster loslassen.
+9. ISP-Kabel abziehen und Funktion testen.
+
+Beim allerersten Start kann das Programm AVRDUDE 8.3 automatisch von der
+offiziellen AVRDUDE-GitHub-Release-Seite laden. Die ZIP-Datei wird per SHA-256
+geprueft.
+
+NICHT MACHEN:
+- DIAMEX 5 V auf den fertigen 3,3-V-Funktaster geben.
+- ISP-Stecker um 180 Grad verdrehen.
+- Taster waehrend des Schreibens loslassen.
+- COM und NO mit einem losen Draht ueberbruecken.
+- AVRDUDE mit -F zum Ignorieren einer falschen Signatur benutzen.

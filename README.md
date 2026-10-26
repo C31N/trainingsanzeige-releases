@@ -1,169 +1,53 @@
-# Trainingsanzeige – Installation und Updates
+# Trainingsanzeige – Downloads und Anleitungen
 
-Öffentlicher Downloadkanal für die eigenständige Trainingsanzeige für Schwimmvereine.
-Das Entwicklungsrepository ist separat und privat. Dieses Repository enthält
-freigegebene Anwendungspakete einschließlich des darin benötigten Anwendungscodes,
-und die freigegebenen Vereinsgrafiken und Trainingssounds. Private Gerätedaten,
-PIN-Hashes und Zugangsschlüssel sind nicht enthalten. Die öffentlich bekannten
-Start-PINs für neue Anlagen stehen unter [Standardausstattung](STANDARD-AUSSTATTUNG.md).
+**Aktueller Stand: 2.14.41.** Die Software ist für die Installation und Abnahme
+in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
+ist noch durchzuführen.
 
-## Infotafel – Informationen & Werbung
+## Welche Anleitung brauche ich?
 
-Version 2.13.0 ergänzt den getrennten Start-PIN **654323**, Bilder-Slideshow und
-wöchentliche Einschaltzeiten. Ab 2.13.2 geben erfolgreiche Uploads und gespeicherte
-Änderungen die Infotafel direkt frei, ohne zusätzlichen Einrichtungsschritt. Bilder und Zeiten
-können online auch bei nicht erreichbarem Pi vorbereitet werden.
-Siehe [Infotafel einrichten](GEMEINDEANZEIGE.md).
-Ab 2.13.3 lässt sich die Live-Bahnhofsuhr mit Vereinslogo als eigener Eintrag
-zwischen Werbebildern aktivieren, mit eigener Reihenfolge und Anzeigedauer.
-Hochgeladene Informationen und Werbung sind private Betriebsdaten und nicht Teil
-dieses Repositorys oder der Anwendungspakete.
+- [Vorhandenen Raspberry Pi in der Halle installieren](docs/INSTALLATION.md)
+- [Vollständige Neuinstallation ab null](docs/NEUINSTALLATION-LG-UND-CLOUD.md)
+- [Training planen und bedienen](docs/TRAINER-HANDBUCH.md)
+- [Administration und Sicherungen](docs/ADMIN-HANDBUCH.md)
+- [Abnahme am Hallengerät](docs/ABNAHME.md)
+- [Alle Anleitungen](DOKUMENTATION.md)
 
-## Medien und Trainingssignale
+## Öffentliche Start-PINs
 
-Ab Version 2.11.51 enthalten die Installationspakete die aktuelle SVG-/PNG-Grafik
-und 14 Sounds der Testanlage. Sie sind zusätzlich unter `standard-media/`
-einzeln verfügbar. Bestehende Bibliotheken werden nicht überschrieben.
-Siehe [Trainingssignale einstellen](TRAININGSSIGNALE.md).
+| Zugang | Öffentliche Start-PIN | Funktion |
+| --- | --- | --- |
+| Administration | 136542 | Einstellungen, Zugangsdaten, Sicherungen und Training |
+| Training | 123456 | Trainingspläne vorbereiten, laden und steuern |
+| Musik | 654321 | Bluetooth, Webradio und Displaysteuerung |
+| IPTV | 654322 | Sender auf dem Hallenbildschirm wiedergeben |
+| Infotafel | 654323 | Bilder, Informationen und Einschaltzeiten verwalten |
+| Lernen / Swim & Improve | 654333 | Lerninhalte, Abzeichenfragen und begrenzte Musiksteuerung |
+| Bildschirmspiegelung | 13698642 | Experimentellen Miracast-Modus öffnen |
 
-## WFD Games und IPTV
+Diese PINs sind öffentlich bekannte **Startwerte für eine neue Standardinstallation**.
+Bereits eingerichtete oder geänderte PINs gelten weiter. Ein Update setzt sie
+nicht zurück. Auch bei älteren Installationen können andere Startwerte gelten.
+Jeder Zugang braucht eine andere PIN. Vor der Internetfreigabe unter
+**Admin → Zugang & PINs** eigene PINs festlegen und vertraulich aufbewahren.
+Die getrennten Zugänge für Medien und Lernen vergeben keine Trainer- oder Adminrechte.
 
-**Update 2.12.11:** Sieger sind auf TV und Handy eindeutig mit Pokal,
-„Gewonnen!“, Name/Ergebnis und goldener Siegerkarte erkennbar. Bei Gleichstand
-werden alle gemeinsamen Sieger genannt. WFD-Run und WFD-Cup beginnen automatisch
-die vollständige Startsequenz, nachdem beide Startbuzzer bereit melden und drei
-Sekunden abgelaufen sind. Die Hallenanzeige muss zuvor bereit sein. Autostart
-ist abbrechbar; Sprint behält wegen der getrennten Start-/Zielseite den Trainerstart.
+## Downloads
 
-**Update 2.12.10:** Behebt „Updatepaket überschreitet die Größenbegrenzung“.
-Die Sprachansagen werden verlustfrei komprimiert; Klang, Lautstärke und Dauer
-bleiben identisch. Alle Schutzgrenzen bleiben aktiv. Die Release-Erstellung
-prüft jetzt auch die doppelt Base64-kodierte Online-Übertragung vor der Freigabe.
-Von 2.12.8 direkt auf 2.12.10 aktualisieren; 2.12.9 muss nicht installiert werden.
+Unter [Releases](https://github.com/C31N/trainingsanzeige-releases/releases) liegen
+je Version die vier zusammengehörenden Dateien `trainingsanzeige.tar.gz`,
+`trainingsanzeige-web.json`, `trainingsanzeige.json` und `trainingsanzeige.sig`.
+Für eine neue Cloud zusätzlich das aktuelle `trainingsanzeige-websetup-2.14.41.zip`
+verwenden. „Source code“ ersetzt kein Installationspaket.
 
-**Update 2.12.9:** Korrigierte gemeinsame Paketerstellung. Das Pi-Paket 2.12.8
-enthielt trotz neuer Versionsnummer noch einen älteren Oberflächenbuild.
-Pi und Online-Oberfläche werden jetzt zwingend frisch gebaut und ihre
-Version, Cachekennung sowie Anwendungspfade geprüft. Damit kommt die bereits
-am TV getestete HDMI-Tonkorrektur tatsächlich auf dem Pi an. Wiederholte
-Klangtests mit eigenen Dateien werden am fertigen Installationspaket geprüft.
-Zusätzlich endet der vollständige Startklang jetzt bei null/GO. Die Spiele-Pille
-ist während geladener Trainings ausgeblendet. WFD-Run plant neue, für beide
-Teams pro Etappe gleich lange Diagonal- und Begegnungsstrecken. Nur bei freiem
-Becken unter Aufsicht und mit Rechtsverkehr spielen. Die Sprachansagen bestehen
-aus langsameren vollständigen Sätzen; Siegklang und Ansage überlagern sich nicht.
+Bestehende Anlagen werden unter **Admin → Sicherung & Updates → Trainingssystem**
+aktualisiert. Das signierte Update führt Pi und gekoppelte Online-App gemeinsam
+weiter und erhält Daten, PINs und Kopplung. Eine Neuinstallation ist dafür nicht nötig.
+Die Lernvideobibliothek ist ein eigener Download im Adminbereich.
 
-**Update 2.12.8:** Kurze Klänge am HDMI-Ausgang nach digitaler Stille abgesichert.
-Reine Nullsignal-Puffer aus 2.12.7 genügten beim realen Display nicht. Der neue,
-sehr leise Bereitschaftspegel wurde mit „Wrong Buzzer“ über den Browser-Tonweg
-am angeschlossenen TV erfolgreich geprüft. Keine Änderung der Sounddateien,
-Musiklautstärke oder Trainings-/Countdown-Zeitpunkte. Nur bei geladenem
-Spiel/Training oder Vorschau aktiv, bei der Uhr wieder freigegeben.
+- [Standardausstattung](STANDARD-AUSSTATTUNG.md)
+- [Updates im Detail](docs/ANWENDUNGSUPDATES.md)
+- [Funktaster, aktueller V5-Bauplan und Windows-Programmierpaket](hardware/funktaster/README.md)
 
-**Update 2.12.7:** Vollständige Wiedergabe kurzer Spielklänge und eigener
-Dateien in der Vorschau. Das echte Audio-Ende mit kurzem Ausgabepuffer gibt
-den Testbutton wieder frei – kein vorzeitiger Abschluss per Timer. Auch
-Tonbibliothek und allgemeiner Testton sind abgesichert. Geladene Spiele und
-Trainings halten den Audioausgang bereit; die Leerlaufuhr tut das nicht.
-
-**Update 2.12.6:** Kurze DNS-/TLS-Verbindungsfehler werden vor einer Rücksetzung
-begrenzt erneut versucht. Schreibbefehle mit unklarem Ausgang werden nicht blind
-wiederholt. Die Online-Gesundheitsprüfung erhält drei Versuche; nach einem
-Rollback zeigt die App den verursachenden Schritt an. Enthält die Spielklang-
-Vorschau aus 2.12.5. Installation weiterhin manuell im Update-Menü.
-
-**Update 2.12.5:** Unter Admin → Spiele lassen sich Start-, Treffer-, Fehler-
-und Siegklang mit „Auf Anzeige anhören“ am Display testen. Aktuelle Auswahl
-und Spielpegel gelten auch ohne Speichern. Wiedergabestart und Fehler werden
-direkt am Button bestätigt. Nur live, bei eingeschaltetem Display und ohne
-geladenes Training/Spiel beziehungsweise IPTV/Miracast.
-
-**Update 2.12.4:** Sofortige IPTV-Senderanzeige ohne Rücksprünge, stabiler
-Lautstärkeregler und HDMI-Hauptpegel auf 100 % (0 dB, keine Verstärkung).
-Musik und IPTV haben getrennte Regler. WFD-Cup nutzt zwei Buzzer an jeder
-Stirnseite: 1/3 Startblöcke, 2/4 gegenüber, ganze Beckenlängen.
-Das Löschen der Highscore-Liste funktioniert auch über die Online-App,
-einschließlich älterer Anfragen mit leerer Liste. Rennergebnisse bleiben erhalten.
-
-**Update 2.12.3:** Klare Aktualisierungsmeldung für noch geöffnete alte
-Spielauswahlen, statt technischer Validierungsfehler. Admins können unter
-**Spiele → Highscores verwalten** einzelne Einträge oder alle Highscores löschen;
-die Rennergebnisse bleiben erhalten. Neue Modusgrafiken zeigen Schwimmwege bei
-Run, virtuelle Becher bei Cup und Rennfelder mit Platzierungen beim Sprint.
-
-**Update 2.12.2:** Neue TV-Fernansicht mit großen Zielnummern, Seiten, Zeiten
-und Spielständen. Bei Run/Cup liegen die Buzzer direkt an den Beckenrändern.
-Neu statt Reaktionsduell: **WFD-Sprint** für zwei bis vier Personen mit 1/2
-Beckenlängen oder 50/100 m, gemeinsamem Countdown, eigenem Zielbuzzer,
-Platzierung, Zielzeiten und Revanche. Der Sprint zeigt große Spielerfelder.
-Run-/Cup-Regeln und gespeicherte Zuordnungen bleiben erhalten. Lesbarkeit aus
-ungefähr 20 m bitte in der Halle am tatsächlichen Display bestätigen.
-
-**Update 2.12.1:** Buzzerzuordnungen und Beckenskizze aktualisieren sich direkt
-nach dem Speichern. Die Skizze richtet sich nach den Startblöcken (unten), der
-gegenüberliegenden Seite (oben), links und rechts. Spiel-Eingabefelder erscheinen
-ohne auf Bestenlisten zu warten. Rückmeldungen im Adminmenü stehen an der
-jeweiligen Aktion, nicht mehr gesammelt weit oben.
-
-Ab **2.12.2** stehen **WFD-Run**, **WFD-Cup** und **WFD-Sprint** unter
-**Aktiv → Spiele** für Trainer und Administratoren bereit. Vor dem ersten Spiel
-unter **Admin → Spiele** Beckenbreite und vier Buzzer einrichten und prüfen.
-Dort lassen sich Spiele auch deaktivieren, Farben und Klänge ändern sowie
-Bestenlisten verwalten. Ein geladenes Training muss vorher beendet werden.
-Die reale Prüfung von Buzzerpositionen und HDMI-Spielton bleibt erforderlich.
-
-**IPTV** öffnet sich am normalen Anmeldeschirm über den separaten **Start-PIN
-654322**. Dieser änderbare Startwert ist kein fest eingebauter Zugang und gibt
-keine Trainer-/Adminrechte. Unter **Admin → Zugang & PINs** kann er geändert
-werden. Senderauswahl, Lautstärke und Beenden erfolgen am Handy; Bild und Ton
-laufen im Vollbild über den Raspberry und HDMI auf dem Display.
-
-Unter **Admin → IPTV** Sender samt Logos pflegen, eigene Sender ergänzen und
-die tägliche Aktualisierung der Standard-M3U-Liste aktivieren. Regionalsender
-wie **ems TV** sind ebenfalls enthalten. Lokale Änderungen bleiben bei einem
-Listenabgleich erhalten. Geladene Trainings und Spiele blockieren IPTV;
-Online-Steuerung setzt einen aktuell verbundenen Pi voraus.
-
-- [Spiele: Einrichtung und Regeln](SPIELE.md)
-- [IPTV: Zugang, Sender und Bedienung](IPTV.md)
-
-## Eine vollständig neue Anlage einrichten
-
-Die [Schritt-für-Schritt-Anleitung für Raspberry Pi, LG-Display und Webserver](NEUINSTALLATION-LG-UND-CLOUD.md)
-beginnt mit einem leeren Raspberry Pi, einer neuen Webinstallation und einer neuen Datenbank.
-
-## Vorhandenen Raspberry Pi aktualisieren
-
-In der Trainingssteuerung als Administrator anmelden und **Sicherung & Updates →
-Trainingssystem → Version prüfen** öffnen. Installation mit Admin-PIN
-bestätigen. Der Pi benötigt ausgehenden HTTPS-Zugriff auf GitHub und dessen
-Release-Downloads; eine eingehende SSH-Freigabe oder ein GitHub-Konto ist nicht nötig.
-
-Der Prüfschlüssel muss unabhängig vom Downloadkanal auf dem Gerät eingerichtet
-sein. Pakete werden anhand einer Ed25519-Signatur und einer SHA-256-Prüfsumme geprüft.
-Während eines geladenen Trainings oder Spiels ist die Installation gesperrt. Vor dem Wechsel
-werden Anwendung und Daten gesichert; ein fehlgeschlagener Start löst eine Rückkehr
-zur vorherigen Version aus.
-Gekoppelte Pi- und Online-App werden gemeinsam aktualisiert; Sicherungen des
-Anwendungsupdaters bleiben auf zwei vorherige Stände begrenzt.
-
-## Dateien eines Releases
-
-- `trainingsanzeige.tar.gz`: Anwendung, lokales Frontend und Betriebsdateien.
-- `trainingsanzeige.json`: Version, Hinweise und SHA-256-Prüfsumme.
-- `trainingsanzeige.sig`: abgetrennte Ed25519-Signatur des Manifests.
-- `trainingsanzeige-web.json`: geprüfte Dateien der gekoppelten Online-App.
-- `INSTALLATION.md`: Installationsanleitung für eine neue Anlage.
-- `ANWENDUNGSUPDATES.md`: Update- und Wiederherstellungsverfahren.
-
-Ein Releasepaket ist kein vollständiges Raspberry-Pi-Betriebssystemimage.
-Neue Anlagen benötigen Raspberry Pi OS/Debian, eine gesonderte Erstinstallation
-und eine Prüfung der Stromversorgung, Montage und Displaysteuerung vor Ort.
-Installationen und Updates nur außerhalb des Trainings durchführen und die
-Stromversorgung währenddessen nicht unterbrechen.
-
-## Sicherheit
-
-Keine PINs, Kennwörter, personenbezogenen Trainingsdaten oder privaten Schlüssel
-in öffentliche Issues hochladen. Die automatische Updatefunktion ersetzt weder
-eine externe Datensicherung noch die technische Abnahme in der jeweiligen Halle.
+Geräteschlüssel, WLAN-Kennwörter, Datenbanken, private Medien, PIN-Hashes und
+private Signierschlüssel sind keine öffentlichen Downloadinhalte.

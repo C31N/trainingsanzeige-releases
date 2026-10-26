@@ -1,33 +1,47 @@
-# Standardausstattung für neue Geräte
+# Standardausstattung und öffentliche Start-PINs
 
-Das signierte Installationspaket enthält die aktuelle Vereinsgrafik der
-Testanlage (PNG sowie editierbare SVG-Quelle) und ihre 14 Trainingssounds,
-jeweils als Originaldatei und vorbereitete WAV-Datei. Die Zuordnungen je Bahn
-werden bei einer Neuinstallation ebenfalls übernommen.
+## Welcher PIN öffnet welchen Bereich?
 
-`ops/install-pi.sh` übernimmt diese Medien beim Einrichten eines leeren Geräts.
-Vorhandene Grafik- und Klangbibliotheken werden **nicht überschrieben**.
-Die Vereinsgrafik wird für Bootbild, Desktop, App und Hallenanzeige verwendet.
-Nach Kopplung des neuen Geräts überträgt die Synchronisierung die Bibliothek
-und Grafik auch an die zugehörige Onlineinstallation.
+Am gemeinsamen Anmeldeschirm wird die PIN in dasselbe Eingabefeld eingetragen.
+Die Anwendung öffnet anschließend den zugehörigen Bereich.
 
-## Öffentliche Start-PINs
+| Zugang | Öffentliche Start-PIN | Funktion |
+| --- | --- | --- |
+| Administration | 136542 | Einstellungen, Zugangsdaten, Sicherungen und Training |
+| Training | 123456 | Trainingspläne vorbereiten, laden und steuern |
+| Musik | 654321 | Bluetooth, Webradio und Displaysteuerung |
+| IPTV | 654322 | Sender auf dem Hallenbildschirm wiedergeben |
+| Infotafel | 654323 | Bilder, Informationen und Einschaltzeiten verwalten |
+| Lernen / Swim & Improve | 654333 | Lerninhalte, Abzeichenfragen und begrenzte Musiksteuerung |
+| Bildschirmspiegelung | 13698642 | Experimentellen Miracast-Modus öffnen |
 
-| Zugang | Start-PIN |
-| --- | --- |
-| Admin | 136542 |
-| Trainer | 123456 |
-| Musik | 654321 |
-| IPTV | 654322 |
-| Infotafel | 654323 |
-| Spiegelung | 13698642 |
+Diese PINs sind öffentlich bekannte **Startwerte für eine neue Standardinstallation**.
+Bereits eingerichtete oder geänderte PINs gelten weiter. Ein Update setzt sie
+nicht zurück. Auch bei älteren Installationen können andere Startwerte gelten.
+Jeder Zugang braucht eine andere PIN. Vor der Internetfreigabe unter
+**Admin → Zugang & PINs** eigene PINs festlegen und vertraulich aufbewahren.
+Die getrennten Zugänge für Medien und Lernen vergeben keine Trainer- oder Adminrechte.
 
-**Diese PINs sind öffentlich bekannt. Vor Freigabe im Internet unter
-„Zugang & PINs“ ändern.** Updates ändern keine bereits eingerichteten PINs.
-Geräteschlüssel werden weiterhin individuell erzeugt. WLAN-Zugänge,
-Datenbanken, PIN-Hashes, private Schlüssel und Sicherungen der Testanlage
-sind nicht Bestandteil dieser Standardausstattung.
+## Mitgelieferte Ausstattung
 
-Weitere eigene Sounds oder Grafikänderungen werden nicht automatisch auf
-GitHub veröffentlicht; dafür muss bewusst eine neue Standardausstattung
-freigegeben und in ein geprüftes Release aufgenommen werden.
+Das Installationspaket enthält die freigegebene Vereinsgrafik als PNG mit
+bearbeitbarer SVG-Quelle sowie 14 Trainingssounds mit Originalen und vorbereiteten
+WAV-Dateien. Bei einer leeren Anlage übernimmt der Installer die Standardmedien
+und Bahnzuordnungen. Bereits vorhandene Grafiken und Klangbibliotheken bleiben erhalten.
+Die Einrichtung beginnt mit einem neutralen Installationsprofil; Verein und Halle
+im Einrichtungsassistenten kontrollieren und speichern.
+
+Die Grafik dient App, Hallenanzeige, Desktop und Bootanzeige. Nach der Kopplung
+werden Grafik und Klangbibliothek mit der eigenen Onlineinstallation abgeglichen.
+Die große Offline-Lernbibliothek wird separat im Adminbereich geladen.
+
+Geräteschlüssel und Hotspot-Kennwort werden individuell erzeugt. Datenbanken,
+WLAN-Zugangsdaten, PIN-Hashes, private Signierschlüssel und Sicherungen einer
+anderen Anlage gehören nicht ins Standardpaket. Eigene neue Medien werden nur
+nach ausdrücklicher Freigabe zu öffentlich ausgelieferten Standardmedien.
+
+## Anleitungen
+
+- [Vorhandene Anlage installieren](docs/INSTALLATION.md)
+- [Neuinstallation ab null](docs/NEUINSTALLATION-LG-UND-CLOUD.md)
+- [Administration](docs/ADMIN-HANDBUCH.md)
