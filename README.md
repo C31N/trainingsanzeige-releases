@@ -1,8 +1,19 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.14.41.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.20.0.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
+
+Im lokalen Wartungsfenster zeigt der Bereich **Notfall-WLAN** nach bestätigter
+Admin-PIN den gespeicherten Hotspot-Namen, die Notfall-Adresse und das individuelle
+Kennwort. Über die Online-Adresse ist dieser lokale Zugang nicht verfügbar.
+
+Im PIN-geschützten Bereich **Notfall-WLAN** aktiviert **Hotspot jetzt aktivieren**
+den Hotspot unmittelbar. Dabei wird die WLAN-Verbindung zum Hallennetz getrennt;
+den Hinweis vorher bestätigen. Gespeicherte Zugänge und Kennwort bleiben erhalten.
+Nach der Aktivierung mit dem Handy dem angezeigten Hotspot beitreten und die
+Notfall-Adresse öffnen. Am Handy über **Admin → Netzwerk & Systemdienste → WLANs suchen** wieder
+mit dem Hallen-WLAN verbinden.
 
 ## Welche Anleitung brauche ich?
 
@@ -37,7 +48,7 @@ Die getrennten Zugänge für Medien und Lernen vergeben keine Trainer- oder Admi
 Unter [Releases](https://github.com/C31N/trainingsanzeige-releases/releases) liegen
 je Version die vier zusammengehörenden Dateien `trainingsanzeige.tar.gz`,
 `trainingsanzeige-web.json`, `trainingsanzeige.json` und `trainingsanzeige.sig`.
-Für eine neue Cloud zusätzlich das aktuelle `trainingsanzeige-websetup-2.14.41.zip`
+Für eine neue Cloud zusätzlich das aktuelle `trainingsanzeige-websetup-2.20.0.zip`
 verwenden. „Source code“ ersetzt kein Installationspaket.
 
 Bestehende Anlagen werden unter **Admin → Sicherung & Updates → Trainingssystem**

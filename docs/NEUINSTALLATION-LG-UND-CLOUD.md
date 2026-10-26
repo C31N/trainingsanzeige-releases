@@ -1,6 +1,6 @@
 # Neuinstallation ab null: Raspberry Pi, Hallendisplay und Online-App
 
-Vollständige Schritt-für-Schritt-Anleitung für ein leeres System. Softwarestand: **2.14.41**.
+Vollständige Schritt-für-Schritt-Anleitung für ein leeres System. Softwarestand: **2.20.0**.
 
 **Ziel:** Der Raspberry Pi zeigt das Training am LG 65UH5Q-E. Trainer bedienen ihn im Hallennetz oder über `https://wasserfreunde-dalum.de/trainingsanzeige/`. Der lokale Trainingsbetrieb funktioniert auch ohne Internet.
 
@@ -142,7 +142,19 @@ Falls das normale WLAN fehlt, kann der Pi den Notfall-Hotspot bereitstellen. Des
 sudo cat /var/lib/trainingsanzeige/hotspot-password
 ```
 
-Nach Verbindung mit diesem Hotspot: `http://10.42.0.1:8080/control`. Das Kennwort vertraulich behandeln.
+Nach Verbindung mit diesem Hotspot: `http://10.42.0.1:8080/control`. Das Kennwort vertraulich behandeln. Nach der lokalen Admin-PIN-Prüfung zeigt
+auch das Wartungsfenster auf der Hallenanzeige unter **Notfall-WLAN** den Namen,
+die Notfall-Adresse und das individuelle Kennwort. Dafür am Pi die Uhr mit der
+Maus länger als zwei Sekunden gedrückt halten.
+
+### Hotspot bei Bedarf sofort aktivieren
+
+Im PIN-geschützten Bereich **Notfall-WLAN** aktiviert **Hotspot jetzt aktivieren**
+den Hotspot unmittelbar. Dabei wird die WLAN-Verbindung zum Hallennetz getrennt;
+den Hinweis vorher bestätigen. Gespeicherte Zugänge und Kennwort bleiben erhalten.
+Nach der Aktivierung mit dem Handy dem angezeigten Hotspot beitreten und die
+Notfall-Adresse öffnen. Am Handy über **Admin → Netzwerk & Systemdienste → WLANs suchen** wieder
+mit dem Hallen-WLAN verbinden.
 
 ## 6. Webserver vollständig neu einrichten
 
@@ -152,8 +164,8 @@ für eine bestehende Anlage stattdessen die geschützte Sicherung und Kopplung
 wiederherstellen; keine neue Datenbank über den vorhandenen Bestand schreiben.
 
 Aus **demselben Release wie das Pi-Paket** zusätzlich
-`trainingsanzeige-websetup-2.14.41.zip` und seine `.sha256`-Datei laden. Die Prüfsumme
-mit `sha256sum trainingsanzeige-websetup-2.14.41.zip` vergleichen. Der ZIP-Prüfwert
+`trainingsanzeige-websetup-2.20.0.zip` und seine `.sha256`-Datei laden. Die Prüfsumme
+mit `sha256sum trainingsanzeige-websetup-2.20.0.zip` vergleichen. Der ZIP-Prüfwert
 ist eine Transportkontrolle; die Herkunft muss ebenfalls vertrauenswürdig sein.
 Auf dem Technikrechner werden Python 3, OpenSSL und PHP-CLI für die folgenden
 Prüf- und Einrichtungsschritte benötigt. Das Websetup enthält das fertige

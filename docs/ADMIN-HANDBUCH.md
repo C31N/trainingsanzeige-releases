@@ -46,6 +46,22 @@ anschließend schließen. Displayprofile werden je erkanntem Bildschirm gespeich
 **Trainingsanzeige starten** zurückkehren; nach 60 Minuten kehrt der Kiosk
 automatisch zurück. **Kiosk neu starten** lädt nur die Anzeige neu.
 Im Uhrmodus öffnet längeres Drücken auf die Uhr die PIN-geschützte Notfallbedienung.
+Nach bestätigter Admin-PIN zeigt **Notfall-WLAN** den gespeicherten Hotspot-Namen,
+die Notfall-Adresse und das individuelle Hotspot-Kennwort. Diese Angaben werden
+erst nach der PIN-Prüfung geladen. Bei deaktiviertem Hotspot erscheint ein Hinweis;
+ein noch nicht verfügbares Kennwort wird ausdrücklich als solches angezeigt.
+Mit dem Handy zuerst diesem WLAN beitreten und dann die angezeigte Adresse öffnen.
+Mit **Hotspot jetzt aktivieren** lässt sich der Hotspot sofort einschalten.
+Die Bestätigung weist darauf hin, dass dabei die WLAN-Verbindung des Pi zum
+Hallennetz getrennt wird. Danach mit dem Handy das angezeigte Hotspot-WLAN wählen
+und die Notfall-Adresse öffnen. **Hotspot ist aktiv** bestätigt die Aktivierung.
+Am Handy über **Admin → Netzwerk & Systemdienste → WLANs suchen** wieder
+mit dem Hallen-WLAN verbinden. Gespeicherte WLAN-Zugänge
+und das vorhandene Hotspot-Kennwort bleiben erhalten. Die direkte Aktivierung
+ändert nicht die Einstellung für den automatischen Notfall-Hotspot.
+
+Die Online-Adresse kann dieses lokale Wartungsfenster nicht freischalten.
+
 
 Unter **Leerlaufanzeige & Energiesparen** Uhr und automatische Standbyfrist
 festlegen. Die Standbyautomatik berücksichtigt laufende Inhalte, Einschaltzeiten

@@ -55,6 +55,8 @@ Prüfende und verantwortliche Person: __________________________________________
 
 - [ ] Internet unterbrechen: lokales Training läuft weiter; Wiederverbindung gleicht vorbereitete Änderungen ab.
 - [ ] Ohne bekanntes WLAN geschützten Notfall-Hotspot erreichen; bewusst zurück ins Hallennetz wechseln.
+- [ ] Notfall-WLAN mit Name, Adresse und individuellem Kennwort erst nach Admin-PIN sichtbar; nach Schließen nicht mehr angezeigt.
+- [ ] Hotspot direkt aktivieren: Bestätigung abbrechen verändert nichts; nach Bestätigung ist der Hotspot am Handy erreichbar. Bestehendes Kennwort bleibt gültig; Rückwechsel ins Hallen-WLAN funktioniert.
 - [ ] Manuelles Standby und Infotafel-Einschaltzeiten auch nach Neustart prüfen.
 - [ ] Täglichen Sicherungstimer und lesbare Sicherung kontrollieren.
 - [ ] Export außerhalb des Pi ablegen und auf getrenntem Testsystem wiederherstellen.

@@ -55,11 +55,23 @@ später die Bedienung.
 6. Bei Bedarf unter **Netzwerk & Systemdienste** das Hallen-WLAN verbinden.
 7. Bei fehlendem bekannten WLAN mit dem geschützten Pi-Hotspot verbinden und
    `http://10.42.0.1:8080/control` öffnen. Das individuelle Hotspot-Kennwort
-   stammt aus der geschützten Geräteübergabe.
+   steht im PIN-geschützten Wartungsfenster unter **Notfall-WLAN**. Dafür am
+   angeschlossenen Pi mit einer USB-Maus die Bahnhofsuhr länger als zwei Sekunden
+   gedrückt halten und die Admin-PIN eingeben. Das Fenster zeigt auch Hotspot-Name
+   und Notfall-Adresse. Es ist über die lokale Pi-Anzeige erreichbar.
 
 Am Router werden keine Internet-Portfreigaben für den Pi eingerichtet. Online
 verbindet er sich ausgehend per HTTPS. Die vorhandene Cloudadresse und Kopplung
 übernehmen; online **Verbunden** und einen bestätigten Datenabgleich prüfen.
+
+### Hotspot bei Bedarf sofort aktivieren
+
+Im PIN-geschützten Bereich **Notfall-WLAN** aktiviert **Hotspot jetzt aktivieren**
+den Hotspot unmittelbar. Dabei wird die WLAN-Verbindung zum Hallennetz getrennt;
+den Hinweis vorher bestätigen. Gespeicherte Zugänge und Kennwort bleiben erhalten.
+Nach der Aktivierung mit dem Handy dem angezeigten Hotspot beitreten und die
+Notfall-Adresse öffnen. Am Handy über **Admin → Netzwerk & Systemdienste → WLANs suchen** wieder
+mit dem Hallen-WLAN verbinden.
 
 ## 4. Bild, Ton und Displaysteuerung
 
