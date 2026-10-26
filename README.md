@@ -1,6 +1,6 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.20.0.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.20.1.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
 
@@ -14,6 +14,10 @@ den Hinweis vorher bestätigen. Gespeicherte Zugänge und Kennwort bleiben erhal
 Nach der Aktivierung mit dem Handy dem angezeigten Hotspot beitreten und die
 Notfall-Adresse öffnen. Am Handy über **Admin → Netzwerk & Systemdienste → WLANs suchen** wieder
 mit dem Hallen-WLAN verbinden.
+
+Die Uhr-Umschaltung bei lokaler Trainer-Anmeldung funktioniert auch in einem
+neu geöffneten Anzeigetab und nach erneuter Anmeldung in einem anderen Tab.
+Der CSRF-Schutz bleibt dabei erhalten.
 
 ## Welche Anleitung brauche ich?
 
@@ -48,7 +52,7 @@ Die getrennten Zugänge für Medien und Lernen vergeben keine Trainer- oder Admi
 Unter [Releases](https://github.com/C31N/trainingsanzeige-releases/releases) liegen
 je Version die vier zusammengehörenden Dateien `trainingsanzeige.tar.gz`,
 `trainingsanzeige-web.json`, `trainingsanzeige.json` und `trainingsanzeige.sig`.
-Für eine neue Cloud zusätzlich das aktuelle `trainingsanzeige-websetup-2.20.0.zip`
+Für eine neue Cloud zusätzlich das aktuelle `trainingsanzeige-websetup-2.20.1.zip`
 verwenden. „Source code“ ersetzt kein Installationspaket.
 
 Bestehende Anlagen werden unter **Admin → Sicherung & Updates → Trainingssystem**

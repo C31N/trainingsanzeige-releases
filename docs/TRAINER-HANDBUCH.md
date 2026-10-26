@@ -72,6 +72,15 @@ allein durch den Einschaltvorgang verworfen. Bei Fehlern die Adminperson hinzuzi
 Der Ein/Standby-Schalter in der App dient der Displaysteuerung. Das Laden eines
 Trainings allein schaltet einen ausgeschalteten Bildschirm nicht automatisch ein.
 
+## Bahnhofsuhr und Sekundenkreuz
+
+Über das Vereinslogo in der Steuerung lässt sich die Hallenanzeige in einem
+weiteren Tab öffnen. Ein kurzer Klick auf die Uhr schaltet zwischen Bahnhofsuhr
+und Sekundenkreuz um. Die Trainer-Anmeldung gilt auch dort; der Tab holt vor
+dem Umschalten den aktuellen Sicherheitstoken der Sitzung ab. Eine erneute
+Anmeldung in einem anderen Tab wird dabei berücksichtigt. Bei abgelaufener
+Sitzung zuerst wieder in der Steuerung anmelden.
+
 ## Lernen und Zusatzfunktionen
 
 Lernkarten oder Videos dürfen ein Training überblenden; seine Bahnzeiten und
