@@ -49,6 +49,10 @@ Prüfende und verantwortliche Person: __________________________________________
 - [ ] Lernvideo und Lernkarte über Training zeigen: Bahnzeiten und berechtigte Trainingsbefehle laufen weiter.
 - [ ] Quiz bei geladenem Training gesperrt; letzte Erklärung bleibt sichtbar.
 - [ ] Quiz für alle sechs Abzeichen per Handy und Buzzer beantworten; Runden 5/7/12/14/16/18, Rückmeldung und Auswertung prüfen.
+- [ ] Jede Quizfarbe einzeln prüfen: erste Frage, direkt nach Fragenwechsel, nach einigen Sekunden Wartezeit und nach Zurückblättern. Jeweils nur ein kurzer Druck; sofort genau eine Antwort.
+- [ ] Mit V2-Buzzern nach dem Fragenwechsel einen neuen Druck prüfen: keine zusätzliche Antwortsperre. Halten und Funkwiederholungen dürfen die nächste Frage nicht beantworten.
+- [ ] In Administration → Funktaster → „Letzte Tastendrücke prüfen“ Ergebnis und Tastenzähler kontrollieren. Für einen Aussetzer Farbe, Fragenstand, Wartezeit und sichtbaren Diagnoseeintrag notieren. Ohne Eintrag Funkempfang und lokale Übergabe prüfen; nicht durch mehrfaches Drücken überdecken.
+- [ ] Zwei Trainerfernbedienungen mit gleicher Funktion nacheinander verwenden: jeder neue Druck wirkt unabhängig vom Tastenzähler des anderen Senders.
 - [ ] Spiele bei freiem Becken einrichten, Buzzerpositionen und reale Wassertiefe durch Aufsicht prüfen.
 
 ## Ausfall, Sicherung und Übergabe

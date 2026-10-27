@@ -141,3 +141,29 @@ Es gibt keine frei verwendbare Kommandozeile. Ein Neustart unterbricht die Anzei
 Bei Fehlern Zeitpunkt und betroffene Funktion notieren, passende Protokolle
 sichern und vor Weitergabe persönliche Daten sowie Zugangsdaten entfernen.
 Die [Abnahmeliste](ABNAHME.md) führt alle Prüfungen am Hallengerät zusammen.
+
+
+## Funktaster gezielt prüfen
+
+Unter **Admin → Funktaster → Letzte Tastendrücke prüfen** stehen die letzten
+acht Übergaben an die Steuerung, neueste zuerst. Sendername, bei V2 der
+Tastenzähler, Ergebnis und Verarbeitungszeiten helfen bei der Fehlersuche.
+Die Liste beginnt nach jedem Neustart des Funkdienstes neu. Sie bestätigt
+keine Funkreichweite und ist kein dauerhaftes Prüfprotokoll.
+
+**Ausgeführt** bedeutet, dass die Steuerung den Druck angenommen hat. Bei
+Spielen kann ein angenommener Druck ohne Spielaktion bleiben, zum Beispiel
+vor dem Start. Eine abgelehnte Quizantwort zeigt den Grund, etwa eine
+Wiederholung, eine schon aufgelöste Frage oder einen Druck aus der vorherigen
+Frage. Ohne Eintrag Funkempfang und lokale Übergabe prüfen. Das Anlernen
+während eines Funktionstests ausschalten, da es Tastendrücke zum Zuordnen
+entgegennimmt.
+
+Für einen Quiztest Rot, Gelb und Grün einzeln bei einer offenen Frage drücken:
+auf der ersten Frage, nach einem Fragenwechsel, nach einigen Sekunden und
+nach Zurückblättern. Ein neuer V2-Druck kann sofort antworten; Wiederholungen
+des Drucks, der weitergeblättert hat, dürfen keine Antwort auslösen. Bei
+älteren Sendern ohne Tastenzähler bleibt eine kurze Schutzzeit gegen ihre
+Funkwiederholungen erforderlich. Bei einem Aussetzer Uhrzeit, Farbe,
+Fragenstand und Diagnoseergebnis notieren. Anschließend die übrigen
+Bedienbereiche gemäß [Abnahmeliste](ABNAHME.md) am Hallengerät prüfen.

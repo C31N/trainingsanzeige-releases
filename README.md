@@ -1,6 +1,6 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.20.1.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.20.2.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
 
@@ -52,7 +52,7 @@ Die getrennten Zugänge für Medien und Lernen vergeben keine Trainer- oder Admi
 Unter [Releases](https://github.com/C31N/trainingsanzeige-releases/releases) liegen
 je Version die vier zusammengehörenden Dateien `trainingsanzeige.tar.gz`,
 `trainingsanzeige-web.json`, `trainingsanzeige.json` und `trainingsanzeige.sig`.
-Für eine neue Cloud zusätzlich das aktuelle `trainingsanzeige-websetup-2.20.1.zip`
+Für eine neue Cloud zusätzlich das aktuelle `trainingsanzeige-websetup-2.20.2.zip`
 verwenden. „Source code“ ersetzt kein Installationspaket.
 
 Bestehende Anlagen werden unter **Admin → Sicherung & Updates → Trainingssystem**

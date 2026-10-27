@@ -1,6 +1,6 @@
 # Neuinstallation ab null: Raspberry Pi, Hallendisplay und Online-App
 
-Vollständige Schritt-für-Schritt-Anleitung für ein leeres System. Softwarestand: **2.20.1**.
+Vollständige Schritt-für-Schritt-Anleitung für ein leeres System. Softwarestand: **2.20.2**.
 
 **Ziel:** Der Raspberry Pi zeigt das Training am LG 65UH5Q-E. Trainer bedienen ihn im Hallennetz oder über `https://wasserfreunde-dalum.de/trainingsanzeige/`. Der lokale Trainingsbetrieb funktioniert auch ohne Internet.
 
@@ -164,8 +164,8 @@ für eine bestehende Anlage stattdessen die geschützte Sicherung und Kopplung
 wiederherstellen; keine neue Datenbank über den vorhandenen Bestand schreiben.
 
 Aus **demselben Release wie das Pi-Paket** zusätzlich
-`trainingsanzeige-websetup-2.20.1.zip` und seine `.sha256`-Datei laden. Die Prüfsumme
-mit `sha256sum trainingsanzeige-websetup-2.20.1.zip` vergleichen. Der ZIP-Prüfwert
+`trainingsanzeige-websetup-2.20.2.zip` und seine `.sha256`-Datei laden. Die Prüfsumme
+mit `sha256sum trainingsanzeige-websetup-2.20.2.zip` vergleichen. Der ZIP-Prüfwert
 ist eine Transportkontrolle; die Herkunft muss ebenfalls vertrauenswürdig sein.
 Auf dem Technikrechner werden Python 3, OpenSSL und PHP-CLI für die folgenden
 Prüf- und Einrichtungsschritte benötigt. Das Websetup enthält das fertige
