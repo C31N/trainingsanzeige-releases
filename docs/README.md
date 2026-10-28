@@ -42,3 +42,10 @@ Eine Neuinstallation ab null ist als eigener vollständiger Weg beschrieben.
 Offene praktische Prüfungen bleiben in der Abnahmeliste offen. Frühere Fassungen
 und Entwicklungsberichte sind über die Versionsgeschichte des Quellprojekts
 nachvollziehbar und gehören nicht mehr zum aktuellen Bedienhandbuch.
+
+## Funkdiagnose und Fernbedienungen
+
+Unter **Administration → Funktaster** stehen **Fernbedienungen und Buzzer**,
+**Empfang live** und **Signal senden** bereit. Die vollständige Anleitung erklärt
+Messwerte, Gruppierung, gespeicherte Signale und Sendesperren:
+[Funkdiagnose bedienen](FUNKDIAGNOSE.md).

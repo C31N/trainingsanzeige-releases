@@ -172,3 +172,10 @@ des Drucks, der weitergeblättert hat, dürfen keine Antwort auslösen. Bei
 Funkwiederholungen erforderlich. Bei einem Aussetzer Uhrzeit, Farbe,
 Fragenstand und Diagnoseergebnis notieren. Anschließend die übrigen
 Bedienbereiche gemäß [Abnahmeliste](ABNAHME.md) am Hallengerät prüfen.
+
+## Funkdiagnose und Fernbedienungen
+
+Unter **Administration → Funktaster** stehen **Fernbedienungen und Buzzer**,
+**Empfang live** und **Signal senden** bereit. Die vollständige Anleitung erklärt
+Messwerte, Gruppierung, gespeicherte Signale und Sendesperren:
+[Funkdiagnose bedienen](FUNKDIAGNOSE.md).

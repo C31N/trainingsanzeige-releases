@@ -74,3 +74,14 @@ notieren. Zugangsdaten separat im Passwortmanager verwahren.
 Offene Punkte / Maßnahmen: ___________________________________________________
 
 Freigabe durch / Datum: ______________________________________________________
+
+## Neue Funkverwaltung ab 2.20.5 – am Standort zu prüfen
+
+- [ ] Trainerfernbedienung mit vier Tasten gruppieren; Bahnbuzzer einzeln belassen; jede Funktion unverändert prüfen.
+- [ ] Mit geöffneter Empfangsdiagnose den ersten roten Tastendruck bei bereits sichtbarer Quizfrage prüfen.
+- [ ] Alle Buzzer schnell nacheinander in Training, Lernen, Quiz und Spielen prüfen; keine fehlenden oder doppelten Aktionen.
+- [ ] Signalstärke, erfasste Dauer und Impulsdetails ansehen; Empfangsfrequenz nicht mit gemessener Sendefrequenz verwechseln.
+- [ ] Bei geladenem und pausiertem Training sowie aktivem Quiz/Spiel bleiben Sendetest und Lernsender gesperrt.
+- [ ] Im Ruhezustand ein geeignetes Testsignal senden, tatsächlichen Gegenempfang und Rückkehr zum Buzzerempfang prüfen.
+- [ ] Lokale und Cloud-Diagnose einschließlich Verbindungsabbruch prüfen.
+- [ ] Gesicherte Fernbedienungsgruppen und Signalaufzeichnungen nach Wiederherstellung vergleichen.
