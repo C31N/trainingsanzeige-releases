@@ -31,6 +31,15 @@ Online muss der Pi zum Bearbeiten verbunden sein. Bestätigte Quelldateien könn
 
 SVG-Dateien benötigen eine `viewBox`. Skripte, Animationen, eingebettetes HTML, externe Bilder/Schriften und andere nicht unterstützte SVG-Funktionen werden mit einer Meldung abgewiesen. Es werden keine Elemente still entfernt. Bei einem Renderfehler bleibt das vorherige Logo aktiv.
 
+## Einheitliche Größe auf dem Fernseher
+
+Bootbild, Startabdeckung, Desktop und Bahnhofsuhr zentrieren das Logo in derselben
+Fläche. Auf einem 4K-Bildschirm (3840 × 2160) ist diese Fläche 1254 × 1254 Pixel
+groß; bei Full HD 627 × 627 Pixel. Das Seitenverhältnis des Logos bleibt erhalten.
+Der Desktop verwendet dafür einen dunkelblauen Hintergrund mit passend
+skaliertem Logo. Updates und das Übernehmen eines Vereinslogos erneuern diesen
+Hintergrund automatisch. Eine manuelle Änderung der Bildgröße ist nicht nötig.
+
 ## Installation und Sicherung
 
 Der Pi benötigt `librsvg2-bin`, `fonts-liberation`, `fonts-urw-base35`, `fonts-dejavu-core`, `fonts-lato`, `fonts-noto-core` und `fonts-croscore`. Das Installationsskript richtet diese Pakete ein; `sudo bash /opt/trainingsanzeige/ops/install-svg-renderer.sh` prüft bestehende Installationen. Ohne SVG-Renderer funktioniert PNG weiter.

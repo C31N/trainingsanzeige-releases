@@ -85,3 +85,17 @@ Freigabe durch / Datum: ______________________________________________________
 - [ ] Im Ruhezustand ein geeignetes Testsignal senden, tatsächlichen Gegenempfang und Rückkehr zum Buzzerempfang prüfen.
 - [ ] Lokale und Cloud-Diagnose einschließlich Verbindungsabbruch prüfen.
 - [ ] Gesicherte Fernbedienungsgruppen und Signalaufzeichnungen nach Wiederherstellung vergleichen.
+
+## Technische Vorprüfung am Bestandsgerät – 28. Oktober 2026
+
+Mit Version 2.20.5 wurden Empfangsdiagnose und Gruppenverwaltung lokal sowie
+über die produktive Cloud geprüft. Eine vorübergehende Testgruppe ließ sich
+anlegen und wieder auflösen. Ungültige Sendefrequenzen wurden abgewiesen.
+Ein einzelnes kurzes EV1527-Testtelegramm wurde vom vorhandenen Pi angenommen;
+der Funkdienst kehrte ohne Fehler zum Empfang zurück. Ein externer Gegenempfang
+wurde dabei **nicht** nachgewiesen. Die vorhandenen 56 Trainingspläne und acht
+Tastenzuordnungen blieben erhalten.
+
+Die Hallenprüfungen oben, insbesondere reale Tastendrücke aus den Bahnpositionen
+und der Gegenempfang eines Sendetests, bleiben offen. Die Vorprüfung ersetzt
+keine Abnahme in der Schwimmhalle.
