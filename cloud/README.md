@@ -36,6 +36,13 @@ Spiele werden lokal ausgewertet. Der Lernzugang erhält keine Trainerrechte.
 
 ## Neuinstallation ab null
 
+Für eine zweite Anlage getrennte Webinstanz und Datenbank verwenden. Domain,
+Datenbankhost und Port werden bei der Einrichtung abgefragt; Gerätekennung und
+Kopplungsgeheimnis werden neu erzeugt. Die Installation braucht das vollständig
+signierte Installationspaket und keinen Zugriff auf private Quellen.
+Für [Ersatz und verschlüsselte Bestandssicherung](../docs/WIEDERHERSTELLUNG.md)
+gelten eigene Schritte; neue Hostingzugänge sind dabei möglich.
+
 Eine neue eigene Cloud benötigt HTTPS, PHP mit PDO-MySQL, Argon2id und
 Signaturprüfung, eine eigene MariaDB und einen nur dafür berechtigten Benutzer.
 Das aktuelle Websetup liefert Schema, Provisionierungsskripte und den fertigen

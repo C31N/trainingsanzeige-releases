@@ -98,6 +98,7 @@ Nach dem signierten Releasebuild aus demselben unveränderten Checkout:
 
 ```bash
 python ops/build-websetup.py --release-dir /PFAD/ZUM/RELEASE
+python ops/build-installation.py --release-dir /PFAD/ZUM/RELEASE --media /PFAD/ZUM/MEDIENPAKET.zip --key /PRIVAT/signierschluessel.pem
 python ops/export-documentation.py --output /PFAD/ZUM/OEFFENTLICHEN-REPOSITORY
 ```
 
@@ -108,6 +109,11 @@ Es enthält die fertige Onlineoberfläche, Einrichtungshilfen und aktuelle
 Anleitungen. Das zusätzliche ZIP und seine `.sha256`-Datei am selben Release
 anhängen; die vier signierten Updateartefakte bleiben unverändert in Aufbau
 und Sicherheitsprüfung.
+
+Das vollständige Installations-ZIP sowie `installation.json`, `installation.sig`,
+`release-signing.pub` und das separate Medienpaket am selben Release veröffentlichen.
+Die zusätzliche Signatur deckt das gesamte Installationspaket einschließlich der
+Einrichtungswerkzeuge ab. Private Bestandssicherungen bleiben außerhalb von GitHub.
 
 Die exportierten Anleitungen separat im öffentlichen Downloadrepository
 committen und veröffentlichen. Der Export kopiert nur ausdrücklich vorgesehene

@@ -1,0 +1,28 @@
+{
+  "format": 1,
+  "source_commit": "cd26e20cdabae39a43ec1f6081a997a8a4c4c50d",
+  "source_tag": "trainingsanzeige-baseline-2.20.3",
+  "application_version": "2.20.3",
+  "installation_release": "2.20.4",
+  "recorded_at": "2026-10-27",
+  "platforms": ["Raspberry Pi 4 Model B", "Raspberry Pi 5 Model B"],
+  "operating_system": {
+    "name": "Raspberry Pi OS (64-bit) with desktop",
+    "debian": "13 (Trixie)",
+    "architecture": "aarch64",
+    "desktop": "Labwc / Wayland",
+    "release_date": "2026-10-06",
+    "source": "https://www.raspberrypi.com/software/operating-systems/",
+    "image": "https://downloads.raspberrypi.com/raspios_arm64/images/raspios_arm64-2026-10-06/2026-10-06-raspios-trixie-arm64.img.xz",
+    "sha256": "976766570bee2aaf3047dd78649cfe82abb8fe9687b7f15030cd533ba4e9f7a9"
+  },
+  "learning_library": {
+    "version": "swim-20261021-1",
+    "items": 318,
+    "assets": 160,
+    "package": "trainingsanzeige-media-swim-20261021-1.zip",
+    "sha256": "12220c783b501a1093efa3483569dab617baba408d97aa67511987e544150368"
+  },
+  "public_key_file_sha256": "360b449f66d26e9c9d933892f2583b50b3b3c7a5fd0b97b43b36ee282f74d3e8",
+  "hardware_acceptance": "offen: frische OS-Installation auf Pi 4B und Pi 5 sowie Funk, HDMI-Ton, CEC und Spiegelung am Hallendisplay"
+}

@@ -8,6 +8,7 @@ Eine Neuinstallation ab null ist als eigener vollständiger Weg beschrieben.
 
 - [Vorhandenen Hallen-Pi installieren](docs/INSTALLATION.md)
 - [Neuinstallation ab null: Betriebssystem, Anwendung, Display und Cloud](docs/NEUINSTALLATION-LG-UND-CLOUD.md)
+- [Zweite Anlage und Ersatz: private Sicherung und Wiederherstellung](docs/WIEDERHERSTELLUNG.md)
 - [Standardausstattung und alle öffentlichen Start-PINs](docs/STANDARD-AUSSTATTUNG.md)
 - [Abnahme am endgültigen Standort](docs/ABNAHME.md)
 

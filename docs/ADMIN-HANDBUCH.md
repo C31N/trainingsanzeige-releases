@@ -111,6 +111,11 @@ Anwendungsrelease. Schließen der Handy-App beendet keine TV-Wiedergabe.
 
 ## Sicherung und Wiederherstellung
 
+Für einen vollständigen Ersatz von Pi oder Webhosting die Anleitung
+[Private Sicherung und Wiederherstellung](WIEDERHERSTELLUNG.md) verwenden.
+Sie umfasst zusätzlich Konfiguration, Kopplung, PIN-Hashes, Funkzuordnungen,
+Netzwerke und Medien und verschlüsselt die Dateien mit age.
+
 1. Unter **Sicherung & Updates** einen manuellen Export erstellen und auf einem
    zweiten Gerät ablegen. Die Sicherung kann persönliche Daten enthalten.
 2. Täglichen Sicherungstimer und lesbare Sicherungen unter

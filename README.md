@@ -1,6 +1,6 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.20.3.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.20.4.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
 
@@ -23,6 +23,8 @@ Der CSRF-Schutz bleibt dabei erhalten.
 
 - [Vorhandenen Raspberry Pi in der Halle installieren](docs/INSTALLATION.md)
 - [Vollständige Neuinstallation ab null](docs/NEUINSTALLATION-LG-UND-CLOUD.md)
+- [Zweite Anlage mit eigener Identität](docs/NEUINSTALLATION-LG-UND-CLOUD.md)
+- [Ersatz nach Ausfall und private Sicherung](docs/WIEDERHERSTELLUNG.md)
 - [Training planen und bedienen](docs/TRAINER-HANDBUCH.md)
 - [Administration und Sicherungen](docs/ADMIN-HANDBUCH.md)
 - [Abnahme am Hallengerät](docs/ABNAHME.md)
@@ -52,8 +54,12 @@ Die getrennten Zugänge für Medien und Lernen vergeben keine Trainer- oder Admi
 Unter [Releases](https://github.com/C31N/trainingsanzeige-releases/releases) liegen
 je Version die vier zusammengehörenden Dateien `trainingsanzeige.tar.gz`,
 `trainingsanzeige-web.json`, `trainingsanzeige.json` und `trainingsanzeige.sig`.
-Für eine neue Cloud zusätzlich das aktuelle `trainingsanzeige-websetup-2.20.3.zip`
-verwenden. „Source code“ ersetzt kein Installationspaket.
+Für eine Neuinstallation das vollständige `trainingsanzeige-installation-2.20.4.zip`
+mit `installation.json`, `installation.sig`, `release-signing.pub` und dem separaten
+`trainingsanzeige-media-swim-20261021-1.zip` verwenden. Die zusätzliche Signatur schützt
+auch die Einrichtungsskripte. Das Websetup ist bereits darin enthalten.
+Die [Neuinstallation](docs/NEUINSTALLATION-LG-UND-CLOUD.md) erklärt die Prüfung und alle Schritte.
+„Source code“ ersetzt kein Installationspaket.
 
 Bestehende Anlagen werden unter **Admin → Sicherung & Updates → Trainingssystem**
 aktualisiert. Das signierte Update führt Pi und gekoppelte Online-App gemeinsam

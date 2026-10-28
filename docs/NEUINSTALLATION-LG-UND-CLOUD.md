@@ -1,393 +1,255 @@
 # Neuinstallation ab null: Raspberry Pi, Hallendisplay und Online-App
 
-Vollständige Schritt-für-Schritt-Anleitung für ein leeres System. Softwarestand: **2.20.3**.
+Softwarestand **2.20.4**, Ausgangsstand **2.20.3**. Diese Anleitung beginnt mit
+einem leeren Speichermedium und einem neuen Webhosting. Benötigt werden keine
+privaten Quelltexte und kein Frontend-Build. Alle Daten entstehen neu.
 
-**Ziel:** Der Raspberry Pi zeigt das Training am LG 65UH5Q-E. Trainer bedienen ihn im Hallennetz oder über `https://wasserfreunde-dalum.de/trainingsanzeige/`. Der lokale Trainingsbetrieb funktioniert auch ohne Internet.
+Eine **zweite Anlage** folgt denselben Schritten, erhält aber einen anderen
+Hostnamen, eine eigene Domain oder Subdomain und eine getrennte Datenbank.
+Für einen **Ersatz nach Ausfall** zuerst [Wiederherstellung](WIEDERHERSTELLUNG.md)
+lesen. Für den vorbereiteten Hallen-Pi gilt [Installation vor Ort](INSTALLATION.md).
+Eine bestandene Hardwareprüfung ist damit noch nicht nachgewiesen.
 
-Diese Anleitung ist für eine neue, getrennte Anlage oder den Wiederaufbau nach einem Ausfall bestimmt. Für den bereits vorbereiteten Hallen-Pi gilt [Vorhandenen Pi installieren](INSTALLATION.md). Eine vollständige Erstinstallation und die Displaysteuerung am endgültigen LG müssen vor Ort abgenommen werden. Diese Anleitung ist kein Nachweis einer bestandenen Hardwareprüfung.
+## 1. Geräte und Zugänge bereitlegen
 
-## 1. Was diese Anleitung voraussetzt
+- Raspberry Pi **4B oder 5**, passendes Netzteil, Kühlung und mindestens 32 GB Speicher;
+- Tastatur und Maus, Micro-HDMI-Kabel, Display und dessen Fernbedienung;
+- LAN oder ein WLAN ohne Anmeldeseite und ohne gegenseitige Gerätesperre;
+- für die Cloud eine eigene HTTPS-Adresse und leere MariaDB auf PHP-Webhosting;
+- für lokale Werkzeuge Python **3.11 oder neuer**, OpenSSL und für Sicherungen [age](https://github.com/FiloSottile/age).
 
-Wir beginnen mit einem **vollständig neuen System**: leerem Pi-Speichermedium, neuem Webserverordner, neuer eigener MariaDB und noch keiner Gerätekopplung. Es werden keine alten Pläne, PINs oder Einstellungen übernommen.
+Zuerst am Tisch einrichten und prüfen. Der Pi wird direkt über HDMI mit dem
+Display verbunden. Anschluss notieren, beispielsweise Pi HDMI0 → LG HDMI1.
+Feuchteschutz, sichere Montage, Stromversorgung und Belüftung durch die
+Hallenverantwortlichen freigeben lassen.
 
-Alle Abschnitte der Reihe nach durchführen. Für die Webserver-Schritte werden Hosting-Administratorrechte und PHP-/Dateiverwaltungskenntnisse benötigt. Die fertige Trainerbedienung erfordert danach keine technischen Kenntnisse.
+Pi und Trainergeräte müssen sich im Hallennetz erreichen können. Die Hallen-IT
+kann dem Pi eine feste DHCP-Adresse zuweisen. Keine Internet-Portfreigaben für
+22 oder 8080 einrichten. Die Cloudverbindung läuft ausgehend über HTTPS/443.
+Zur Erstinstallation werden DNS, richtige Uhrzeit und Internetzugriff auf Debian-,
+Raspberry-Pi-, Python- und GitHub-Paketquellen benötigt.
 
-Die Beispieladresse lautet `https://wasserfreunde-dalum.de/trainingsanzeige/`. **Falls dort bereits etwas betrieben wird, darf es nicht überschrieben werden.** Eine neue separate Installation benötigt dann zunächst einen freien Host beziehungsweise eine Subdomain mit dem Pfad `/trainingsanzeige/`. Die Beispieladresse überall durch die tatsächlich gewählte Adresse ersetzen.
+## 2. Das Betriebssystem installieren
 
-## 2. Anschließen und Netzwerk vorbereiten
+Feste Grundlage ist **Raspberry Pi OS Trixie, 64 Bit, mit Desktop und Labwc/Wayland**,
+Image vom **6. Oktober 2026**. Kein Lite-Image verwenden.
 
-Bereitlegen:
+- [Offizielle Betriebssystemauswahl](https://www.raspberrypi.com/software/operating-systems/)
+- [Festgelegtes Image herunterladen](https://downloads.raspberrypi.com/raspios_arm64/images/raspios_arm64-2026-10-06/2026-10-06-raspios-trixie-arm64.img.xz)
+- Dateiname: `2026-10-06-raspios-trixie-arm64.img.xz`
+- SHA-256: `976766570bee2aaf3047dd78649cfe82abb8fe9687b7f15030cd533ba4e9f7a9`
 
-- neuer Raspberry Pi 4B oder 5 mit passendem Netzteil, Kühlung und Speichermedium;
-- Raspberry Pi OS **64 Bit mit Desktop und Labwc/Wayland**, kein Lite-System;
-- Micro-HDMI-auf-HDMI-Kabel, Tastatur und Maus für die Ersteinrichtung;
-- LG 65UH5Q-E, dessen Fernbedienung und Zugang zum Displaymenü;
-- nach Möglichkeit LAN am Pi, alternativ Hallen-WLAN;
-- für Wake-on-LAN zusätzlich Netzwerkanschluss am LG;
-- Zugang zur bestehenden Webverwaltung nur für die verantwortliche Technik.
+Image-Prüfsumme kontrollieren. Mit Raspberry Pi Imager auf das ausgewählte leere
+Speichermedium schreiben. Das Schreiben löscht dessen Inhalt.
 
-Verbindung:
+1. Als ersten Benutzer **pi** anlegen, mit einem eigenen Kennwort. Er muss UID **1000** haben.
+2. Einen eindeutigen Hostnamen festlegen, für die erste Anlage beispielsweise `trainingsanzeige`.
+3. Land, Tastaturlayout, WLAN-Land und Zeitzone `Europe/Berlin` einstellen.
+4. Bei Bedarf SSH für die lokale Einrichtung aktivieren. Zugang privat aufbewahren.
+5. Pi starten, Netzwerk verbinden und den Desktop mit Labwc/Wayland öffnen.
+6. Im Terminal `id -u pi`, `uname -m` und `timedatectl` prüfen: erwartet werden `1000`, `aarch64` und die richtige Uhrzeit.
 
-```text
-Smartphone/Notebook ── Hallennetz ── Raspberry Pi ── HDMI ── LG-Display
-                                          │
-                                          └── ausgehend HTTPS ── Webserver + MariaDB
-FireTV / weiterer PC ────────────────── andere HDMI-Eingänge am LG
-```
+## 3. Alle Installationsdateien herunterladen
 
-1. Pi und Display zunächst auf einem Prüfstand einrichten, noch nicht unzugänglich montieren.
-2. Pi direkt mit dem LG verbinden. Für den ersten Test weitere HDMI-Geräte abziehen.
-3. Anschluss notieren, beispielsweise **Pi HDMI0 → LG HDMI1**. Die Nummer am LG ist nicht die Nummer von `/dev/cec0` am Pi!
-4. Pi und später Trainergeräte im selben erreichbaren Hallennetz betreiben. Gast-WLAN mit Client-Isolation verhindert die lokale Bedienung.
-5. Netzwerkverwaltung um feste DHCP-Zuordnung für den Pi bitten.
-6. Keine Internet-Portfreigabe für 22 oder 8080 einrichten. Die Cloudkommunikation läuft vom Pi nach außen über HTTPS/443.
+Aus [Release 2.20.4](https://github.com/C31N/trainingsanzeige-releases/releases/tag/trainingsanzeige-v2.20.4)
+die folgenden Dateien gemeinsam in einen neuen Downloadordner legen:
 
-Für Installation/Updates benötigt der Pi zusätzlich DNS, korrekte Uhrzeit und Zugriff auf Paketquellen, Python-Paketquellen sowie `api.github.com`, `github.com` und GitHub-Release-Downloads. Freigaben mit der Hallen-IT abstimmen. Andere Hallennutzer dürfen nicht unkontrolliert auf die lokale Steuerung zugreifen.
+| Datei | Zweck |
+| --- | --- |
+| `trainingsanzeige-installation-2.20.4.zip` | Fertige Pi-Anwendung, Websetup, Werkzeuge und Anleitungen |
+| `installation.json` | Verzeichnis und Prüfsummen von Installations- und Medienpaket |
+| `installation.sig` | Digitale Unterschrift dieses Verzeichnisses |
+| `release-signing.pub` | Öffentlicher Prüfschlüssel |
+| `trainingsanzeige-media-swim-20261021-1.zip` | 318 Lerneinträge mit 160 Mediendateien |
 
-Montage, Stromversorgung, Feuchte-/Korrosionsschutz und Belüftung durch Hallenverantwortliche beziehungsweise Fachpersonal freigeben lassen.
+„Source code“ ist kein Installationspaket. Der öffentliche Prüfschlüssel muss
+unabhängig bestätigt sein. Sein Datei-SHA-256 lautet:
+`360b449f66d26e9c9d933892f2583b50b3b3c7a5fd0b97b43b36ee282f74d3e8`.
+Der private Signierschlüssel gehört weder in das Paket noch auf Pi oder Webhosting.
 
-## 3. Betriebssystem auf dem neuen Pi einrichten
-
-1. Mit Raspberry Pi Imager ein 64-Bit-System **mit Desktop** auf das neue Speichermedium schreiben. Achtung: Das Schreiben löscht dessen bisherigen Inhalt.
-2. Als ersten Benutzer **`pi`** anlegen. Ein eigenes starkes Kennwort wählen, nicht `pi`. Die aktuellen Kioskdienste erwarten Benutzer `pi` mit UID 1000; ein anderer Benutzer erfordert Anpassungen durch die Technik.
-3. Hostnamen `trainingsanzeige` verwenden. Falls dieser im Netz bereits vergeben ist, einen eindeutigen Namen wählen; nicht zwei gleichnamige Geräte betreiben.
-4. Sprache/Zeitzone einstellen: Deutschland, `Europe/Berlin`; WLAN-Land korrekt setzen.
-5. SSH nur bei Bedarf für die Einrichtung aktivieren; nicht ins Internet weiterleiten.
-6. Pi starten, Netzwerk verbinden und Desktop-Autologin für `pi` einschalten. Desktop muss Labwc/Wayland verwenden.
-7. Im Terminal prüfen:
-
-```bash
-id -u pi
-uname -m
-hostname -I
-timedatectl
-```
-
-Erwartet: UID `1000`, Architektur `aarch64`, eine lokale IP und richtige Zeit. IP notieren.
-
-## 4. Signiertes Installationspaket herunterladen
-
-Im Browser des Pi die [Releaseübersicht](https://github.com/C31N/trainingsanzeige-releases/releases) öffnen. Unter **Assets** herunterladen:
-
-- `trainingsanzeige.tar.gz`
-- `trainingsanzeige.json`
-- `trainingsanzeige.sig`
-- `trainingsanzeige-web.json`
-
-Nicht „Source code“ verwenden: Das öffentliche Repository ist der Downloadkanal, nicht das vollständige Entwicklungsrepository.
-
-Den öffentlichen Prüfschlüssel `release-signing.pub` über die verantwortliche Technik beziehen und unabhängig vom Download bestätigen lassen. Der im aktuellen Quellstand hinterlegte öffentliche Schlüssel lautet:
-
-```text
------BEGIN PUBLIC KEY-----
-MCowBQYDK2VwAyEAUESVrdRd6cUgzaKvDwq2pDt9sFYZ6SEHpf5aPPlVCwE=
------END PUBLIC KEY-----
-```
-
-Der Schlüssel ist öffentlich. **Der private Signierschlüssel gehört niemals auf den Pi, Webserver oder GitHub.** Alle vier Dateien in einen neuen Ordner legen und dort ein Terminal öffnen. Prüfen:
+Im Downloadordner auf dem Pi:
 
 ```bash
+sha256sum release-signing.pub
 openssl pkeyutl -verify -pubin -inkey release-signing.pub -rawin \
-  -in trainingsanzeige.json -sigfile trainingsanzeige.sig
-python3 -c 'import json,hashlib,pathlib; m=json.loads(pathlib.Path("trainingsanzeige.json").read_text()); a=m["artifacts"]; assert all(hashlib.sha256(pathlib.Path(v["name"]).read_bytes()).hexdigest()==v["sha256"] for v in a.values()), "Pruefsumme falsch"; print("Pakete geprueft, Version",m["version"])'
+  -in installation.json -sigfile installation.sig
+python3 -c 'import json,hashlib,pathlib; m=json.loads(pathlib.Path("installation.json").read_bytes()); assert m["format"]=="trainingsanzeige-installation-1"; assert all(pathlib.Path(n).stat().st_size==v["bytes"] and hashlib.file_digest(pathlib.Path(n).open("rb"),"sha256").hexdigest()==v["sha256"] for n,v in m["artifacts"].items()); print("Alle Pakete geprueft")'
 ```
 
-Nur nach `Signature Verified Successfully` und erfolgreicher Prüfsumme fortfahren. Bei einem Fehler nicht installieren.
+Nur nach erfolgreicher Signatur- **und** Prüfsummenkontrolle fortfahren. Diese
+Signatur schützt auch sämtliche Einrichtungsskripte im ZIP. Die separate
+Update-Signatur behält ihren bisherigen Umfang. Unter Windows `python` statt
+`python3` verwenden; die weiteren Pi-Befehle werden am Pi ausgeführt.
+
+## 4. Die Pi-Anwendung installieren
 
 ```bash
-mkdir trainingsanzeige-install
-tar -xzf trainingsanzeige.tar.gz -C trainingsanzeige-install
-cd trainingsanzeige-install
-mkdir -p /home/pi/.config/autostart
-sudo bash ops/install-pi.sh
-```
-
-Der Ordner `trainingsanzeige-install` soll vorher noch nicht existieren. Der im Befehlsblock angelegte
-Desktopordner wird vom Installer benötigt. Der Installer verändert Boot-/Desktopkonfiguration und richtet einen dedizierten Kiosk ein. Er lädt Betriebssystem- und Python-Pakete aus dem Internet. Das Frontend ist im Release bereits gebaut.
-
-Die öffentlichen Start-PINs stehen im nächsten Abschnitt. Nach der Einrichtung eigene PINs festlegen und vertraulich aufbewahren. Bei Installationsfehlern nicht einfach neu starten: Fehlermeldung notieren und Ursache beheben.
-
-Nach erfolgreichem Abschluss:
-
-```bash
+python3 -m zipfile -e trainingsanzeige-installation-2.20.4.zip kit
+python3 -B kit/tools/installation.py --key release-signing.pub --unpack vorbereitet
+sudo bash vorbereitet/pi/ops/install-pi.sh --check
+sudo bash vorbereitet/pi/ops/install-pi.sh
 sudo reboot
 ```
 
-## 5. Lokale Einrichtung und Zugänge abschließen
+Die Ordner `kit` und `vorbereitet` müssen neu sein. Die Vorprüfung kontrolliert
+Modell, Architektur, Trixie, Desktop, Benutzer `pi`, mindestens 8 GiB freien Speicher
+und erreichbare Paketquellen. Eine bestehende Anlage wird abgewiesen.
+Der Installer richtet Dienste, Verzeichnisse, Rechte, Desktop-Autostart und
+Hardwareabhängigkeiten ein. Betriebssystem- und Python-Pakete werden aus dem
+Internet geladen; die Bedienoberfläche ist bereits fertig gebaut.
 
-1. Mit einem Gerät im selben Netz `http://PI-IP:8080/control` öffnen. `PI-IP` durch die notierte Adresse ersetzen.
-2. `http://PI-IP:8080/setup` öffnen und mit dem Admin-Startwert **136542** den Assistenten abschließen. Anschließend stehen unter **Admin** die Bereiche **Verein & Erscheinungsbild**, **Halle** und **Trainingszeiten** bereit.
-3. Vereinsname, transparentes Logo, Hallenname und Zeitzone kontrollieren.
-4. Beckenlänge **16,6667 m**, vorhandene Schwimmbahnen und Tasterposition am Startblock eintragen.
-5. Trainingsgruppen und Zeiten prüfen. Eine neue neutrale Installation enthält nicht automatisch euren gesamten bisherigen Datenbestand.
-6. WLAN bei Bedarf suchen und verbinden. Nach Netzwerkwechsel kann sich die IP ändern.
-7. Die optionale Cloud-/Internetanbindung im Installationsprofil zunächst **ausgeschaltet lassen**, bis die Kopplung abgeschlossen ist. Der Netzwerkzugang des Pi für Downloads bleibt bestehen.
-8. Neue PINs unter den Admin-Sicherheitseinstellungen setzen.
+Bei einem Abbruch Ursache beheben und **dieselben geprüften Dateien** behalten.
+Mit `sudo bash vorbereitet/pi/ops/install-pi.sh --resume` fortsetzen. Keine andere
+Version dazwischen installieren. Der Status steht unter
+`/var/lib/trainingsanzeige-installer/`. Ein abgeschlossenes System erhält Updates.
 
-| Zugang | Öffentliche Start-PIN | Funktion |
-| --- | --- | --- |
-| Administration | 136542 | Einstellungen, Zugangsdaten, Sicherungen und Training |
-| Training | 123456 | Trainingspläne vorbereiten, laden und steuern |
-| Musik | 654321 | Bluetooth, Webradio und Displaysteuerung |
-| IPTV | 654322 | Sender auf dem Hallenbildschirm wiedergeben |
-| Infotafel | 654323 | Bilder, Informationen und Einschaltzeiten verwalten |
-| Lernen / Swim & Improve | 654333 | Lerninhalte, Abzeichenfragen und begrenzte Musiksteuerung |
-| Bildschirmspiegelung | 13698642 | Experimentellen Miracast-Modus öffnen |
+## 5. Lokal einrichten und WLAN verbinden
 
-Dies sind öffentliche Erstwerte. Jeder Zugang benötigt eine andere PIN. Unter **Admin → Zugang & PINs** alle verwendeten Werte vor Internetfreigabe ändern. Medien- und Lernzugänge erhalten keine Trainerrechte. Bei einer Wiederherstellung gelten die übernommenen PINs; Updates setzen sie nicht zurück. Details: [Standardausstattung](STANDARD-AUSSTATTUNG.md).
+1. IP mit `hostname -I` ermitteln. Am Handy im selben Netz `http://PI-IP:8080/setup` öffnen.
+2. Mit Admin-Start-PIN **136542** anmelden und den Einrichtungsassistenten abschließen.
+3. Verein, Logo, Halle, Zeitzone, tatsächliche Beckenlänge und Bahnen eintragen.
+4. Für Dalum gelten **16,6667 m** und **drei Bodenlinien**. Andere Hallen erhalten ihre eigenen Werte.
+5. Cloud zunächst ausgeschaltet lassen, bis die neue Kopplung vorbereitet ist.
+6. Unter **Admin → Zugang & PINs** eigene PINs setzen und privat aufbewahren.
 
-Falls das normale WLAN fehlt, kann der Pi den Notfall-Hotspot bereitstellen. Dessen Kennwort wird individuell erzeugt, nicht mit der Admin-PIN gleichsetzen. Lokal auslesen:
+| Zugang | Öffentliche Start-PIN |
+| --- | --- |
+| Administration | 136542 |
+| Training | 123456 |
+| Musik | 654321 |
+| IPTV | 654322 |
+| Infotafel | 654323 |
+| Lernen / Swim & Improve | 654333 |
+| Bildschirmspiegelung | 13698642 |
 
-```bash
-sudo cat /var/lib/trainingsanzeige/hotspot-password
-```
+Die Werte gelten nur für neue Standardinstallationen. Updates setzen geänderte
+PINs nicht zurück. Bei Wiederherstellung gelten die gesicherten PINs.
+Die Berechtigungen stehen in der [Standardausstattung](STANDARD-AUSSTATTUNG.md).
 
-Nach Verbindung mit diesem Hotspot: `http://10.42.0.1:8080/control`. Das Kennwort vertraulich behandeln. Nach der lokalen Admin-PIN-Prüfung zeigt
-auch das Wartungsfenster auf der Hallenanzeige unter **Notfall-WLAN** den Namen,
-die Notfall-Adresse und das individuelle Kennwort. Dafür am Pi die Uhr mit der
-Maus länger als zwei Sekunden gedrückt halten.
+Für das Hallen-WLAN **Admin → Netzwerk & Systemdienste → WLANs suchen** öffnen,
+Netz auswählen und Kennwort eingeben. Nach dem Verbinden kann die IP wechseln.
+Für die Einrichtung ohne funktionierendes Hallen-WLAN am Pi die Uhr mit der Maus
+länger als zwei Sekunden gedrückt halten und die lokale Admin-PIN bestätigen.
+Unter **Notfall-WLAN** stehen Hotspot-Name, individuelles Kennwort und Notfall-Adresse.
+**Hotspot jetzt aktivieren** trennt die WLAN-Verbindung zum Hallennetz. Danach
+mit dem Handy dem Hotspot beitreten, `http://10.42.0.1:8080/control` öffnen und
+das Hallen-WLAN einrichten. Gespeicherte Zugänge bleiben erhalten.
+Ausführliche Schritte: [Halleninstallation und WLAN](INSTALLATION.md).
 
-### Hotspot bei Bedarf sofort aktivieren
+## 6. Eine neue Cloud vorbereiten
 
-Im PIN-geschützten Bereich **Notfall-WLAN** aktiviert **Hotspot jetzt aktivieren**
-den Hotspot unmittelbar. Dabei wird die WLAN-Verbindung zum Hallennetz getrennt;
-den Hinweis vorher bestätigen. Gespeicherte Zugänge und Kennwort bleiben erhalten.
-Nach der Aktivierung mit dem Handy dem angezeigten Hotspot beitreten und die
-Notfall-Adresse öffnen. Am Handy über **Admin → Netzwerk & Systemdienste → WLANs suchen** wieder
-mit dem Hallen-WLAN verbinden.
+Benötigt werden HTTPS, Apache mit erlaubten `.htaccess`-/Rewrite-Regeln, PHP ab 8.1
+mit PDO-MySQL, Argon2id und Sodium sowie MariaDB/InnoDB. Im Hosting-Dashboard eine
+**neue leere Datenbank** mit eigenem Benutzer anlegen. Keine Datenbank der
+Vereinswebsite verwenden. Der Webpfad bleibt `/trainingsanzeige`.
 
-## 6. Webserver vollständig neu einrichten
-
-Dieser Teil ist nur für eine **neue eigene Cloudinstallation**. Für lokalen Betrieb
-ohne Cloud direkt mit Displayprüfung und Abnahme fortfahren. Bei einem Ersatzgerät
-für eine bestehende Anlage stattdessen die geschützte Sicherung und Kopplung
-wiederherstellen; keine neue Datenbank über den vorhandenen Bestand schreiben.
-
-Aus **demselben Release wie das Pi-Paket** zusätzlich
-`trainingsanzeige-websetup-2.20.3.zip` und seine `.sha256`-Datei laden. Die Prüfsumme
-mit `sha256sum trainingsanzeige-websetup-2.20.3.zip` vergleichen. Der ZIP-Prüfwert
-ist eine Transportkontrolle; die Herkunft muss ebenfalls vertrauenswürdig sein.
-Auf dem Technikrechner werden Python 3, OpenSSL und PHP-CLI für die folgenden
-Prüf- und Einrichtungsschritte benötigt. Das Websetup enthält das fertige
-Online-Frontend und aktuelle Einrichtungsskripte,
-aber keine Zugangsdaten. Keine Einrichtungsdateien aus alten Releases mischen.
-
-Das ZIP auf dem Technikrechner entpacken. Die enthaltenen Dateien
-`trainingsanzeige.json`, `trainingsanzeige.sig` und `trainingsanzeige-web.json`
-mit dem unabhängig bestätigten öffentlichen Schlüssel prüfen:
+Im Downloadordner mit den bereits geprüften Dateien:
 
 ```bash
-openssl pkeyutl -verify -pubin -inkey release-signing.pub -rawin \
-  -in trainingsanzeige.json -sigfile trainingsanzeige.sig
-python3 -c 'import json,hashlib,pathlib; m=json.loads(pathlib.Path("trainingsanzeige.json").read_text()); a=m["artifacts"]["web"]; p=pathlib.Path("trainingsanzeige-web.json"); assert a["name"]==p.name and hashlib.sha256(p.read_bytes()).hexdigest()==a["sha256"], "Pruefsumme falsch"; print("Webpaket geprueft, Version",m["version"])'
+python3 -B kit/tools/setup-webhosting.py --websetup vorbereitet/websetup \
+  --output /GESCHUETZT/web-neu
 ```
 
-Das Pi-Archiv liegt nicht im Websetup. `frontend/dist` wird beim Paketbau aus
-genau diesem geprüften Webbundle erzeugt. Die Einrichtungsskripte selbst gehören
-zum ergänzenden Websetup und sind nicht Bestandteil des signierten Webbundles.
+Der neue Ausgabeordner muss außerhalb von Git und öffentlichem Webroot liegen.
+Das Werkzeug fragt Domain/Cloudadresse, Datenbankhost, Port, Namen, Benutzer und
+Kennwort ab. Das Kennwort wird verdeckt eingegeben. Es erzeugt:
 
-### 6.1 Hosting vorbereiten
+- `www/`: fertige Upload-Dateien einschließlich privater `config.php`;
+- `datenbank-neu.sql`: vollständiges Schema mit neuer Gerätekennung;
+- `pi-kopplung.json`: neue Gerätekennung, neues Gerätesekret und eigene Cloudadresse;
+- `LESEN.txt`: Hinweise für diesen Installationsweg.
 
-- HTTPS mit gültigem Zertifikat für die Zieladresse.
-- PHP 8.1 oder neuer mit PDO-MySQL, Argon2id und Sodium für Ed25519-Prüfungen.
-- MariaDB mit InnoDB/JSON-Unterstützung.
-- Apache mit Rewrite-Regeln und zugelassener `.htaccess`; bei Nginx muss die Technik entsprechende Regeln einrichten.
-- Eine eigene Datenbank und ein Benutzer ausschließlich für diese Datenbank.
+In phpMyAdmin die neue leere Datenbank auswählen und `datenbank-neu.sql` importieren.
+Das letzte Ergebnis muss **Installation importiert** melden. Eine belegte
+Datenbank wird nicht verändert; das Ergebnis meldet **ABBRUCH**. Nach einem
+fehlgeschlagenen Teilimport eine neue leere Datenbank verwenden.
 
-Bei hosting.de im Dashboard Datenbank und zugehörigen Benutzer anlegen. Host, Datenbankname, Benutzer und Passwort im Passwortmanager speichern. Keine Joomla-, Zeltlager- oder Teilnehmerdatenbank überschreiben. Die Trainingsanzeige bleibt eine eigenständige Anwendung.
+Mit WinSCP/SFTP nur den **Inhalt von `www/`** in den neuen Webordner
+`/trainingsanzeige/` hochladen, einschließlich `.htaccess` und `.release-signing.pub`.
+SQL- und Kopplungsdateien neben `www/` niemals veröffentlichen. `config.php` nur
+für den Hostingbenutzer lesbar lassen, üblicherweise mit Dateirechten 0600.
+PHP muss unter diesem Benutzer lesen können.
 
-### 6.2 Kopplungswerte erzeugen
+`https://EIGENER-HOST/trainingsanzeige/control` und `/api/v1/health` öffnen.
+Ein Abruf von `/config.php` oder `/schema.sql` darf keine privaten Inhalte liefern.
+Keine alten Sicherungen im Webordner ablegen.
 
-Auf einem vertrauenswürdigen Technikrechner mit Python:
+## 7. Pi und Cloud koppeln
 
-```bash
-python3 -c 'import uuid,secrets; print("Installations-ID: "+str(uuid.uuid4())); print("Gerätesekret: "+secrets.token_hex(32))'
-```
-
-Diese beiden Werte gehören zusammen. Installations-ID ist die Gerätekennung; Gerätesekret ist ein Passwort für die Synchronisierung. Beides sicher aufbewahren, nicht in Git einchecken.
-
-In einer **geschützten UTF-8-Textdatei ohne BOM außerhalb des Webroots und Git-Repositories** folgende sechs Zeilen mit den tatsächlichen Werten anlegen:
-
-```text
-Datenbank-Host: DATENBANKHOST
-Datenbank-Name: DATENBANKNAME
-Datenbank-Benutzer: DATENBANKBENUTZER
-Datenbank-Kennwort: INDIVIDUELLES_KENNWORT
-Installations-ID: ERZEUGTE_UUID
-Gerätesekret: ERZEUGTES_SEKRET
-```
-
-### 6.3 Datenbank und Webpaket vorbereiten
-
-Im entpackten Websetup-Ordner liegt `frontend/dist` bereits fertig vor. Node.js und ein eigener Frontend-Build sind für diese Installation nicht erforderlich. Ein Terminal in diesem Ordner öffnen. Mit PHP-CLI und erlaubtem Zugriff auf die neue Datenbank ausführen:
-
-```bash
-php cloud/provision-db.php /GESCHUETZT/zugangsdaten.txt cloud/schema.sql
-php cloud/prepare-release.php /GESCHUETZT/zugangsdaten.txt frontend/dist /GESCHUETZT/webpaket-neu
-cp cloud/update-gateway.php /GESCHUETZT/webpaket-neu/update-gateway.php
-cp cloud/version.php /GESCHUETZT/webpaket-neu/version.php
-cp release-signing.pub /GESCHUETZT/webpaket-neu/.release-signing.pub
-```
-
-Unter Windows die drei Kopiervorgänge entsprechend mit `Copy-Item` ausführen.
-Die Updatebrücke und ihr öffentlicher Schlüssel werden einmalig mit eingerichtet.
-Platzhalterpfade ersetzen. Der Zielordner `webpaket-neu` darf noch nicht existieren. Falls die Datenbank nur vom Hoster erreichbar ist, Provisionierung dort per SSH außerhalb des öffentlichen Webroots ausführen. Das Provisionierungsskript **nicht als öffentlich aufrufbare Webseite** hochladen.
-
-Das Paket ist für den Basispfad `/trainingsanzeige` ausgelegt. Eine andere Domain oder Subdomain ist möglich; denselben Pfad beibehalten und die Adresse beim Koppeln in Abschnitt 7 eintragen. Ein anderer Basispfad erfordert einen neuen Frontend-Build und angepasste PHP-Konfiguration durch die Technik. Das Cloudgateway ist für **eine Installation pro Datenbank/Webinstanz** ausgelegt.
-
-### 6.4 Mit WinSCP veröffentlichen
-
-1. Per SFTP mit dem Webhosting verbinden.
-2. Im Webroot den Unterordner `trainingsanzeige` anlegen.
-3. Nur den **Inhalt** des erzeugten Webpakets dorthin übertragen, einschließlich versteckter `.htaccess`.
-4. Zielstruktur kontrollieren:
-
-```text
-trainingsanzeige/
-  index.php
-  index.html
-  config.php
-  update-gateway.php
-  version.php
-  .release-signing.pub
-  .htaccess
-  assets/
-  sw.js
-  ... öffentliche Logos und App-Dateien
-```
-
-`config.php` enthält das Datenbankpasswort: nur für den PHP-/Hostingbenutzer lesbar machen. `.htaccess` muss den HTTP-Zugriff darauf sperren. Niemals `zugangsdaten.txt`, SQL-Dumps, `.env`, SQLite-Dateien, private Schlüssel oder das ganze Pi-Release hochladen.
-
-5. `https://wasserfreunde-dalum.de/trainingsanzeige/control` öffnen.
-6. Zugriff auf `/trainingsanzeige/config.php` und `/trainingsanzeige/schema.sql` prüfen: Er muss verweigert werden, typischerweise HTTP 403. Bei erreichbaren Geheimnissen sofort stoppen und Hostingkonfiguration korrigieren.
-7. Kein Cache/CDN darf `/api/`, `/device/` oder angemeldete Antworten zwischenspeichern. Joomla darf diese Unterordner-Routen nicht übernehmen.
-
-**Vor der ersten erfolgreichen Pi-Synchronisierung funktioniert die Online-PIN-Anmeldung noch nicht zuverlässig:** Die gültigen PIN-Hashes kommen vom Pi.
-
-## 7. Neue Cloud und neuen Pi miteinander koppeln
-
-Jetzt werden die neue lokale Installation und die neue Webdatenbank erstmalig gekoppelt.
-
-1. Auf dem Pi zuerst lokale Einrichtung und Admin-Anmeldung abschließen.
-2. In `/root/trainingsanzeige-kopplung.txt` als root nur die zwei Zeilen `Installations-ID: ...` und `Gerätesekret: ...` aus Abschnitt 6 ablegen; Datei Modus `0600`. Das Datenbankpasswort wird auf dem Pi nicht benötigt.
-3. Auf dem Pi ausführen:
+Den lokalen Einrichtungsassistenten zuerst abschließen. `pi-kopplung.json`
+privat auf den neuen Pi übertragen. Am Pi:
 
 ```bash
 sudo systemctl stop trainingsanzeige-sync.service trainingsanzeige.service
-sudo /opt/trainingsanzeige/.venv/bin/python /opt/trainingsanzeige/ops/configure-cloud.py /root/trainingsanzeige-kopplung.txt
+sudo python3 /opt/trainingsanzeige/ops/configure-cloud.py /GESCHUETZT/pi-kopplung.json
+sudo systemctl start trainingsanzeige.service trainingsanzeige-sync.service
+```
+
+Lokal und online anmelden, Verbindungsstatus prüfen und einen Testplan auf beiden
+Seiten vergleichen. Die Kopplungsdatei privat aufbewahren. Neue Anlagen erhalten
+keine Dalumer Identität und keine vorhandenen Bestandsdaten.
+Für Ersatzgeräte gilt die [kontrollierte Umschaltung](WIEDERHERSTELLUNG.md).
+
+## 8. Lernbibliothek und eigene Medien
+
+Das signierte Medienpaket lässt sich vollständig ohne die bisherige Vereinswebsite
+installieren. Auf dem Technikrechner für das neue Hosting:
+
+```bash
+python3 -B kit/tools/media-package.py --key release-signing.pub install \
+  --archive trainingsanzeige-media-swim-20261021-1.zip --destination /GESCHUETZT/learning-library
+```
+
+Den erzeugten Ordner `learning-library` nach `/trainingsanzeige/learning-library`
+hochladen. Dann am Pi unter Lernen die Bibliothek laden. Bei eingerichteter Cloud
+wird deren Adresse als Quelle verwendet; Signatur und jede Dateiprüfsumme werden geprüft.
+
+Alternativ das Paket direkt am Pi installieren. Anwendung vorher anhalten.
+Der Zielordner muss neu sein. Eine vorhandene leere Bibliothek nach Kontrolle
+umbenennen und als Rückfall behalten, nicht darüber kopieren:
+
+```bash
+sudo systemctl stop trainingsanzeige.service
+sudo python3 -B kit/tools/media-package.py --key release-signing.pub install \
+  --archive trainingsanzeige-media-swim-20261021-1.zip --destination /var/lib/trainingsanzeige/learning/library
+sudo chown -R trainingsanzeige:trainingsanzeige /var/lib/trainingsanzeige/learning
 sudo systemctl start trainingsanzeige.service
 ```
 
-Das Skript braucht ein bereits angelegtes lokales Installationsprofil und trägt zunächst `https://wasserfreunde-dalum.de/trainingsanzeige` ein. **Bevor der Syncdienst gestartet wird**, lokal als Admin unter Verein/Halle/Netzwerk die öffentliche Basisadresse auf die tatsächlich eingerichtete Adresse setzen, Internetanbindung aktivieren und speichern. Bei der Dalumer Beispieladresse reicht deren Kontrolle. Dann:
+In Lernen müssen **318 Einträge** und vollständige Offline-Verfügbarkeit erscheinen.
+Quellen- und Freigabehinweise bleiben im Katalog erhalten. Eigene Bilder, Audio,
+Infotafelinhalte und Sender anschließend einrichten; sie gehören in die private Sicherung.
 
-```bash
-sudo systemctl restart trainingsanzeige-sync.service
-```
+## 9. Display und Funktaster prüfen
 
-4. Nach etwa einer Minute online mit der lokalen Trainer-/Admin-PIN anmelden.
-5. Kopplungsdatei nach gesicherter Ablage im Passwortmanager vom Pi entfernen lassen; das notwendige Laufzeitsekret bleibt root-geschützt in `/etc/trainingsanzeige.env`.
-6. Ein kleines Testtraining online vorbereiten. Warten, bis **Wird zum Gerät übertragen** verschwindet; lokal denselben Eintrag prüfen.
-7. Status **Verbunden** kontrollieren. Das ist nicht automatisch eine Bestätigung, dass der LG eingeschaltet ist; Displaystatus separat prüfen.
+Am LG 65UH5Q-E den tatsächlich verwendeten HDMI-Eingang wählen. Energiespar- und
+Abschaltautomatik bewusst einstellen. Bei Bedarf CEC/SIMPLINK aktivieren und
+mit dem eigenen Kabel prüfen. Bildformat ohne abgeschnittene Ränder wählen;
+Helligkeit und Lautstärke für die Halle einstellen. Keine funktionierende
+CEC-Steuerung allein aus einem Softwarestatus ableiten.
 
-## 8. LG 65UH5Q-E einrichten und abnehmen
+Am Pi HDMI-Ton prüfen, Bildschirmränder in der Administration einstellen und
+Neustart, HDMI-Unterbrechung, Uhr und Standby testen. Die Fernsehtaste beendet
+aktive Anzeigeinhalte und archiviert ein Training, führt zuerst zur Uhr und
+ermöglicht von dort Standby. Ein geladenes Training läuft erst nach **Start**.
 
-Displaymenüs anhand des zum tatsächlich eingesetzten LG gehörenden Handbuchs prüfen. Die folgende Funktionsprüfung muss am Gerät erfolgen; Energiesparzustände und weitere HDMI-Geräte können die Steuerung beeinflussen.
+Funktaster einzeln anlernen und in Training, Lernen, Quiz und Spielen prüfen.
+Auch den ersten Druck nach mehreren Sekunden Wartezeit, kurze und gehaltene
+Betätigung sowie Reichweite testen. [Funktaster-Anleitung](../hardware/funktaster/README.md)
+und [gemeinsame Abnahmeliste](ABNAHME.md) verwenden. Bluetooth-Geräte neu koppeln.
+Miracast bleibt experimentell: [Grenzen und Einrichtung](MIRACAST.md).
 
-1. Am LG den tatsächlich belegten HDMI-Eingang auswählen und HDMI-CEC aktivieren. Menübezeichnungen anhand des mitgelieferten LG-Handbuchs prüfen.
-2. Im lokalen Adminbereich **Display / System & Kiosk** die automatische Ausgangserkennung kontrollieren. Physische HDMI-Buchse am Pi und Eingang am LG korrekt zuordnen.
-3. Einrichtungsassistent für die Displaysteuerung starten. Zuerst CEC prüfen, dann gegebenenfalls CEC mit Neuaufbau oder WOL + CEC.
-4. Nach jeder Umschaltung mindestens die 30-Sekunden-Sperrzeit abwarten. **Display ist an/aus nur bestätigen, wenn es tatsächlich stimmt.**
-5. Für WOL: LG an dasselbe geeignete LAN anschließen, WOL/Netzwerkbereitschaft am LG aktivieren und dessen LAN-MAC im Assistenten eintragen. Nicht die MAC des Pi verwenden. WOL funktioniert nicht bei stromlosem Display.
-6. Nur eine wirklich funktionierende Kombination speichern. RS-232/IP ist im aktuellen Stand kein fertig abgenommener Ersatztreiber.
-7. Auflösung und sämtliche Bildränder prüfen. Die Desktop-Konfiguration versucht UHD/60 Hz und fällt bei Bedarf zurück. Die Bootausgabe kann davon abweichen; 4K/60 am konkreten Kabel/Pi überprüfen, nicht nur voraussetzen.
-8. Testton am **Hallenbildschirm** ausgeben und Lautstärke einstellen.
-9. FireTV und PC wieder anschließen. Jeweils auf deren Eingang wechseln und testen, dass der Pi dort **keinen automatischen Standby** auslöst. Anschließend zum Pi zurückwechseln und den Leerlaufcountdown prüfen.
+## 10. Vor der Hallenmontage
 
-Wenn der LG seinen aktiven Eingang nicht eindeutig meldet, Automatik zunächst deaktivieren. „Letzten bestätigten Eingang verwenden“ ist keine sichere Erkennung eines späteren, nicht gemeldeten Eingangswechsels. Erst nach bestandenem Mehrgeräte-Test die gewünschte automatische Standbyzeit aktivieren.
+- Lokal und online anmelden; Testplan erstellen, laden, starten, pausieren und archivieren.
+- Ohne Internet Training, Uhr, Quiz und heruntergeladene Medien ausprobieren.
+- HDMI-Ton, Fernsehtaste, Standby, Neustart und alle verwendeten Funktaster prüfen.
+- Hallen-WLAN und Notfall-Hotspot einschließlich Rückkehr ins Hallennetz testen.
+- Eine vollständige private Sicherung erstellen und auf getrennten Testzielen wiederherstellen.
+- Danach ein signiertes Update unter **Admin → Sicherung & Updates → Trainingssystem** prüfen.
 
-## 9. Funk, Medien und Lernbibliothek einrichten
-
-1. CC1101 stromlos anschließen: 3,3 V und GND, SPI0 CE0/GPIO 8, SCLK/GPIO 11,
-   MOSI/GPIO 10, MISO/GPIO 9, GDO0/GPIO 24 und GDO2/GPIO 25. Keine 5 V anlegen.
-   SPI-Verfügbarkeit und Empfängerstatus durch die Technik prüfen lassen.
-2. Unter **Admin → Funktaster** jeden vorhandenen Sender anlernen und eine Bahn
-   oder Trainerfunktion zuordnen. Sender-ID und Bahnnummer sind nicht dasselbe.
-   Für DIAMEX gelten [Bau- und Programmieranleitung](../hardware/funktaster/README.md).
-3. **Trainingssignale** öffnen, vorhandene Standardklänge und Bahnzuordnungen
-   prüfen. Ein neuer Datenträger übernimmt keine privaten Medien aus einer Altanlage.
-4. Unter **Bluetooth & Webradio** Namen und Audioausgang kontrollieren; mit dem
-   Musikzugang koppeln und hören. Bluetooth-Geräte bei Ersatz des Pi neu koppeln.
-5. **IPTV**, **Infotafel**, **Spiele** und **Bildschirmspiegelung** nur soweit
-   benötigt einrichten und anschließend jeweils getrennt prüfen.
-6. Unter **Schwimmen lernen – Swim & Improve** Bibliothek laden und vollständigen
-   Prüfstatus abwarten. Mindestens 6 GiB frei lassen. Die signierten Lernvideos
-   werden separat geladen und gehören nicht zum kleinen Anwendungsupdate.
-7. Mit Lern-PIN Text, Bild und Video zeigen. Nach dem Download lokalen Betrieb
-   ohne Internet prüfen. Quizfragen sind eine Übung, keine offizielle Prüfung.
-8. Trainingszeit anlegen und unter **Vorlagen → Neue Vorlage** den ersten Plan
-   speichern. Über **Als kommende Trainingseinheit planen** einen Termin anlegen. Einheit laden,
-   unter **Aktiv** erst starten, anschließend mit Archivierung beenden.
-
-## 10. Abschlusstest vor der Montage
-
-- [ ] Lokale Steuerung und `/display` erreichbar; Logo und alle vier Ränder sichtbar.
-- [ ] Richtige Auflösung, ausreichende Schriftgröße und Ton am LG.
-- [ ] Trainer-PIN und Admin-PIN funktionieren; Adminbereiche für Trainer gesperrt.
-- [ ] Eigene Gruppen und mindestens eine Vorlage angelegt; Testtermin gespeichert.
-- [ ] Online erstellte Änderung erscheint lokal; Übertragungsmarkierung verschwindet.
-- [ ] Bei Internetausfall funktioniert lokales Training weiter.
-- [ ] Display schaltet real ein und aus; Status stimmt danach.
-- [ ] Fremder HDMI-Eingang wird nicht automatisch abgeschaltet.
-- [ ] Funkempfänger und Bahnzuordnung gegebenenfalls geprüft. Verdrahtung nur bei stromlosem Pi ändern.
-- [ ] Kontrollierter Neustart: Kiosk startet, laufendes Training wird sicher pausiert wiederhergestellt.
-- [ ] Backup und externer Sicherungsort vorhanden; Wiederherstellung auf einem Teststand geprüft.
-- [ ] Mehrstündiger Probebetrieb und echtes Training am LG erfolgreich.
-
-Dienstprüfung am Pi:
-
-```bash
-systemctl is-active trainingsanzeige.service trainingsanzeige-kiosk.service
-systemctl is-active trainingsanzeige-sync.service trainingsanzeige-backup.timer
-curl -fsS http://127.0.0.1:8080/api/v1/health
-```
-
-Erwartet: die genannten Dauerdienste und der Sicherungstimer `active`, Health `status: ok`. Ein aktiver Syncdienst allein beweist noch keine erfolgreiche Cloudkopplung. Miracast läuft nur während einer Spiegelung; erfolgreich beendete Einmaldienste müssen nicht dauerhaft aktiv sein.
-
-Danach die vollständige [Abnahmeliste für den Hallenstandort](ABNAHME.md) abarbeiten, Ergebnisse und offene Punkte festhalten. Erst eine tatsächlich bestandene Prüfung freigeben.
-
-## 11. Spätere Updates in der Schwimmhalle
-
-**Trainingssystem:** Ganz unten Admin → Sicherung & Updates → Trainingssystem → Version prüfen → aktualisieren und Admin-PIN bestätigen. Derselbe Auftrag aktualisiert Raspberry Pi und gekoppelte Online-App. Kein Training geladen lassen; Stromversorgung nicht trennen. Signaturprüfung, gemeinsame Sicherung und automatische Rückkehr beider Seiten bei Fehlern sind integriert.
-
-**Betriebssystem:** eigener Systemupdatebereich; nicht mit Anwendungsupdates verwechseln.
-
-**Webserver:** wird nach der einmaligen Installation der Updatebrücke automatisch mitgeführt. Ist er nicht erreichbar, bleibt auch der Pi unverändert. `config.php`, Geräteschlüssel und MariaDB werden nie aus dem öffentlichen Release ersetzt.
-
-Details: [Anwendungsupdates](ANWENDUNGSUPDATES.md).
-
-## 12. Wenn etwas nicht funktioniert
-
-| Problem | Zuerst prüfen |
-| --- | --- |
-| `.local` geht nicht | IP mit `hostname -I` ermitteln; gleicher Netzbereich, keine Client-Isolation. |
-| Kiosk fehlt / Desktop sichtbar | Benutzer `pi`, UID 1000, Autologin, Labwc/Wayland; Kioskdienst prüfen. |
-| Online PIN ungültig | Erste Synchronisierung abwarten; ID/Sekret/HTTPS und Uhrzeit prüfen, PIN nicht wahllos ändern. |
-| Online „Getrennt“ | Pi-Netz, Cloudadresse, Ausgangsfirewall, Syncprotokoll und identische Kopplungswerte prüfen. |
-| HTTP 500 | PHP-Fehlerprotokoll des Hosters, PHP-Version/Erweiterungen, Datenbankzugang und Tabellen prüfen. |
-| Onlinepfad springt zu `/control` | Cloudbuild mit `/trainingsanzeige/` verwenden, `.htaccess` und Cache prüfen; kein Pi-Frontend hochladen. |
-| LG blinkt, schaltet aber nicht | Richtige CEC-Verbindung und Methode testen; weitere Geräte einzeln anschließen; WOL alternativ abnehmen. |
-| Uhr/Standby falsch | Aktiven Eingang, letzte Bestätigung und Automatik prüfen; bei unbekannter Eingangslage Automatik ausschalten. |
-
-Protokolle lokal lesen:
-
-```bash
-sudo journalctl -u trainingsanzeige.service -n 60 --no-pager
-sudo journalctl -u trainingsanzeige-sync.service -n 60 --no-pager
-sudo journalctl -u trainingsanzeige-kiosk.service -n 60 --no-pager
-```
-
-Vor Weitergabe PINs, Schlüssel, persönliche Daten und vertrauliche Adressen entfernen.
-
-## Übergabezettel — getrennt von dieser öffentlichen Anleitung aufbewahren
-
-Notieren: Pi-Hostname/IP, belegte HDMI-Anschlüsse, LG-LAN-MAC, gewähltes Schaltverfahren, Cloudadresse, Installations-ID, Verantwortlicher und Sicherungsort. Zugangsdaten ausschließlich im Passwortmanager speichern. **Keine ausgefüllte Zugangsdatenliste auf GitHub hochladen.**
+Ergebnisse mit Datum und Gerät in der [Abnahme](ABNAHME.md) dokumentieren.
+Zugänge, age-Entschlüsselungsschlüssel, Wiederherstellungsdateien und einen privaten
+Übergabezettel außerhalb von Git aufbewahren. Der Entschlüsselungsschlüssel gehört
+auf einen getrennten Datenträger beziehungsweise in den Passwortmanager.
+Ohne geprüfte Wiederherstellung ist der Ausgangsstand noch nicht vollständig abgenommen.
