@@ -105,3 +105,16 @@ Quizfrage testen – insbesondere den ersten Druck des roten Buzzers. Dabei die
 Diagnose öffnen und Ergebnis sowie sichtbare Reaktion vergleichen. Anschließend
 den Gegenempfang eines Testsignals und die Rückkehr zum Buzzerempfang prüfen.
 Diese Hardwareprüfungen erst nach Durchführung in der [Abnahmeliste](ABNAHME.md) bestätigen.
+
+## Mobile Ansicht und Aufräumen ab 2.20.7
+
+Empfangseinträge, Fernbedienungen und Buzzer lassen sich aufklappen. Einträge
+können einzeln gelöscht oder mit „Empfangsverlauf leeren“ für alle Bediengeräte
+entfernt werden. Neue Signale werden weiterhin empfangen. Gespeicherte
+Aufzeichnungen werden separat gelöscht; Tasten und Trainings bleiben erhalten.
+
+Eindeutig erkannte unbekannte Codes lassen sich ignorieren und unter
+„Ignorierte Signale verwalten“ wieder zulassen. Zugeordnete Tasten sind geschützt.
+Ignorierte Codes werden standardmäßig ausgeblendet, bleiben aber über den Filter
+sichtbar. Die Ignorierliste gehört zur privaten Datenbanksicherung. Eine Sperre
+unterdrückt Softwareaktionen; sie beseitigt keine physische Funkstörung.
