@@ -64,6 +64,29 @@ Am Router werden keine Internet-Portfreigaben für den Pi eingerichtet. Online
 verbindet er sich ausgehend per HTTPS. Die vorhandene Cloudadresse und Kopplung
 übernehmen; online **Verbunden** und einen bestätigten Datenabgleich prüfen.
 
+### Automatische Notverbindung und Rückkehr ins WLAN
+
+Ab 2.20.12 erhält das normale WLAN beim Start mindestens zwei Minuten Zeit.
+Die Wartezeit hängt von der Geräte-Laufzeit ab; eine Korrektur der Uhrzeit
+löst den Hotspot nicht vorzeitig aus. Während einer laufenden Anmeldung oder
+IP-Adressvergabe wartet die Anlage ebenfalls begrenzt weiter.
+
+Bei eingeschalteter Hotspot-Automatik prüft der Hotspot alle zwei Minuten gespeicherte,
+automatisch verbindbare WLANs. Ist eines wieder erreichbar, wechselt der Pi
+zurück. Schlägt der Verbindungsversuch fehl, stellt er den Hotspot wieder her.
+Bei WLAN-Treibern ohne Suchlauf im Hotspotbetrieb kann die Prüfung die
+Notverbindung kurz unterbrechen. Nur bekannte Zugänge werden ausprobiert;
+bei mehreren Zugängen werden fehlgeschlagene Profile abwechselnd geprüft.
+
+Das gilt auch nach einem Neustart des Überwachungsdienstes und für einen von Hand
+geöffneten Hotspot, solange die Hotspot-Automatik eingeschaltet ist. Eine sofortige
+Rückkehr ist zusätzlich über die WLAN-Auswahl weiter unten möglich.
+
+Die letzten Moduswechsel bleiben unter
+`/var/log/trainingsanzeige-network/events.log` erhalten, einschließlich
+Geräte-Laufzeit und Wechselgrund. Die Datei ist auf 64 KiB plus eine vorherige
+Fassung begrenzt und enthält keine WLAN-Kennwörter.
+
 ### Hotspot bei Bedarf sofort aktivieren
 
 Im PIN-geschützten Bereich **Notfall-WLAN** aktiviert **Hotspot jetzt aktivieren**
