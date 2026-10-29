@@ -43,3 +43,16 @@ Onlinebefehle benötigen einen verbundenen Pi und werden nicht für später vorg
 Wenn kein Ton kommt: tatsächliche Quelle, Verbindung, richtigen Audioausgang,
 App-Lautstärke und Displaylautstärke prüfen. Anschließend Trainingssignal und Musik
 getrennt testen. Die physische Hörprüfung gehört zur [Abnahme](ABNAHME.md).
+
+## Bluetooth-Musik mit kurzen Aussetzern
+
+Ab 2.20.8 beendet die Anlage die Sichtbarkeit für neue Kopplungen, sobald ein
+Telefon verbunden ist. Die bestehende Musikverbindung bleibt erhalten.
+„Koppeln“ öffnet bei bestehender Verbindung ein zweiminütiges Kopplungsfenster.
+Ohne verbundenes Telefon ist die Musikfunktion weiterhin sichtbar.
+
+Bei Aussetzern Telefon nahe am Pi testen und die Audioausgabe prüfen. Einträge
+„Unexpected continuation frame“ im Kernelprotokoll weisen auf fehlerhafte
+Bluetooth-Paketverarbeitung hin. Sie beweisen allein keine bestimmte Ursache.
+Die Hallenabnahme enthält deshalb einen Hörtest über mehrere Minuten; eine
+verbundene App ist kein Nachweis störungsfreien Tons.
