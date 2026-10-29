@@ -19,6 +19,11 @@ Für alle Bereiche ist eine Admin-Anmeldung erforderlich.
 Neue Sender weiterhin mit **Sender anlernen** erfassen. Eine Gruppierung ändert
 weder die Firmware noch den Funkcode. Bestehende Zuordnungen bleiben beim Update erhalten.
 
+Ab 2.20.13 bleibt die gespeicherte Fernbedienungszuordnung auch beim erneuten
+Öffnen korrekt sichtbar, wenn die Fernbedienungsliste langsamer geladen wird als
+die Tasten. Währenddessen erscheint kurz „Fernbedienung wird geladen …“.
+Bereits gespeicherte Zuordnungen müssen nicht erneut angelegt werden.
+
 ## Empfang live
 
 **Empfang live** öffnen und den gewünschten Taster einmal drücken. Die neueste
