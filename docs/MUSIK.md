@@ -64,3 +64,37 @@ zurück, wenn die Zeile zu schmal ist. Kurze Angaben bleiben stehen. Die Anzeige
 passt sich an Handy, Hallenbildschirm und Größenänderungen an. Bei aktivierter
 Betriebssystem-Einstellung „Bewegung reduzieren“ bleibt der Text ruhig und wird
 umgebrochen. Die Funktion zeigt Titelinformationen, keine Liedtexte.
+
+## Kopplung erneuern und gespeicherte Geräte entfernen
+
+Unter **Administration → Bluetooth & Webradio → Gespeicherte Bluetooth-Geräte**
+steht die Geräteliste vor den Webradio-Sendern. Sie bleibt auch bei geschlossenem
+Musikmodus sichtbar. **Entfernen** löscht die Kopplung und eine vorhandene Sperre
+nur des ausgewählten Geräts. Die Funktion erfordert Admin-Anmeldung.
+
+Bei „Keine Verbindung möglich“ zunächst in der Musiksteuerung **Koppeln** öffnen.
+Bleibt die Verbindung erfolglos, die betreffende Kopplung im Adminbereich
+entfernen und am Telefon den alten Eintrag über **Vergessen/Entkoppeln** löschen.
+Anschließend „Trainingsanzeige Audio“ neu auswählen. Der Gerätename kann vom
+Administrator geändert worden sein; dann den tatsächlich angezeigten Namen verwenden.
+
+Ein ausdrücklich geöffnetes Kopplungsfenster wird ab 2.20.10 nicht durch den
+vorherigen Fortsetzungsmodus nach Trainingsende geschlossen. Telefone dürfen
+„gestoppt“ als Bestätigung eines Pausebefehls melden. Die Kopplungskorrektur ist
+kein Nachweis, dass die weiterhin untersuchten Bluetooth-Tonaussetzer behoben sind.
+
+
+## Ton vorhanden, Titelinformationen fehlen
+
+Titel und Interpret werden vom Telefon über den Bluetooth-Steuerkanal AVRCP
+übertragen. Eine bestehende Tonverbindung allein bestätigt diesen Kanal nicht.
+Ab 2.20.10 versucht der Pi bei einem verbundenen, geeigneten Telefon nach zehn
+Sekunden ohne Player diesen Steuerkanal gezielt zu verbinden. Es gibt höchstens
+zwei Versuche pro ununterbrochen fehlendem Player mit mindestens einer Minute
+Abstand. Dabei werden weder Kopplungen gelöscht noch Audioverbindungen getrennt.
+Eine erfolgreiche Steuerkanalverbindung muss anschließend echte Titelinformationen
+liefern; fehlende Angaben werden nicht durch alte Titel ersetzt.
+
+Bei der Prüfung am vorhandenen Pi kamen nach dem Neustart des Bluetooth-Dienstes
+und gezieltem Profilaufbau Titel, Interpret und Wiedergabeposition wieder an.
+Das ist kein Nachweis, dass die separat untersuchten Tonaussetzer behoben sind.
