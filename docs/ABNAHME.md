@@ -58,7 +58,7 @@ Prüfende und verantwortliche Person: __________________________________________
 ## Ausfall, Sicherung und Übergabe
 
 - [ ] Internet unterbrechen: lokales Training läuft weiter; Wiederverbindung gleicht vorbereitete Änderungen ab.
-- [ ] Ohne bekanntes WLAN geschützten Notfall-Hotspot erreichen; bewusst zurück ins Hallennetz wechseln.
+- [ ] Ohne bekanntes WLAN geschützten Notfall-Hotspot erreichen; bei erneut verfügbarem gespeichertem WLAN automatische Rückkehr prüfen (Hotspot-Automatik eingeschaltet).
 - [ ] Notfall-WLAN mit Name, Adresse und individuellem Kennwort erst nach Admin-PIN sichtbar; nach Schließen nicht mehr angezeigt.
 - [ ] Hotspot direkt aktivieren: Bestätigung abbrechen verändert nichts; nach Bestätigung ist der Hotspot am Handy erreichbar. Bestehendes Kennwort bleibt gültig; Rückwechsel ins Hallen-WLAN funktioniert.
 - [ ] Manuelles Standby und Infotafel-Einschaltzeiten auch nach Neustart prüfen.
@@ -99,3 +99,14 @@ Tastenzuordnungen blieben erhalten.
 Die Hallenprüfungen oben, insbesondere reale Tastendrücke aus den Bahnpositionen
 und der Gegenempfang eines Sendetests, bleiben offen. Die Vorprüfung ersetzt
 keine Abnahme in der Schwimmhalle.
+
+
+## Vorabprüfung am vorhandenen Gerät
+
+Am 29.10.2026 mit Pi- und Cloudversion 2.20.13 wurde der Hotspot tatsächlich
+aktiviert. Die Netzwerküberwachung startete nach rund zwei Minuten einen
+Verbindungsversuch und meldete um 18:55:01 Uhr die automatische Rückkehr ins
+gespeicherte WLAN (`saved_network_restored`). Der unabhängige Rückschalttimer
+war noch nicht ausgeführt und wurde danach abgeschaltet. Die Hauptdienste
+blieben aktiv. Dies ersetzt die Prüfung im endgültigen Hallennetz nicht;
+die Standortprüfungen oben bleiben offen.
