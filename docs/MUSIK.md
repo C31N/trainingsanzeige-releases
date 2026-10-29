@@ -56,3 +56,11 @@ Bei Aussetzern Telefon nahe am Pi testen und die Audioausgabe prüfen. Einträge
 Bluetooth-Paketverarbeitung hin. Sie beweisen allein keine bestimmte Ursache.
 Die Hallenabnahme enthält deshalb einen Hörtest über mehrere Minuten; eine
 verbundene App ist kein Nachweis störungsfreien Tons.
+
+## Lange Songtitel und Interpreten
+
+Ab 2.20.9 laufen Titel und Interpretennamen in der Musikansicht langsam hin und
+zurück, wenn die Zeile zu schmal ist. Kurze Angaben bleiben stehen. Die Anzeige
+passt sich an Handy, Hallenbildschirm und Größenänderungen an. Bei aktivierter
+Betriebssystem-Einstellung „Bewegung reduzieren“ bleibt der Text ruhig und wird
+umgebrochen. Die Funktion zeigt Titelinformationen, keine Liedtexte.

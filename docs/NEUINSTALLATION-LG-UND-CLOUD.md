@@ -1,6 +1,6 @@
 # Neuinstallation ab null: Raspberry Pi, Hallendisplay und Online-App
 
-Softwarestand **2.20.8**, Ausgangsstand **2.20.3**. Diese Anleitung beginnt mit
+Softwarestand **2.20.9**, Ausgangsstand **2.20.3**. Diese Anleitung beginnt mit
 einem leeren Speichermedium und einem neuen Webhosting. Benötigt werden keine
 privaten Quelltexte und kein Frontend-Build. Alle Daten entstehen neu.
 
@@ -51,12 +51,12 @@ Speichermedium schreiben. Das Schreiben löscht dessen Inhalt.
 
 ## 3. Alle Installationsdateien herunterladen
 
-Aus [Release 2.20.8](https://github.com/C31N/trainingsanzeige-releases/releases/tag/trainingsanzeige-v2.20.8)
+Aus [Release 2.20.9](https://github.com/C31N/trainingsanzeige-releases/releases/tag/trainingsanzeige-v2.20.9)
 die folgenden Dateien gemeinsam in einen neuen Downloadordner legen:
 
 | Datei | Zweck |
 | --- | --- |
-| `trainingsanzeige-installation-2.20.8.zip` | Fertige Pi-Anwendung, Websetup, Werkzeuge und Anleitungen |
+| `trainingsanzeige-installation-2.20.9.zip` | Fertige Pi-Anwendung, Websetup, Werkzeuge und Anleitungen |
 | `installation.json` | Verzeichnis und Prüfsummen von Installations- und Medienpaket |
 | `installation.sig` | Digitale Unterschrift dieses Verzeichnisses |
 | `release-signing.pub` | Öffentlicher Prüfschlüssel |
@@ -84,7 +84,7 @@ Update-Signatur behält ihren bisherigen Umfang. Unter Windows `python` statt
 ## 4. Die Pi-Anwendung installieren
 
 ```bash
-python3 -m zipfile -e trainingsanzeige-installation-2.20.8.zip kit
+python3 -m zipfile -e trainingsanzeige-installation-2.20.9.zip kit
 python3 -B kit/tools/installation.py --key release-signing.pub --unpack vorbereitet
 sudo bash vorbereitet/pi/ops/install-pi.sh --check
 sudo bash vorbereitet/pi/ops/install-pi.sh
