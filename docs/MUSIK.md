@@ -98,3 +98,6 @@ liefern; fehlende Angaben werden nicht durch alte Titel ersetzt.
 Bei der Prüfung am vorhandenen Pi kamen nach dem Neustart des Bluetooth-Dienstes
 und gezieltem Profilaufbau Titel, Interpret und Wiedergabeposition wieder an.
 Das ist kein Nachweis, dass die separat untersuchten Tonaussetzer behoben sind.
+
+Ab 2.20.11 haben die Lauftextzeilen oben und unten zusätzlichen Platz, damit
+auch Umlaute, Akzente und Unterlängen vollständig sichtbar bleiben.

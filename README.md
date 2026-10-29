@@ -1,6 +1,6 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.20.10.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.20.11.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
 
@@ -56,7 +56,7 @@ Die getrennten Zugänge für Medien und Lernen vergeben keine Trainer- oder Admi
 Unter [Releases](https://github.com/C31N/trainingsanzeige-releases/releases) liegen
 je Version die vier zusammengehörenden Dateien `trainingsanzeige.tar.gz`,
 `trainingsanzeige-web.json`, `trainingsanzeige.json` und `trainingsanzeige.sig`.
-Für eine Neuinstallation das vollständige `trainingsanzeige-installation-2.20.10.zip`
+Für eine Neuinstallation das vollständige `trainingsanzeige-installation-2.20.11.zip`
 mit `installation.json`, `installation.sig`, `release-signing.pub` und dem separaten
 `trainingsanzeige-media-swim-20261021-1.zip` verwenden. Die zusätzliche Signatur schützt
 auch die Einrichtungsskripte. Das Websetup ist bereits darin enthalten.
