@@ -64,7 +64,16 @@ Am Router werden keine Internet-Portfreigaben für den Pi eingerichtet. Online
 verbindet er sich ausgehend per HTTPS. Die vorhandene Cloudadresse und Kopplung
 übernehmen; online **Verbunden** und einen bestätigten Datenabgleich prüfen.
 
+### LAN-Betrieb mit automatischem Notfall-Hotspot
+
+Für Internet über Netzwerkkabel und WLAN-Abschaltung gilt die
+[LAN-Anleitung](LAN-UND-NOTFALL-WLAN.md). Bestehende Anlagen bleiben beim Update
+zunächst im bisherigen Modus. Bildschirmspiegelung bleibt auch bei gewählter
+WLAN-Abschaltung möglich.
+
 ### Automatische Notverbindung und Rückkehr ins WLAN
+
+Die folgenden Hinweise gelten außerhalb des LAN-Betriebs.
 
 Ab 2.20.12 erhält das normale WLAN beim Start mindestens zwei Minuten Zeit.
 Die Wartezeit hängt von der Geräte-Laufzeit ab; eine Korrektur der Uhrzeit
@@ -90,7 +99,8 @@ Fassung begrenzt und enthält keine WLAN-Kennwörter.
 ### Hotspot bei Bedarf sofort aktivieren
 
 Im PIN-geschützten Bereich **Notfall-WLAN** aktiviert **Hotspot jetzt aktivieren**
-den Hotspot unmittelbar. Dabei wird die WLAN-Verbindung zum Hallennetz getrennt;
+den Hotspot unmittelbar. Im LAN-Betrieb ist das bei bestätigtem Internet gesperrt;
+dort übernimmt die Automatik. Dabei wird die WLAN-Verbindung zum Hallennetz getrennt;
 den Hinweis vorher bestätigen. Gespeicherte Zugänge und Kennwort bleiben erhalten.
 Nach der Aktivierung mit dem Handy dem angezeigten Hotspot beitreten und die
 Notfall-Adresse öffnen. Am Handy über **Admin → Netzwerk & Systemdienste → WLANs suchen** wieder

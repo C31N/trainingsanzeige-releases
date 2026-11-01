@@ -18,6 +18,12 @@ keine neue Cloudidentität.
 
 ## Netzwerk und Online-Verbindung
 
+Für Internet über Netzwerkkabel gibt es unter **Netzwerk & Internet → Netzwerk
+einrichten** den LAN-Betrieb mit automatischer WLAN-Abschaltung und
+Notfall-Hotspot. Erst nach bestätigtem LAN-Internet einschalten; Updates ändern
+diese Auswahl nicht automatisch. Bildschirmspiegelung bleibt verfügbar.
+Vollständige Schritte: [LAN-Internet und Notfall-WLAN](LAN-UND-NOTFALL-WLAN.md).
+
 Unter **System & Kiosk** stehen Hostname und aktuelle lokale Adressen. Diese
 Adressen für die Übergabe verwenden. Unter **Netzwerk & Systemdienste** mit
 **WLANs suchen** das Hallennetz auswählen, Kennwort eingeben und verbinden.

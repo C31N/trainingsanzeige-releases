@@ -7,6 +7,7 @@ Eine Neuinstallation ab null ist als eigener vollständiger Weg beschrieben.
 ## Installation und Übergabe
 
 - [Vorhandenen Hallen-Pi installieren](docs/INSTALLATION.md)
+- [LAN-Internet und automatisches Notfall-WLAN](docs/LAN-UND-NOTFALL-WLAN.md)
 - [Neuinstallation ab null: Betriebssystem, Anwendung, Display und Cloud](docs/NEUINSTALLATION-LG-UND-CLOUD.md)
 - [Zweite Anlage und Ersatz: private Sicherung und Wiederherstellung](docs/WIEDERHERSTELLUNG.md)
 - [Standardausstattung und alle öffentlichen Start-PINs](docs/STANDARD-AUSSTATTUNG.md)

@@ -6,6 +6,18 @@ muss mit den tatsächlich verwendeten Quellgeräten abgenommen werden. Windows: 
 Samsung: **Smart View**. Den im Display angezeigten Gerätenamen auswählen.
 Der Präsentations-PIN ist nicht der gegebenenfalls angezeigte Kopplungscode.
 
+## Spiegelung bei Internet über LAN
+
+Auch bei aktivierter WLAN-Abschaltung im LAN-Betrieb bleibt die Spiegelung
+verfügbar. WLAN wird für die Spiegelrunde eingeschaltet; Ethernet, Internet
+und Cloud bleiben über das Kabel aktiv. Nach Ende oder Abbruch übernimmt
+wieder die Netzwerkautomatik. Ein abgestürzter Empfänger wird im LAN-Betrieb
+von der laufenden Netzwerküberwachung erkannt und der Adapter zurückgegeben.
+
+Spiegelung und Notfall-Hotspot nutzen denselben WLAN-Adapter. Bei fehlendem
+LAN-Internet deshalb die Spiegelung beenden, bevor der Notfall-Hotspot genutzt
+wird. Siehe [LAN-Internet und Notfall-WLAN](LAN-UND-NOTFALL-WLAN.md).
+
 ## Bild und Ton einstellen
 
 Unter **Admin → Bildschirmspiegelung** lassen sich die Werte an den Raspberry anpassen:

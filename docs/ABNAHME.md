@@ -110,3 +110,16 @@ gespeicherte WLAN (`saved_network_restored`). Der unabhängige Rückschalttimer
 war noch nicht ausgeführt und wurde danach abgeschaltet. Die Hauptdienste
 blieben aktiv. Dies ersetzt die Prüfung im endgültigen Hallennetz nicht;
 die Standortprüfungen oben bleiben offen.
+
+
+## LAN-Betrieb ab 2.20.14 – Hardwareprüfung offen
+
+- [ ] LAN-Adresse und Internet prüfen, erst dann LAN-Betrieb aktivieren.
+- [ ] Nach Neustart LAN automatisch verbunden, normales Pi-WLAN ausgeschaltet.
+- [ ] Kabelverlust und Internetausfall trotz Kabel: Notfall-Hotspot erreichbar.
+- [ ] Nach Rückkehr des LAN-Internets Hotspot beendet, WLAN wieder ausgeschaltet.
+- [ ] Spiegelung schaltet WLAN ein; LAN und Cloud bleiben verbunden.
+- [ ] Ende und Abbruch der Spiegelung stellen die Netzwerkautomatik wieder her.
+- [ ] Bluetooth, Training und erste/schnelle Buzzerdrücke bleiben funktionsfähig.
+
+Diese Hardwareprüfungen sind nicht durch Softwaretests oder frühere WLAN-Prüfungen abgenommen.
