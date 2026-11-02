@@ -120,3 +120,29 @@ committen und veröffentlichen. Der Export kopiert nur ausdrücklich vorgesehene
 Dokumentation, Bauplan und Funktaster-Download, keine lokalen Daten oder Schlüssel.
 Die private Schlüsseldatei wird dabei niemals exportiert. Alte öffentliche
 Anleitungsadressen verweisen auf die jeweils aktuelle Fassung.
+
+## Start bleibt bei der Miracast-Wiederherstellung stehen
+
+Version 2.20.15 behebt eine gegenseitige Wartebedingung beim Systemstart. Der
+Miracast-Recovery-Dienst fordert Netzwerkdienste jetzt an, ohne auf deren Start
+zu warten. Neue Installationen begrenzen den Dienst zusätzlich auf 45 Sekunden.
+Die Bildschirmspiegelung bleibt verfügbar.
+
+Bei einem bereits blockierten Gerät kann zur Wiederherstellung auf der
+Bootpartition in der vorhandenen, einzeiligen `cmdline.txt` vorübergehend
+`systemd.mask=trainingsanzeige-miracast-recovery.service` ergänzt werden.
+Vorher die Datei sichern und die übrigen Startparameter erhalten. Danach startet
+der Pi ohne diesen Hilfsdienst und kann das signierte Update installieren.
+
+Die Startsperre erst nach bestätigter Installation von mindestens 2.20.15
+entfernen. Bei bestehenden Anlagen kann die korrigierte Dienstdatei aus dem
+installierten, signaturgeprüften Paket zusätzlich übernommen werden:
+
+```bash
+sudo install -m 0644 /opt/trainingsanzeige/ops/trainingsanzeige-miracast-recovery.service /etc/systemd/system/trainingsanzeige-miracast-recovery.service
+sudo systemctl daemon-reload
+```
+
+Danach nur den genannten `systemd.mask`-Parameter aus `cmdline.txt` entfernen
+und kontrolliert neu starten. Anwendung, Netzwerk und Cloud-Verbindung prüfen.
+Die Startsperre ist eine Notmaßnahme, kein Ersatz für das Update.
