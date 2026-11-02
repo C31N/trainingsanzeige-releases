@@ -22,6 +22,40 @@ Ein Update schaltet den LAN-Betrieb nicht selbstständig ein. Die bisherige WLAN
 
 Die Administration zeigt Kabelstatus, LAN-Adressen, Ergebnis und Zeitpunkt der Internetprüfung sowie WLAN-/Hotspot-Zustand. Fehlende oder veraltete Statuswerte bestätigen keinen funktionierenden Internetzugang.
 
+## Adressen verstehen und kopieren
+
+Unter **Administration → Netzwerk & Internet → Netzwerk einrichten** erhält jede
+Adresse eine eigene Beschreibung. Tippe auf die Adresse, um nur diese zu kopieren,
+oder auf den darunterstehenden Bedienlink, um die vollständige Browseradresse zu
+kopieren. Eine Meldung bestätigt das Kopieren. Das funktioniert auch auf der lokalen
+HTTP-Bedienseite; wenn der Browser das Kopieren vollständig verhindert, zeigt die
+Oberfläche eine entsprechende Meldung an.
+
+- **Lokale IPv4 · LAN/WLAN:** Adresse des jeweiligen Pi-Anschlusses. Telefon oder PC
+  müssen dieses lokale Netzwerk erreichen können. Der Bedienlink lautet
+  `http://<IPv4-Adresse>:8080/control`.
+- **Öffentliche IPv6 · LAN/WLAN:** global adressierbare IPv6 des jeweiligen Anschlusses.
+  Mehrere öffentliche IPv6-Adressen gleichzeitig sind möglich. Dein Bediengerät
+  benötigt eine passende IPv6-Verbindung. Der vollständige Link enthält die Adresse
+  in eckigen Klammern: `http://[<IPv6-Adresse>]:8080/control`. Zugriff von außerhalb
+  hängt zusätzlich von Routing und Router-Firewall ab und wird hier nicht bestätigt.
+  Das Update öffnet keine Router-Freigaben.
+- **Vorübergehende IPv6:** kann regelmäßig wechseln. Für dauerhaft gespeicherte
+  lokale Bedienlinks möglichst die lokale IPv4 oder den Gerätenamen verwenden.
+- **Lokale IPv6:** für entsprechend verbundene lokale Netze; keine öffentliche
+  Internetadresse. Auch dafür benötigt das Bediengerät IPv6.
+- **Gerätename:** beispielsweise `trainingsanzeige.local`. Funktioniert bei
+  unterstützter lokaler Namensauflösung. Der vollständige Bedienlink ist ebenfalls
+  kopierbar.
+- **Notfall-Hotspot:** `10.42.0.1` und der zugehörige Bedienlink sind nur erreichbar,
+  wenn der Pi-Hotspot aktiv und das Bediengerät damit verbunden ist.
+- **Öffentliche Basisadresse:** Adresse der Online-App auf dem Webserver, unabhängig
+  von den lokalen Pi-Adressen. Fernbedienung benötigt die Internet-/Cloud-Verbindung.
+
+Wurde die Schnittstelle oder der Geltungsbereich nicht gemeldet, steht dies
+ausdrücklich dabei. Aktualisierungen der Adressliste verändern keine ungespeicherten
+Eingaben im Netzwerkformular.
+
 ## Notfallzugang
 
 Bei aktivem Hotspot das Telefon mit dem angezeigten Notfall-WLAN verbinden und `http://10.42.0.1:8080/control` öffnen. Das individuelle Kennwort steht im PIN-geschützten Wartungsfenster. Es bleibt beim Wechsel zwischen LAN und Hotspot erhalten.
