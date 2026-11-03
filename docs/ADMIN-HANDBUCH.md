@@ -191,9 +191,22 @@ Messwerte, Gruppierung, gespeicherte Signale und Sendesperren:
 
 Unter **Bluetooth & Webradio** kann Spotify Connect aktiviert und ein Gerätename
 vergeben werden. Der Empfänger wird nur im geöffneten Audiomodus sichtbar; ein
-Spotify-Premiumkonto und ein erreichbares WLAN sind erforderlich. Titel und
+Spotify-Premiumkonto und eine erreichbare Verbindung im selben lokalen Netzwerk
+sind erforderlich; der Pi kann per LAN angeschlossen sein. Titel und
 Lautstärke werden soweit verfügbar angezeigt. Wiedergabe und Titelauswahl
 erfolgen in der Spotify-App. Bei Spotify-Übernahme werden Webradio und Bluetooth
 angehalten; für Bluetooth zuerst Kopplung oder Verbindung erneut auswählen.
 Bei Installationsfehlern Internetverbindung prüfen und die Option erneut
 speichern, um die Vorbereitung erneut auszulösen.
+
+### Audioeinstellungen auf dem Handy
+
+Die Einstellungen sind in Wiedergabe, Bluetooth und Spotify Connect gegliedert.
+Beschriftungen und Eingabefelder stehen untereinander; Schaltertexte dürfen
+umlaufen. Webradio-Sender lassen sich darunter bearbeiten, hinzufügen oder
+entfernen. Änderungen mit **Einstellungen speichern** übernehmen.
+
+Bei fehlendem Spotify-Ton unter **Wartung → Protokolle → Bluetooth & Webradio**
+die Empfängerwarnungen prüfen. Eine Verbindung in Spotify allein bestätigt noch
+keinen erfolgreichen Abruf der Musikdatei. Die Integration zeigt Titel,
+Interpreten und Cover; Spotify-Musikvideos werden nicht übertragen.
