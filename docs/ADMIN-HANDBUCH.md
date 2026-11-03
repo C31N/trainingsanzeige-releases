@@ -105,7 +105,7 @@ Ein Anwendungsupdate programmiert keine Handsender.
 
 - **Bluetooth & Webradio**: Namen, Ausgabegerät und freigegebene Streams pflegen.
 - **IPTV**: Funktion, Senderliste und einzelne Sender verwalten.
-- **Infotafel**: Bilder, Uhr und Einschaltzeiten pflegen; Sponsorverwaltung nur als Admin.
+- **Infotafel**: Bilder, Uhr und Einschaltzeiten pflegen; Sponsorverwaltung nur als Admin. Unter **Wappen in der Bahnhofsuhr** das Vereins- oder Gemeindewappen dauerhaft oder den sanften Wechsel mit einstellbarer Dauer auswählen; das Geester Wappen ist voreingestellt und kann ausgetauscht werden.
 - **Schwimmen lernen – Swim & Improve**: Bibliothek aktivieren, laden und prüfen.
   Mindestens 6 GiB frei lassen; Downloads pausieren während Training oder Präsentation.
 - **Spiele**: Beckenmaße und vier Buzzer prüfen; Highscores erst nach Kontrolle löschen.
@@ -185,3 +185,15 @@ Unter **Administration → Funktaster** stehen **Fernbedienungen und Buzzer**,
 **Empfang live** und **Signal senden** bereit. Die vollständige Anleitung erklärt
 Messwerte, Gruppierung, gespeicherte Signale und Sendesperren:
 [Funkdiagnose bedienen](FUNKDIAGNOSE.md).
+
+
+### Spotify Connect
+
+Unter **Bluetooth & Webradio** kann Spotify Connect aktiviert und ein Gerätename
+vergeben werden. Der Empfänger wird nur im geöffneten Audiomodus sichtbar; ein
+Spotify-Premiumkonto und ein erreichbares WLAN sind erforderlich. Titel und
+Lautstärke werden soweit verfügbar angezeigt. Wiedergabe und Titelauswahl
+erfolgen in der Spotify-App. Bei Spotify-Übernahme werden Webradio und Bluetooth
+angehalten; für Bluetooth zuerst Kopplung oder Verbindung erneut auswählen.
+Bei Installationsfehlern Internetverbindung prüfen und die Option erneut
+speichern, um die Vorbereitung erneut auszulösen.
