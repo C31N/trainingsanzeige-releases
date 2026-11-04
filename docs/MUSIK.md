@@ -138,3 +138,21 @@ Soloist-Steuerport geöffnet.
 
 Offizielle Quellen: [Soloist und Schlüssel](https://developer.spotify.com/documentation/soloist),
 [Downloads und Updates](https://developer.spotify.com/documentation/soloist/reference/downloads-and-updates).
+
+## Bluetooth nach dem Wechsel zum USB-Adapter
+
+Der USB-Dongle besitzt eine eigene Bluetooth-Adresse. Bereits mit dem internen
+Adapter gekoppelte Telefone verbinden sich nicht automatisch mit dem Dongle,
+auch wenn beide denselben Anzeigenamen haben. In der Musiksteuerung zuerst
+**Handy koppeln** wählen. Am Telefon den bisherigen Bluetooth-Eintrag vergessen
+und neu nach dem eingestellten Audionamen suchen. Bestehende Kopplungen auf dem
+Pi werden dabei nicht pauschal gelöscht. Spotify Connect im WLAN ist davon
+unabhängig. **Handy koppeln** beendet den Spotify-Empfänger und aktiviert den
+ausgewählten Bluetooth-Adapter.
+
+Ab Version 2.20.25 gilt „Bluetooth sichtbar“ nur bei eingeschaltetem Adapter.
+BlueZ behält seine Sichtbarkeitswerte auch im ausgeschalteten Zustand; zuvor
+konnte deshalb während Spotify Connect fälschlich „Bereit zum Koppeln“ erscheinen
+und die Kopplungstaste gesperrt sein. Lokal und online wird jetzt die tatsächliche
+Verfügbarkeit angezeigt. Eine neue physische Kopplung und ein Hörtest müssen
+am jeweiligen Telefon bestätigt werden.
