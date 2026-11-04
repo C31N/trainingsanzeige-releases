@@ -30,6 +30,11 @@ Sie benötigt keine Bilddatei und zählt nicht zu den maximal 30 hochgeladenen B
 Es gibt höchstens einen Uhreintrag; bei Bedarf lässt er sich entfernen und erneut
 hinzufügen. Ohne aktive Bilder bleibt die Bahnhofsuhr weiterhin die Leerlaufanzeige.
 
+Beim Gemeindewappen werden Stunden- und Minutenzeiger automatisch dunkel mit
+heller Kontur dargestellt, der Sekundenzeiger kräftig rot. Beim Wechsel zurück
+zum Vereinslogo erscheinen wieder die gespeicherten Zeigerfarben. Die Uhr
+läuft während des Logo- und Farbwechsels ohne Unterbrechung weiter.
+
 ### Sponsor links unten bei der Bahnhofsuhr
 
 Nur Administratoren sehen neben **Bahnhofsuhr hinzufügen** die Schaltfläche
