@@ -146,3 +146,20 @@ sudo systemctl daemon-reload
 Danach nur den genannten `systemd.mask`-Parameter aus `cmdline.txt` entfernen
 und kontrolliert neu starten. Anwendung, Netzwerk und Cloud-Verbindung prüfen.
 Die Startsperre ist eine Notmaßnahme, kein Ersatz für das Update.
+
+## Kiosk vor normalen Desktopfenstern
+
+Ab Version 2.20.24 erhält ausschließlich der Chromium-Kiosk eine eigene
+Fensterkennung und eine Labwc-Regel für „Immer im Vordergrund“. Die Regel wird
+bei jedem Kioskstart eingerichtet und bleibt nach einem Neustart erhalten.
+Vorhandene Desktop-Einstellungen werden übernommen; die ursprüngliche
+Benutzerkonfiguration bleibt als `rc.xml.before-kiosk-window` gesichert.
+
+Der Wartungsdesktop und die Bildschirmspiegelung bleiben verfügbar: Beim
+Wechsel wird der Kiosk wie bisher beendet. Die Regel gilt nicht für andere
+Browserfenster. Meldungen des Fernsehers selbst, geschützte Systemoberflächen,
+Layer-Shell-Benachrichtigungen und Dialoge innerhalb von Chromium können
+weiterhin sichtbar sein. Sicherheitswarnungen werden nicht deaktiviert.
+
+Die Konfigurations- und Startregressionen sind automatisiert geprüft. Eine
+Sichtprüfung der Fensterreihenfolge am Hallengerät bleibt erforderlich.
