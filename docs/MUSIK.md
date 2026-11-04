@@ -101,3 +101,40 @@ Das ist kein Nachweis, dass die separat untersuchten Tonaussetzer behoben sind.
 
 Ab 2.20.11 haben die Lauftextzeilen oben und unten zusätzlichen Platz, damit
 auch Umlaute, Akzente und Unterlängen vollständig sichtbar bleiben.
+
+
+## Offizieller Spotify-Empfänger Soloist
+
+Ab 2.20.23 kann unter **Administration → Bluetooth & Webradio → Spotify Connect
+→ Spotify Soloist einrichten** der eigene Soloist-API-Schlüssel gespeichert,
+ersetzt oder entfernt werden. Der Schlüssel wird nicht wieder angezeigt und
+nicht in öffentliche Downloads oder die normale JSON-Datensicherung aufgenommen.
+Er liegt als private Datei auf dem Pi und ist Teil der verschlüsselten privaten
+Pi-Sicherung. Die gespeicherte Spotify-Sitzung wird ebenfalls privat gesichert;
+der Wiedergabecache und die erneut ladbare Programmdatei werden ausgelassen.
+
+**Spotify Connect im Audiomodus aktivieren** einschalten und Einstellungen speichern.
+Anschließend die Musiksteuerung öffnen und in Spotify im selben lokalen Netz
+**Trainingsanzeige Spotify** (oder den eingestellten Gerätenamen) auswählen.
+Spotify Premium ist erforderlich. Titel, Interpret, Cover und Fortschritt werden
+vom Empfänger übernommen; es gibt keine Spotify-Musikvideoübertragung.
+Bluetooth-Koppeln, Geräteverbinden und Webradio wechseln ausdrücklich zu dieser
+Quelle. Die Fernsehtaste beendet auch Soloist über die bestehende Musiksteuerung.
+
+Die ARM64-Programmdatei wird ausschließlich direkt von Spotify auf den Pi geladen;
+sie ist nicht Bestandteil der GitHub-Pakete. Internet wird für Download und Musik
+benötigt. Ein fehlgeschlagener Download verhindert kein Anwendungsupdate.
+Soloist-Builds laufen nach 90 Tagen ab. **Soloist aktualisieren** lädt einen neuen
+Build; anschließend die Musiksteuerung neu öffnen. Ein abgelaufener Build löst
+ebenfalls einen Downloadversuch aus. Beim Entfernen des Schlüssels wird wieder
+der bisherige librespot-Empfänger verwendet; dessen bekannte Audioschlüsselstörung
+kann weiterhin auftreten.
+
+Die lokale Soloist-Steuerung bindet nur an 127.0.0.1. Adminänderungen lokal und
+über die Cloud erfordern Admin-Anmeldung und CSRF-Bestätigung. Der Schlüssel wird
+in der Cloud nur für den kurz gültigen Einrichtungsauftrag übertragen und nach
+Bestätigung oder Ablauf aus dem Auftrag entfernt. Es wird kein öffentlicher
+Soloist-Steuerport geöffnet.
+
+Offizielle Quellen: [Soloist und Schlüssel](https://developer.spotify.com/documentation/soloist),
+[Downloads und Updates](https://developer.spotify.com/documentation/soloist/reference/downloads-and-updates).
