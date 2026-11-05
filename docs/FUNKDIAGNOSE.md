@@ -26,6 +26,20 @@ Bereits gespeicherte Zuordnungen müssen nicht erneut angelegt werden.
 
 ## Empfang live
 
+Ab **2.20.27** werden auch bei durchgehendem Rauschen ohne Empfangspause
+begrenzte Fragmente veröffentlicht: Nach 2.048 Impulsen erscheint eine ausdrücklich
+unvollständige, nicht sendbare Aufzeichnung. Der Empfang läuft unmittelbar weiter.
+Die normale Auswahl **Relevante Signale** blendet solche Fragmente aus. Eine leere
+Liste bedeutet deshalb nicht automatisch, dass der Empfänger nichts empfängt:
+Der Hinweis nennt ausgeblendete Aufzeichnungen; die Statuszeile zeigt geladene
+Einträge und Impulse der gerade laufenden Aufnahme. Zum Prüfen **Alle Rohereignisse
+ohne Ignorierliste**, **Rauschen** oder **Unvollständig** auswählen.
+
+Fernbedienungsgruppen, einzelne Buzzer und ihre Einstellformulare sind zunächst
+eingeklappt. Zum Bearbeiten erst die Gruppe und dann den gewünschten Buzzer öffnen.
+Bewusst geöffnete Bereiche und ungespeicherte Eingaben bleiben beim Aktualisieren
+der Liste innerhalb der laufenden Bedienseite erhalten.
+
 Ab **2.20.26** unterscheidet die passive Diagnose **Rauschen**, **Unvollständig**,
 **Unbekanntes Signal**, **Signalkandidat** und **Verifiziert**. Weniger als acht
 Impulse gelten als Rauschen. Die normale Ansicht zeigt bekannte Tasten immer;
