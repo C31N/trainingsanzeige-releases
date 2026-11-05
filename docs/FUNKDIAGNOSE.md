@@ -26,6 +26,51 @@ Bereits gespeicherte Zuordnungen müssen nicht erneut angelegt werden.
 
 ## Empfang live
 
+Ab **2.20.26** unterscheidet die passive Diagnose **Rauschen**, **Unvollständig**,
+**Unbekanntes Signal**, **Signalkandidat** und **Verifiziert**. Weniger als acht
+Impulse gelten als Rauschen. Die normale Ansicht zeigt bekannte Tasten immer;
+andere Aufzeichnungen mit weniger als 24 Impulsen, unvollständige Aufzeichnungen
+und Messwerte unter −94 dBm bleiben über die Rohansicht und Filter erreichbar.
+Diese Startwerte betreffen ausschließlich die Anzeige, niemals die Buzzer-Auswertung.
+
+EV1527 wird in der Diagnose zusätzlich auf Synchronisation, 24 Datenbits und
+kurze/lange Impulse im Verhältnis 1:3 mit 30 Prozent Toleranz geprüft. Ein
+vollständiges Telegramm ist ein Kandidat; drei übereinstimmende vollständige
+Telegramme innerhalb einer Aufzeichnung bestätigen es. DIAMEX nutzt seine
+Prüfsumme. Das ist eine technische Plausibilitätsprüfung, keine Authentifizierung
+eines Senders. Die Anwendung wartet für einen Tastendruck nicht auf diese Bewertung.
+
+Die normale Ansicht fasst unmittelbar aufeinanderfolgende gleichartige
+Aufzeichnungen innerhalb von 300 ms zusammen. Die Rohansicht enthält weiterhin
+jeden Eintrag. Drei gleichartige Sendeblöcke mit ähnlichen Abständen (20 Prozent
+Toleranz, mindestens eine Sekunde) erscheinen als mögliches periodisches Muster.
+Das beweist weder einen bestimmten Sensor noch eine Störquelle.
+
+Die Details nennen Decoder-Version, vollständige Telegramme, Wiederholungszahl
+und Aufnahmeende: Ruhegrenze von 20 ms, Empfangsprofilwechsel, Sendebeginn oder
+Impulsgrenze. Der Puffer bleibt auf 200 Einträge mit je 2.048 Impulsen begrenzt.
+Eine Länge von etwa 121 Impulsen ist daher allein kein Beleg für einen vollen Puffer.
+Abgeschnittene EV1527-Kennungen werden nur als unbestätigte Decoderkennung gezeigt.
+Rauschen, reine Fingerabdrücke und Aufzeichnungen ohne erkanntes vollständiges
+Telegramm erhalten keine Sendefreigabe; alte gespeicherte Aufzeichnungen werden
+vor dem Senden erneut geprüft. Ein einzelner plausibler Festcode bleibt ein
+Kandidat; wechselnde Codes sind damit nicht zuverlässig reproduzierbar.
+
+**Diagnose exportieren** lädt die Rohimpulse der aktuell erfassten Einträge nach.
+Inzwischen überlaufene oder gelöschte Einträge werden unter `missing_pulse_ids`
+aufgeführt. Empfang und Tastenverarbeitung laufen währenddessen weiter.
+
+**Empfangsverlauf leeren** funktioniert ab 2.20.26 auch über die Cloud. Alte
+Cloud-Anfragen mit einer leeren JSON-Liste bleiben kompatibel; andere falsche
+Parameter werden mit HTTP 422 abgewiesen. Einzellöschung und Leeren ändern die
+Verlaufskennung, sodass andere Bediengeräte ihre Ansicht neu einlesen. Neue
+Signale dürfen unmittelbar wieder erscheinen. Tasten, Gruppen, Ignorierliste
+und gespeicherte Aufzeichnungen bleiben erhalten; es gibt keine Datenbankmigration.
+
+Die Softwareprüfungen ersetzen keinen Reichweiten- und Gegenempfangstest am
+installierten Pi. Aus der vorliegenden Zusammenfassung allein lassen sich die
+behaupteten Häufigkeiten im ursprünglichen Export nicht unabhängig bestätigen.
+
 **Empfang live** öffnen und den gewünschten Taster einmal drücken. Die neueste
 Aufzeichnung steht oben. Die Tabelle zeigt die Zeit, erkannte Taste, Fernbedienung,
 Protokoll, Kennung, Signalstärke, erfasste Dauer und das Ergebnis der Verarbeitung.

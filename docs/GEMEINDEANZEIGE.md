@@ -20,6 +20,12 @@ bleibt stehen; mehrere wechseln in einer Endlosschleife. Löschen muss bestätig
 
 ### Bahnhofsuhr zwischen Werbebildern
 
+Die selten benötigte Wappen-Einstellung steht ab 2.20.26 ganz unten unter
+**4 · Wappen in der Bahnhofsuhr**. Der Bereich ist zunächst zugeklappt.
+Zum Ändern auf die Überschrift tippen, Wappen oder Wechsel auswählen und
+**Wappen-Einstellung speichern** wählen. Auch ein neues Gemeindewappen lässt
+sich dort hochladen. Das gilt ebenso für den getrennten Infotafel-Zugang.
+
 Unter **Bilder & Uhr → Bahnhofsuhr hinzufügen** wird die laufende Bahnhofsuhr
 mit dem aktuellen Vereinslogo als eigener Eintrag hinzugefügt. Mit **Uhr in
 Bildfolge anzeigen** lässt sie sich aktivieren oder aussetzen. **Reihenfolge**
