@@ -7,6 +7,27 @@ Silber, Gold und DLRG-Juniorretter. Jeder Bereich erklärt Voraussetzungen,
 Schwimmaufgaben und Wissen in einfacher Sprache. Die vollständigen Bedingungen
 sind bei der jeweiligen Quelle verlinkt.
 
+## Alle Prüfungsbedingungen auf einer Seite
+
+Ab **2.20.29** bietet jedes Abzeichen drei Einstiege: **Abzeichen auf Anzeige
+erklären**, **Buzzer-Quiz starten** und **Alle Prüfungsbedingungen anzeigen**.
+Der dritte Punkt zeigt dieselbe Gesamtübersicht auf Fernseher und Handy:
+Voraussetzungen, alle praktischen Prüfungsaufgaben, theoretisches Wissen sowie
+Quelle und Prüfdatum. Die sechs Abzeichen verwenden dieselbe Gestaltung.
+
+Auf dem Fernseher stehen sämtliche Bedingungen gemeinsam auf einer festen
+Seite. Am Handy sind sie untereinander lesbar und können gescrollt werden.
+Vor-/Zurück-Befehle und die Trainer-Buzzer blättern die Gesamtübersicht nicht
+weiter und starten kein Quiz. **Gesamtübersicht beenden** schließt sie; die
+Fernsehtaste führt wie gewohnt zunächst zurück zur Uhr. Ein überblendetes
+Training bleibt beim normalen Beenden der Übersicht erhalten.
+
+Beim Seeräuber gelten die gezeigten Aufgaben als häufig verwendete örtliche
+Bedingungen; vor der Abnahme mit der Prüfungsstelle abstimmen. Beim Juniorretter
+werden das Mindestalter von 10 Jahren und das Schwimmabzeichen Gold genannt.
+Die Übersicht ist lokal offline verfügbar; Originalquellen erfordern Internet.
+IPTV und Spiegelung werden nur nach ausdrücklicher Wechselbestätigung beendet.
+
 ## Erklären auf dem TV
 
 **Abzeichen auf Anzeige erklären** zeigt die erste übersichtliche Karte.
