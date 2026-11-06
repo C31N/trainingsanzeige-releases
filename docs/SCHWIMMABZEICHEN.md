@@ -15,6 +15,14 @@ Der dritte Punkt zeigt dieselbe Gesamtübersicht auf Fernseher und Handy:
 Voraussetzungen, alle praktischen Prüfungsaufgaben, theoretisches Wissen sowie
 Quelle und Prüfdatum. Die sechs Abzeichen verwenden dieselbe Gestaltung.
 
+Ab **2.20.31** erscheint zusätzlich das jeweilige Abzeichenbild oben rechts:
+auf dem Fernseher im freien Teil der Kopfzeile, am Handy neben der Überschrift.
+Die Bilder sind lokal gespeichert und funktionieren auch ohne Internet.
+Bildquellen: [DLRG-Bundesverband](https://www.dlrg.de/informieren/ausbildung/schwimmabzeichen/)
+und für den [Juniorretter](https://www.dlrg.de/informieren/ausbildung/rettungsschwimmabzeichen/)
+sowie [DLRG Pforzheim](https://pforzheim.dlrg.de/kurse-und-sicherheit/schwimmausbildung/)
+für den Seeräuber. Die Abbildungen werden unverändert und proportional angezeigt.
+
 Auf dem Fernseher stehen sämtliche Bedingungen gemeinsam auf einer festen
 Seite. Am Handy sind sie untereinander lesbar und können gescrollt werden.
 Vor-/Zurück-Befehle und die Trainer-Buzzer blättern die Gesamtübersicht nicht
