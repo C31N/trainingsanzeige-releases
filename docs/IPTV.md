@@ -43,6 +43,12 @@ Die Streamadressen werden ausschließlich in der administrierten Liste gepflegt.
 
 ## Wenn Bild oder Ton fehlen
 
+Ab **2.20.28** hat der IPTV-Player eine eigene Wayland-Fensterkennung und eine
+Labwc-Vordergrundregel. So bleibt der Schutz der Kiosk-Anzeige vor normalen
+Desktopfenstern erhalten, ohne das Fernsehbild mit der Bahnhofsuhr zu verdecken.
+Ton bei gleichzeitig sichtbarer Uhr kann auf eine falsche Fensterreihenfolge
+hinweisen, obwohl der Sender bereits korrekt geladen ist.
+
 Der gewählte Sender wird sofort angezeigt. Bestätigte Live-Zustände
 ersetzen die Ladeanzeige ohne Neuladen; verspätete alte Antworten setzen die
 Auswahl nicht zurück. Schnelle Lautstärkeänderungen übernehmen den letzten Wert.
