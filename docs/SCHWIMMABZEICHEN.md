@@ -9,6 +9,19 @@ sind bei der jeweiligen Quelle verlinkt.
 
 ## Alle Prüfungsbedingungen auf einer Seite
 
+Die sechs Gesamtübersichten verwenden ein gemeinsames dunkelblaues Wasserdesign:
+Ein Kopfbanner zeigt den Abzeichennamen und das Original-Abzeichenbild. Darunter
+stehen Voraussetzungen, nummerierte Prüfungskarten mit passenden Symbolen,
+theoretisches Wissen sowie Quellen- und Sicherheitshinweise. Die Akzente sind
+Orange beim Seepferdchen, Rot beim Seeräuber, Kupfer bei Bronze, Silber bei Silber,
+Gold bei Gold und Rot-Gelb beim Juniorretter. Die Gestaltung enthält keine
+Animationen und benötigt keine Internetverbindung. Sämtliche Texte bleiben
+vollständig lesbar und sind keine in ein Bild eingebrannten Beschriftungen.
+
+Auf dem Fernseher stehen die Aufgaben in zwei Spalten auf einer festen Seite.
+Am Handy erscheinen sie untereinander und können gescrollt werden. Die
+Einzel-Erklärungen und das Buzzer-Quiz behalten ihre eigene Darstellung.
+
 Ab **2.20.29** bietet jedes Abzeichen drei Einstiege: **Abzeichen auf Anzeige
 erklären**, **Buzzer-Quiz starten** und **Alle Prüfungsbedingungen anzeigen**.
 Der dritte Punkt zeigt dieselbe Gesamtübersicht auf Fernseher und Handy:

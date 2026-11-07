@@ -26,6 +26,12 @@ Zum Ändern auf die Überschrift tippen, Wappen oder Wechsel auswählen und
 **Wappen-Einstellung speichern** wählen. Auch ein neues Gemeindewappen lässt
 sich dort hochladen. Das gilt ebenso für den getrennten Infotafel-Zugang.
 
+Hier stehen Vereins- und Gemeindewappen jeweils mit einer eigenen laufenden
+Uhrvorschau. Stunden-, Minuten- und Sekundenzeiger lassen sich für jedes Wappen
+getrennt einfärben. Die Vorschau zeigt die Eingabe sofort; erst **Wappen-Einstellung
+speichern** übernimmt sie dauerhaft. Auch nach dem Neuladen, über die Cloud und
+nach einer Wiederherstellung bleiben gespeicherte Farben erhalten.
+
 Unter **Bilder & Uhr → Bahnhofsuhr hinzufügen** wird die laufende Bahnhofsuhr
 mit dem aktuellen Vereinslogo als eigener Eintrag hinzugefügt. Mit **Uhr in
 Bildfolge anzeigen** lässt sie sich aktivieren oder aussetzen. **Reihenfolge**
@@ -36,10 +42,17 @@ Sie benötigt keine Bilddatei und zählt nicht zu den maximal 30 hochgeladenen B
 Es gibt höchstens einen Uhreintrag; bei Bedarf lässt er sich entfernen und erneut
 hinzufügen. Ohne aktive Bilder bleibt die Bahnhofsuhr weiterhin die Leerlaufanzeige.
 
-Beim Gemeindewappen werden Stunden- und Minutenzeiger automatisch dunkel mit
-heller Kontur dargestellt, der Sekundenzeiger kräftig rot. Beim Wechsel zurück
-zum Vereinslogo erscheinen wieder die gespeicherten Zeigerfarben. Die Uhr
-läuft während des Logo- und Farbwechsels ohne Unterbrechung weiter.
+Ohne eigene Farbeinstellung werden beim Gemeindewappen die Stunden- und
+Minutenzeiger dunkel mit heller Kontur und der Sekundenzeiger rot dargestellt.
+Das Vereinswappen verwendet weiterhin die allgemeinen Uhrfarben. Nach einer
+individuellen Farbeinstellung gelten die drei gespeicherten Farben des jeweiligen
+Wappens. Die Uhr läuft während des Logo- und Farbwechsels weiter.
+
+Bilder und Uhr werden über etwa 1,2 Sekunden weich überblendet. Das nächste
+Bild wird zunächst vollständig geladen und decodiert; bis dahin bleibt die
+vorherige Ansicht stehen. Bei einem Bildfehler wird erneut geladen, ohne die
+Anzeige zwischendurch schwarz zu schalten. Die Betriebssystem-Einstellung für
+reduzierte Bewegung wird berücksichtigt.
 
 ### Sponsor links unten bei der Bahnhofsuhr
 
