@@ -9,15 +9,27 @@ Für jede eingerichtete Bahn gibt es drei Felder: **Start**, **Countdown** und
 Drücken Sie anschließend **Bahnzuordnung speichern**. Die Auswahl gilt für alle
 Trainings. Beim Entfernen einer Bahn behalten die übrigen Bahnen ihre Tonslots.
 
-Der Startton gehört zum Beginn eines Schwimmabschnitts, nicht zum Hochfahren
-des Geräts. Beim Fortsetzen einer angehaltenen Bahn gibt es keinen neuen Startton.
-Eine eigene Countdown-Datei wird vollständig abgespielt und endet bei null.
-Ein sechs Sekunden langer Klang beginnt also sechs Sekunden vor dem Nullpunkt
-der jeweiligen rückwärts laufenden Bahnuhr. Ist die verbleibende Zeit kürzer als
-die Datei oder die Datei noch nicht geladen, entfällt dieser Countdown; die
-Trainingszeit wird niemals verlängert. Eine Pause ohne feste Dauer hat keinen
-Countdown. Die bisherigen Pieptöne bleiben in den letzten drei Sekunden.
-Der Abschlusston ertönt beim vollständigen Abschluss der jeweiligen Bahn.
+Der Startton gehört zum Beginn eines Schwimmabschnitts. Beim ersten Start
+bleibt die Trainingszeit während des Vorlaufs stehen. Der vollständige Klang
+endet am geplanten Zeitstart. Hinzu kommen 500 ms Übertragungsreserve.
+**Alle starten** nutzt für neu startende Bahnen denselben Zeitstart, auch bei
+unterschiedlich langen Klängen. Stumm, Lautstärke null und **Kein Ton** verursachen
+keinen eigenen Vorlauf. Fortsetzen nach manuellem Pausieren erzeugt keinen neuen
+Startton.
+
+Automatische Startklänge werden vor dem feststehenden Abgang eingeplant. Sie
+enden am Abgang; die Abgangszeit wird nicht verschoben. Der Countdown liegt
+davor und überlappt den Startklang nicht. Eigene Dateien und der dreifache
+Standard-Countdown werden nur vollständig eingeplant. Fehlt ausreichend Zeit
+oder ist eine Datei noch nicht decodiert, entfällt das betreffende Signal.
+Es wird weder verspätet noch verkürzt oder durch einen Ersatzton abgespielt.
+Eine Pause ohne anschließenden Start, insbesondere die letzte Pause, erhält
+keinen Abgangston. Pausieren, Ausblenden, Zurücksetzen und Beenden brechen noch
+vorgemerkte Signale ab.
+
+Die hörbare Abstimmung mit der sichtbaren Uhr muss nach Installation am
+Hallenfernseher bestätigt werden. Die Softwareplanung ersetzt diesen Hörtest
+mit der tatsächlichen HDMI- und Fernsehverzögerung nicht.
 
 ## Weitere Klänge
 
@@ -49,8 +61,8 @@ nur einmal, unterschiedliche Klänge werden gleichzeitig gemischt.
 Downloads bleiben auch bei getrenntem Pi verfügbar. Neue Dateien benötigen kurz
 Zeit für die Übertragung zur Online-App; eine noch nicht übertragene Datei wird
 dort entsprechend als nicht verfügbar gemeldet. Die lokale Hallenanzeige ist
-von dieser Übertragung unabhängig. Fehlende Wiedergabedateien führen zum kurzen
-Standardton und blockieren weder Training noch Taster.
+von dieser Übertragung unabhängig. Fehlende Wiedergabedateien blockieren weder Training noch Taster. Für geplante
+Start- und Countdown-Signale entfällt der Klang, statt verspätet zu erklingen.
 
 Aktuelle JSON-Sicherungen enthalten alle Originale, Wiedergabedateien und
 Zuordnungen. Ältere Sicherungen bleiben importierbar und ändern die Klangbibliothek

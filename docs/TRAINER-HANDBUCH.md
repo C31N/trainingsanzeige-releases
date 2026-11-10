@@ -96,3 +96,50 @@ Beenden des geladenen Trainings oder Spiels starten.
 Am unterstützten Handy kann **App installieren**, bei iPhone/iPad **Zum
 Home-Bildschirm**, verwendet werden. Das Schließen der Handy-App beendet keine
 laufende Anzeige. Gerät und Anzeige am Ende bewusst freigeben.
+
+
+## Bahnen während eines Trainings ausblenden
+
+**Bahn ausblenden** nimmt die Bahn von der Anzeige und hält eine laufende Bahn
+an. Ihr Fortschritt und ihre Restzeit bleiben eingefroren; eine fertige Bahn
+bleibt abgeschlossen. Mindestens eine Bahn muss sichtbar bleiben. Die Kennungen,
+Buzzer und Klänge der übrigen Bahnen wechseln dabei nicht. Der Buzzer einer
+ausgeblendeten Bahn hat im laufenden Training keine Wirkung. **Alle starten**,
+**Alle pausieren** und **Alle zurücksetzen** betreffen nur sichtbare Bahnen.
+
+Ausgeblendete Kennungen bleiben bis zum Ende dieser Sitzung belegt. Neue Bahnen
+erhalten eine neue Kennung; insgesamt stehen zehn Kennungen pro Sitzung zur
+Verfügung. Bei einer neu hinzugefügten Bahn deren Kennung in der Funkzuordnung
+beachten. Die sichtbare Bahnenzahl bleibt auf die Beckeneinstellung begrenzt.
+
+Beim Beenden mit Archivierung werden alle Bahnen und die live geänderten
+Übungen gespeichert. Unter **Gespeicherter Trainingsstand** stehen die tatsächlich
+bestätigte Strecke, der Zeitstand und die Kennzeichnung **ausgeblendet**.
+Eine angefangene Bahn gilt dadurch nicht als vollständig absolviert. Ältere
+Archive erhalten keine nachträglich erfundenen Fortschrittsdaten. Beim
+Wiederverwenden beginnt eine neue Sitzung mit allen enthaltenen Bahnen.
+
+## Pause und Zeitstart
+
+Unter **Danach** wird eine eingetragene Pause mit ihrer Dauer angekündigt.
+Währenddessen zeigt die Bahn **Pause** und die ablaufende Restzeit. Das gilt
+auch nach der letzten Übung: Erst nach dieser Pause ist die Bahn abgeschlossen.
+
+Beim ersten Start bleibt die Uhr zunächst stehen. Der vollständige Startklang
+endet am gemeinsamen Zeitstart. Der Vorlauf beträgt die längste Startklangdauer
+plus 500 Millisekunden Übertragungsreserve. Ohne aktiven Startklang entfällt
+dieser zusätzliche Vorlauf. Fortsetzen nach manuellem Pausieren erhält den
+Zeitstand und erzeugt keinen neuen Startton. Details: [Trainingssignale](TRAININGSSIGNALE.md).
+
+## Online anmelden
+
+Die Bedienung unterscheidet **PIN wird geprüft** und **Angemeldet – Daten werden
+geladen**. Die PIN-Prüfung endet nach spätestens 15 Sekunden mit einer
+Fehlermeldung, wenn keine Antwort kommt. Es gibt keinen automatischen neuen
+Anmeldeversuch. Nach einer Störung bewusst erneut versuchen.
+
+Bedienbefehle stehen erst nach bestätigter Sitzung und geladenen Trainingsdaten
+zur Verfügung. Zusatzbereiche wie Wartung, Musik oder Funktaster laden danach;
+ihre Fehler blockieren das Training nicht. Der Ladestatus benennt betroffene
+Bereiche. Bei abgelaufener Sitzung ist eine neue PIN-Anmeldung nötig; falsche
+PIN, vorübergehende Anmeldesperre und Verbindungsfehler werden unterschieden.

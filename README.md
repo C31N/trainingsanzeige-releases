@@ -1,10 +1,18 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.20.32.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.20.33.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
 
-Neu: [LAN-Internet und automatisches Notfall-WLAN](docs/LAN-UND-NOTFALL-WLAN.md),
+Update 2.20.33 erhält beim Ausblenden die Bahn- und Buzzerkennungen sowie den
+vollständigen Archivstand. Pausen einschließlich der letzten Pause und die
+zeitliche Planung der Startsignale sind korrigiert. Die Online-Anmeldung trennt
+PIN-Prüfung, notwendige Daten und optionale Zusatzbereiche. Siehe
+[Trainer-Handbuch](docs/TRAINER-HANDBUCH.md) und [Abnahme](docs/ABNAHME.md).
+Die Veröffentlichung startet keine Installation auf dem Pi; diese erfolgt
+später manuell über die Administration.
+
+Betrieb: [LAN-Internet und automatisches Notfall-WLAN](docs/LAN-UND-NOTFALL-WLAN.md),
 einschließlich weiterhin verfügbarer Bildschirmspiegelung.
 
 Im lokalen Wartungsfenster zeigt der Bereich **Notfall-WLAN** nach bestätigter
@@ -60,7 +68,7 @@ Die getrennten Zugänge für Medien und Lernen vergeben keine Trainer- oder Admi
 Unter [Releases](https://github.com/C31N/trainingsanzeige-releases/releases) liegen
 je Version die vier zusammengehörenden Dateien `trainingsanzeige.tar.gz`,
 `trainingsanzeige-web.json`, `trainingsanzeige.json` und `trainingsanzeige.sig`.
-Für eine Neuinstallation das vollständige `trainingsanzeige-installation-2.20.32.zip`
+Für eine Neuinstallation das vollständige `trainingsanzeige-installation-2.20.33.zip`
 mit `installation.json`, `installation.sig`, `release-signing.pub` und dem separaten
 `trainingsanzeige-media-swim-20261021-1.zip` verwenden. Die zusätzliche Signatur schützt
 auch die Einrichtungsskripte. Das Websetup ist bereits darin enthalten.

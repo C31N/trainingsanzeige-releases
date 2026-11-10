@@ -123,3 +123,29 @@ die Standortprüfungen oben bleiben offen.
 - [ ] Bluetooth, Training und erste/schnelle Buzzerdrücke bleiben funktionsfähig.
 
 Diese Hardwareprüfungen sind nicht durch Softwaretests oder frühere WLAN-Prüfungen abgenommen.
+
+
+## Trainingsabläufe und Anmeldung – Update 2.20.33
+
+Die frühere Online-Anmeldestörung ist historisch nicht nachgewiesen. Die
+verfügbaren letzten 300 Anwendungslogzeilen deckten den gemeldeten Zeitraum
+nicht ab; das Synchronisationsprotokoll enthielt keine Einträge. Ein aktueller
+Anmeldeversuch war erfolgreich. Daraus wird keine rückwirkende Fehlerursache
+abgeleitet. Die neue Fehlerbehandlung wird mit gezielten Ausfällen geprüft.
+Browserdiagnosen speichern höchstens 30 Einträge mit Zeitpunkt, festem
+Verarbeitungsschritt und Status im Sitzungsspeicher (`connection-diagnostics`).
+PINs, Anfrageinhalte, Cookies und Sitzungsschlüssel werden nicht protokolliert.
+
+Nach der späteren, selbst durchgeführten Installation vor Ort offen:
+
+- [ ] Erste und mittlere Bahn ausblenden; alle verbleibenden realen Buzzer prüfen.
+- [ ] Hinzugefügte Bahn und archivierten eingefrorenen Fortschritt kontrollieren.
+- [ ] Pause zwischen Übungen und nach letzter Übung auf dem Fernseher abwarten.
+- [ ] Einzelstart und Alle starten mit unterschiedlichen eigenen Klängen hören:
+      Der ganze Startklang endet am sichtbaren Zeitstart.
+- [ ] Automatische Abgänge, Countdown, Stumm, Pause und Fortsetzen prüfen.
+- [ ] Online-Anmeldung mit Hallennetz und neuem Sitzungsaufbau kontrollieren.
+
+Das Update wird veröffentlicht, aber nicht automatisch auf dem Hallen-Pi
+installiert. Die Hardwareprüfung wird erst nach tatsächlicher Durchführung
+abgehakt.
