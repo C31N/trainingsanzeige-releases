@@ -110,3 +110,19 @@ werden durch die laufende Protokollbereinigung nicht umgeschrieben.
 **Diese Version wird zunächst nur veröffentlicht. Die Installation auf dem
 Hallen-Pi erfolgt später manuell; die Standortprüfung steht in der
 [Abnahmeliste](ABNAHME.md).**
+
+## Steigende Wartezeiten bei falschen PINs
+
+Ab Version 2.20.35 gelten lokal und online dieselben Stufen: Nach drei falschen
+Eingaben beträgt die Wartezeit 5 Sekunden. Weitere falsche Eingaben nach Ablauf
+der jeweiligen Sperre erhöhen sie auf 10, 20, 40, 80, 160 und höchstens 300 Sekunden.
+Die Fehlermeldung nennt die verbleibenden Sekunden. Während dieser Zeit werden
+auch richtige PINs derselben Verbindungsherkunft noch nicht geprüft. Wiederholte
+Klicks verlängern die Sperre nicht; Anmeldeversuche werden nicht automatisch wiederholt.
+
+Eine erfolgreiche PIN-Prüfung setzt die Stufe zurück. Nach 30 Minuten ohne neuen
+zugelassenen Versuch beginnt sie ebenfalls von vorn. Die Stufe übersteht einen
+Pi-Neustart. Nach einer privaten Wiederherstellung werden diese alten Sperren verworfen.
+Die Sperre betrifft die Verbindungsherkunft, nicht sämtliche Vereinszugänge.
+Online können Geräte hinter derselben öffentlichen Netzwerkadresse dieselbe
+Herkunft teilen. Andere bestehende Sitzungen und die Buzzer bleiben nutzbar.

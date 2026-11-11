@@ -1,8 +1,12 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.20.34.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.20.35.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
+
+Neu in 2.20.35: Die zusätzliche Anzeige „Zusatzbereiche: Ladestatus“ entfällt.
+Die betreffenden Daten laden weiterhin im Hintergrund. Wiederholt falsche PINs
+führen lokal und online zu steigenden Wartezeiten von 5 bis maximal 300 Sekunden.
 
 Neu in 2.20.34: Unter **Zugang & PINs** lassen sich alle sieben Zugänge direkt
 öffnen, ihre PIN geschützt anzeigen und ändern. Das Nutzerprotokoll zeigt
