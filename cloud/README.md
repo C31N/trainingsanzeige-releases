@@ -68,3 +68,25 @@ Die zugehörigen Quellen und Urheberhinweise bleiben erhalten.
 
 Anleitungen: [Lernen](../docs/SWIM_IMPROVE.md), [Infotafel](../docs/GEMEINDEANZEIGE.md),
 [IPTV](../docs/IPTV.md), [Spiele](../docs/SPIELE.md) und [Administration](../docs/ADMIN-HANDBUCH.md).
+
+
+## Nutzerprotokoll und PIN-Anzeige ab 2.20.34
+
+Der Pi hält die PIN-Prüfwerte und den zusätzlichen verschlüsselten PIN-Tresor.
+Die Online-App erhält nur Zugangsmetadaten und Prüfwerte. Eine PIN-Anzeige wird
+nur auf Admin-Klick beim verbundenen Pi angefordert; die Antwort ist zusätzlich
+für den kurzlebigen Schlüssel dieses Browsers verschlüsselt. Weder der
+Tresorschlüssel noch lesbare Anzeigeantworten werden als Cloud-Dokumente abgelegt.
+Bei getrenntem Pi bleiben Protokoll und zuletzt übertragene Zugangsmetadaten
+sichtbar, eine PIN-Anzeige oder Änderung ist nicht möglich.
+
+Nutzerprotokolle werden über eine eigene begrenzte, geräteauthentifizierte
+Übergabe nach interaktiven Befehlen abgeglichen. Ereigniskennungen verhindern
+Duplikate; Aufträge und Ausführungen besitzen eine gemeinsame Auftragskennung.
+Die MariaDB-Migration ergänzt die vorhandene Protokolltabelle. Für die erste
+Ausführung benötigt der Datenbanknutzer die vorgesehenen CREATE-/ALTER-/INDEX-
+Rechte. Ein Protokollfehler blockiert die vorhandene Befehlswarteschlange nicht.
+
+Einträge älter als drei Kalendermonate werden bereinigt und auch bei Abfragen
+oder erneutem Abgleich nicht mehr angezeigt. Näheres unter
+[Nutzerprotokoll und PINs](../docs/NUTZERPROTOKOLL-UND-PINS.md).

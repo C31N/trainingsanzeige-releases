@@ -1,8 +1,14 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.20.33.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.20.34.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
+
+Neu in 2.20.34: Unter **Zugang & PINs** lassen sich alle sieben Zugänge direkt
+öffnen, ihre PIN geschützt anzeigen und ändern. Das Nutzerprotokoll zeigt
+Anmeldungen, Menüpunkte und ausgeführte Änderungen und entfernt Einträge nach
+drei Kalendermonaten. [Anleitung](docs/NUTZERPROTOKOLL-UND-PINS.md).
+Die Veröffentlichung startet keine Installation auf dem Pi.
 
 Update 2.20.33 erhält beim Ausblenden die Bahn- und Buzzerkennungen sowie den
 vollständigen Archivstand. Pausen einschließlich der letzten Pause und die

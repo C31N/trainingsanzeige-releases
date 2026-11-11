@@ -9,7 +9,10 @@ Trainingsbedienung. Medienzugänge sind eigene, begrenzte Berechtigungen.
 - Unter **Verein & Erscheinungsbild** Vereinsdaten und Grafiken pflegen.
 - Unter **Halle** Beckenlänge, Bahnen, Tasterposition und Zeitzone kontrollieren.
 - Unter **Trainingszeiten** Gruppen und Termine verwalten.
-- Unter **Zugang & PINs** die sieben getrennten Zugänge einrichten oder ändern.
+- Unter **Zugang & PINs** die gewünschte Zugangspille anklicken. Dort die aktuelle
+  PIN anzeigen, bei Bedarf einmal bestätigen oder eine neue PIN mit Wiederholung
+  speichern. Darunter stehen Nutzerprotokoll und Filter.
+  [Vollständige Anleitung](NUTZERPROTOKOLL-UND-PINS.md).
   Die vollständige Tabelle mit Erklärungen steht unter [Start-PINs](STANDARD-AUSSTATTUNG.md).
 
 Bereits geänderte PINs werden durch Updates nicht ersetzt. Keine Zugangsliste

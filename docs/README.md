@@ -50,3 +50,5 @@ Unter **Administration → Funktaster** stehen **Fernbedienungen und Buzzer**,
 **Empfang live** und **Signal senden** bereit. Die vollständige Anleitung erklärt
 Messwerte, Gruppierung, gespeicherte Signale und Sendesperren:
 [Funkdiagnose bedienen](FUNKDIAGNOSE.md).
+
+- [Nutzerprotokoll und direkte PIN-Verwaltung](NUTZERPROTOKOLL-UND-PINS.md)

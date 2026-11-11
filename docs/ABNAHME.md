@@ -149,3 +149,23 @@ Nach der späteren, selbst durchgeführten Installation vor Ort offen:
 Das Update wird veröffentlicht, aber nicht automatisch auf dem Hallen-Pi
 installiert. Die Hardwareprüfung wird erst nach tatsächlicher Durchführung
 abgehakt.
+
+
+## Zugang & PINs und Nutzerprotokoll – 2.20.34
+
+Die Veröffentlichung installiert dieses Update nicht auf dem Hallen-Pi.
+Nach der späteren manuellen Installation bleiben diese Standortprüfungen offen:
+
+- [ ] Alle sieben Zugangspillen lokal und online öffnen. Bereits geänderte PINs
+      bleiben gültig; bei Bedarf einmalig bestätigen.
+- [ ] Eine Anzeige verschwindet nach 30 Sekunden, beim Schließen, beim Verlassen
+      und beim Abmelden. Bei getrenntem Pi ist keine Online-PIN-Anzeige möglich.
+- [ ] PIN-Änderung, Wiederholungsprüfung und Zugangsrechte kontrollieren.
+- [ ] Anmeldung, Menüwechsel, Medienauswahl und Änderung erscheinen unter dem
+      tatsächlichen Zugang; PIN-Ziffern stehen nicht im Protokoll.
+- [ ] Protokollabgleich und letzte Übertragung lokal und online vergleichen.
+- [ ] Erste und schnelle reale Buzzerdrücke während geöffneter Protokollansicht
+      prüfen; Empfang und Trainingsablauf bleiben unmittelbar bedienbar.
+
+Softwaretests verwenden isolierte Datenbanken und öffentliche Test-PINs.
+Sie ersetzen weder eine Bestandsdatensicherung noch die Standortprüfung.
