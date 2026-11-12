@@ -169,3 +169,23 @@ Nach der späteren manuellen Installation bleiben diese Standortprüfungen offen
 
 Softwaretests verwenden isolierte Datenbanken und öffentliche Test-PINs.
 Sie ersetzen weder eine Bestandsdatensicherung noch die Standortprüfung.
+
+
+## Die Eule & das Schwimmen – 2.20.36
+
+Die Veröffentlichung installiert weder Anwendung noch Medien auf dem Hallen-Pi.
+Softwareprüfung und Medienprüfung erfolgen mit isolierten Testdaten.
+Nach der späteren manuellen Installation vor Ort offen:
+
+- [ ] Anwendung und Online-App mindestens 2.20.36; Medienstand
+      `swim-eule-20261112-1` mit 409 Inhalten vollständig offline verfügbar.
+- [ ] Eulen-Bereich lokal und online öffnen; fünf Phasen, Basis-Check, Blaue Bahn,
+      Detailblick und alle Druckvorlagen erreichbar.
+- [ ] Kinderauftrag, Originalbild und Video am Hallenfernseher lesbar; Ton und
+      deutsche Untertitel prüfen. Eine tatsächliche Hörprüfung bleibt offen.
+- [ ] Phasenfolge starten; Filmende hält, Weiter/Zurück und Beenden funktionieren.
+- [ ] Echte erste und schnelle Trainer-Tastendrücke prüfen; Bahn-Buzzer lösen
+      keine Bewertung aus und behalten bei überlagertem Training ihre Funktion.
+- [ ] Fernsehtaste sowie Wechsel von IPTV/Spiegelung und Sendesperren prüfen.
+- [ ] Lokale Wiedergabe ohne Internet und nach Neustart prüfen; eigene Lernfolgen
+      sowie ältere Lerninhalte, Abzeichen und Quiz sind weiter vorhanden.

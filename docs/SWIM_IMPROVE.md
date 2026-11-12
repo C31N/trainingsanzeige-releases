@@ -6,6 +6,16 @@ Admin- oder Mitgliederrechte. Alle bestehenden PINs bleiben bei Updates erhalten
 Den Lern-PIN unter **Admin → Zugang & PINs** ändern; jeder Zugang benötigt einen
 anderen PIN. Die begrenzte Sitzung läuft nach acht Stunden ab.
 
+## Die Eule & das Schwimmen
+
+Der zusätzliche, zunächst eingeklappte Eulen-Bereich führt über fünf Phasen,
+den Basis-Check, die Blaue Bahn und den Detailblick zu passenden Aufgaben.
+18 Originalvideos, Kinderaufträge, Originalbilder und vollständige PDFs sowie
+sieben vorbereitete Lernfolgen sind enthalten. Eulen-Videos laufen zunächst
+einmal; die nächste Aufgabe startet nur auf ausdrücklichen Befehl. Alle
+bisherigen Lernbereiche und eigenen Folgen bleiben erhalten.
+[Bedienung und erforderliches Medienupdate](DIE-EULE.md).
+
 ## Eine Übung auf dem Fernseher zeigen
 
 Zusätzlich gibt es in der Lernbibliothek einen eigenen aufklappbaren Bereich
@@ -26,7 +36,7 @@ und ist deshalb bei geladenem Training gesperrt. Siehe
    zuvor beendet werden. Musik und laufendes Training dürfen weiterlaufen.
 5. Am Handy **Zurück / Play/Pause / Weiter**, Lautstärke und **Lernmodus beenden**
    verwenden. Spulen, Neustart, Zeitlupe, Stummschaltung und Schleife stehen unter
-   **Weitere Optionen**. Jedes neu ausgewählte Video läuft standardmäßig in
+   **Weitere Optionen**. Jedes neu ausgewählte Video der bisherigen Bibliothek läuft standardmäßig in
    Dauerschleife; ein anderes Video startet nur auf deinen Befehl.
 
 Der Fernseher zeigt links drei bis fünf passende Merkpunkte und rechts das Video
@@ -64,10 +74,12 @@ Der vollständige zugehörige Originaltext steht direkt beim Video und bei der a
 Steuerung unter **Lehrtext lesen**. Weitere Hintergrundinformationen und Original-PDFs
 stehen unter **Weitere Lehrtexte & Originalmaterialien**. Sie werden nicht in die Vor-/Zurückfolge auf dem TV
 aufgenommen. Alle ursprünglichen Texte und Medien bleiben erhalten: Die Bibliothek
-`swim-20261021-1` umfasst 318 geordnete Einträge und dieselben 160 Mediendateien.
+`swim-eule-20261112-1` umfasst mit der Eule 409 Einträge und 251 Dateien;
+die bisherigen 318 Einträge und 160 Dateien sind unverändert enthalten.
 Die redigierten Merkpunkte aller 131 unterschiedlichen Videos sind im signierten
 Katalog enthalten, nicht zur Laufzeit automatisch erzeugt. Eine am aktuellen Video
-abgeschaltete Schleife wird bei der nächsten Videoauswahl wieder eingeschaltet.
+abgeschaltete Schleife wird bei der nächsten Videoauswahl der bisherigen
+Bibliothek wieder eingeschaltet. Eulen-Videos starten dagegen ohne Schleife.
 
 Der Display-Toggle im Kopf arbeitet wie in der Trainingssteuerung: **Ein / Standby**,
 mit gesperrtem Schalter während der bestätigten Umschaltung. Die Anmeldung allein

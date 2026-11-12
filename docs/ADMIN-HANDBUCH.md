@@ -213,3 +213,13 @@ Bei fehlendem Spotify-Ton unter **Wartung → Protokolle → Bluetooth & Webradi
 die Empfängerwarnungen prüfen. Eine Verbindung in Spotify allein bestätigt noch
 keinen erfolgreichen Abruf der Musikdatei. Die Integration zeigt Titel,
 Interpreten und Cover; Spotify-Musikvideos werden nicht übertragen.
+
+
+## Eulen-Lernbibliothek aktualisieren
+
+Für **Lernen → Die Eule & das Schwimmen** Anwendung und Online-App mindestens
+auf 2.20.36 aktualisieren. Danach muss die Technik das separate Medienpaket
+`swim-eule-20261112-1` auf dem Webhosting bereitstellen. Unter **Schwimmen lernen**
+die Lernbibliothek laden und die vollständige Offline-Verfügbarkeit von
+409 Inhalten kontrollieren. Eine ältere Bibliothek bleibt verwendbar, enthält
+aber keine Eulen-Inhalte. [Vollständige Anleitung](DIE-EULE.md).

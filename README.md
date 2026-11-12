@@ -1,24 +1,17 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.20.35.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.20.36.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
 
-Neu in 2.20.35: Die zusätzliche Anzeige „Zusatzbereiche: Ladestatus“ entfällt.
-Die betreffenden Daten laden weiterhin im Hintergrund. Wiederholt falsche PINs
-führen lokal und online zu steigenden Wartezeiten von 5 bis maximal 300 Sekunden.
+Neu in 2.20.36: **Die Eule & das Schwimmen** ergänzt den Lernbereich um
+18 Originalvideos, Kinderaufträge, Originalbilder, Druckvorlagen und sieben
+vorbereitete Lernfolgen. Die fünf Phasen, der Basis-Check, die Blaue Bahn und
+der Detailblick sind getrennt aufklappbar. [Anleitung](docs/DIE-EULE.md).
 
-Neu in 2.20.34: Unter **Zugang & PINs** lassen sich alle sieben Zugänge direkt
-öffnen, ihre PIN geschützt anzeigen und ändern. Das Nutzerprotokoll zeigt
-Anmeldungen, Menüpunkte und ausgeführte Änderungen und entfernt Einträge nach
-drei Kalendermonaten. [Anleitung](docs/NUTZERPROTOKOLL-UND-PINS.md).
-Die Veröffentlichung startet keine Installation auf dem Pi.
-
-Update 2.20.33 erhält beim Ausblenden die Bahn- und Buzzerkennungen sowie den
-vollständigen Archivstand. Pausen einschließlich der letzten Pause und die
-zeitliche Planung der Startsignale sind korrigiert. Die Online-Anmeldung trennt
-PIN-Prüfung, notwendige Daten und optionale Zusatzbereiche. Siehe
-[Trainer-Handbuch](docs/TRAINER-HANDBUCH.md) und [Abnahme](docs/ABNAHME.md).
+Die neue signierte Lernbibliothek **swim-eule-20261112-1** enthält alle bisherigen
+Materialien sowie die Eulen-Inhalte: **409 Einträge und 251 Dateien**. Nach dem
+Anwendungsupdate muss auch die Lernbibliothek aktualisiert werden.
 Die Veröffentlichung startet keine Installation auf dem Pi; diese erfolgt
 später manuell über die Administration.
 
@@ -80,7 +73,7 @@ je Version die vier zusammengehörenden Dateien `trainingsanzeige.tar.gz`,
 `trainingsanzeige-web.json`, `trainingsanzeige.json` und `trainingsanzeige.sig`.
 Für eine Neuinstallation das vollständige `trainingsanzeige-installation-2.20.33.zip`
 mit `installation.json`, `installation.sig`, `release-signing.pub` und dem separaten
-`trainingsanzeige-media-swim-20261021-1.zip` verwenden. Die zusätzliche Signatur schützt
+`trainingsanzeige-media-swim-eule-20261112-1.zip` verwenden. Die zusätzliche Signatur schützt
 auch die Einrichtungsskripte. Das Websetup ist bereits darin enthalten.
 Die [Neuinstallation](docs/NEUINSTALLATION-LG-UND-CLOUD.md) erklärt die Prüfung und alle Schritte.
 „Source code“ ersetzt kein Installationspaket.

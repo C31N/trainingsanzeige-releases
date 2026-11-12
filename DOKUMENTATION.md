@@ -19,6 +19,7 @@ Eine Neuinstallation ab null ist als eigener vollständiger Weg beschrieben.
 - [Kurzanleitung am Beckenrand](docs/NUTZER-KURZANLEITUNG.md)
 - [Musik über Bluetooth und Webradio](docs/MUSIK.md)
 - [Lernbibliothek: Swim & Improve](docs/SWIM_IMPROVE.md)
+- [Die Eule & das Schwimmen: Aufgaben, Lernfolgen und Medienupdate](docs/DIE-EULE.md)
 - [Schwimmabzeichen und Quiz](docs/SCHWIMMABZEICHEN.md)
 - [Alle 72 Fragen mit Lösungen und Erklärungen](docs/QUIZFRAGEN.md)
 - [Spiele mit vier Buzzern](docs/SPIELE.md)

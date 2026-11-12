@@ -62,11 +62,40 @@ hochskaliert.
 
 Der Quellabruf ist ein Vorbereitungsschritt und erzeugt für sich allein keinen
 installierbaren Medienkatalog. Die Hallenanlage verwendet die bereits getrennt
-veröffentlichte, signierte Bibliothek `swim-20261021-1` mit 318 Einträgen,
-160 Mediendateien und redigierten Merkpunkten für 131 unterschiedliche Videos.
+veröffentlichte, signierte Bibliothek `swim-eule-20261112-1` mit 409 Einträgen
+und 251 Dateien. Die bisherigen 318 Einträge, 160 Dateien und redigierten
+Merkpunkte für 131 unterschiedliche Videos bleiben unverändert enthalten.
 Sie wird unter Admin geladen; für die Installation sind diese Entwicklungsbefehle
 nicht erforderlich.
 
 Bei neuen Medienständen folgen auf den Quellabruf Zuordnung, didaktische Texte,
 fachliche und visuelle Prüfung sowie signierter Katalog und Paketfreigabe.
 Die Bedienung und der Offlinebetrieb stehen in [Swim & Improve](SWIM_IMPROVE.md).
+
+
+## Die Eule ergänzen
+
+Der Eulen-Abruf verwendet die 18 Originalaufgabenseiten, ihre veröffentlichten
+Videoeinbettungen, HLS-Varianten und deutschen Untertitel. Der Referer entspricht
+dem eingebetteten Originalplayer; Zugangsdaten und Browser-Cookies sind unnötig.
+Benötigt werden Python mit `beautifulsoup4` und `pypdf`, FFmpeg, Poppler
+(`pdftoppm`) sowie OpenSSL. Diese Werkzeuge sind keine zusätzlichen Pi-Abhängigkeiten.
+
+```bash
+python ops/download-eule-sources.py --output /MEDIEN/eule-source --ffmpeg /TOOLS/ffmpeg
+python ops/build-eule-library.py --source /MEDIEN/eule-source --previous /MEDIEN/trainingsanzeige-media-swim-20261021-1.zip --output /MEDIEN/eule-library --key /PRIVAT/signierschluessel.pem
+python ops/media-package.py --key ops/release-signing.pub pack --directory /MEDIEN/eule-library --output /MEDIEN/trainingsanzeige-media-swim-eule-20261112-1.zip
+```
+
+Der Builder prüft das vorherige Paket, übernimmt alle alten Kennungen und
+Dateiprüfsummen, rendert die Originalillustrationen und erstellt den signierten
+Gesamtkatalog. Das Quelleninventar bleibt im Katalog enthalten. Vorhandene
+Ausgabeverzeichnisse werden nicht überschrieben. Medien werden außerhalb von Git
+vorbereitet. Die private Schlüsseldatei gehört niemals in ein Paket.
+
+Anschließend die geprüfte Bibliothek auf dem eigenen HTTPS-Medienhosting
+bereitstellen. Alternativ zum lokalen Verpacken kann `media-package.py build`
+das Medienpaket aus einer solchen HTTPS-Quelle laden. Quellen, Freigabe, die zwei fehlerhaften
+Originalverweise und die manuelle Installation sind in [Die Eule](DIE-EULE.md)
+dokumentiert. Katalogsignatur und jede Mediendatei müssen vor Veröffentlichung
+geprüft werden; sämtliche Videos einschließlich Tonspur müssen dekodierbar sein.

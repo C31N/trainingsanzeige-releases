@@ -1,6 +1,6 @@
 # Neuinstallation ab null: Raspberry Pi, Hallendisplay und Online-App
 
-Softwarestand **2.20.35**, Ausgangsstand **2.20.3**. Diese Anleitung beginnt mit
+Softwarestand **2.20.36**, Ausgangsstand **2.20.3**. Diese Anleitung beginnt mit
 einem leeren Speichermedium und einem neuen Webhosting. Benötigt werden keine
 privaten Quelltexte und kein Frontend-Build. Alle Daten entstehen neu.
 
@@ -51,16 +51,16 @@ Speichermedium schreiben. Das Schreiben löscht dessen Inhalt.
 
 ## 3. Alle Installationsdateien herunterladen
 
-Aus [Release 2.20.35](https://github.com/C31N/trainingsanzeige-releases/releases/tag/trainingsanzeige-v2.20.35)
+Aus [Release 2.20.36](https://github.com/C31N/trainingsanzeige-releases/releases/tag/trainingsanzeige-v2.20.36)
 die folgenden Dateien gemeinsam in einen neuen Downloadordner legen:
 
 | Datei | Zweck |
 | --- | --- |
-| `trainingsanzeige-installation-2.20.35.zip` | Fertige Pi-Anwendung, Websetup, Werkzeuge und Anleitungen |
+| `trainingsanzeige-installation-2.20.36.zip` | Fertige Pi-Anwendung, Websetup, Werkzeuge und Anleitungen |
 | `installation.json` | Verzeichnis und Prüfsummen von Installations- und Medienpaket |
 | `installation.sig` | Digitale Unterschrift dieses Verzeichnisses |
 | `release-signing.pub` | Öffentlicher Prüfschlüssel |
-| `trainingsanzeige-media-swim-20261021-1.zip` | 318 Lerneinträge mit 160 Mediendateien |
+| `trainingsanzeige-media-swim-eule-20261112-1.zip` | 409 Lerneinträge mit 251 Mediendateien |
 
 „Source code“ ist kein Installationspaket. Der öffentliche Prüfschlüssel muss
 unabhängig bestätigt sein. Sein Datei-SHA-256 lautet:
@@ -84,7 +84,7 @@ Update-Signatur behält ihren bisherigen Umfang. Unter Windows `python` statt
 ## 4. Die Pi-Anwendung installieren
 
 ```bash
-python3 -m zipfile -e trainingsanzeige-installation-2.20.35.zip kit
+python3 -m zipfile -e trainingsanzeige-installation-2.20.36.zip kit
 python3 -B kit/tools/installation.py --key release-signing.pub --unpack vorbereitet
 sudo bash vorbereitet/pi/ops/install-pi.sh --check
 sudo bash vorbereitet/pi/ops/install-pi.sh
@@ -197,7 +197,7 @@ installieren. Auf dem Technikrechner für das neue Hosting:
 
 ```bash
 python3 -B kit/tools/media-package.py --key release-signing.pub install \
-  --archive trainingsanzeige-media-swim-20261021-1.zip --destination /GESCHUETZT/learning-library
+  --archive trainingsanzeige-media-swim-eule-20261112-1.zip --destination /GESCHUETZT/learning-library
 ```
 
 Den erzeugten Ordner `learning-library` nach `/trainingsanzeige/learning-library`
@@ -211,12 +211,12 @@ umbenennen und als Rückfall behalten, nicht darüber kopieren:
 ```bash
 sudo systemctl stop trainingsanzeige.service
 sudo python3 -B kit/tools/media-package.py --key release-signing.pub install \
-  --archive trainingsanzeige-media-swim-20261021-1.zip --destination /var/lib/trainingsanzeige/learning/library
+  --archive trainingsanzeige-media-swim-eule-20261112-1.zip --destination /var/lib/trainingsanzeige/learning/library
 sudo chown -R trainingsanzeige:trainingsanzeige /var/lib/trainingsanzeige/learning
 sudo systemctl start trainingsanzeige.service
 ```
 
-In Lernen müssen **318 Einträge** und vollständige Offline-Verfügbarkeit erscheinen.
+In Lernen müssen **409 Einträge** und vollständige Offline-Verfügbarkeit erscheinen.
 Quellen- und Freigabehinweise bleiben im Katalog erhalten. Eigene Bilder, Audio,
 Infotafelinhalte und Sender anschließend einrichten; sie gehören in die private Sicherung.
 
