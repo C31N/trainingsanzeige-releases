@@ -171,12 +171,12 @@ Softwaretests verwenden isolierte Datenbanken und öffentliche Test-PINs.
 Sie ersetzen weder eine Bestandsdatensicherung noch die Standortprüfung.
 
 
-## Die Eule & das Schwimmen – 2.20.37
+## Die Eule & das Schwimmen – 2.20.38
 
 Softwareprüfung und Medienprüfung erfolgen mit isolierten Testdaten.
 Nach der Installation vor Ort offen:
 
-- [ ] Anwendung und Online-App mindestens 2.20.37; Medienstand
+- [ ] Anwendung und Online-App mindestens 2.20.38; Medienstand
       `swim-eule-20261112-1` mit 409 Inhalten vollständig offline verfügbar.
 - [ ] Eulen-Bereich lokal und online öffnen; fünf Phasen, Basis-Check, Blaue Bahn,
       Detailblick und alle Druckvorlagen erreichbar.

@@ -70,6 +70,18 @@ Die Trainer-Fernbedienung verwendet dieselben Funktionen wie im übrigen Lernber
 | Stummschaltung | Videoton aus- oder einschalten, sofern eine Taste dafür zugeordnet ist. |
 | Fernseher ein / Standby | Lerninhalt beenden und zur Uhr zurückkehren; erneut drücken für Standby. |
 
+Ab **2.20.38** gilt auch beim direkten Aufruf über **Video zeigen** die Reihenfolge
+der geöffneten Phase, des Basis-Checks oder des Detailblicks. Weiter und Zurück
+wechseln dabei zwischen deren Videos. Bei direkt gewählten Erklärungen bleiben
+sie bei den Erklärungskarten, bei Bildern bei den Originalbildern dieses Bereichs.
+Die Blaue Bahn behält die Reihenfolge ihrer Gesamtübersicht und neun Einzelbilder.
+Am Anfang und Ende sind die entsprechenden Handy-Schaltflächen deaktiviert.
+
+Explizit gestartete Lernfolgen behalten ihre vorgegebene Mischung aus Karten,
+Videos und Bildern. Ältere Bedienseiten ohne Bereichsangabe navigieren zwischen
+allen Eulen-Inhalten derselben Medienart. Für die Bereichsauswahl nach einem
+Update die Bedienseite neu laden.
+
 Neue Videos starten wieder mit eingeschalteter Schleife. Wiederholte Funktelegramme
 eines Tastendrucks dürfen weder doppelt weiterschalten noch Pause sofort aufheben.
 Die vorhandenen Tasten- und Fernbedienungszuordnungen bleiben bestehen.
@@ -84,10 +96,10 @@ Anwendungsupdate und große Mediendateien sind getrennte Pakete. Die
 Veröffentlichung installiert nichts auf dem Hallen-Pi.
 
 1. Im Ruhezustand eine private Sicherung erstellen. Anschließend über
-   **Administration → Sicherung & Updates → Trainingssystem** mindestens 2.20.37
+   **Administration → Sicherung & Updates → Trainingssystem** mindestens 2.20.38
    installieren. Der bestehende Updateweg aktualisiert Pi und gekoppelte Online-App.
 2. Die Technik lädt das neue Medienpaket aus demselben
-   [GitHub-Release](https://github.com/C31N/trainingsanzeige-releases/releases/tag/trainingsanzeige-v2.20.37)
+   [GitHub-Release](https://github.com/C31N/trainingsanzeige-releases/releases/tag/trainingsanzeige-v2.20.38)
    und stellt die geprüfte Bibliothek auf dem eingerichteten Webhosting bereit
    (siehe unten). Der Katalog auf dem Webhosting und auf dem Pi muss dieselbe
    Version haben. Ein reines Anwendungsupdate ergänzt die großen Medien nicht.
@@ -105,7 +117,7 @@ Veröffentlichung installiert nichts auf dem Hallen-Pi.
 ## Medien auf dem Webhosting bereitstellen – Technik
 
 Benötigt werden `trainingsanzeige-media-swim-eule-20261112-1.zip`, das
-Installationspaket 2.20.37 mit `tools/media-package.py`, der unabhängig bestätigte
+Installationspaket 2.20.38 mit `tools/media-package.py`, der unabhängig bestätigte
 öffentliche Prüfschlüssel sowie `installation.json` und `installation.sig`.
 Die Installationssignatur schützt auch die Prüfsumme des Medien-ZIPs. Die
 Prüfschritte stehen in der [Neuinstallation](NEUINSTALLATION-LG-UND-CLOUD.md).

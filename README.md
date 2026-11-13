@@ -1,10 +1,13 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.20.37.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.20.38.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
 
-Neu in 2.20.37: Auch die Eulen-Videos laufen standardmäßig in Schleife.
+Neu in 2.20.38: Vor und zurück funktioniert auch nach **Video zeigen** direkt
+innerhalb der gewählten Eulen-Phase oder des geöffneten Checks. Die Fernbedienung
+verwendet dieselbe Reihenfolge wie die Handybedienung.
+Auch die Eulen-Videos laufen standardmäßig in Schleife.
 Das ausgewählte Video wiederholt sich bis zum manuellen Wechsel oder Beenden;
 unter **Weitere Optionen → Wiederholen** lässt sich dies ausschalten.
 
