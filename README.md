@@ -1,10 +1,14 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.20.36.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.20.37.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
 
-Neu in 2.20.36: **Die Eule & das Schwimmen** ergänzt den Lernbereich um
+Neu in 2.20.37: Auch die Eulen-Videos laufen standardmäßig in Schleife.
+Das ausgewählte Video wiederholt sich bis zum manuellen Wechsel oder Beenden;
+unter **Weitere Optionen → Wiederholen** lässt sich dies ausschalten.
+
+**Die Eule & das Schwimmen** ergänzt den Lernbereich um
 18 Originalvideos, Kinderaufträge, Originalbilder, Druckvorlagen und sieben
 vorbereitete Lernfolgen. Die fünf Phasen, der Basis-Check, die Blaue Bahn und
 der Detailblick sind getrennt aufklappbar. [Anleitung](docs/DIE-EULE.md).
@@ -12,8 +16,8 @@ der Detailblick sind getrennt aufklappbar. [Anleitung](docs/DIE-EULE.md).
 Die neue signierte Lernbibliothek **swim-eule-20261112-1** enthält alle bisherigen
 Materialien sowie die Eulen-Inhalte: **409 Einträge und 251 Dateien**. Nach dem
 Anwendungsupdate muss auch die Lernbibliothek aktualisiert werden.
-Die Veröffentlichung startet keine Installation auf dem Pi; diese erfolgt
-später manuell über die Administration.
+Die Installation erfolgt über die Administration. Bereits geladene Medien
+bleiben beim Anwendungsupdate erhalten.
 
 Betrieb: [LAN-Internet und automatisches Notfall-WLAN](docs/LAN-UND-NOTFALL-WLAN.md),
 einschließlich weiterhin verfügbarer Bildschirmspiegelung.

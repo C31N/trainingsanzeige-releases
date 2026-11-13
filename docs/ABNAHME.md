@@ -171,16 +171,17 @@ Softwaretests verwenden isolierte Datenbanken und öffentliche Test-PINs.
 Sie ersetzen weder eine Bestandsdatensicherung noch die Standortprüfung.
 
 
-## Die Eule & das Schwimmen – 2.20.36
+## Die Eule & das Schwimmen – 2.20.37
 
-Die Veröffentlichung installiert weder Anwendung noch Medien auf dem Hallen-Pi.
 Softwareprüfung und Medienprüfung erfolgen mit isolierten Testdaten.
-Nach der späteren manuellen Installation vor Ort offen:
+Nach der Installation vor Ort offen:
 
-- [ ] Anwendung und Online-App mindestens 2.20.36; Medienstand
+- [ ] Anwendung und Online-App mindestens 2.20.37; Medienstand
       `swim-eule-20261112-1` mit 409 Inhalten vollständig offline verfügbar.
 - [ ] Eulen-Bereich lokal und online öffnen; fünf Phasen, Basis-Check, Blaue Bahn,
       Detailblick und alle Druckvorlagen erreichbar.
+- [ ] Videos wiederholen sich standardmäßig. Ausschalten von **Wiederholen**,
+      manuelles Weiterwechseln und Beenden funktionieren ohne Aufgabenwechsel am Filmende.
 - [ ] Kinderauftrag, Originalbild und Video am Hallenfernseher lesbar; Ton und
       deutsche Untertitel prüfen. Eine tatsächliche Hörprüfung bleibt offen.
 - [ ] Phasenfolge starten; Filmende hält, Weiter/Zurück und Beenden funktionieren.

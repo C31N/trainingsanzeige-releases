@@ -30,9 +30,10 @@ Prüfung. Die Phasen werden nicht mit Schwimmabzeichen gleichgesetzt.
    beziehungsweise die Originalillustration. Vorhandene deutsche Untertitel
    sind enthalten. Ausführliche Beobachtungshinweise bleiben am Handy.
 4. Mit **Zurück / Weiter** ausdrücklich umschalten. Lange Kinderaufträge haben
-   mehrere Karten. Eulen-Videos wiederholen sich zunächst nicht und wechseln
-   am Filmende auch nicht selbstständig zur nächsten Aufgabe. Wiedergabe,
-   Lautstärke, Zeitlupe und eine bewusst eingeschaltete Schleife bleiben bedienbar.
+   mehrere Karten. Ab Version **2.20.37** wiederholt sich jedes Video automatisch
+   in einer Schleife. Es wechselt dabei nicht zur nächsten Aufgabe. Unter
+   **Weitere Optionen → Wiederholen** lässt sich die Schleife für das aktuelle
+   Video ausschalten. Wiedergabe, Lautstärke und Zeitlupe bleiben bedienbar.
 5. Mit **Lernmodus beenden** zurückkehren. Bei überlagertem Training heißt die
    Rückkehr **Zurück zum Training**. Die Fernsehtaste beendet den angezeigten
    Inhalt entsprechend dem normalen Ablauf.
@@ -59,8 +60,20 @@ den Check und wählt passende Übungen; es gibt keine automatische Bewertung.
 Die Folge zur Blauen Bahn enthält Erklärung, Video, Gesamtbild und neun Schritte.
 In Blau führen zusätzliche Schaltflächen zu den vorhandenen Schwimmtechnik-Themen.
 
-Trainer-Funktaster verwenden ihre bestehenden Lernfunktionen für Weiter, Zurück,
-Wiedergabe/Pause und Stummschaltung. Bahn-Buzzer bewerten keine Eulen-Aufgabe.
+Die Trainer-Fernbedienung verwendet dieselben Funktionen wie im übrigen Lernbereich:
+
+| Zugeordnete Tastenfunktion | Wirkung bei der Eule |
+| --- | --- |
+| Start / Pause | Aktuelles Video pausieren oder fortsetzen; die Schleife bleibt eingestellt. |
+| Weiter | Nächste Karte oder nächster Schritt der gewählten Lernfolge. |
+| Zurück | Vorherige Karte oder vorheriger Schritt. |
+| Stummschaltung | Videoton aus- oder einschalten, sofern eine Taste dafür zugeordnet ist. |
+| Fernseher ein / Standby | Lerninhalt beenden und zur Uhr zurückkehren; erneut drücken für Standby. |
+
+Neue Videos starten wieder mit eingeschalteter Schleife. Wiederholte Funktelegramme
+eines Tastendrucks dürfen weder doppelt weiterschalten noch Pause sofort aufheben.
+Die vorhandenen Tasten- und Fernbedienungszuordnungen bleiben bestehen.
+Bahn-Buzzer bewerten keine Eulen-Aufgabe.
 Ein überlagertes Training behält seine normale Bahnsteuerung. Die vorhandenen
 Sperren für Spiele und Funksendungen sowie die Wechselbestätigung bei IPTV und
 Spiegelung gelten weiter.
@@ -71,10 +84,10 @@ Anwendungsupdate und große Mediendateien sind getrennte Pakete. Die
 Veröffentlichung installiert nichts auf dem Hallen-Pi.
 
 1. Im Ruhezustand eine private Sicherung erstellen. Anschließend über
-   **Administration → Sicherung & Updates → Trainingssystem** mindestens 2.20.36
+   **Administration → Sicherung & Updates → Trainingssystem** mindestens 2.20.37
    installieren. Der bestehende Updateweg aktualisiert Pi und gekoppelte Online-App.
 2. Die Technik lädt das neue Medienpaket aus demselben
-   [GitHub-Release](https://github.com/C31N/trainingsanzeige-releases/releases/tag/trainingsanzeige-v2.20.36)
+   [GitHub-Release](https://github.com/C31N/trainingsanzeige-releases/releases/tag/trainingsanzeige-v2.20.37)
    und stellt die geprüfte Bibliothek auf dem eingerichteten Webhosting bereit
    (siehe unten). Der Katalog auf dem Webhosting und auf dem Pi muss dieselbe
    Version haben. Ein reines Anwendungsupdate ergänzt die großen Medien nicht.
@@ -92,7 +105,7 @@ Veröffentlichung installiert nichts auf dem Hallen-Pi.
 ## Medien auf dem Webhosting bereitstellen – Technik
 
 Benötigt werden `trainingsanzeige-media-swim-eule-20261112-1.zip`, das
-Installationspaket 2.20.36 mit `tools/media-package.py`, der unabhängig bestätigte
+Installationspaket 2.20.37 mit `tools/media-package.py`, der unabhängig bestätigte
 öffentliche Prüfschlüssel sowie `installation.json` und `installation.sig`.
 Die Installationssignatur schützt auch die Prüfsumme des Medien-ZIPs. Die
 Prüfschritte stehen in der [Neuinstallation](NEUINSTALLATION-LG-UND-CLOUD.md).
