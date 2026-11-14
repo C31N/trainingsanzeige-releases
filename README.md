@@ -1,10 +1,16 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.20.38.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.20.39.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
 
-Neu in 2.20.38: Vor und zurück funktioniert auch nach **Video zeigen** direkt
+Neu in **2.20.39**: Informationen und Werbung erhalten ein Bildarchiv mit
+Originaldownload, erneuter Aktivierung und bestätigten Aktivierungszeiträumen.
+Optionale Start- und Enddaten mit Uhrzeiten begrenzen die Anzeige automatisch.
+Nur die Administration darf Archivbilder endgültig löschen.
+[Bedienung und Zeitplanung](https://github.com/C31N/trainingsanzeige-releases/blob/main/docs/GEMEINDEANZEIGE.md).
+
+Seit 2.20.38: Vor und zurück funktioniert auch nach **Video zeigen** direkt
 innerhalb der gewählten Eulen-Phase oder des geöffneten Checks. Die Fernbedienung
 verwendet dieselbe Reihenfolge wie die Handybedienung.
 Auch die Eulen-Videos laufen standardmäßig in Schleife.

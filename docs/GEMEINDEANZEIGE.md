@@ -8,7 +8,7 @@ geänderte PINs bleiben bei Updates erhalten. Eine Sitzung endet nach acht Stund
 ## 1. Bilder vorbereiten
 
 Empfohlen: **Querformat 16:9, 1920 × 1080 Pixel**, für 4K auch
-**3840 × 2160 Pixel**. Höchstens **5 MB pro Datei**, insgesamt **30 Bilder**.
+**3840 × 2160 Pixel**. Höchstens **5 MB pro Datei**, höchstens **30 Bilder außerhalb des Archivs**.
 Erlaubt sind statische JPG-, PNG- und WebP-Dateien bis 40 Megapixel. PDFs,
 SVGs, GIFs, Videos und animierte Bilder werden nicht unterstützt.
 
@@ -16,7 +16,46 @@ Das Bild bleibt vollständig sichtbar. Hochformat und andere Seitenverhältnisse
 erhalten schwarze Ränder. Transparente Flächen werden schwarz hinterlegt.
 Bezeichnung, Aktivierung, Reihenfolge und Dauer lassen sich je Bild einstellen:
 voreingestellt 15 Sekunden, zulässig 5–300 Sekunden. Ein einzelnes aktives Bild
-bleibt stehen; mehrere wechseln in einer Endlosschleife. Löschen muss bestätigt werden.
+bleibt stehen; mehrere wechseln in einer Endlosschleife. Archivieren und endgültiges Löschen müssen bestätigt werden.
+
+### Anzeigezeitraum und Bildarchiv – ab 2.20.39
+
+Neben **Bild anzeigen** steht **Anzeigezeitraum – optional**. Start- und Enddatum
+können einzeln oder gemeinsam eingetragen werden, jeweils mit optionaler Uhrzeit.
+Anschließend **Bild speichern** wählen. Ohne Grenzen gilt die Freigabe sofort und
+unbefristet. Ohne Startuhrzeit gilt 00:00 Uhr; ohne Enduhrzeit ist der gesamte
+Endtag eingeschlossen. Mit Enduhrzeit endet die Freigabe genau zu dieser Uhrzeit.
+Die angezeigte Anlagenzeitzone ist maßgeblich; für Dalum **Europe/Berlin**.
+Nicht existierende Sommerzeit-Uhrzeiten werden abgewiesen. Der gespeicherte
+Zeitraum zeigt den eindeutigen UTC-Versatz auch während der Herbstumstellung.
+
+Zukünftige Bilder bleiben mit **Geplant** in der Bilderliste. Deaktivierte und
+abgelaufene Bilder wechseln automatisch in das zunächst geschlossene **Bildarchiv**.
+**Archivieren** erhält die Datei und die Historie. Die ersten 50 Archivbilder
+werden geladen, weitere über **Weitere Bilder laden**. Das Archiv wird nicht
+nach drei Monaten gelöscht und verbraucht keine Plätze der normalen Bildfolge.
+
+Ein Archivbild aufklappen: **Original herunterladen** liefert die unveränderte
+hochgeladene Datei. **Wieder aktivieren** bietet **Ab sofort ohne Enddatum** oder
+einen **Neuen Zeitraum**. Erst **Aktivierung speichern** übernimmt die Wahl;
+alte abgelaufene Termine werden nicht automatisch wiederverwendet. Kennung und
+bisherige Aktivierungszeiträume bleiben erhalten.
+
+Infotafel-Nutzer dürfen herunterladen und wieder aktivieren. Ausschließlich
+Administratoren sehen **Endgültig löschen**. Nach Bestätigung wird der Eintrag
+entfernt; gemeinsam verwendete Dateien bleiben für andere Bilder erhalten.
+
+**Aktivierungszeiträume** zeigen die vom Pi bestätigte Freigabe mit Beginn, Ende
+und Anlass. Sie sind kein Nachweis einzelner Fernseheinblendungen. Die globale
+Infotafel-Pause, Hallenöffnungszeiten, Standby und Training können eine tatsächliche
+Anzeige verhindern. Onlineänderungen gelten erst nach Übernahme durch den Pi;
+bei Trennung ist die Historie möglicherweise noch nicht vollständig übertragen.
+Verstrichene, niemals übernommene Planungen werden nicht als Aktivierung erfunden.
+Bei bestehenden Bildern ist die Zeit vor Einführung des Archivs nicht erfasst.
+
+Der Pi wertet gespeicherte Grenzen ohne Internet und ohne offene Bedienseite aus.
+Ein Startdatum weckt den Fernseher nicht außerhalb der bestehenden Einschaltregeln.
+Originale, Archiv und Historie werden mit gesichert und wiederhergestellt.
 
 ### Bahnhofsuhr zwischen Werbebildern
 

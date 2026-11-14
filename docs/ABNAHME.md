@@ -190,3 +190,12 @@ Nach der Installation vor Ort offen:
 - [ ] Fernsehtaste sowie Wechsel von IPTV/Spiegelung und Sendesperren prüfen.
 - [ ] Lokale Wiedergabe ohne Internet und nach Neustart prüfen; eigene Lernfolgen
       sowie ältere Lerninhalte, Abzeichen und Quiz sind weiter vorhanden.
+
+## Bildarchiv und Zeitplanung ab 2.20.39
+
+- [ ] Zukunftsbild mit Start- und Endzeit am Hallengerät beobachten: Beginn und Ende beachten Hallenzeitzone und bestehende Einschaltregeln.
+- [ ] Archivieren und wieder aktivieren lokal und online; Dateidownload und Freigabezeiträume prüfen.
+- [ ] Bei getrenntem Internet gilt der bereits übernommene Zeitraum weiter; verspätete Cloudänderungen werden als solche erkennbar.
+- [ ] Endgültiges Löschen ist nur mit Admin-Zugang möglich; gemeinsame Originaldateien anderer Bilder bleiben verfügbar.
+
+Die physische Sichtprüfung am Hallenfernseher ist für diese Änderung noch offen.
