@@ -1,10 +1,12 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.20.39.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.20.40.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
 
-Neu in **2.20.39**: Informationen und Werbung erhalten ein Bildarchiv mit
+Korrektur in **2.20.40**: Inaktive Bilder bleiben in der normalen Liste. Nur bewusstes Archivieren oder der Ablauf des Enddatums verschiebt sie ins Archiv.
+
+Seit **2.20.39**: Informationen und Werbung erhalten ein Bildarchiv mit
 Originaldownload, erneuter Aktivierung und bestätigten Aktivierungszeiträumen.
 Optionale Start- und Enddaten mit Uhrzeiten begrenzen die Anzeige automatisch.
 Nur die Administration darf Archivbilder endgültig löschen.

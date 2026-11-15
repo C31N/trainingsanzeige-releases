@@ -29,8 +29,8 @@ Die angezeigte Anlagenzeitzone ist maßgeblich; für Dalum **Europe/Berlin**.
 Nicht existierende Sommerzeit-Uhrzeiten werden abgewiesen. Der gespeicherte
 Zeitraum zeigt den eindeutigen UTC-Versatz auch während der Herbstumstellung.
 
-Zukünftige Bilder bleiben mit **Geplant** in der Bilderliste. Deaktivierte und
-abgelaufene Bilder wechseln automatisch in das zunächst geschlossene **Bildarchiv**.
+Zukünftige Bilder bleiben mit **Geplant** in der Bilderliste. Inaktive Bilder bleiben in der normalen Liste. Nur ausdrücklich archivierte oder
+abgelaufene Bilder wechseln in das zunächst geschlossene **Bildarchiv**.
 **Archivieren** erhält die Datei und die Historie. Die ersten 50 Archivbilder
 werden geladen, weitere über **Weitere Bilder laden**. Das Archiv wird nicht
 nach drei Monaten gelöscht und verbraucht keine Plätze der normalen Bildfolge.
