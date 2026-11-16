@@ -1,7 +1,7 @@
 # Funktaster prüfen und Fernbedienungen verwalten
 
-Ab Version **2.20.5** enthält **Administration → Funktaster** drei aufklappbare
-Bereiche. Sie stehen lokal am Pi und über die gekoppelte Online-App zur Verfügung.
+Unter **Administration → Funktaster** stehen aufklappbare Bereiche für
+Fernbedienungen, Empfangsdiagnose, Sendetests und weitere Sender bereit. Sie stehen lokal am Pi und über die gekoppelte Online-App zur Verfügung.
 Für alle Bereiche ist eine Admin-Anmeldung erforderlich.
 
 ## Fernbedienungen und Buzzer
@@ -116,6 +116,67 @@ Der Verlauf ist flüchtig: höchstens 200 Aufzeichnungen mit jeweils 2.048 Impul
 angezeigt. Nach einem Funkdienst-Neustart beginnt ein neuer Verlauf. In der Cloud
 kann die Anzeige verzögert sein. Zeitstempel und Verbindungsmeldung beachten;
 alte Daten gelten nicht als aktueller Empfangsnachweis.
+
+## Weitere Sender & Sensoren (experimentell)
+
+Unter **Administration → Funktaster → Weitere Sender & Sensoren** ist die Zusatzsuche
+zunächst eingeklappt und **ausgeschaltet**. Mit **Suche starten** wird passiv auf
+der bisherigen Empfänger-Konfiguration **433,92 MHz ASK/OOK** nach zusätzlichen
+Sendern gesucht. Der CC1101 bleibt vollständig unter Kontrolle des bestehenden
+Funkdienstes. Weder SPI/GPIO noch Frequenz, Empfangsprofil, Sendesperren oder
+Buzzerpriorität werden verändert.
+
+Die Zusatzsuche lässt sich nur beginnen, wenn kein Training (auch nicht pausiert),
+Lernmodus, Quiz oder Spiel geladen ist. Beim Start solcher Anwendungen wird die
+Suche automatisch gestoppt. Ein erneuter Start muss ausdrücklich erfolgen.
+**Suche stoppen** beendet die Erkennung auch im eingeschalteten Empfangsbetrieb.
+Beim Neustart des Funkdienstes beginnt sie immer ausgeschaltet.
+
+Ab **2.20.41** richten Neuinstallation und signiertes Update den Offline-Decoder
+**rtl_433** ein und prüfen seine Dateieingabe mit einem synthetischen Testsignal.
+Dafür benötigt der Pi beim Update Zugang zu den Betriebssystem-Paketquellen.
+Der Test bestätigt keinen tatsächlichen Sensor-Empfang. Fehlt der Decoder,
+zeigt die Verwaltung **rtl_433 fehlt**. Die bestehende Funkfunktion benötigt es
+nicht. Der Decoder verarbeitet ausschließlich zeitlich begrenzte, synthetische
+AM-Dateien aus passiven OOK-Aufnahmen. Dies ist **kein SDR-I/Q-Empfang**;
+Dateiformat und Protokollunterstützung müssen mit der tatsächlich installierten
+rtl_433-Version sowie einem realen Sender geprüft werden. 868 MHz und FSK sind
+hier **nicht** verfügbar. Fehlende Ergebnisse beweisen nicht, dass kein Sensor
+in Reichweite ist.
+
+Temperatur und relative Luftfeuchtigkeit werden nach Modell, Senderkennung und
+Kanal getrennt angezeigt, sobald mindestens **zwei voneinander getrennte und
+plausible Empfänge** vorliegen. Telegrammwiederholungen innerhalb desselben
+kurzen Funkbursts zählen nicht mehrfach. Messungen älter als **zehn Minuten**
+werden als **veraltet** behandelt und nicht als aktuelle Werte ausgegeben.
+Bei nicht unterstützten Signalen zeigt die Oberfläche **Noch nicht unterstützt**
+und bietet für die Administration einen temporären Rohdatenexport an.
+
+Die Warteschlange umfasst höchstens zwölf Aufnahmen, die Liste 64 Sender. Pro
+Aufnahme gelten 2.048 Impulse, 500 ms Signaldauer und vier Sekunden Decoderzeit.
+Überläufe und Analysefehler werden angezeigt. Die Frischeprüfung bezieht sich auf
+den Empfangszeitpunkt, nicht auf das Ende einer verzögerten Analyse. Aufgeklappte
+Karten und eingegebene Namen bleiben bei Aktualisierungen erhalten; auch im
+Fehlerzustand lässt sich eine laufende Suche stoppen.
+
+Namen bekannter Sender bleiben im Pi-Datenbestand gespeichert und sind Teil der
+normalen Trainingsanzeige-Sicherung. Rohaufnahmen und Messwertverläufe werden
+nicht dauerhaft archiviert. Bei maximal 64 Senderkandidaten können ältere,
+noch nicht benannte Signale aus dem flüchtigen Verlauf verschwinden. Die Anzeige
+ist ausschließlich für angemeldete Administratoren lokal sowie in der gekoppelten
+Online-App verfügbar. Es gibt **keine öffentliche Wetter-API** und derzeit auch
+keine Wetteranzeige auf dem Hallenfernseher.
+
+Als Fernbedienung erkannte EV1527-/DIAMEX-Signale können mit dem **bestehenden
+Anlernverfahren** ausdrücklich einer Funktion und gegebenenfalls einer
+Fernbedienungsgruppe zugeordnet werden. Ein unbekannter Fingerabdruck ist
+kein nachgewiesener Tastencode und kein freigegebener Wiedergabecode.
+
+**Hardwareabnahme:** Vor einem Produktivupdate den ersten, schnellen und
+parallelen Druck aller Buzzer prüfen, die Suche bei laufendem Training/Lernen/Quiz
+auf Startverweigerung testen und das Stoppen beim Programmstart kontrollieren.
+Ohne diese Abnahme sowie Prüfung des Offline-Decoders darf kein erfolgreicher
+Sensor-Empfang behauptet werden.
 
 ## Signal senden
 

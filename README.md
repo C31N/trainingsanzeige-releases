@@ -1,8 +1,10 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.20.40.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.20.41.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
+
+Neu in **2.20.41**: Unter Administration → Funktaster lassen sich weitere Sender und Sensoren passiv suchen. Die optionale Suche bleibt zunächst ausgeschaltet und ist ausschließlich im Ruhezustand möglich. Details und Empfangsgrenzen: [Funkdiagnose](FUNKDIAGNOSE.md).
 
 Korrektur in **2.20.40**: Inaktive Bilder bleiben in der normalen Liste. Nur bewusstes Archivieren oder der Ablauf des Enddatums verschiebt sie ins Archiv.
 

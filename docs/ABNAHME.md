@@ -199,3 +199,13 @@ Nach der Installation vor Ort offen:
 - [ ] Endgültiges Löschen ist nur mit Admin-Zugang möglich; gemeinsame Originaldateien anderer Bilder bleiben verfügbar.
 
 Die physische Sichtprüfung am Hallenfernseher ist für diese Änderung noch offen.
+
+
+## Weitere Sender und Sensoren ab 2.20.41
+
+- [ ] Am Hallengerät mit einem unterstützten realen Sender zwei zeitlich getrennte Empfänge prüfen; Modell, Kennung, Kanal und Messwerte vergleichen.
+- [ ] Ersten Buzzerdruck und schnelle unterschiedliche Tasten während passiver Suche prüfen.
+- [ ] Start eines Trainings beendet die Zusatzsuche; bestehende Buzzerzuordnungen bleiben erhalten.
+- [ ] Reichweite, Störeinflüsse und Empfang nach Neustart am tatsächlichen Einbauort prüfen.
+
+Diese Hardwareprüfungen sind offen. Automatisierte Tests, synthetische Dateieingabe und eine erreichbare Admin-Oberfläche ersetzen keinen tatsächlichen Empfangsnachweis.
