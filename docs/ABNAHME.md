@@ -209,3 +209,12 @@ Die physische Sichtprüfung am Hallenfernseher ist für diese Änderung noch off
 - [ ] Reichweite, Störeinflüsse und Empfang nach Neustart am tatsächlichen Einbauort prüfen.
 
 Diese Hardwareprüfungen sind offen. Automatisierte Tests, synthetische Dateieingabe und eine erreichbare Admin-Oberfläche ersetzen keinen tatsächlichen Empfangsnachweis.
+
+
+## Gesamttraining ab 2.20.43
+
+- [ ] Lesbarkeit der blätterbaren Gesamtübersicht am Hallenfernseher prüfen.
+- [ ] Trainer-Fernbedienung: Übersicht vor/zurück; Bahn-Buzzer lösen in dieser Ansicht keinen Trainingsstart aus.
+- [ ] Übersicht beenden und pausiertes Training ohne Fortschrittsverlust fortsetzen.
+
+Diese tatsächlichen Hardwareprüfungen bleiben offen; Software- und Browserprüfungen ersetzen sie nicht.

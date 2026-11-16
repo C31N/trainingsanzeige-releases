@@ -1,8 +1,10 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.20.42.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.20.43.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
+
+Neu in **2.20.43**: Nummerierte Trainingsblöcke, direktes Einfügen per Pluszeichen und eine manuell blätterbare Übersicht des gesamten Trainings auf Handy und Hallenanzeige.
 
 Korrektur in **2.20.42**: Ungeeignete Impulsaufnahmen zählen als verworfen; nur tatsächliche Decoderfehler erscheinen als Analysefehler.
 

@@ -19,3 +19,25 @@ kann weder die Wassertiefe noch freie Bahnen oder die Ausführung kontrollieren.
 Die Trainerfernbedienung gehört zur verantwortlichen Person: Ihre Fernsehtaste
 beendet Inhalte und archiviert ein Training. Danach erscheint die Uhr; erst der
 nächste Druck schaltet den Bildschirm in Standby.
+
+
+## Trainingsblöcke und Gesamtübersicht ab 2.20.43
+
+Beim Bearbeiten sind die Blöcke je Bahn von oben nach unten nummeriert. Das **+**
+links neben **×** fügt direkt unter diesem Block einen neuen ein. Der bisherige
+Inhalt bleibt erhalten; das Übungsfeld des neuen Blocks wird ausgewählt.
+**Satz hinzufügen** ergänzt weiterhin am Ende. Gemeinsam bearbeitete Bahnen
+übernehmen dieselbe Änderung.
+
+In einer gespeicherten Vorlage oder Trainingseinheit **Gesamtes Training anzeigen**
+wählen. Im Editor speichert **Speichern und anzeigen** zuerst die Änderungen.
+Bei einer geladenen Einheit ist die Übersicht auch unter **Aktiv** erreichbar.
+Vorher alle laufenden Bahnen pausieren. Das Anzeigen startet keine Trainingszeit.
+
+Handy und Fernseher zeigen dieselbe Seite mit zwei Blöcken einer Bahn.
+Lange Hinweise erscheinen auf Fortsetzungsseiten. **Zurück / Weiter** und die
+entsprechenden Trainer-Fernbedienungstasten wechseln ausdrücklich die Seite.
+Bahn-Buzzer steuern während der Übersicht keine Trainingsbahn. **Übersicht beenden**
+kehrt zur vorherigen Anzeige zurück; die Fernsehtaste beendet die Anzeigeinhalte
+entsprechend ihrer bisherigen Funktion. Beim Fortsetzen des Trainings endet die
+Übersicht ebenfalls. Fortschritt und Zeitstand bleiben erhalten.
