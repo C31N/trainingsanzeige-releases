@@ -1,8 +1,10 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.20.41.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.20.42.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
+
+Korrektur in **2.20.42**: Ungeeignete Impulsaufnahmen zählen als verworfen; nur tatsächliche Decoderfehler erscheinen als Analysefehler.
 
 Neu in **2.20.41**: Unter Administration → Funktaster lassen sich weitere Sender und Sensoren passiv suchen. Die optionale Suche bleibt zunächst ausgeschaltet und ist ausschließlich im Ruhezustand möglich. Details und Empfangsgrenzen: [Funkdiagnose](FUNKDIAGNOSE.md).
 

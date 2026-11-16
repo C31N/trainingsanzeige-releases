@@ -154,7 +154,8 @@ und bietet für die Administration einen temporären Rohdatenexport an.
 
 Die Warteschlange umfasst höchstens zwölf Aufnahmen, die Liste 64 Sender. Pro
 Aufnahme gelten 2.048 Impulse, 500 ms Signaldauer und vier Sekunden Decoderzeit.
-Überläufe und Analysefehler werden angezeigt. Die Frischeprüfung bezieht sich auf
+Überläufe und Analysefehler werden angezeigt. Ab 2.20.42 zählen ungeeignete
+Impulsfolgen als verworfen; sie erzeugen keine Decoder-Störungsmeldung. Die Frischeprüfung bezieht sich auf
 den Empfangszeitpunkt, nicht auf das Ende einer verzögerten Analyse. Aufgeklappte
 Karten und eingegebene Namen bleiben bei Aktualisierungen erhalten; auch im
 Fehlerzustand lässt sich eine laufende Suche stoppen.
