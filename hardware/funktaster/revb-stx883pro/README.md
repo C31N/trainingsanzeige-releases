@@ -1,6 +1,16 @@
-# Wasserfreunde Dalum – Funktaster Rev B0.1 (STX883PRO-433MHz)
+# Wasserfreunde Dalum – Funktaster Rev B0.7 (STX883PRO-433MHz)
 
 **ENTWURF / NICHT BESTELLEN.** Erstes integriertes KiCad-8-Layout mit 35 SMD-Positionen, fünf externen Anschlussgruppen und zwei Montagebohrungen. Schaltplan und Bauteilpositionen sind vorhanden. **Es gibt noch keinen bestätigten vollständig gerouteten, unabhängigen DRC-sauberen PCB-Stand. Gerber sind absichtlich nicht enthalten.**
+
+## Aktueller technischer Stand (18.11.2026)
+
+**PROTOTYP, KEINE FERTIGUNGSFREIGABE.** Der aktuelle Entwicklungsstand B0.7 wird aus der originalen B0.3-ZIP und den Skripten `tools/apply_b04_fixes.py`, `tools/apply_b05_schematic_fix.py`, `tools/apply_b06_parity_fix.py` und `tools/apply_b07_nc_nets.py` reproduzierbar aufgebaut. Das Native-KiCad-8-CI-Ergebnis des neuesten Standes liegt unter https://github.com/C31N/trainingsanzeige-releases/actions/runs/44285300239 . Das historische B0.3-Layout bleibt als Experiment archiviert.
+
+- Native KiCad Rev B0.5: DRC 0, Unconnected 0, ERC 0, aber 110 Paritätsabweichungen.
+- Rev B0.6: 108 Netzpräfix- und 2 Montagebohrungsabweichungen korrigiert; 7 NC-Pin-Abweichungen verbleiben.
+- Rev B0.7: den sieben nicht angeschlossenen Pins eindeutige KiCad-Pseudonetze zugewiesen; nativer KiCad-8-Nachweis folgt im laufenden Workflow.
+- HF-Bauteil/Landpattern und Antennenimpedanz sind **nicht freigegeben**. Siehe `HF_ANTENNENFUEHRUNG_GATING.md`: ca. 5,37 mm ANT-Leitung, bisher 0,25 mm Breite.
+- Keine Gerber oder Bestellfreigabe für JLCPCB, keine fünf Sender anfertigen, bevor die KiCad-Freigabe und anschließend die HF-/Hardwareprüfungen erfolgt sind.
 
 ## Ziel
 Fünf identische neu hergestellte Senderplatinen anstelle der selbst verdrahteten Lochrasterplatinen V5 + Rev-A-Zusatzmodul. Alle 5 sollen sich allein durch die geflashte ATtiny13A-V2-Firmware (Sender-ID 1–5) unterscheiden.
