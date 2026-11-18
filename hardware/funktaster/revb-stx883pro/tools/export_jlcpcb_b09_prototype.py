@@ -22,8 +22,13 @@ with (out/'02_JLCPCB_BOM_35_SMD.csv').open('w',encoding='utf-8-sig',newline='') 
  w=csv.writer(fh);w.writerow(['Comment','Designator','Footprint','LCSC Part #'])
  for lcsc,refs in sorted(bycode.items()):
   data=[entries[ref] for ref in refs]
-  assert len({r['Comment'] for r in data})==1 and len({r['Footprint'] for r in data})==1
-  w.writerow([data[0]['Comment'],','.join(refs),data[0]['Footprint'].split(':')[-1],lcsc])
+  assert len({r['Footprint'] for r in data})==1,(lcsc,'footprint conflict')
+  # U2 and U3 have distinct functional labels but the same verified LCSC part.
+  # LCSC code is the assembly identity, not the functional Comment.
+  val=data[0]['Comment']
+  if len({r['Comment'] for r in data})>1:
+   val=val.split(' ')[0]
+  w.writerow([val,','.join(refs),data[0]['Footprint'].split(':')[-1],lcsc])
 with (out/'03_JLCPCB_CPL_35_SMD.csv').open('w',encoding='utf-8-sig',newline='') as fh:
  w=csv.writer(fh);w.writerow(['Designator','Mid X','Mid Y','Layer','Rotation'])
  for ref in sorted(entries):
