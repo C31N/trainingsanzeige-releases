@@ -3,13 +3,14 @@ on:
   push:
     branches: [codex/buzzer-revb-stx883pro-layout-2026-11-18]
     paths:
-      - hardware/funktaster/revb-stx883pro/Buzzer_RevB_STX883PRO_Entwurf_B0.5.zip
+      - hardware/funktaster/revb-stx883pro/Buzzer_RevB_STX883PRO_Entwurf_B0.6.zip
       - .github/workflows/revb-native-kicad-preflight.yml
       - hardware/funktaster/revb-stx883pro/tools/apply_b04_fixes.py
       - hardware/funktaster/revb-stx883pro/tools/apply_b05_schematic_fix.py
+      - hardware/funktaster/revb-stx883pro/tools/apply_b06_parity_fix.py
   pull_request:
     paths:
-      - hardware/funktaster/revb-stx883pro/Buzzer_RevB_STX883PRO_Entwurf_B0.5.zip
+      - hardware/funktaster/revb-stx883pro/Buzzer_RevB_STX883PRO_Entwurf_B0.6.zip
       - .github/workflows/revb-native-kicad-preflight.yml
   workflow_dispatch:
 permissions:
@@ -33,8 +34,10 @@ jobs:
           python3 hardware/funktaster/revb-stx883pro/tools/apply_b04_fixes.py src/Buzzer_RevB_STX883PRO_B0.4
           python3 hardware/funktaster/revb-stx883pro/tools/apply_b05_schematic_fix.py src/Buzzer_RevB_STX883PRO_B0.4
           mv src/Buzzer_RevB_STX883PRO_B0.4 src/Buzzer_RevB_STX883PRO_B0.5
-          # Keep a complete editable design artifact even when DRC/ERC fails.
-          (cd src && zip -qr ../out/Buzzer_RevB_STX883PRO_Entwurf_B0.5.zip Buzzer_RevB_STX883PRO_B0.5)
+          python3 hardware/funktaster/revb-stx883pro/tools/apply_b06_parity_fix.py src/Buzzer_RevB_STX883PRO_B0.5
+          mv src/Buzzer_RevB_STX883PRO_B0.5 src/Buzzer_RevB_STX883PRO_B0.6
+          # Save complete, editable design even when DRC/ERC fails; never export Gerber.
+          (cd src && zip -qr ../out/Buzzer_RevB_STX883PRO_Entwurf_B0.6.zip Buzzer_RevB_STX883PRO_B0.6)
       - name: Install real KiCad 8, not Ubuntu's default KiCad 7
         shell: bash
         run: |
@@ -52,10 +55,10 @@ jobs:
         run: |
           set +e
           set -uo pipefail
-          PCB=src/Buzzer_RevB_STX883PRO_B0.5/kicad/buzzer-revb-stx883pro-ROUTED-V3-EXPERIMENT.kicad_pcb
-          SCH=src/Buzzer_RevB_STX883PRO_B0.5/kicad/buzzer-revb-stx883pro.kicad_sch
+          PCB=src/Buzzer_RevB_STX883PRO_B0.6/kicad/buzzer-revb-stx883pro-ROUTED-V3-EXPERIMENT.kicad_pcb
+          SCH=src/Buzzer_RevB_STX883PRO_B0.6/kicad/buzzer-revb-stx883pro.kicad_sch
           # pcbnew is necessary for zone connectivity; DRC on unfilled zones would be misleading
-          /usr/bin/python3 - "$PCB" src/Buzzer_RevB_STX883PRO_B0.5/kicad/buzzer-revb-stx883pro.kicad_pcb <<'PY'
+          /usr/bin/python3 - "$PCB" src/Buzzer_RevB_STX883PRO_B0.6/kicad/buzzer-revb-stx883pro.kicad_pcb <<'PY'
           import sys
           import pcbnew
           src, dst = sys.argv[1:]
@@ -67,7 +70,7 @@ jobs:
           PY
           fill_rc=$?
           if [ "$fill_rc" -eq 0 ]; then
-            kicad-cli pcb drc --format json --severity-error --severity-warning --schematic-parity --exit-code-violations --output out/native-drc.json src/Buzzer_RevB_STX883PRO_B0.5/kicad/buzzer-revb-stx883pro.kicad_pcb
+            kicad-cli pcb drc --format json --severity-error --severity-warning --schematic-parity --exit-code-violations --output out/native-drc.json src/Buzzer_RevB_STX883PRO_B0.6/kicad/buzzer-revb-stx883pro.kicad_pcb
             drc_rc=$?
           else
             printf 'pcbnew zone fill failed with rc=%s\n' "$fill_rc" | tee out/zone-fill-error.txt
@@ -89,18 +92,33 @@ jobs:
                           print(" ", key, len(a) if isinstance(a,list) else a)
               except Exception as e:print("Could not parse",p,e)
           PY
-          test "$fill_rc" -eq 0 && test "$drc_rc" -eq 0 && test "$erc_rc" -eq 0
+          # CLI must succeed, and native JSON must contain no DRC/ERC/parity issue.
+          /usr/bin/python3 - <<'PY'
+          import json
+          from pathlib import Path
+          board = json.loads(Path("out/native-drc.json").read_text())
+          for key in ("violations", "unconnected_items", "schematic_parity"):
+              assert isinstance(board.get(key),list), (key, board.keys())
+              assert len(board[key]) == 0, (key, len(board[key]))
+          sch = json.loads(Path("out/native-erc.json").read_text())
+          assert sch.get("sheets")
+          assert all(not sheet.get("violations") for sheet in sch["sheets"])
+          print("B0.6 native KiCad DRC/ERC, unconnected and schematic parity: zero")
+          PY
+          json_rc=$?
+          printf 'JSON_GATE=%s\n' "$json_rc" | tee -a out/native-cli-exit-codes.txt
+          test "$fill_rc" -eq 0 && test "$drc_rc" -eq 0 && test "$erc_rc" -eq 0 && test "$json_rc" -eq 0
       - name: Upload actual validation evidence (NOT fabrication files)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: revb-b05-native-kicad8-preflight
+          name: revb-b06-native-kicad8-preflight
           path: |
             out/kicad-version.txt
             out/native-drc.json
             out/native-erc.json
             out/native-cli-exit-codes.txt
             out/zone-fill-error.txt
-            out/Buzzer_RevB_STX883PRO_Entwurf_B0.5.zip
+            out/Buzzer_RevB_STX883PRO_Entwurf_B0.6.zip
           retention-days: 14
           if-no-files-found: warn
