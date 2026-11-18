@@ -1,0 +1,39 @@
+name: Rev A release assets verification (preflight only)
+on:
+  push:
+    branches:
+      - codex/jlcpcb-buzzer-hold-reva-orderprep-2026-11-18
+    paths:
+      - .github/workflows/reva-release-asset-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  download-hardware-release:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Inspect published hardware release and download ZIP assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p release-files
+          gh api "repos/C31N/trainingsanzeige-releases/releases/tags/buzzer-hold-revA-0.1.0" > release-manifest.json
+          jq -r '.assets[] | [.name, .size, .content_type] | @tsv' release-manifest.json
+          test "$(jq '.assets | length' release-manifest.json)" -gt 0
+          gh release download buzzer-hold-revA-0.1.0 -R C31N/trainingsanzeige-releases --dir release-files --pattern '*.zip' --clobber
+          find release-files -maxdepth 1 -type f -printf '%f (%s bytes)\n'
+      - name: Upload originals for isolated pre-order inspection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reva-original-release-files-precheck
+          path: |
+            release-manifest.json
+            release-files/*.zip
+          if-no-files-found: warn
+          retention-days: 1
