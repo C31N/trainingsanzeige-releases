@@ -128,3 +128,39 @@ jobs:
             out/Buzzer_RevB_STX883PRO_Entwurf_B0.8.zip
           retention-days: 14
           if-no-files-found: warn
+
+  fetch-official-stx883pro-landpattern:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Fetch public C3001517 EasyEDA CAD data (read-only)
+        shell: bash
+        run: |
+          set -uo pipefail
+          mkdir -p footprint-evidence
+          if curl -fsSL --retry 2 --max-time 40 -H 'User-Agent: Mozilla/5.0' https://easyeda.com/api/products/C3001517/components -o footprint-evidence/C3001517_easyeda_components.json; then
+            python3 - <<'PY'
+          from pathlib import Path
+          import json
+          p=Path('footprint-evidence/C3001517_easyeda_components.json')
+          try:
+              data=json.loads(p.read_text())
+              result=data.get('result')
+              if not result:raise ValueError('API returned no component result')
+              print('C3001517 public EasyEDA CAD data available, bytes:',p.stat().st_size)
+              Path('footprint-evidence/status.txt').write_text('downloaded\n')
+          except Exception as e:
+              Path('footprint-evidence/status.txt').write_text(f'Invalid API response: {e}\n')
+              print('::warning::EasyEDA API returned invalid component data:',e)
+          PY
+          else
+            echo 'EasyEDA API inaccessible; JLCPCB footprint still UNVERIFIED' | tee footprint-evidence/status.txt
+          fi
+      - name: Preserve fetched component geometry or blocker
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: revb-lcsc-c3001517-official-footprint
+          path: footprint-evidence/
+          retention-days: 7
+          if-no-files-found: warn
