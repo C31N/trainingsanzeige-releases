@@ -27,8 +27,17 @@ jobs:
   native-kicad8:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
+    # Official image: https://www.kicad.org/download/docker/
+    container:
+      image: kicad/kicad:8.0.9
+      options: --user 0
     steps:
       - uses: actions/checkout@v4
+      - name: Install archive utilities from Debian repositories
+        shell: bash
+        run: |
+          apt-get -o Acquire::Retries=3 update -qq
+          apt-get -o Acquire::Retries=3 install -y -qq --no-install-recommends zip unzip
       - name: Unpack exact B0.4 candidate and check manifest
         shell: bash
         run: |
@@ -54,18 +63,13 @@ jobs:
           mv src/Buzzer_RevB_STX883PRO_B0.9 src/Buzzer_RevB_STX883PRO_B0.10
           # Preserve design artifact even when DRC fails; prototype only.
           (cd src && zip -qr ../out/Buzzer_RevB_STX883PRO_Entwurf_B0.10.zip Buzzer_RevB_STX883PRO_B0.10)
-      - name: Install real KiCad 8, not Ubuntu's default KiCad 7
+      - name: Verify pinned official KiCad 8.0.9 and Python bindings
         shell: bash
         run: |
           set -euo pipefail
-          sudo apt-get -o Acquire::Retries=3 update -qq
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq software-properties-common
-          sudo add-apt-repository -y ppa:kicad/kicad-8.0-releases
-          sudo apt-get -o Acquire::Retries=3 update -qq
-          # CLI DRC/ERC plus pcbnew need no huge KiCad 3D model recommendations.
-          sudo DEBIAN_FRONTEND=noninteractive apt-get -o Acquire::Retries=3 install -y -qq --no-install-recommends kicad
           kicad-cli version | tee out/kicad-version.txt
-          grep -q '^8[.]' out/kicad-version.txt
+          grep -q '^8[.]0[.]9' out/kicad-version.txt
+          /usr/bin/python3 -c 'import pcbnew; print(pcbnew.GetBuildVersion())'
       - name: Fill GND zones and execute independent DRC/ERC
         shell: bash
         run: |
