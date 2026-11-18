@@ -36,7 +36,7 @@
 - `R11`: https://jlcpcb.com/partdetail/VishayIntertech-CRCW2512100RFKEG/C844884
 - `C3`: https://jlcpcb.com/partdetail/408030-GRM21BR71A475KE51L/C415536
 
-**Ein ausgefüllter Warenkorb/Live-Angebot kann erst nach dem Upload der echten Fertigungsdateien und automatischer Bauteilzuordnung entstehen.**
+**Ein verbindlicher Preis sowie die Freigabe der maschinellen Bestückungsorientierungen sind erst nach dem JLCPCB-Upload und der tatsächlichen Bauteilzuordnung möglich. Die elektrisch geprüfte Hardwarefunktion fehlt weiter.**
 
 ## Original-Release-Check (18.11.2026)
 
