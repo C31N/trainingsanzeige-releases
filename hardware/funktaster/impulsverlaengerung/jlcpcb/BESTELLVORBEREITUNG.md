@@ -1,11 +1,11 @@
 # JLCPCB-Bestellvorbereitung – Buzzer-Hold Rev A (18.11.2026)
 
-**STATUS: PRECHECK, KEINE FERTIGUNGSFREIGABE.** Die in diesem Repository vorhandene öffentlich eingecheckte Version enthält keine `kicad/*.kicad_pcb`, Gerber, Bohrdaten, CPL oder Firmware. Das Original-README verweist hierfür auf das separate GitHub-Release `buzzer-hold-revA-0.1.0`. Der konkrete Download und dessen Dateien wurden hier nicht unabhängig auf DRC, elektrisch korrektes Routing oder Bestückungsorientierung geprüft. Keine Bestellung bis zu dieser Prüfung.
+**STATUS: ORIGINAL-RELEASE-DATEN ERMITTELT UND KONSISTENZ GEPRÜFT; HARDWARE WEITER PROTOTYP.** Die reine Git-Tag-Quellcodeversion enthält nur Dokumentation, aber der [GitHub-Hardware-Release](https://github.com/C31N/trainingsanzeige-releases/releases/tag/buzzer-hold-revA-0.1.0) enthält separate Assets `Gerber_RevA_Prototyp.zip` und `WFD_Buzzer_Impulsverlaengerung_RevA_Prototyp.zip`. Die Dateien wurden über GitHub Actions geladen. Original-BOM und original CPL enthalten dieselben 26 Refdes, die veröffentlichte KiCad-Geometriedatei stimmt mit allen 22 SMD-Koordinaten überein. Alle 64 Release-Checksummen waren korrekt; das veröffentlichte Projekt meldet null ERC/DRC/Unconnected. Eine unabhängige erneute KiCad-8-Prüfung wurde in Actions ergänzt. Die reale Hardwareabnahme und finale JLCPCB-Vorschau bleiben offen.
 
 ## Zielauftrag
 - 5 Stück, 30 x 25 mm, 2 Lagen, FR4, 1,6 mm, 1 oz, Lötstopp, Oberseite bestückt, Economic PCBA soweit verfügbar.
 - Nur 22 SMD-Bauteile pro Platine; J1/J2/J3 (je 2 Pins) und J4 (3 Pins) **NICHT** bestücken, Anschlussleitungen später direkt anlöten oder optional Stiftleisten selbst montieren.
-- Die `JLCPCB_BOM_RevA_SMD_PRECHECK.csv` enthält 13 Gruppeneinträge mit insgesamt 22 SMD-Positionen. Zur finalen Bestellung zusätzlich die **zum exakt gleichen PCB-Stand passenden** Gerber- und CPL-Dateien aus dem separat angekündigten Hardware-Release verwenden.
+- Die `JLCPCB_BOM_RevA_SMD_PRECHECK.csv` enthält 13 Gruppeneinträge mit insgesamt 22 SMD-Positionen. Die Dateien `JLCPCB_BOM_SMD_Release_RevA.csv` und `JLCPCB_CPL_SMD_Release_RevA.csv` in diesem Verzeichnis wurden aus dem Original-Release geprüft erstellt. Die unveränderte Fertigungsdatei `Gerber_RevA_Prototyp.zip` befindet sich in den offiziellen Release-Anhängen. **Alle drei** Dateien gehören zusammen.
 - **U1 kommt unprogrammiert**. Der ATtiny402 muss anschließend per UPDI mit `firmware/buzzer-hold.hex` und geprüften Fuse-Einstellungen aus dem zugehörigen Hardwarepaket programmiert werden.
 - Mit dem VERICO-Akku: Der 9-V-Ausgang ist grundsätzlich im designierten Eingangsspannungsbereich 6–12 V. Ein Akku-/Ruhestrom-/Einschaltversuch am echten Prototyp steht noch aus.
 
@@ -18,7 +18,7 @@
 - Keine weiteren Teile ohne elektrische / geometrische Rückprüfung austauschen.
 
 ## Pflichtprüfungen vor Checkout
-1. Release herunterladen und Authentizität, **Gerber + Excellon + CPL + KiCad-PCB + Firmware** nachweisen; diese Daten sind nicht in diesem Commit.
+1. **Erledigt:** Original-Hardware-Release mit Gerber/Excellon, CPL, KiCad-PCB und Firmware separat abgerufen, 64 Checksummen korrekt. Git-Tag-Source-ZIP weiterhin nur Dokumentation.
 2. KiCad ERC/DRC 0 und Gerber-Vorschau; Netze `BAT`, `SWVIN`, `3V3`, `GND`, `POWER`, `DISCHARGE` und alle Transistorpads kontrollieren.
 3. BOM/CPL 1:1 vergleichen (22 SMD-Refdes); J1–J4 nicht bestücken, keine fehlenden Komponenten.
 4. JLCPCB-Vorschau: U1-Pin 1, U2 (TPS70933-DBVR PIN 1/2/3/4/5), D1-Kathode, Q1/Q3 G-S-D, Q2/Q4 B-E-C visuell verifizieren.
@@ -37,3 +37,11 @@
 - `C3`: https://jlcpcb.com/partdetail/408030-GRM21BR71A475KE51L/C415536
 
 **Ein ausgefüllter Warenkorb/Live-Angebot kann erst nach dem Upload der echten Fertigungsdateien und automatischer Bauteilzuordnung entstehen.**
+
+## Original-Release-Check (18.11.2026)
+
+- Zwei Asset-ZIPs aus dem taggenauen GitHub-Release heruntergeladen; unverändertes Gerber-Archiv bytegleich in beiden Assets.
+- 26 BOM- und 26 CPL-Referenzen identisch, vier Steckverbinder als THT aus Assembly ausgeschlossen.
+- BOM 13 Teilegruppen / 22 SMD-Referenzen, CPL exakt 22 Top-Positionen. Y-Koordinaten **negativ** belassen, da die ursprünglichen Gerber-Koordinaten Y=0 bis Y=-25 mm verwenden.
+- Intel HEX-Prüfsummen gültig und 738 Flash-Bytes deckungsgleich mit Original-BIN; Host-Zustandsmaschinentests unabhängig kompiliert und PASS.
+- Hardware-Abnahme und mögliche JLCPCB-Automatikrotationen bleiben unverändert offen.
