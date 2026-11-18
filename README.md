@@ -110,3 +110,8 @@ Die Lernvideobibliothek ist ein eigener Download im Adminbereich.
 
 Geräteschlüssel, WLAN-Kennwörter, Datenbanken, private Medien, PIN-Hashes und
 private Signierschlüssel sind keine öffentlichen Downloadinhalte.
+
+
+## Zusatzplatine für kurze Buzzerdrücke
+
+Die [ATtiny402-Impulsverlängerung Rev A](hardware/funktaster/impulsverlaengerung/README.md) ist als separates Hardware-Prototyppaket verfügbar. Es enthält KiCad-Projekt, Gerber/Bohrdaten, Stückliste, Firmware und drei PDF-Anleitungen. Elektrische Messung, Akkutest und Funkabnahme am echten Buzzer stehen noch aus. Für die Zusatzplatine ist kein Pi-Anwendungsupdate nötig.

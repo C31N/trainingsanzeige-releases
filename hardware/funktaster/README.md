@@ -5,6 +5,10 @@ Das vollständige [DIAMEX-Downloadpaket](DIAMEX_Funktaster.zip) enthält den
 und die Windows-Programmieroberfläche. Paketformat V7; die Anleitung entspricht
 dem aktuellen Hallenbetrieb. Firmware und Schaltplan sind unverändert.
 
+## Zusatzplatine für kurze Tastendrücke
+
+Für den bestehenden V5-Aufbau gibt es eine [ATtiny402-Impulsverlängerung als Rev-A-Prototyp](impulsverlaengerung/README.md) mit bestellbaren Fertigungsdaten, Firmware und Anschlussanleitung. Die elektrische Prüfung und Funkabnahme am echten Buzzer stehen noch aus. Während ihrer vollständigen Sendefolge bleiben weitere Drücke gesperrt. Der vorhandene ATtiny13A und seine Funkzuordnung bleiben erhalten.
+
 ## Welche Anleitung brauche ich?
 
 - [Lochrasterplan V5 mit Rückseitenverdrahtung](Lochrasterplan_Funktaster_V5_Rueckseitenverdrahtung.pdf)

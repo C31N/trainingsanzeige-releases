@@ -1,0 +1,27 @@
+﻿Referenz;Menge;Wert;Bestellbezeichnung;Footprint;Hinweis
+J1;1;BAT + / GND;TSW-102-07-G-S;Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical;"Pin 1 quadratisch; Stiftleiste optional, Drähte direkt anlöten"
+J2;1;TASTER / GND;TSW-102-07-G-S;Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical;"Pin 1 quadratisch; Stiftleiste optional, Drähte direkt anlöten"
+J3;1;SENDER VIN / GND;TSW-102-07-G-S;Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical;"Pin 1 quadratisch; Stiftleiste optional, Drähte direkt anlöten"
+J4;1;UPDI / 3V3 / GND;TSW-103-07-G-S;Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical;"Pin 1 quadratisch; Stiftleiste optional, Drähte direkt anlöten"
+U1;1;ATtiny402-SS;ATTINY402-SSNR;Package_SO:SOIC-8_3.9x4.9mm_P1.27mm;
+U2;1;TPS70933DBVR;TPS70933DBVR;Package_TO_SOT_SMD:SOT-23-5;"TPS709 ohne A/B-Suffix; EN Pin 3 bleibt offen"
+Q1;1;AO3407A;AO3407A;Package_TO_SOT_SMD:SOT-23;
+Q2;1;MMBT3904;MMBT3904LT1G;Package_TO_SOT_SMD:SOT-23;
+Q3;1;AO3400A;AO3400A;Package_TO_SOT_SMD:SOT-23;
+Q4;1;MMBT3904;MMBT3904LT1G;Package_TO_SOT_SMD:SOT-23;
+D1;1;BZT52C10;BZT52C10-7-F;Diode_SMD:D_SOD-123;
+R1;1;10k;RC0805FR-0710KL;Resistor_SMD:R_0805_2012Metric;
+R2;1;1k;RC0805FR-071KL;Resistor_SMD:R_0805_2012Metric;
+R3;1;100k;RC0805FR-07100KL;Resistor_SMD:R_0805_2012Metric;
+R4;1;10k;RC0805FR-0710KL;Resistor_SMD:R_0805_2012Metric;
+R5;1;10k;RC0805FR-0710KL;Resistor_SMD:R_0805_2012Metric;
+R6;1;100k;RC0805FR-07100KL;Resistor_SMD:R_0805_2012Metric;
+R7;1;10k;RC0805FR-0710KL;Resistor_SMD:R_0805_2012Metric;
+R8;1;100k;RC0805FR-07100KL;Resistor_SMD:R_0805_2012Metric;
+R9;1;10k;RC0805FR-0710KL;Resistor_SMD:R_0805_2012Metric;
+R10;1;100k;RC0805FR-07100KL;Resistor_SMD:R_0805_2012Metric;
+R11;1;100R 1W pulse;CRCW2512100RFKEG;Resistor_SMD:R_2512_6332Metric;"100 Ohm, 1 W; Entladeimpuls, keine Dauerlast"
+C1;1;100n 16V;GRM21BR71C104KA01L;Capacitor_SMD:C_0805_2012Metric;
+C2;1;1u 25V;GRM21BR71E105KA99L;Capacitor_SMD:C_0805_2012Metric;
+C3;1;4.7u 10V;GRM21BR71A475KA73L;Capacitor_SMD:C_0805_2012Metric;
+C4;1;100n 16V;GRM21BR71C104KA01L;Capacitor_SMD:C_0805_2012Metric;
