@@ -1,0 +1,1 @@
+Keine finale Live-CPL enthalten. Die beiden CPL-Referenzen enthalten NICHT die im Viewer geaenderten Drehungen/Koordinaten. Der Bildexport ist keine Fertigungskoordinatenquelle. Nicht erneut hochladen, bevor finaler numerischer Abgleich und STX883PRO-Landpattern-Pruefung erfolgt sind. fabrication_release=false.

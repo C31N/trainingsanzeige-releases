@@ -1,0 +1,1 @@
+{"device":"attiny402","clock_hz":5000000,"WDTCFG":"0x00","BODCFG":"0x56","OSCCFG":"0x7e","SYSCFG0":"0xf6","SYSCFG1":"0xff","APPEND":"0x00","BOOTEND":"0x00","notes":["BOD 2.6 V continuous active, sampled 125 Hz asleep","20 MHz / 4","UPDI enabled; no lockbits; watchdog active-only"]}

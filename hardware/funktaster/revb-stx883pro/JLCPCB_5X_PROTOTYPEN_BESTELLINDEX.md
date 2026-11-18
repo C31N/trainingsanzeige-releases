@@ -34,3 +34,8 @@
 - Erzeugung der Daten ist eine **technische Bestellvorbereitung für Prototypen**, nicht eine bereits abgeschlossene JLCPCB-Bestellung und keine Garantie für ein fertiges Plug-and-Play-Gerät.
 
 **Projekt-Gates:** `cad_preflight=pass`, `prototype_export=pass`, `jlc_component_landing_review=pending`, `antenna_rf=unverified`, `battery_under_load=unverified`, `firmware_programming=pending`, `series_fabrication_release=false`.
+
+
+## Aktualisierung B0.9-D1 vom18.11.2026
+
+[Neue Dokumentation und PDF](dokumentation-b09-d1/README.md) haben Vorrang. Genehmigte Ersatztypen und Bildbeleg sind gesichert. Die finale numerische Live-CPL nach den Viewer-Korrekturen fehlt. Die oben genannten ursprünglichen BOM/CPL-Dateien sind keine unverändert wiederverwendbare finale Bestückung. Keine Fertigungsfreigabe, bis der numerische Abgleich und der metrische STX883PRO-Landpattern-Nachweis vorliegen.

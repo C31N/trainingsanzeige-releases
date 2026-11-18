@@ -1,0 +1,150 @@
+{
+  "J1": {
+    "1": {
+      "net": "/BAT_FUSED",
+      "x_mm": 5.2,
+      "gerber_y_mm": -64.0,
+      "top_y_down_mm": 64.0
+    },
+    "2": {
+      "net": "/GND",
+      "x_mm": 5.2,
+      "gerber_y_mm": -66.54,
+      "top_y_down_mm": 66.54
+    }
+  },
+  "J2": {
+    "1": {
+      "net": "/BUTTON_RAW",
+      "x_mm": 13.0,
+      "gerber_y_mm": -64.0,
+      "top_y_down_mm": 64.0
+    },
+    "2": {
+      "net": "/GND",
+      "x_mm": 13.0,
+      "gerber_y_mm": -66.54,
+      "top_y_down_mm": 66.54
+    }
+  },
+  "J3": {
+    "1": {
+      "net": "/ANT",
+      "x_mm": 19.73,
+      "gerber_y_mm": -3.2,
+      "top_y_down_mm": 3.2
+    }
+  },
+  "J4": {
+    "1": {
+      "net": "/UPDI",
+      "x_mm": 20.5,
+      "gerber_y_mm": -63.2,
+      "top_y_down_mm": 63.2
+    },
+    "2": {
+      "net": "/3V3",
+      "x_mm": 20.5,
+      "gerber_y_mm": -65.74,
+      "top_y_down_mm": 65.74
+    },
+    "3": {
+      "net": "/GND",
+      "x_mm": 20.5,
+      "gerber_y_mm": -68.28,
+      "top_y_down_mm": 68.28
+    }
+  },
+  "J5": {
+    "1": {
+      "net": "/MISO",
+      "x_mm": 5.0,
+      "gerber_y_mm": -35.0,
+      "top_y_down_mm": 35.0
+    },
+    "2": {
+      "net": "/TX3V3",
+      "x_mm": 7.54,
+      "gerber_y_mm": -35.0,
+      "top_y_down_mm": 35.0
+    },
+    "3": {
+      "net": "/SCK",
+      "x_mm": 5.0,
+      "gerber_y_mm": -37.54,
+      "top_y_down_mm": 37.54
+    },
+    "4": {
+      "net": "/MOSI",
+      "x_mm": 7.54,
+      "gerber_y_mm": -37.54,
+      "top_y_down_mm": 37.54
+    },
+    "5": {
+      "net": "/RESET",
+      "x_mm": 5.0,
+      "gerber_y_mm": -40.08,
+      "top_y_down_mm": 40.08
+    },
+    "6": {
+      "net": "/GND",
+      "x_mm": 7.54,
+      "gerber_y_mm": -40.08,
+      "top_y_down_mm": 40.08
+    }
+  },
+  "U5": {
+    "1": {
+      "net": "/GND",
+      "x_mm": 12.46,
+      "gerber_y_mm": -19.6,
+      "top_y_down_mm": 19.6
+    },
+    "2": {
+      "net": "/TX3V3",
+      "x_mm": 15.0,
+      "gerber_y_mm": -19.6,
+      "top_y_down_mm": 19.6
+    },
+    "3": {
+      "net": "/RF_DATA",
+      "x_mm": 17.54,
+      "gerber_y_mm": -19.6,
+      "top_y_down_mm": 19.6
+    },
+    "4": {
+      "net": "/ANT",
+      "x_mm": 19.73,
+      "gerber_y_mm": -6.4,
+      "top_y_down_mm": 6.4
+    }
+  },
+  "D1": {
+    "1": {
+      "net": "/BAT",
+      "x_mm": 24.45,
+      "gerber_y_mm": -50.0,
+      "top_y_down_mm": 50.0
+    },
+    "2": {
+      "net": "/PGATE",
+      "x_mm": 27.75,
+      "gerber_y_mm": -50.0,
+      "top_y_down_mm": 50.0
+    }
+  },
+  "D2": {
+    "1": {
+      "net": "/BAT",
+      "x_mm": 1.75,
+      "gerber_y_mm": -57.0,
+      "top_y_down_mm": 57.0
+    },
+    "2": {
+      "net": "/BAT_FUSED",
+      "x_mm": 7.25,
+      "gerber_y_mm": -57.0,
+      "top_y_down_mm": 57.0
+    }
+  }
+}

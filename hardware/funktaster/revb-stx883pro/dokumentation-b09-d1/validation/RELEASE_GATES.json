@@ -1,0 +1,22 @@
+{
+  "documentation_revision": "B0.9-D1",
+  "hardware_revision": "B0.9",
+  "date": "2026-11-18",
+  "base_commit": "09f80822e131fa1d7f6cef4a08b638c0d64b4231",
+  "cad_preflight": "pass_0_0_0_0",
+  "bom_types": 19,
+  "smd_references": 35,
+  "bom_matches_saved_cart": true,
+  "live_visual_review": "performed_35_references",
+  "D1_D2_live_correction": "180 degrees relative to imported file; cathode left in top view",
+  "live_numeric_cpl_export_available": false,
+  "live_numeric_cpl_matches_archive": false,
+  "jlc_stx883pro_metric_landpattern_verified": false,
+  "hardware_tested": false,
+  "battery_under_load_verified": false,
+  "rf_tested": false,
+  "firmware_preprogrammed": false,
+  "fabrication_release": false,
+  "series_release": false,
+  "ordering_recommendation": "hold_until_numeric_live_CPL_and_metric_landing_review"
+}
