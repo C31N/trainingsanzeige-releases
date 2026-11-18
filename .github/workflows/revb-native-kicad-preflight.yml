@@ -3,16 +3,17 @@ on:
   push:
     branches: [codex/buzzer-revb-stx883pro-layout-2026-11-18]
     paths:
-      - hardware/funktaster/revb-stx883pro/Buzzer_RevB_STX883PRO_Entwurf_B0.8.zip
+      - hardware/funktaster/revb-stx883pro/Buzzer_RevB_STX883PRO_Entwurf_B0.9.zip
       - .github/workflows/revb-native-kicad-preflight.yml
       - hardware/funktaster/revb-stx883pro/tools/apply_b04_fixes.py
       - hardware/funktaster/revb-stx883pro/tools/apply_b05_schematic_fix.py
       - hardware/funktaster/revb-stx883pro/tools/apply_b06_parity_fix.py
       - hardware/funktaster/revb-stx883pro/tools/apply_b07_nc_nets.py
       - hardware/funktaster/revb-stx883pro/tools/apply_b08_rf_module_pitch.py
+      - hardware/funktaster/revb-stx883pro/tools/apply_b09_short_ant.py
   pull_request:
     paths:
-      - hardware/funktaster/revb-stx883pro/Buzzer_RevB_STX883PRO_Entwurf_B0.8.zip
+      - hardware/funktaster/revb-stx883pro/Buzzer_RevB_STX883PRO_Entwurf_B0.9.zip
       - .github/workflows/revb-native-kicad-preflight.yml
   workflow_dispatch:
 permissions:
@@ -42,8 +43,10 @@ jobs:
           mv src/Buzzer_RevB_STX883PRO_B0.6 src/Buzzer_RevB_STX883PRO_B0.7
           python3 hardware/funktaster/revb-stx883pro/tools/apply_b08_rf_module_pitch.py src/Buzzer_RevB_STX883PRO_B0.7
           mv src/Buzzer_RevB_STX883PRO_B0.7 src/Buzzer_RevB_STX883PRO_B0.8
-          # Preserve design artifact even when DRC fails; no Gerber output.
-          (cd src && zip -qr ../out/Buzzer_RevB_STX883PRO_Entwurf_B0.8.zip Buzzer_RevB_STX883PRO_B0.8)
+          python3 hardware/funktaster/revb-stx883pro/tools/apply_b09_short_ant.py src/Buzzer_RevB_STX883PRO_B0.8
+          mv src/Buzzer_RevB_STX883PRO_B0.8 src/Buzzer_RevB_STX883PRO_B0.9
+          # Preserve design artifact even when DRC fails; prototype only.
+          (cd src && zip -qr ../out/Buzzer_RevB_STX883PRO_Entwurf_B0.9.zip Buzzer_RevB_STX883PRO_B0.9)
       - name: Install real KiCad 8, not Ubuntu's default KiCad 7
         shell: bash
         run: |
@@ -61,10 +64,10 @@ jobs:
         run: |
           set +e
           set -uo pipefail
-          PCB=src/Buzzer_RevB_STX883PRO_B0.8/kicad/buzzer-revb-stx883pro-ROUTED-V3-EXPERIMENT.kicad_pcb
-          SCH=src/Buzzer_RevB_STX883PRO_B0.8/kicad/buzzer-revb-stx883pro.kicad_sch
+          PCB=src/Buzzer_RevB_STX883PRO_B0.9/kicad/buzzer-revb-stx883pro-ROUTED-V3-EXPERIMENT.kicad_pcb
+          SCH=src/Buzzer_RevB_STX883PRO_B0.9/kicad/buzzer-revb-stx883pro.kicad_sch
           # pcbnew is necessary for zone connectivity; DRC on unfilled zones would be misleading
-          /usr/bin/python3 - "$PCB" src/Buzzer_RevB_STX883PRO_B0.8/kicad/buzzer-revb-stx883pro.kicad_pcb <<'PY'
+          /usr/bin/python3 - "$PCB" src/Buzzer_RevB_STX883PRO_B0.9/kicad/buzzer-revb-stx883pro.kicad_pcb <<'PY'
           import sys
           import pcbnew
           src, dst = sys.argv[1:]
@@ -76,7 +79,7 @@ jobs:
           PY
           fill_rc=$?
           if [ "$fill_rc" -eq 0 ]; then
-            kicad-cli pcb drc --format json --severity-error --severity-warning --schematic-parity --exit-code-violations --output out/native-drc.json src/Buzzer_RevB_STX883PRO_B0.8/kicad/buzzer-revb-stx883pro.kicad_pcb
+            kicad-cli pcb drc --format json --severity-error --severity-warning --schematic-parity --exit-code-violations --output out/native-drc.json src/Buzzer_RevB_STX883PRO_B0.9/kicad/buzzer-revb-stx883pro.kicad_pcb
             drc_rc=$?
           else
             printf 'pcbnew zone fill failed with rc=%s\n' "$fill_rc" | tee out/zone-fill-error.txt
@@ -118,14 +121,14 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: revb-b08-native-kicad8-preflight
+          name: revb-b09-native-kicad8-preflight
           path: |
             out/kicad-version.txt
             out/native-drc.json
             out/native-erc.json
             out/native-cli-exit-codes.txt
             out/zone-fill-error.txt
-            out/Buzzer_RevB_STX883PRO_Entwurf_B0.8.zip
+            out/Buzzer_RevB_STX883PRO_Entwurf_B0.9.zip
           retention-days: 14
           if-no-files-found: warn
 
