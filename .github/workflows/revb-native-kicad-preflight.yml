@@ -11,6 +11,7 @@ on:
       - hardware/funktaster/revb-stx883pro/tools/apply_b07_nc_nets.py
       - hardware/funktaster/revb-stx883pro/tools/apply_b08_rf_module_pitch.py
       - hardware/funktaster/revb-stx883pro/tools/apply_b09_short_ant.py
+      - hardware/funktaster/revb-stx883pro/tools/export_jlcpcb_b09_prototype.py
   pull_request:
     paths:
       - hardware/funktaster/revb-stx883pro/Buzzer_RevB_STX883PRO_Entwurf_B0.9.zip
@@ -117,6 +118,31 @@ jobs:
           json_rc=$?
           printf 'JSON_GATE=%s\n' "$json_rc" | tee -a out/native-cli-exit-codes.txt
           test "$fill_rc" -eq 0 && test "$drc_rc" -eq 0 && test "$erc_rc" -eq 0 && test "$json_rc" -eq 0
+      - name: Export 5x JLCPCB prototype fabrication preview after zero DRC/ERC
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT=src/Buzzer_RevB_STX883PRO_B0.9
+          BOARD="$ROOT/kicad/buzzer-revb-stx883pro.kicad_pcb"
+          DEST=out/revb-b09-jlcpcb-prototype-preview
+          mkdir -p "$DEST/gerbers"
+          kicad-cli pcb export gerbers --layers F.Cu,B.Cu,F.Mask,B.Mask,F.Paste,F.Silkscreen,B.Silkscreen,Edge.Cuts --output "$DEST/gerbers/" "$BOARD"
+          kicad-cli pcb export drill --format excellon --output "$DEST/gerbers/" "$BOARD"
+          /usr/bin/python3 hardware/funktaster/revb-stx883pro/tools/export_jlcpcb_b09_prototype.py "$ROOT" "$DEST"
+          cp "$ROOT/firmware/"*.hex "$DEST/"
+          cp "$ROOT/firmware/SHA256SUMS.txt" "$DEST/"
+          cp out/native-drc.json out/native-erc.json "$DEST/"
+          echo 'PROTOTYPE ONLY. JLC footprint, 50-ohm RF, installed ERP, battery under load and MCU firmware NOT validated. DO NOT ASSUME SERIES RELEASE.' > "$DEST/00_README_NICHT_SERIENREIF.txt"
+          (cd "$DEST" && zip -qr ../RevB_B09_5x_JLCPCB_PROTOTYPEN_UNFREIGEGEBEN.zip .)
+      - name: Upload JLCPCB prototype files (NOT production approval)
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: revb-b09-jlcpcb-prototype-preview-not-approved
+          path: out/RevB_B09_5x_JLCPCB_PROTOTYPEN_UNFREIGEGEBEN.zip
+          retention-days: 14
+          if-no-files-found: error
       - name: Upload actual validation evidence (NOT fabrication files)
         if: always()
         uses: actions/upload-artifact@v4
