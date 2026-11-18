@@ -65,10 +65,10 @@ for name in ['buzzer-revb-stx883pro-ROUTED-V3-EXPERIMENT.kicad_pcb',
     # Front header labels identify the actual holes; the back provides full net names.
     for ref,x,y in [('J1',5.2,61.8),('J2',13,61.8),('J4',20.5,60.7),('J5',6.27,32.7),('J3',24,5.2)]:
         text(ref,x,y,.85,role='reference')
-    for label,x,y in [('1+',3.1,64),('2-',3.1,66.54),('1',11.25,64),('2',11.25,66.54),
-                      ('1',18.75,63.2),('2',18.75,65.74),('3',18.75,68.28),
+    for label,x,y in [('1+',2.4,64),('2-',2.4,66.54),('1',10.7,64),('2',10.7,66.54),
+                      ('1',18.2,63.2),('2',18.2,65.74),('3',18.2,68.28),
                       ('1',3.25,35),('3',3.25,37.54),('5',3.25,40.08),
-                      ('2',9.25,35),('4',9.25,37.54),('6',9.25,40.08),('1',18,3.2)]:
+                      ('2',9.25,35),('4',9.25,37.54),('6',7.54,42.0),('1',18,3.2)]:
         text(label,x,y,.7,role='connector_pin')
     # Place all 35 SMD references outside component/pad envelopes, close to their part.
     refs=[ref for ref in footprints if ref[0] in 'RCDQU']
@@ -93,19 +93,22 @@ for name in ['buzzer-revb-stx883pro-ROUTED-V3-EXPERIMENT.kicad_pcb',
         text(ref,*chosen,size,role='reference')
     # Back legend is mirrored in CAD, so it reads normally when viewing the back.
     back=[('Buzzer Rev B0.10',15,7.2,1.1),('ID: ______',15,10.3,1.15),
-          ('RUECKSEITE - ANT oben',15,13,.8),('Pin 1 = markierte Ecke',15,15,.8),
+          ('RUECKSEITE - ANT oben',15,13,1),('Pin 1 = markierte Ecke',15,15,1),
+          ('U2/U3: 3,4 NC',15,16.5,1),
           ('J1 AKKU: 1 +9V / 2 GND',15,18,.8),
           ('J2 TASTER: 1 NO / 2 GND',15,20,.8),
           ('J3: ANT / 433 MHz',15,22,.8),
-          ('J4 UPDI: 1 UPDI / 2 CTRL3V3 / 3 GND',15,25,.75),
-          ('J5 ISP: 1 MISO / 2 TX3V3',15,28,.8),
-          ('3 SCK / 4 MOSI / 5 RESET / 6 GND',15,30,.75),
-          ('U5: 1 GND / 2 TX3V3 / 3 DATA / 4 ANT',15,32,.7),
-          ('U2/U3: 1 IN / 2 GND',20,33.9,1),
-          ('3,4 NC / 5 OUT',20,35.7,1),
-          ('Q1/Q3: 1 G / 2 S / 3 D',19,37.5,1),
-          ('Q2/Q4: 1 B / 2 E / 3 C',19,39.3,1),
-          ('D1/D2: K links (von oben)',19,41.1,1),
+          ('J4 UPDI: 1 UPDI',15,24,1),
+          ('2 CTRL3V3 / 3 GND',15,25.7,1),
+          ('J5: 1 MISO / 2 TX3V3',15,27.4,1),
+          ('3 SCK / 4 MOSI',15,29.1,1),
+          ('5 RESET / 6 GND',15,30.8,1),
+          ('U5: 1 GND / 2 TX3V3',15,32.5,1),
+          ('3 DATA / 4 ANT',15,34.2,1),
+          ('U2/U3: 1IN 2GND 5OUT',19,35.9,1),
+          ('Q1/Q3: 1G 2S 3D',19,37.6,1),
+          ('Q2/Q4: 1B 2E 3C',19,39.3,1),
+          ('D1/D2: K links (von oben)',19,41.0,1),
           ('U1 ATtiny402',8,43.0,.8),('U4 ATtiny13A',22,43.0,.8),
           ('Keine 5V an J4/J5!',15,60.5,.85)]
     for label,x,y,size in back:text(label,x,y,size,True)
