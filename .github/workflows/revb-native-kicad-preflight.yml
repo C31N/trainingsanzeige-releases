@@ -4,6 +4,7 @@ on:
     branches: [codex/buzzer-revb-stx883pro-layout-2026-11-18]
     paths:
       - hardware/funktaster/revb-stx883pro/validation/b10-footprint/C3001517_EasyEDA_Official_Library.json
+      - hardware/funktaster/revb-stx883pro/tools/add_b10_silkscreen.py
       - hardware/funktaster/revb-stx883pro/tools/apply_b10_official_landpattern.py
       - hardware/funktaster/revb-stx883pro/tools/export_jlcpcb_b10_prototype.py
       - .github/workflows/revb-native-kicad-preflight.yml
@@ -17,6 +18,7 @@ on:
   pull_request:
     paths:
       - hardware/funktaster/revb-stx883pro/validation/b10-footprint/C3001517_EasyEDA_Official_Library.json
+      - hardware/funktaster/revb-stx883pro/tools/add_b10_silkscreen.py
       - hardware/funktaster/revb-stx883pro/tools/apply_b10_official_landpattern.py
       - hardware/funktaster/revb-stx883pro/tools/export_jlcpcb_b10_prototype.py
       - .github/workflows/revb-native-kicad-preflight.yml
@@ -61,6 +63,7 @@ jobs:
           mv src/Buzzer_RevB_STX883PRO_B0.8 src/Buzzer_RevB_STX883PRO_B0.9
           python3 hardware/funktaster/revb-stx883pro/tools/apply_b10_official_landpattern.py src/Buzzer_RevB_STX883PRO_B0.9
           mv src/Buzzer_RevB_STX883PRO_B0.9 src/Buzzer_RevB_STX883PRO_B0.10
+          python3 hardware/funktaster/revb-stx883pro/tools/add_b10_silkscreen.py src/Buzzer_RevB_STX883PRO_B0.10
           # Preserve design artifact even when DRC fails; prototype only.
           (cd src && zip -qr ../out/Buzzer_RevB_STX883PRO_Entwurf_B0.10.zip Buzzer_RevB_STX883PRO_B0.10)
       - name: Verify pinned official KiCad 8.0.9 and Python bindings
@@ -152,22 +155,25 @@ jobs:
           (dest/'FIRMWARE_SHA256SUMS.txt').write_text(''.join(f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.name}\n' for p in sorted(dest.glob('*.hex'))))
           PY
           cp out/native-drc.json out/native-erc.json "$DEST/"
+          cp "$ROOT/validation/B10_SILKSCREEN.json" "$DEST/"
+          kicad-cli pcb export svg --layers F.Silkscreen,F.Mask,Edge.Cuts --black-and-white --page-size-mode 2 --exclude-drawing-sheet --output "$DEST/silkscreen-front.svg" "$BOARD"
+          kicad-cli pcb export svg --layers B.Silkscreen,B.Mask,Edge.Cuts --mirror --black-and-white --page-size-mode 2 --exclude-drawing-sheet --output "$DEST/silkscreen-back.svg" "$BOARD"
           echo 'PROTOTYPE ONLY. C3001517 lands matched to official library; machine placement, RF, installed ERP, battery under load and MCU programming NOT validated. DO NOT ASSUME SERIES RELEASE.' > "$DEST/00_README_NICHT_SERIENREIF.txt"
           (cd "$DEST" && find . -type f ! -name SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS.txt)
-          (cd "$DEST" && zip -qr ../RevB_B10_6x_JLCPCB_PROTOTYPEN_UNFREIGEGEBEN.zip .)
+          (cd "$DEST" && zip -qr ../RevB_B10_S2_6x_JLCPCB_PROTOTYPEN_UNFREIGEGEBEN.zip .)
       - name: Upload JLCPCB prototype files (NOT production approval)
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: revb-b10-jlcpcb-prototype-preview-not-approved
-          path: out/RevB_B10_6x_JLCPCB_PROTOTYPEN_UNFREIGEGEBEN.zip
+          name: revb-b10-s2-jlcpcb-prototype-preview-not-approved
+          path: out/RevB_B10_S2_6x_JLCPCB_PROTOTYPEN_UNFREIGEGEBEN.zip
           retention-days: 14
           if-no-files-found: error
       - name: Upload actual validation evidence (NOT fabrication files)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: revb-b10-native-kicad8-preflight
+          name: revb-b10-s2-native-kicad8-preflight
           path: |
             out/kicad-version.txt
             out/native-drc.json
