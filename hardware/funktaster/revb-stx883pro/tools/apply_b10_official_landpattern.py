@@ -9,6 +9,7 @@ import hashlib
 import json
 import re
 import sys
+import uuid
 from pathlib import Path
 
 root = Path(sys.argv[1]).resolve()
@@ -85,6 +86,16 @@ for name in ['buzzer-revb-stx883pro-PLACEMENT-ONLY.kicad_pcb',
         oldtrack='(start 19.7300 3.2000) (end 19.7300 6.4000) (width 0.8)'
         assert text.count(oldtrack)==1
         text=text.replace(oldtrack,f'(start 19.7300 3.2000) (end 19.7300 {12.5+new["4"][1]:.6f}) (width 0.8)')
+        # The larger GND pad reduces clearance to the adjacent TX3V3 diagonal.
+        # Shift this diagonal outward by 0.25 mm, preserving the 0.20-mm rule.
+        oldtrack='(start 7.5000 27.7500) (end 7.5000 27.2500) (width 0.25)'
+        assert text.count(oldtrack)==1
+        text=text.replace(oldtrack,oldtrack.replace('27.2500','27.5000'))
+        oldtrack='(start 7.5000 27.2500) (end 14.7500 20.0000) (width 0.25)'
+        assert text.count(oldtrack)==1
+        text=text.replace(oldtrack,'(start 7.5000 27.5000) (end 14.7500 20.2500) (width 0.25)')
+        uid=str(uuid.uuid5(uuid.NAMESPACE_URL,'wfd:revb:b10:tx3v3-clearance-dogleg'))
+        text=text.rstrip()[:-1]+f'\n(segment (start 14.7500 20.2500) (end 14.7500 20.0000) (width 0.25) (layer F.Cu) (net 23) (uuid "{uid}"))\n)\n'
     path.write_text(text,encoding='utf-8')
 # Keep the generator consistent with the patched library.
 path=root/'make_design.py'; text=path.read_text(encoding='utf-8')
@@ -127,6 +138,7 @@ report={'revision':'B0.10','source':'JLCEDA/EasyEDA Official Library',
         'library_unit_mm':.254,'anchor':'U5 pad 2 remains at (15,19.6) mm',
         'old_pads_local_mm':old,'corrected_pads_local_mm':new,
         'pad_shape':'rect','antenna_trace_length_mm':round(12.5+new['4'][1]-3.2,6),
+        'tx3v3_clearance_diagonal_shift_mm':.25,
         'library_lands_compared':True,'live_numeric_cpl_verified':False,
         'approved_lcsc_substitutions':substitutions,
         'hardware_verified':False,'fabrication_release':False}
