@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rev B0.10 five-PCBA JLCPCB prototype export. Strict BOM/CPL/PCB reconciliation."""
+"""Rev B0.10 six-PCBA JLCPCB prototype export. Strict BOM/CPL/PCB reconciliation."""
 import csv,hashlib,json,sys,zipfile
 from collections import defaultdict
 from pathlib import Path
@@ -38,8 +38,10 @@ with (out/'03_JLCPCB_CPL_35_SMD.csv').open('w',encoding='utf-8-sig',newline='') 
   assert abs(float(v['Mid Y'].removesuffix('mm'))-y)<0.01,(ref,y)
   assert abs(float(v['Rotation'])-rot)<0.001 and v['Layer']=='Top'
   assert 0<x<30 and 0<y<70
-  jlc_rot=180 if ref in {'D1','D2'} else rot
-  w.writerow([ref,f'{x:.4f}mm',f'{-y:.4f}mm','Top',f'{jlc_rot:g}'])
+  jlc_rot=270 if ref in {'U1','U4'} else 180 if ref in {'U2','U3','Q1','Q2','Q3','Q4'} else rot
+  # C3001517 library origin offset, verified by the clean viewer re-import.
+  if ref=='U5': x+=1.095019; y+=0.522416
+  w.writerow([ref,f'{x:.6f}mm',f'{-y:.6f}mm','Top',f'{jlc_rot:g}'])
 g=out/'gerbers'
 assert g.is_dir()
 files=list(g.iterdir())
@@ -51,11 +53,11 @@ with zipfile.ZipFile(out/'01_JLCPCB_GERBER_30x70_2L_PROTO.zip','w',zipfile.ZIP_D
   if p.is_file():z.write(p,p.name)
 (out/'04_NICHT_SMD_BESTUECKEN.txt').write_text('J1 J2 J3 J4 J5: manuell verkabeln / programmieren\nH1 H2: 2.2-mm-Befestigungsbohrungen\n9V-Akku, externe T250mA-Sicherung, Taster und 433MHz-Antenne nicht Bestandteil der PCBA.\n')
 (out/'RELEASE_GATES.json').write_text(json.dumps({
- 'revision':'B0.10','board_mm':[30,70],'pcb_qty':5,'pcba_qty':5,
+ 'revision':'B0.10','board_mm':[30,70],'pcb_qty':10,'pcba_qty':6,'assembly_type':'Standard',
  'smd_ref_qty':35,'unique_lcsc':19,
- 'jlc_c3001517_library_lands_matched':True,'live_placement_verified':False,'fabrication_release':False,'rf_erp_confirmed':False,
+ 'jlc_c3001517_library_lands_matched':True,'placement_file_reimport_visually_reviewed':True,'unlogged_viewer_edits':False,'fabrication_release':False,'rf_erp_confirmed':False,
  'battery_under_load_confirmed':False,'firmware_preprogrammed':False,
- 'prototype_only':True,'series_fabrication_release':False
+ 'prototype_only':True,'series_fabrication_release':False,'hardware_tested':False
 },indent=2))
 (out/'SHA256SUMS.txt').write_text(''.join(
  f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(out)}\n'
