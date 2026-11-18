@@ -79,8 +79,9 @@ for name in ['buzzer-revb-stx883pro-ROUTED-V3-EXPERIMENT.kicad_pcb',
         width=sum(.42 if c in '1 Iil.,:' else .80 for c in ref)*size+.16;h=size+.20
         candidates=[]
         for distance in [0,.25,.5,.75,1,1.5,2,2.5,3]:
-            candidates.extend([(ox,a[1]-.28-h/2-distance),(ox,a[3]+.28+h/2+distance),
-                               (a[0]-.28-width/2-distance,oy),(a[2]+.28+width/2+distance,oy)])
+            for slide in [0,.5,-.5,1,-1,1.5,-1.5,2,-2]:
+                candidates.extend([(ox+slide,a[1]-.28-h/2-distance),(ox+slide,a[3]+.28+h/2+distance),
+                                   (a[0]-.28-width/2-distance,oy+slide),(a[2]+.28+width/2+distance,oy+slide)])
         chosen=None
         for x,y in candidates:
             b=(x-width/2,y-h/2,x+width/2,y+h/2)
