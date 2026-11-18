@@ -1,9 +1,11 @@
-name: Rev B STX883PRO native KiCad design preflight (no fab release)
+name: Rev B0.10 official lands - native KiCad preflight (no fab release)
 on:
   push:
     branches: [codex/buzzer-revb-stx883pro-layout-2026-11-18]
     paths:
-      - hardware/funktaster/revb-stx883pro/Buzzer_RevB_STX883PRO_Entwurf_B0.9.zip
+      - hardware/funktaster/revb-stx883pro/validation/b10-footprint/**
+      - hardware/funktaster/revb-stx883pro/tools/apply_b10_official_landpattern.py
+      - hardware/funktaster/revb-stx883pro/tools/export_jlcpcb_b10_prototype.py
       - .github/workflows/revb-native-kicad-preflight.yml
       - hardware/funktaster/revb-stx883pro/tools/apply_b04_fixes.py
       - hardware/funktaster/revb-stx883pro/tools/apply_b05_schematic_fix.py
@@ -14,7 +16,9 @@ on:
       - hardware/funktaster/revb-stx883pro/tools/export_jlcpcb_b09_prototype.py
   pull_request:
     paths:
-      - hardware/funktaster/revb-stx883pro/Buzzer_RevB_STX883PRO_Entwurf_B0.9.zip
+      - hardware/funktaster/revb-stx883pro/validation/b10-footprint/**
+      - hardware/funktaster/revb-stx883pro/tools/apply_b10_official_landpattern.py
+      - hardware/funktaster/revb-stx883pro/tools/export_jlcpcb_b10_prototype.py
       - .github/workflows/revb-native-kicad-preflight.yml
   workflow_dispatch:
 permissions:
@@ -46,8 +50,10 @@ jobs:
           mv src/Buzzer_RevB_STX883PRO_B0.7 src/Buzzer_RevB_STX883PRO_B0.8
           python3 hardware/funktaster/revb-stx883pro/tools/apply_b09_short_ant.py src/Buzzer_RevB_STX883PRO_B0.8
           mv src/Buzzer_RevB_STX883PRO_B0.8 src/Buzzer_RevB_STX883PRO_B0.9
+          python3 hardware/funktaster/revb-stx883pro/tools/apply_b10_official_landpattern.py src/Buzzer_RevB_STX883PRO_B0.9
+          mv src/Buzzer_RevB_STX883PRO_B0.9 src/Buzzer_RevB_STX883PRO_B0.10
           # Preserve design artifact even when DRC fails; prototype only.
-          (cd src && zip -qr ../out/Buzzer_RevB_STX883PRO_Entwurf_B0.9.zip Buzzer_RevB_STX883PRO_B0.9)
+          (cd src && zip -qr ../out/Buzzer_RevB_STX883PRO_Entwurf_B0.10.zip Buzzer_RevB_STX883PRO_B0.10)
       - name: Install real KiCad 8, not Ubuntu's default KiCad 7
         shell: bash
         run: |
@@ -65,10 +71,10 @@ jobs:
         run: |
           set +e
           set -uo pipefail
-          PCB=src/Buzzer_RevB_STX883PRO_B0.9/kicad/buzzer-revb-stx883pro-ROUTED-V3-EXPERIMENT.kicad_pcb
-          SCH=src/Buzzer_RevB_STX883PRO_B0.9/kicad/buzzer-revb-stx883pro.kicad_sch
+          PCB=src/Buzzer_RevB_STX883PRO_B0.10/kicad/buzzer-revb-stx883pro-ROUTED-V3-EXPERIMENT.kicad_pcb
+          SCH=src/Buzzer_RevB_STX883PRO_B0.10/kicad/buzzer-revb-stx883pro.kicad_sch
           # pcbnew is necessary for zone connectivity; DRC on unfilled zones would be misleading
-          /usr/bin/python3 - "$PCB" src/Buzzer_RevB_STX883PRO_B0.9/kicad/buzzer-revb-stx883pro.kicad_pcb <<'PY'
+          /usr/bin/python3 - "$PCB" src/Buzzer_RevB_STX883PRO_B0.10/kicad/buzzer-revb-stx883pro.kicad_pcb <<'PY'
           import sys
           import pcbnew
           src, dst = sys.argv[1:]
@@ -80,7 +86,7 @@ jobs:
           PY
           fill_rc=$?
           if [ "$fill_rc" -eq 0 ]; then
-            kicad-cli pcb drc --format json --severity-error --severity-warning --schematic-parity --exit-code-violations --output out/native-drc.json src/Buzzer_RevB_STX883PRO_B0.9/kicad/buzzer-revb-stx883pro.kicad_pcb
+            kicad-cli pcb drc --format json --severity-error --severity-warning --schematic-parity --exit-code-violations --output out/native-drc.json src/Buzzer_RevB_STX883PRO_B0.10/kicad/buzzer-revb-stx883pro.kicad_pcb
             drc_rc=$?
           else
             printf 'pcbnew zone fill failed with rc=%s\n' "$fill_rc" | tee out/zone-fill-error.txt
@@ -123,73 +129,38 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ROOT=src/Buzzer_RevB_STX883PRO_B0.9
+          ROOT=src/Buzzer_RevB_STX883PRO_B0.10
           BOARD="$ROOT/kicad/buzzer-revb-stx883pro.kicad_pcb"
-          DEST=out/revb-b09-jlcpcb-prototype-preview
+          DEST=out/revb-b10-jlcpcb-prototype-preview
           mkdir -p "$DEST/gerbers"
           kicad-cli pcb export gerbers --layers F.Cu,B.Cu,F.Mask,B.Mask,F.Paste,F.Silkscreen,B.Silkscreen,Edge.Cuts --output "$DEST/gerbers/" "$BOARD"
           kicad-cli pcb export drill --format excellon --output "$DEST/gerbers/" "$BOARD"
-          /usr/bin/python3 hardware/funktaster/revb-stx883pro/tools/export_jlcpcb_b09_prototype.py "$ROOT" "$DEST"
+          /usr/bin/python3 hardware/funktaster/revb-stx883pro/tools/export_jlcpcb_b10_prototype.py "$ROOT" "$DEST"
           cp "$ROOT/firmware/"*.hex "$DEST/"
-          cp "$ROOT/firmware/SHA256SUMS.txt" "$DEST/"
+          cp "$ROOT/firmware/SHA256SUMS.txt" "$DEST/FIRMWARE_SHA256SUMS.txt"
           cp out/native-drc.json out/native-erc.json "$DEST/"
-          echo 'PROTOTYPE ONLY. JLC footprint, 50-ohm RF, installed ERP, battery under load and MCU firmware NOT validated. DO NOT ASSUME SERIES RELEASE.' > "$DEST/00_README_NICHT_SERIENREIF.txt"
-          (cd "$DEST" && zip -qr ../RevB_B09_5x_JLCPCB_PROTOTYPEN_UNFREIGEGEBEN.zip .)
+          echo 'PROTOTYPE ONLY. C3001517 lands matched to official library; machine placement, RF, installed ERP, battery under load and MCU programming NOT validated. DO NOT ASSUME SERIES RELEASE.' > "$DEST/00_README_NICHT_SERIENREIF.txt"
+          (cd "$DEST" && find . -type f ! -name SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS.txt)
+          (cd "$DEST" && zip -qr ../RevB_B10_5x_JLCPCB_PROTOTYPEN_UNFREIGEGEBEN.zip .)
       - name: Upload JLCPCB prototype files (NOT production approval)
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: revb-b09-jlcpcb-prototype-preview-not-approved
-          path: out/RevB_B09_5x_JLCPCB_PROTOTYPEN_UNFREIGEGEBEN.zip
+          name: revb-b10-jlcpcb-prototype-preview-not-approved
+          path: out/RevB_B10_5x_JLCPCB_PROTOTYPEN_UNFREIGEGEBEN.zip
           retention-days: 14
           if-no-files-found: error
       - name: Upload actual validation evidence (NOT fabrication files)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: revb-b09-native-kicad8-preflight
+          name: revb-b10-native-kicad8-preflight
           path: |
             out/kicad-version.txt
             out/native-drc.json
             out/native-erc.json
             out/native-cli-exit-codes.txt
             out/zone-fill-error.txt
-            out/Buzzer_RevB_STX883PRO_Entwurf_B0.9.zip
+            out/Buzzer_RevB_STX883PRO_Entwurf_B0.10.zip
           retention-days: 14
-          if-no-files-found: warn
-
-  fetch-official-stx883pro-landpattern:
-    runs-on: ubuntu-24.04
-    timeout-minutes: 5
-    steps:
-      - name: Fetch public C3001517 EasyEDA CAD data (read-only)
-        shell: bash
-        run: |
-          set -uo pipefail
-          mkdir -p footprint-evidence
-          if curl -fsSL --retry 2 --max-time 40 -H 'User-Agent: Mozilla/5.0' https://easyeda.com/api/products/C3001517/components -o footprint-evidence/C3001517_easyeda_components.json; then
-            python3 - <<'PY'
-          from pathlib import Path
-          import json
-          p=Path('footprint-evidence/C3001517_easyeda_components.json')
-          try:
-              data=json.loads(p.read_text())
-              result=data.get('result')
-              if not result:raise ValueError('API returned no component result')
-              print('C3001517 public EasyEDA CAD data available, bytes:',p.stat().st_size)
-              Path('footprint-evidence/status.txt').write_text('downloaded\n')
-          except Exception as e:
-              Path('footprint-evidence/status.txt').write_text(f'Invalid API response: {e}\n')
-              print('::warning::EasyEDA API returned invalid component data:',e)
-          PY
-          else
-            echo 'EasyEDA API inaccessible; JLCPCB footprint still UNVERIFIED' | tee footprint-evidence/status.txt
-          fi
-      - name: Preserve fetched component geometry or blocker
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: revb-lcsc-c3001517-official-footprint
-          path: footprint-evidence/
-          retention-days: 7
           if-no-files-found: warn

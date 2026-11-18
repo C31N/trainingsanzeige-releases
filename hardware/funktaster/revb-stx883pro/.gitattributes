@@ -1,3 +1,4 @@
 dokumentation-b09-d1/** -text whitespace=cr-at-eol
 *.zip -text
 *.pdf binary
+validation/b10-footprint/** -text whitespace=cr-at-eol
