@@ -5,6 +5,9 @@ on:
       - codex/jlcpcb-buzzer-hold-reva-orderprep-2026-11-18
     paths:
       - .github/workflows/reva-release-asset-audit.yml
+  pull_request:
+    paths:
+      - .github/workflows/reva-release-asset-audit.yml
   workflow_dispatch:
 
 permissions:
