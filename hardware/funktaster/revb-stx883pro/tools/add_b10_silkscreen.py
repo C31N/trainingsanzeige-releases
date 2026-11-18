@@ -45,6 +45,7 @@ for name in ['buzzer-revb-stx883pro-ROUTED-V3-EXPERIMENT.kicad_pcb',
                     origin[0]+max(x for x,y in coords)+.12,origin[1]+max(y for x,y in coords)+.12)
     extra=[]; occupied=[]; entries=[]
     def text(label,x,y,size=.8,back=False,role='legend'):
+        size=max(1.0,size)
         # Conservative stroke-font box for packing; native KiCad DRC is a separate gate.
         width=sum(.42 if c in '1 Iil.,:' else .80 for c in label)*size+.16
         height=size+.20
@@ -54,7 +55,7 @@ for name in ['buzzer-revb-stx883pro-ROUTED-V3-EXPERIMENT.kicad_pcb',
         uid=str(uuid.uuid5(uuid.NAMESPACE_URL,f'wfd:b10:silk:{layer}:{role}:{label}:{x}:{y}'))
         mirror=' (justify mirror)' if back else ''
         extra.append(f'(gr_text {json.dumps(label)} (at {x:.4f} {y:.4f} 0) (layer "{layer}") '
-                     f'(uuid "{uid}") (effects (font (size {size} {size}) (thickness 0.12)){mirror}))')
+                     f'(uuid "{uid}") (effects (font (size {size} {size}) (thickness 0.15)){mirror}))')
         entries.append({'text':label,'xy_mm':[x,y],'size_mm':size,'layer':layer,'role':role})
         if not back:occupied.append(box)
         return box
@@ -74,7 +75,7 @@ for name in ['buzzer-revb-stx883pro-ROUTED-V3-EXPERIMENT.kicad_pcb',
     assert len(refs)==35
     refs.sort(key=lambda ref:-(boxes[ref][2]-boxes[ref][0])*(boxes[ref][3]-boxes[ref][1]))
     for ref in refs:
-        a=boxes[ref]; ox,oy=map(float,field(footprints[ref],'at')[:2]);size=.8
+        a=boxes[ref]; ox,oy=map(float,field(footprints[ref],'at')[:2]);size=1.0
         width=sum(.42 if c in '1 Iil.,:' else .80 for c in ref)*size+.16;h=size+.20
         candidates=[]
         for distance in [0,.25,.5,.75,1,1.5,2,2.5,3]:
@@ -99,10 +100,11 @@ for name in ['buzzer-revb-stx883pro-ROUTED-V3-EXPERIMENT.kicad_pcb',
           ('J5 ISP: 1 MISO / 2 TX3V3',15,28,.8),
           ('3 SCK / 4 MOSI / 5 RESET / 6 GND',15,30,.75),
           ('U5: 1 GND / 2 TX3V3 / 3 DATA / 4 ANT',15,32,.7),
-          ('U2/U3: 1 IN / 2 GND / 3,4 NC / 5 OUT',17,33.7,.65),
-          ('Q1/Q3: 1 G / 2 S / 3 D',19,35.5,.75),
-          ('Q2/Q4: 1 B / 2 E / 3 C',19,37.3,.75),
-          ('D1/D2: K links (von oben)',19,39.1,.7),
+          ('U2/U3: 1 IN / 2 GND',20,33.9,1),
+          ('3,4 NC / 5 OUT',20,35.7,1),
+          ('Q1/Q3: 1 G / 2 S / 3 D',19,37.5,1),
+          ('Q2/Q4: 1 B / 2 E / 3 C',19,39.3,1),
+          ('D1/D2: K links (von oben)',19,41.1,1),
           ('U1 ATtiny402',8,43.0,.8),('U4 ATtiny13A',22,43.0,.8),
           ('Keine 5V an J4/J5!',15,60.5,.85)]
     for label,x,y,size in back:text(label,x,y,size,True)
