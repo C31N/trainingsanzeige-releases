@@ -35,12 +35,21 @@ jobs:
         run: |
           set -euo pipefail
           sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq software-properties-common
+          # Ubuntu 24.04's default KiCad is 7.0.11; the v8 DRC/ERC CLI
+          # used by this board is available from the KiCad project's PPA.
+          sudo add-apt-repository -y ppa:kicad/kicad-8.0-releases
+          sudo apt-get update -qq
           sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq kicad
           mkdir -p hardware-src validation-results
           unzip -q release-files/WFD_Buzzer_Impulsverlaengerung_RevA_Prototyp.zip -d hardware-src
           kicad-cli version | tee validation-results/kicad-version.txt
-          kicad-cli pcb drc --format json --schematic-parity --output validation-results/board-drc.json hardware-src/kicad/buzzer-hold.kicad_pcb
-          kicad-cli sch erc --format json --output validation-results/schematic-erc.json hardware-src/kicad/buzzer-hold.kicad_sch
+          grep -Eq '^8[.]' validation-results/kicad-version.txt || {
+            echo "::error::Expected KiCad 8.x, found $(cat validation-results/kicad-version.txt)"
+            exit 1
+          }
+          kicad-cli pcb drc --format json --severity-error --severity-warning --schematic-parity --exit-code-violations --output validation-results/board-drc.json hardware-src/kicad/buzzer-hold.kicad_pcb
+          kicad-cli sch erc --format json --severity-error --severity-warning --exit-code-violations --output validation-results/schematic-erc.json hardware-src/kicad/buzzer-hold.kicad_sch
           python3 - <<'PY'
           import json
           from pathlib import Path
