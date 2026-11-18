@@ -3,7 +3,7 @@ on:
   push:
     branches: [codex/buzzer-revb-stx883pro-layout-2026-11-18]
     paths:
-      - hardware/funktaster/revb-stx883pro/validation/b10-footprint/**
+      - hardware/funktaster/revb-stx883pro/validation/b10-footprint/C3001517_EasyEDA_Official_Library.json
       - hardware/funktaster/revb-stx883pro/tools/apply_b10_official_landpattern.py
       - hardware/funktaster/revb-stx883pro/tools/export_jlcpcb_b10_prototype.py
       - .github/workflows/revb-native-kicad-preflight.yml
@@ -16,7 +16,7 @@ on:
       - hardware/funktaster/revb-stx883pro/tools/export_jlcpcb_b09_prototype.py
   pull_request:
     paths:
-      - hardware/funktaster/revb-stx883pro/validation/b10-footprint/**
+      - hardware/funktaster/revb-stx883pro/validation/b10-footprint/C3001517_EasyEDA_Official_Library.json
       - hardware/funktaster/revb-stx883pro/tools/apply_b10_official_landpattern.py
       - hardware/funktaster/revb-stx883pro/tools/export_jlcpcb_b10_prototype.py
       - .github/workflows/revb-native-kicad-preflight.yml
@@ -58,12 +58,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          sudo apt-get update -qq
+          sudo apt-get -o Acquire::Retries=3 update -qq
           sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq software-properties-common
           sudo add-apt-repository -y ppa:kicad/kicad-8.0-releases
-          sudo apt-get update -qq
+          sudo apt-get -o Acquire::Retries=3 update -qq
           # CLI DRC/ERC plus pcbnew need no huge KiCad 3D model recommendations.
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends kicad
+          sudo DEBIAN_FRONTEND=noninteractive apt-get -o Acquire::Retries=3 install -y -qq --no-install-recommends kicad
           kicad-cli version | tee out/kicad-version.txt
           grep -q '^8[.]' out/kicad-version.txt
       - name: Fill GND zones and execute independent DRC/ERC
