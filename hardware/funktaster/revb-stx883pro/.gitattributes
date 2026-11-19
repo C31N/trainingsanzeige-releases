@@ -5,3 +5,7 @@ validation/b10-footprint/** -text whitespace=cr-at-eol
 
 dokumentation-b10-d2/** -text whitespace=cr-at-eol
 dokumentation-b10-d2/evidence/*.svg binary
+
+firmware-nine-slot/** -text whitespace=cr-at-eol
+firmware-nine-slot/images/*.lst binary
+dokumentation-b10-d2/source/firmware-nine-slot/images/*.lst binary

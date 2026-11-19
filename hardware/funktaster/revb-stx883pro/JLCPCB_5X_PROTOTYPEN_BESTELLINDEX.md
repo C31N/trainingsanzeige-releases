@@ -1,3 +1,5 @@
+> **Aktuell für die neun B0.10-S2-Buzzer: V2-N9.1 / Anleitung D4.** [Firmware, Programmierung und Genauigkeitsangaben](README.md). Vier Pakete: ein erstes und drei Neuner-Wiederholungsrunden. U1/HOLD und Empfänger diamex-5 bleiben unverändert. Ältere Fünfer-Slotbeschreibungen unten gelten für die bisherige Firmware. Hallenprüfung folgt durch den Nutzer.
+
 # Aktueller Bestellstand: B0.10-S2, neun PCBA
 
 Am 19.11.2026 wurde der Bestellverlauf geprüft: zehn Leiterplatten, davon neun Standard-PCBA, aktuelle S2-Beschriftung und finale B010-CPL. [PDF, Firmware IDs 1-9 und exakte Fertigungsdateien](dokumentation-b10-d2/README.md). Die folgenden älteren Fünferangaben sind historisch und keine neue Bestellgrundlage. Musterabnahme bleibt offen.

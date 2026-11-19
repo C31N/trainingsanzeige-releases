@@ -1,0 +1,184 @@
+{
+  "version": "V2-N9.1",
+  "packet_format_unchanged": true,
+  "receiver_required": "diamex-5",
+  "receiver_source_sha256": "8acacef15b3ea9cde380720ca6e5dc703d6a041b9a69a25a2971418e90b4f3fa",
+  "compiler": "avr-gcc.exe (GCC) 7.3.0",
+  "source_sha256": "0317e3da9e1b2c321d8e4f05b5e5b12e827836f830532508f0b4a7d845819d5a",
+  "round_slots_by_id": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    [
+      0,
+      2,
+      4,
+      6,
+      8,
+      1,
+      3,
+      5,
+      7
+    ],
+    [
+      0,
+      4,
+      8,
+      3,
+      7,
+      2,
+      6,
+      1,
+      5
+    ]
+  ],
+  "hfuse": "0xfb",
+  "lfuse": "0x76",
+  "hardware_tested": false,
+  "loss_rate_measured": false,
+  "images": [
+    {
+      "id": 1,
+      "flash_bytes": 612,
+      "sha256_hex": "fca18d7b82fba64538d2c55470194ce92cc28b87b5c2ae96d98de0dfa978dceb",
+      "models": [
+        {
+          "event": 0,
+          "last_edge_us": 556216.875,
+          "minimum_stack_pointer": 138,
+          "max_timestamp_error_us": 121.875
+        },
+        {
+          "event": 1,
+          "last_edge_us": 556214.792,
+          "minimum_stack_pointer": 138,
+          "max_timestamp_error_us": 121.615
+        },
+        {
+          "event": 127,
+          "last_edge_us": 556313.125,
+          "minimum_stack_pointer": 138,
+          "max_timestamp_error_us": 121.745
+        },
+        {
+          "event": 255,
+          "last_edge_us": 556314.583,
+          "minimum_stack_pointer": 138,
+          "max_timestamp_error_us": 122.396
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "flash_bytes": 680,
+      "sha256_hex": "b1e852253fc836a1893959737462a8f66b346ad04375d49095fb977d9fcd74bc",
+      "models": [
+        {
+          "event": 0,
+          "last_edge_us": 664213.854,
+          "minimum_stack_pointer": 138,
+          "max_timestamp_error_us": 120.703
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "flash_bytes": 688,
+      "sha256_hex": "b5e1c77f5eebedfa412f03b79ede44cf3df340f4a2bf29af53c101b0ff53eb97",
+      "models": [
+        {
+          "event": 0,
+          "last_edge_us": 772314.792,
+          "minimum_stack_pointer": 138,
+          "max_timestamp_error_us": 122.135
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "flash_bytes": 738,
+      "sha256_hex": "190e09385a2b4641c1dcfd64adb6eb8bc7dd292d084849fa5fa31bf192b00f41",
+      "models": [
+        {
+          "event": 0,
+          "last_edge_us": 637227.083,
+          "minimum_stack_pointer": 138,
+          "max_timestamp_error_us": 119.401
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "flash_bytes": 738,
+      "sha256_hex": "900eafb6e61d337d762635e4cdc7031dfb30e0e11a27639f69a1d34ef08bfe93",
+      "models": [
+        {
+          "event": 0,
+          "last_edge_us": 745327.604,
+          "minimum_stack_pointer": 138,
+          "max_timestamp_error_us": 120.703
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "flash_bytes": 738,
+      "sha256_hex": "a93b2b6b620a0134238ea0c42bcbe69bfe0bac13b4742b0b22b35a33a9293c2e",
+      "models": [
+        {
+          "event": 0,
+          "last_edge_us": 610213.646,
+          "minimum_stack_pointer": 138,
+          "max_timestamp_error_us": 119.271
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "flash_bytes": 738,
+      "sha256_hex": "18a0c1a1357ef63f703ea50e645b040ea201bfcb1b3af64405a2d66056405bb8",
+      "models": [
+        {
+          "event": 0,
+          "last_edge_us": 718316.979,
+          "minimum_stack_pointer": 138,
+          "max_timestamp_error_us": 123.307
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "flash_bytes": 738,
+      "sha256_hex": "f5d00d70876a376804e1e0936593f3906d021aa2c0f55511fc13e5f1a0543f11",
+      "models": [
+        {
+          "event": 0,
+          "last_edge_us": 583230.521,
+          "minimum_stack_pointer": 138,
+          "max_timestamp_error_us": 122.135
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "flash_bytes": 738,
+      "sha256_hex": "5e4a0a47407deea267924d395a50c56ac6fcdf27dbf132d82339479e07e17827",
+      "models": [
+        {
+          "event": 0,
+          "last_edge_us": 691328.229,
+          "minimum_stack_pointer": 138,
+          "max_timestamp_error_us": 121.745
+        }
+      ]
+    }
+  ]
+}

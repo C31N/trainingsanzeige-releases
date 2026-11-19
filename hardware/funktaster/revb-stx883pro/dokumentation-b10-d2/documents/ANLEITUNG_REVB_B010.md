@@ -1,4 +1,4 @@
-# Buzzer Rev B0.10 - B0.10-D3
+# Buzzer Rev B0.10 - B0.10-D4
 
 01  Buzzer Rev B0.10
 
@@ -7,7 +7,7 @@
 
 Beschreibung, Anschluss, Programmierung und Erstprüfung
 
-Wasserfreunde Dalum | Dokumentation B0.10-D3 | 19.11.2026
+Wasserfreunde Dalum | Dokumentation B0.10-D4 | 19.11.2026
 
 Bestellter Prototypenstand
 
@@ -159,23 +159,23 @@ Jede der neun Platinen bekommt eine eindeutige Sender-ID1-9. ID ist keine Bahnnu
 
 Platine / Beschriftung | Datei
 
-Buzzer 1 | ATtiny13A_V2_ID1.hex
+Buzzer 1 | ATtiny13A_V2_N9_ID1.hex
 
-Buzzer 2 | ATtiny13A_V2_ID2.hex
+Buzzer 2 | ATtiny13A_V2_N9_ID2.hex
 
-Buzzer 3 | ATtiny13A_V2_ID3.hex
+Buzzer 3 | ATtiny13A_V2_N9_ID3.hex
 
-Buzzer 4 | ATtiny13A_V2_ID4.hex
+Buzzer 4 | ATtiny13A_V2_N9_ID4.hex
 
-Buzzer 5 | ATtiny13A_V2_ID5.hex
+Buzzer 5 | ATtiny13A_V2_N9_ID5.hex
 
-Buzzer 6 | ATtiny13A_V2_ID6.hex
+Buzzer 6 | ATtiny13A_V2_N9_ID6.hex
 
-Buzzer 7 | ATtiny13A_V2_ID7.hex
+Buzzer 7 | ATtiny13A_V2_N9_ID7.hex
 
-Buzzer 8 | ATtiny13A_V2_ID8.hex
+Buzzer 8 | ATtiny13A_V2_N9_ID8.hex
 
-Buzzer 9 | ATtiny13A_V2_ID9.hex
+Buzzer 9 | ATtiny13A_V2_N9_ID9.hex
 
 Rev B nicht wie den alten V5-Aufbau programmieren
 
@@ -189,7 +189,7 @@ Im entpackten Paket arbeiten. AVRDUDE muss installiert und im Suchpfad sein. COM
 
 ```powershell
 avrdude -p t13a -c stk500v2 -P COM8 -B 50 -U lfuse:r:lfuse.txt:h -U hfuse:r:hfuse.txt:h
-avrdude -p t13a -c stk500v2 -P COM8 -B 50 -U flash:w:firmware/ATtiny13A_V2_ID1.hex:i
+avrdude -p t13a -c stk500v2 -P COM8 -B 50 -U flash:w:firmware/ATtiny13A_V2_N9_ID1.hex:i
 ```
 
 Jede Zeile ist ein Befehl. ID1 im zweiten Befehl durch die passende ID ersetzen. AVRDUDE-Verifikation muss erfolgreich sein; -V und -F nicht verwenden. Flashen kann vorhandene EEPROM-Ereigniszähler zurücksetzen.
@@ -276,7 +276,7 @@ Die Bestellung wurde vom Nutzer ausgelöst. Eine separate Gutscheinabrechnung un
 
 Offen bleibt die Musterabnahme
 
-Beide Controller kommen unprogrammiert. Reale Versorgungs-, Akku-, Programmier-, Gehäuse- und Funkprüfungen sind nicht bestanden erklärt. Erst ein Muster vollständig abnehmen. IDs1 und6 teilen sich in der unveränderten V2-Firmware die erste Wiederholungs-Zeitgruppe; den gleichzeitigen Betrieb aller neun deshalb ausdrücklich testen.
+Beide Controller kommen unprogrammiert. Reale Versorgungs-, Akku-, Programmier-, Gehäuse- und Funkprüfungen sind nicht bestanden erklärt. Erst ein Muster vollständig abnehmen. Die neue N9-Firmware weist IDs1-9 in jeder der drei Wiederholungsrunden unterschiedliche Zeitplätze zu. Reale Taktabweichungen und zeitversetzte Drücke können weiterhin kollidieren; den gleichzeitigen Betrieb aller neun ausdrücklich testen.
 
 08  Bauteilliste und Prüfstand
 
@@ -340,7 +340,7 @@ documents/ | Diese PDF sowie die textliche Anleitung
 
 manufacturing/ | Geprüfte S2-Gerber, genehmigte BOM und tatsächlich importierte finale CPL
 
-firmware/ | Neun V2-HEX-Dateien, HOLD-HEX, Prüfsummen und Referenz-Fuses
+firmware/ | Neun aktuelle N9-HEX, neun historische V2-HEX, HOLD-HEX, Prüfsummen und Fuses
 
 evidence/ | Gespeicherter JLCPCB-Bildexport und gelesener BOM-Beleg
 
@@ -352,11 +352,11 @@ tools/ | Prüfskript; keine automatische Geräteprogrammierung
 
 Originalstand
 
-GitHub-Repository: C31N/trainingsanzeige-releasesEntwurfs-PR:#2Quellstand:B0.10-S2, finale JLC-CPL und zehn HEX-DateienCI-Lauf:44374130631; native KiCad-Version8.0.9
+GitHub-Repository: C31N/trainingsanzeige-releasesEntwurfs-PR:#2Quellstand:B0.10-S2, finale JLC-CPL und 19 HEX-DateienCI-Lauf:44374130631; native KiCad-Version8.0.9
 
 Firmware verifizieren
 
-SHA256SUMS.txt unter firmware/ enthält die zehn originalen HEX-Prüfsummen. tools/verify_archive.py kontrolliert zusätzlich die Archivdateien, BOM/CPL-Mengen und die dokumentierten Prüfstatus. Ein erfolgreicher Archivtest bedeutet keine Hardwarefreigabe.
+SHA256SUMS.txt unter firmware/ enthält die 19 HEX-Prüfsummen (neun neu kompiliert, zehn Originaldateien). tools/verify_archive.py kontrolliert zusätzlich die Archivdateien, BOM/CPL-Mengen und die dokumentierten Prüfstatus. Ein erfolgreicher Archivtest bedeutet keine Hardwarefreigabe.
 
 ```powershell
 python tools/verify_archive.py
@@ -376,7 +376,7 @@ https://www.ti.com/lit/ds/symlink/tps709.pdf
 
 https://www.nicerf.com/ask-modules/ask-transmitter-module-stx883pro.html
 
-Diese Anleitung dokumentiert B0.10-D3. Ältere B0.2/B0.3-Archive und die Anleitung für die separate Rev-A-Platine sind keine austauschbaren Bestell- oder Verdrahtungsanleitungen.
+Diese Anleitung dokumentiert B0.10-D4. Ältere B0.2/B0.3-Archive und die Anleitung für die separate Rev-A-Platine sind keine austauschbaren Bestell- oder Verdrahtungsanleitungen.
 
 10  Bedruckte Rückseite
 
@@ -440,3 +440,55 @@ Bestellt:10-Pack 433MHz Helical Spiral Spring, Angabe5mm, für Arduino/Raspberry
 7. Danach mehrere und alle neun gleichzeitig testen. Empfangslücken und Ausrichtungsempfindlichkeit protokollieren. Die Verkaufsbezeichnung433MHz belegt keine gemessene Anpassung, Sendeleistung oder Reichweite am fertigen Gerät.
 
 Arbeitsstand: Platinen, Friend5893 und Antennen sind bestellt. Datei- und CAD-Prüfungen sind bestanden. Programmierung und Funkbetrieb mit den gelieferten Teilen werden bei Inbetriebnahme protokolliert; sie sind nicht vorab als bestanden dokumentiert.
+
+13  Firmwareupdate V2-N9.1
+
+
+## Firmwareupdate V2-N9.1
+
+Für U4 jetzt ATtiny13A_V2_N9_ID1.hex bis ATtiny13A_V2_N9_ID9.hex verwenden. Die bisherigen Dateien ohne N9 bleiben als historischer Rückfall enthalten. U1 behält ATtiny402_HOLD_RevA.hex und das1000-ms-Einschaltfenster; Fuses und Hardware bleiben unverändert.
+
+Geänderte Wiederholungsplanung
+
+Ein erstes Paket startet weiter nominal nach15ms. Drei Wiederholungsrunden beginnen bei45,288 und531ms; jede besitzt neun Zeitplätze mit27ms Abstand. Slot = ((ID-1) x Faktor) modulo9, mit Faktor1,2,4. Damit ist jede Runde eine andere Permutation der neun IDs. Das letzte Paket endet nominal vor775ms. Vier statt fünf Pakete reduzieren die Kanalbelegung und passen einschließlich der untersuchten Taktskalierung1,25 in das bisherige Einschaltfenster.
+
+Empfänger und Inbetriebnahme
+
+Das9-Byte-V2-Paket, CRC, Ereigniszähler, Sendercodes und Zeitkorrektur bleiben unverändert. Der vorhandene Empfänger diamex-5 akzeptiert Repeat0-3 und die Alterswerte. Kein Pi-Update für dieses Firmwareupdate erforderlich, wenn diamex-5 bereits installiert ist. Eine tatsächlich installierte ältere Version zuerst prüfen. Alle neun neuen Geräte mit eigener ID programmieren; alte parallel benutzte Geräte dürfen keine identische ID tragen.
+
+Was geprüft ist
+
+Alle neun Images werden mit avr-gcc gebaut und auf die1024-Byte-Flashgrenze geprüft. Instruktionsmodelle mit mehreren Ereigniszählern prüfen echte kompilierte GPIO-Flanken, Stapel, Schlafzustand und Timing. Der gesicherte diamex-5-Decoder prüft CRC, IDs, Wiederholungsnummern und Zeitkorrektur bei Taktskalierung0,8/1/1,25. Details und reproduzierbarer Build stehen im Firmware-N9-Paket.
+
+Spätere Hallenprüfung
+
+Diese Softwareprüfungen sind kein Nachweis einer Verlustquote. Alle neun Geräte einzeln, gleichzeitig und mit versetzten Drücken an mehreren Hallenpositionen testen. Reale Taktstreuung, Funkstörer und Empfangseinbrüche bleiben möglich. Keine Empfangsbestätigung und keine Garantie von weniger als einem Verlust pro1000Drücken. Das Ergebnis wird erst bei der Montage- und Hallenabnahme eingetragen.
+
+14  Zeitauflösung und Genauigkeit
+
+
+## Zeitauflösung und Genauigkeit
+
+Ein Buzzer
+
+Der interne Sender-Timer hat nominal 26,667 Mikrosekunden je Tick (9,6 MHz /256), also0,026667ms. Eine zeitliche Quantisierung ist damit kleiner als ein Tick. Diese Auflösung ist keine Genauigkeitszusage am Taster.
+
+Der Empfänger rekonstruiert den Firmwarestart aus dem mitgesendeten Alter und der am Paket gemessenen Taktrate. Im Instruktionsmodell wird je Paket ein absoluter Rekonstruktionsfehler kleiner als2ms bei Taktskalierung0,8,1 und1,25 verlangt. Der tatsächliche maximale Modellfehler steht in firmware-nine-slot/verification.json. Das umfasst mehrere IDs und Ereigniszähler, aber keine Messung der Hardware.
+
+Vom elektrischen Tastenkontakt bis zum Firmwarestart kommen Eingangsfilter, Einschaltvorgang, Spannungsanstieg und Reset hinzu. Diese Beiträge sind am montierten Gerät nicht gemessen; deshalb ist keine belastbare Gesamtgenauigkeit ab Kontakt angegeben. Die erste sichtbare Empfangsreaktion ist nominal frühestens ungefähr40ms nach Firmwarestart plus Empfänger-/App-Laufzeit möglich. Das erste Paket beginnt nach15ms und dauert etwa25,3ms.
+
+Mehrere gleichzeitig gedrückte Buzzer
+
+Jeder Sender führt einen eigenen Timer. Die Quantisierung bleibt je Gerät0,026667ms; für eine Zeitdifferenz zweier Geräte beträgt eine konservative Quantisierungsgrenze unter zwei Ticks, also0,053334ms, bei ideal bekannten Takten. Das ist nicht die praktische Genauigkeit der Zeitdifferenz.
+
+Wenn für beide Geräte der getestete Rekonstruktionsfehler kleiner als2ms gilt, ist die daraus folgende konservative Fehlergrenze ihrer Differenz kleiner als4ms relativ zu ihren jeweiligen Firmwarestarts. Unterschiede zwischen Tastenkontakt und Firmwarestart kommen zusätzlich hinzu. Eine Reihenfolge bei Abständen innerhalb dieses Fehlerbereichs ist dadurch nicht zuverlässig belegt. Bei exakt gleichen Tastenkontakten ist die Ankunftsreihenfolge der Pakete kein Nachweis einer tatsächlichen Reihenfolge.
+
+Ein kollidiertes erstes Paket kann durch eine Wiederholung ersetzt werden. Das zusätzliche Warten wird anhand des Paket-Alters zurückgerechnet; die Anzeige reagiert später, ihr Ereigniszeitpunkt soll sich aber auf den Firmwarestart beziehen. Erfolgreicher Empfang der letzten Wiederholung ist nominal bis ungefähr775ms möglich; bei1,25-facher Zeitskalierung vor975ms. Diese Modellgrenze ist keine garantierte Empfangsfrist im Funkbetrieb.
+
+Sind alle vier Pakete eines Buzzers verloren, gibt es für diesen Druck keinen Messwert. Dafür lässt sich keine endliche Zeitfehlergrenze angeben. Auch unterschiedliche Oszillatortakte, zeitversetzte Drücke und externe Funkstörungen können Pakete weiterhin überlagern. Keine gemessene Verlustquote und keine Zusage von0,1Prozent oder Wettkampfgenauigkeit.
+
+Ergebnis der geprüften kompilierten Modelle: maximal0,123307ms Rekonstruktionsfehler; daraus konservativ0,246614ms für eine Differenz zweier Geräte innerhalb dieser Modelle. Späteste Sendeflanke772,314792ms nominal, bei1,25-facher Zeitskalierung965,39349ms. Kein allgemeiner Fehlergrenzennachweis für reale Hardware.
+
+Spätere Hallenabnahme
+
+Für eine Genauigkeitsmessung gemeinsame elektrische Referenzkontakte verwenden, Kontakt und Senderversorgung mit Logikanalysator erfassen und mit den zurückgerechneten Empfangszeiten vergleichen. Einzeln und für mehrere Sender gleichzeitig wiederholen, auch mit wechselnden zuerst empfangenen Wiederholungsnummern. Verlustquote getrennt von Zeitfehler und Anzeigelatenz auswerten.

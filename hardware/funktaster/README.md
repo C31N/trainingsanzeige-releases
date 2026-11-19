@@ -1,3 +1,5 @@
+> **Aktuell für die neun B0.10-S2-Buzzer: V2-N9.1 / Anleitung D4.** [Firmware, Programmierung und Genauigkeitsangaben](revb-stx883pro/README.md). Vier Pakete: ein erstes und drei Neuner-Wiederholungsrunden. U1/HOLD und Empfänger diamex-5 bleiben unverändert. Ältere Fünfer-Slotbeschreibungen unten gelten für die bisherige Firmware. Hallenprüfung folgt durch den Nutzer.
+
 > Integrierte Platine Buzzer Rev B0.10-S2: [aktuelle Anleitung D3 mit Adafruit Friend5893 und Federantenne](revb-stx883pro/README.md). Die folgenden Angaben zum alten Aufbau bleiben dessen Anleitung.
 
 # Funktaster: bauen, programmieren und zuordnen
