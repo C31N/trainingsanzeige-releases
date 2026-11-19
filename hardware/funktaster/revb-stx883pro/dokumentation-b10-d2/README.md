@@ -1,4 +1,4 @@
-# Buzzer Rev B0.10 - Dokumentation D2
+# Buzzer Rev B0.10 - Dokumentation D3
 
 Stand 19.11.2026: Die beschriftete Revision **B0.10-S2** ist laut sichtbarem JLCPCB-Bestellverlauf bestellt: zehn Leiterplatten, davon **neun Standard-PCBA**, eine unbestückt. Die PDF und Firmware gelten für IDs 1-9. Beide Controller sind nach Lieferung selbst zu programmieren. Erst eine Platine vollständig prüfen.
 
@@ -23,3 +23,12 @@ Offizielle U5-Landpatternquelle: **JLCEDA/EasyEDA Official Library**, https://lc
 Der vollständige Bildexport zeigt alle 35 SMD-Referenzen. Der BOM-Beleg wurde während der Sechservorbereitung gesichert und belegt Typen/Zuordnung, nicht die endgültigen Verbrauchsmengen für neun. Der Bestellverlauf bestätigt neun PCBA und dieselben Dateinamen; nachträgliche nicht sichtbare Änderungen können daraus nicht ausgeschlossen werden. Private Adresse, Telefonnummer, Bestellnummer, Konto- und Zahlungsdaten werden nicht veröffentlicht. Der öffentlich dokumentierte Gesamtbetrag ist 192,22 USD inklusive angezeigter Versandkosten und Abgaben; ein tatsächlicher Gutscheinanteil war nicht separat sichtbar.
 
 Das historische dokumentation-b09-d1 bleibt unverändert. Es ist keine aktuelle Bestellgrundlage. SHA256SUMS.txt erfasst alle Dateien dieses Pakets; eine erfolgreiche Prüfung ist keine Hardwarefreigabe.
+
+## Bestelltes Zubehör und aktuelle Arbeitsanleitungen
+
+Adafruit High Voltage UPDI Friend5893 und ein10-Pack433-MHz-Federantennen (Angabe5mm) sind bestellt.
+
+- [Friend5893 Schritt für Schritt](documents/UPDI_FRIEND_5893.md)
+- [Federantennen montieren](documents/ANTENNE_433MHZ.md)
+
+Die PDF wurde auf zwölf Seiten ergänzt. Der Ordnername dokumentation-b10-d2 bleibt für bestehende Links erhalten; inhaltlicher Stand ist D3. Platine, Fertigungsdateien und Firmware bleiben unverändert.

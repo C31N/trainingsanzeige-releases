@@ -1,6 +1,6 @@
 # Wasserfreunde Dalum - Buzzer Rev B0.10
 
-Aktueller Stand **B0.10-S2 / Dokumentation D2**, 19.11.2026. Beschriftung: **Buzzer Rev B0.10** mit kleinem v, Komponentenreferenzen, Pinmarkierungen und ausführlicher Rückseitenlegende.
+Aktueller Stand **B0.10-S2 / Dokumentation D3**, 19.11.2026. Beschriftung: **Buzzer Rev B0.10** mit kleinem v, Komponentenreferenzen, Pinmarkierungen und ausführlicher Rückseitenlegende.
 
 Laut geprüftem Bestellverlauf sind **zehn Leiterplatten, davon neun Standard-PCBA**, bestellt. Beide Controller werden unprogrammiert geliefert. Eine Platine zuerst elektrisch, mechanisch und im Funkbetrieb abnehmen.
 
@@ -15,3 +15,12 @@ Rev B integriert ATtiny402-Impulsverlängerung, ATtiny13A-V2-Sendersteuerung und
 Programmierung: U1 an J4/UPDI mit Controller3V3; U4 an J5/ISP mit TX3V3. Getrennte Schienen nicht verbinden. Akku und jeweils anderen Programmer entfernen; extern geregelte 3,3 V, DIAMEX-Targetversorgung aus. Gedrückthalten des Buzzers genügt wegen der Abschaltung nach etwa 1 s nicht. Pro physischem Sender eine eindeutige ID verwenden; IDs 6-9 neu anlernen.
 
 Hardware-, Akku-, Programmier-, Gehäuse- und Funkabnahmen bleiben offen. Die Dateiprüfung ist keine Funktionsgarantie oder Serienfreigabe. Historische B0.2-B0.9-Dateien bleiben als Verlauf erhalten; aktuelle Bestellgrundlage ist ausschließlich dokumentation-b10-d2/manufacturing.
+
+## Bestelltes Zubehör und aktuelle Arbeitsanleitungen
+
+Adafruit High Voltage UPDI Friend5893 und ein10-Pack433-MHz-Federantennen (Angabe5mm) sind bestellt.
+
+- [Friend5893 Schritt für Schritt](dokumentation-b10-d2/documents/UPDI_FRIEND_5893.md)
+- [Federantennen montieren](dokumentation-b10-d2/documents/ANTENNE_433MHZ.md)
+
+Die PDF wurde auf zwölf Seiten ergänzt. Der Ordnername dokumentation-b10-d2 bleibt für bestehende Links erhalten; inhaltlicher Stand ist D3. Platine, Fertigungsdateien und Firmware bleiben unverändert.

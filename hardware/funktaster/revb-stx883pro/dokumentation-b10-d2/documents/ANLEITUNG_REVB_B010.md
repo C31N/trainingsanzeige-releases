@@ -1,4 +1,4 @@
-# Buzzer Rev B0.10 - B0.10-D2
+# Buzzer Rev B0.10 - B0.10-D3
 
 01  Buzzer Rev B0.10
 
@@ -7,7 +7,7 @@
 
 Beschreibung, Anschluss, Programmierung und Erstprüfung
 
-Wasserfreunde Dalum | Dokumentation B0.10-D2 | 19.11.2026
+Wasserfreunde Dalum | Dokumentation B0.10-D3 | 19.11.2026
 
 Bestellter Prototypenstand
 
@@ -99,7 +99,7 @@ Akku abziehen. Vorhandene T250-mA-Sicherung vor die gesamte Elektronik setzen. S
 
 Zwei getrennte3,3-V-Bereiche
 
-J4/2 versorgt U1 und heißt /3V3. J5/2 versorgt U4 und U5 und heißt /TX3V3. Diese Anschlüsse sind nicht austauschbar. Für jeden Programmierschritt Akku abziehen, nur eine geregelte3,3-V-Quelle verwenden und den jeweils anderen Programmer entfernen. Kein5 V und keine Hochvolt-UPDI-Impulse einspeisen.
+J4/2 versorgt U1 und heißt /3V3. J5/2 versorgt U4 und U5 und heißt /TX3V3. Diese Anschlüsse sind nicht austauschbar. Für jeden Programmierschritt Akku abziehen, nur eine geregelte3,3-V-Quelle verwenden und den jeweils anderen Programmer entfernen. Kein5 V einspeisen. Der Friend5893 kann automatisch einen12-V-Impuls an UPDI erzeugen; keine externe Hochspannung einspeisen. Siehe Seite11.
 
 04  ATtiny402 über UPDI
 
@@ -108,11 +108,11 @@ J4/2 versorgt U1 und heißt /3V3. J5/2 versorgt U4 und U5 und heißt /TX3V3. Die
 
 Alle neun Platinen erhalten dieselbe Datei ATtiny402_HOLD_RevA.hex. Die Datei ist bytegleich zur Rev-A-Controllerfirmware. Die Übernahme belegt noch keinen erfolgreichen Betrieb auf Rev B.
 
-Vorbereitung und Anschluss
+Vorbereitung: Adafruit Friend5893, Details Seite11
 
-- Akku, ISP-Programmer und externe Versorgungen entfernen. Strombegrenzte3,3-V-Quelle vorbereiten.
+- Akku, ISP-Programmer und externe Versorgungen entfernen. Friend5893 zunächst von USB trennen.
 
-- 3,3-V-kompatiblen SerialUPDI-Adapter an J4 anschließen: UPDI an1,3,3 V an2, GND an3. Ein reiner VTREF-Anschluss liefert keine Versorgung.
+- Friend5893 bei abgezogenem USB auf3V stellen. Weiß/UPDI an J4/1, Rot/PWR an J4/2, Schwarz/GND an J4/3. USB-C-Datenkabel anschließen; keine parallele externe Versorgung verwenden.
 
 - Spannung an U1/1 gegen U1/8 vor Verbindung prüfen. COM7 in den Beispielen durch den echten Adapterport ersetzen.
 
@@ -376,7 +376,7 @@ https://www.ti.com/lit/ds/symlink/tps709.pdf
 
 https://www.nicerf.com/ask-modules/ask-transmitter-module-stx883pro.html
 
-Diese Anleitung dokumentiert B0.10-D2. Ältere B0.2/B0.3-Archive und die Anleitung für die separate Rev-A-Platine sind keine austauschbaren Bestell- oder Verdrahtungsanleitungen.
+Diese Anleitung dokumentiert B0.10-D3. Ältere B0.2/B0.3-Archive und die Anleitung für die separate Rev-A-Platine sind keine austauschbaren Bestell- oder Verdrahtungsanleitungen.
 
 10  Bedruckte Rückseite
 
@@ -386,3 +386,57 @@ Diese Anleitung dokumentiert B0.10-D2. Ältere B0.2/B0.3-Archive und die Anleitu
 Ansicht von hinten, Antennenseite oben. Die Pinbezeichnungen entsprechen denselben physischen Kontakten wie auf der Vorderseite. Die Abbildung zeigt die tatsächlich exportierte Beschriftung; keine Anschlussleitung wird allein aus einer Seitenansicht abgeleitet.
 
 ID1-9 erst nach erfolgreicher Programmierung im freien Feld markieren. Die1-mm-Schrift wird weiß auf grüner Lötstoppmaske gedruckt.
+
+11  Adafruit Friend5893 verwenden
+
+
+## Adafruit Friend5893 verwenden
+
+1. Dokumentations-ZIP entpacken. PowerShell im entpackten Ordner öffnen. python tools/verify_archive.py ausführen und PASS abwarten. Python bei Bedarf installieren; danach py -m pip install pymcuprog ausführen.
+
+2. Akku, DIAMEX und alle externen Spannungsquellen abziehen. USB am Friend abziehen. Den Spannungsschalter auf 3V stellen. Nicht5V wählen.
+
+3. Den bedruckten J4-Header verwenden: weiß UPDI an J4/1, rot PWR an J4/2 Controller3V3, schwarz GND an J4/3. Nach Signalnamen und Pinnummern verdrahten; den JST-Stecker nicht auf einen anders belegten Header zwingen. Der RX/TX-Widerstand ist im Friend bereits enthalten.
+
+4. USB-C-Datenkabel verbinden. Der Friend versorgt jetzt die Controller-Schiene. Keine zusätzliche3,3-V-Quelle und keine Verbindung von J4/2 zu J5/2 anschließen. Etwa3,3V an U1/1 gegen U1/8 messen.
+
+5. Im Windows-Geräte-Manager unter Anschlüsse (COM und LPT) den CH340-Port ablesen. Bei fehlendem Port Datenkabel und den von Adafruit verlinkten CH340-Treiber prüfen. COM7 auf Seite4 durch den tatsächlichen Port ersetzen.
+
+6. Die Befehle auf Seite4 nacheinander ausführen: ping, Fuses lesen, HOLD-HEX mit --erase --verify schreiben. Gerätekennung ATtiny402 und erfolgreiche Flash-Verifikation kontrollieren. Danach die Fuses mit der Tabelle vergleichen; UPDI aktiv lassen.
+
+7. Der5893 enthält einen automatischen12-V-Aktivierungsimpuls an UPDI. Die3V-Stellung stellt Versorgung und Logikpegel ein, deaktiviert diese HV-Funktion aber nicht. Kein zusätzliches -H verwenden, keine externe12-V-Quelle anschließen und UPDI nicht als RESET/GPIO umkonfigurieren. Signal ausschließlich an J4/1 anschließen.
+
+8. Bei Fehlern COM-Port, Kabel, Masse, Pinfolge und Versorgung prüfen. Keine Signatur erzwingen und nicht auf5V wechseln. Eine HV-freie Verbindung darf für dieses HV-Modell nicht allein aus einer Softwareoption abgeleitet werden.
+
+9. USB trennen, alle J4-Leitungen abnehmen. Erst danach U4 über DIAMEX-ISP nach Seite5 programmieren: eigene geregelte3,3-V-Versorgung an J5/2, beide DIAMEX-Targetversorgungsschalter AUS. Friend und J4 bleiben getrennt.
+
+10. Nach beiden Verifikationen eindeutige ID1-9 auf der Platine markieren. Programmer und externe Versorgung entfernen, Antenne montieren und erst dann Akku verbinden. IDs6-9 unter Admin - Funktaster als neue Sender anlernen.
+
+Hersteller: https://learn.adafruit.com/adafruit-updi-friend/pinouts-high-voltage
+
+Produkt: https://www.adafruit.com/product/5893
+
+Befehle: https://github.com/microchip-pic-avr-tools/pymcuprog/blob/main/help.md
+
+12  433-MHz-Federantenne montieren
+
+
+## 433-MHz-Federantenne montieren
+
+Bestellt:10-Pack 433MHz Helical Spiral Spring, Angabe5mm, für Arduino/Raspberry Pi. Neun Stück für die neun Buzzer, eines als Reserve. Ohne eindeutiges Herstellerdatenblatt ist5mm keine belegte elektrische Länge oder garantierte Abstimmung.
+
+1. Akku und alle Programmer abziehen. Oben auf der Platine J3 mit ANT und Pin1 identifizieren. J3 besitzt einen elektrischen Anschluss: ANT.
+
+2. Eine Feder je Buzzer verwenden. Das gerade Anschlussende an J3/1 anlöten. Keine Windung und kein zweites Ende zusätzlich an GND oder ein anderes Pad anschließen. Nicht direkt am Modul U5 als mechanischem Befestigungspunkt anlöten.
+
+3. Windungsabstände und Federform beibehalten. Nicht kürzen, strecken oder zusammendrücken. Eine5-mm-Angabe ist kein Ersatz für eine433-MHz-Abstimmung.
+
+4. Die Feder von der Platinenkante in freien Raum des Kunststoffgehäuses führen. Abstand zu Akku, Metallteilen und Leitungen halten. Alle Geräte gleich aufbauen. Passt sie nicht, zuerst die mechanische Anordnung ändern.
+
+5. Lötstelle auf Brücken prüfen. Zug und Vibration vom Pad fernhalten. Halterungen dürfen die Windungen nicht verformen. Das freie Ende darf keine Leiterbahn berühren, auch bei geschlossenem Gehäuse.
+
+6. Antenne vor Funkbetrieb anschließen. Nach Programmierung beider Controller jeden Buzzer mit geschlossenem Gehäuse aus den üblichen Hallenpositionen testen und seine ID zuordnen.
+
+7. Danach mehrere und alle neun gleichzeitig testen. Empfangslücken und Ausrichtungsempfindlichkeit protokollieren. Die Verkaufsbezeichnung433MHz belegt keine gemessene Anpassung, Sendeleistung oder Reichweite am fertigen Gerät.
+
+Arbeitsstand: Platinen, Friend5893 und Antennen sind bestellt. Datei- und CAD-Prüfungen sind bestanden. Programmierung und Funkbetrieb mit den gelieferten Teilen werden bei Inbetriebnahme protokolliert; sie sind nicht vorab als bestanden dokumentiert.
