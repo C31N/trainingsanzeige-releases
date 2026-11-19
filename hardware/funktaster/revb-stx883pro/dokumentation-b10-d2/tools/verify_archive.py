@@ -31,7 +31,7 @@ for r in cpl:
 assert sha(mf/'03_JLCPCB_REVB_B010_FINAL.csv')=='06aec6b7b8c08d75b3b32cdc685a7b8cb93175f4464b8c948ca27276c23004f9'
 with zipfile.ZipFile(root/'source/DIAMEX_Funktaster.zip') as z:
     for i in range(1,10):assert (root/f'firmware/ATtiny13A_V2_ID{i}.hex').read_bytes()==z.read(f'firmware/v2/buzzer{i}.hex')
-hexes=list((root/'firmware').glob('*.hex'));assert len(hexes)==10
+hexes=list((root/'firmware').glob('*.hex'));assert len(hexes)==19
 for p in hexes:
     eof=False;count=0
     for line in p.read_text().splitlines():
@@ -40,6 +40,12 @@ for p in hexes:
         if raw[3]==0:count+=raw[0]
         if raw[3]==1:eof=True
     assert eof and count>0,p.name
+n9=json.loads((root/'validation/FIRMWARE_N9.json').read_text())
+assert [i['id'] for i in n9['images']]==list(range(1,10))
+for item in n9['images']:
+    assert sha(root/f"firmware/ATtiny13A_V2_N9_ID{item['id']}.hex")==item['sha256_hex']
+    assert item['flash_bytes']<=1024
+    assert all(m['max_timestamp_error_us']<2000 and m['last_edge_us']*1.25<975000 for m in item['models'])
 drc=json.loads((root/'validation/native-drc.json').read_text());erc=json.loads((root/'validation/native-erc.json').read_text())
 assert drc['kicad_version']=='8.0.9'
 assert all(drc[k]==[] for k in ['violations','unconnected_items','schematic_parity'])
@@ -50,4 +56,4 @@ assert gates['hardware_tested'] is False and gates['series_fabrication_release']
 assert gates['placement_from_archived_input'] is True and gates['manual_viewer_changes_after_import']==[]
 ledger=json.loads((root/'validation/PLACEMENT_REVIEW.json').read_text())
 assert {r['Designator'] for r in ledger['references']}==set(refs)
-print(f'PASS: {len(entries)} file checksums; 35 placements / 19 BOM types; 10 valid original HEX files; native CAD 0/0/0/0. Hardware acceptance remains open.')
+print(f'PASS: {len(entries)} file checksums; 35 placements / 19 BOM types; 19 valid HEX files (10 historical originals, 9 compiled N9); native CAD 0/0/0/0. Hardware acceptance remains open.')

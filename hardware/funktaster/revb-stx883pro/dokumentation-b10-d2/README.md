@@ -1,3 +1,5 @@
+> **Aktuell: Firmware V2-N9.1 / Dokumentation D4.** Für die neun neuen Geräte die U4-Dateien mit **N9** im Namen verwenden. U1/HOLD bleibt unverändert. Vier Pakete mit drei Neuner-Zeitplatzrunden; kein Empfängerupdate bei diamex-5 erforderlich. Hallenprüfung steht aus.
+
 # Buzzer Rev B0.10 - Dokumentation D3
 
 Stand 19.11.2026: Die beschriftete Revision **B0.10-S2** ist laut sichtbarem JLCPCB-Bestellverlauf bestellt: zehn Leiterplatten, davon **neun Standard-PCBA**, eine unbestückt. Die PDF und Firmware gelten für IDs 1-9. Beide Controller sind nach Lieferung selbst zu programmieren. Erst eine Platine vollständig prüfen.
@@ -31,4 +33,8 @@ Adafruit High Voltage UPDI Friend5893 und ein10-Pack433-MHz-Federantennen (Angab
 - [Friend5893 Schritt für Schritt](documents/UPDI_FRIEND_5893.md)
 - [Federantennen montieren](documents/ANTENNE_433MHZ.md)
 
-Die PDF wurde auf zwölf Seiten ergänzt. Der Ordnername dokumentation-b10-d2 bleibt für bestehende Links erhalten; inhaltlicher Stand ist D3. Platine, Fertigungsdateien und Firmware bleiben unverändert.
+Die PDF ist auf14Seiten aktualisiert. Der Ordnername dokumentation-b10-d2 bleibt für bestehende Links erhalten; inhaltlicher Stand ist D3. Platine, Fertigungsdateien und Firmware bleiben unverändert.
+
+[Theoretische Genauigkeit für einen und mehrere Buzzer](documents/GENAUIGKEIT_N9.md). Die PDF umfasst jetzt14Seiten. D3-Angaben zur bisherigen U4-Firmware sind historisch.
+
+Die aktuellen HEX heißen ATtiny13A_V2_N9_ID1.hex bis ID9.hex und liegen im Gesamtarchiv unter firmware/. Dateien ohne N9 sind historischer Rückfall. Quelle und reproduzierbarer Build liegen unter source/firmware-nine-slot/; im Repository zusätzlich unter firmware-nine-slot/.
