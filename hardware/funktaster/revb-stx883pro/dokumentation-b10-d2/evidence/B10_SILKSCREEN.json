@@ -1,0 +1,950 @@
+{
+  "revision": "B0.10-S2",
+  "title": "Buzzer Rev B0.10",
+  "copper_changed": false,
+  "placement_changed": false,
+  "smd_reference_count": 35,
+  "native_drc_pending": true,
+  "texts": [
+    {
+      "text": "Buzzer Rev B0.10",
+      "xy_mm": [
+        14.0,
+        1.15
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "ANT",
+      "xy_mm": [
+        24,
+        1.3
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "J1",
+      "xy_mm": [
+        5.2,
+        61.8
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "J2",
+      "xy_mm": [
+        13,
+        61.8
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "J4",
+      "xy_mm": [
+        20.5,
+        60.7
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "J5",
+      "xy_mm": [
+        6.27,
+        32.7
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "J3",
+      "xy_mm": [
+        24,
+        5.2
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "1+",
+      "xy_mm": [
+        2.4,
+        64
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "connector_pin"
+    },
+    {
+      "text": "2-",
+      "xy_mm": [
+        2.4,
+        66.54
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "connector_pin"
+    },
+    {
+      "text": "1",
+      "xy_mm": [
+        10.7,
+        64
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "connector_pin"
+    },
+    {
+      "text": "2",
+      "xy_mm": [
+        10.7,
+        66.54
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "connector_pin"
+    },
+    {
+      "text": "1",
+      "xy_mm": [
+        18.2,
+        63.2
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "connector_pin"
+    },
+    {
+      "text": "2",
+      "xy_mm": [
+        18.2,
+        65.74
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "connector_pin"
+    },
+    {
+      "text": "3",
+      "xy_mm": [
+        18.2,
+        68.28
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "connector_pin"
+    },
+    {
+      "text": "1",
+      "xy_mm": [
+        3.25,
+        35
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "connector_pin"
+    },
+    {
+      "text": "3",
+      "xy_mm": [
+        3.25,
+        37.54
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "connector_pin"
+    },
+    {
+      "text": "5",
+      "xy_mm": [
+        3.25,
+        40.08
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "connector_pin"
+    },
+    {
+      "text": "2",
+      "xy_mm": [
+        9.25,
+        35
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "connector_pin"
+    },
+    {
+      "text": "4",
+      "xy_mm": [
+        9.25,
+        37.54
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "connector_pin"
+    },
+    {
+      "text": "6",
+      "xy_mm": [
+        7.54,
+        42.0
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "connector_pin"
+    },
+    {
+      "text": "1",
+      "xy_mm": [
+        18,
+        3.2
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "connector_pin"
+    },
+    {
+      "text": "U5",
+      "xy_mm": [
+        15.0,
+        4.19483
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "U1",
+      "xy_mm": [
+        12.0,
+        43.739999999999995
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "U4",
+      "xy_mm": [
+        14.0,
+        27.639999999999997
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "R11",
+      "xy_mm": [
+        26.0,
+        40.29
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "D2",
+      "xy_mm": [
+        4.5,
+        59.4
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "U3",
+      "xy_mm": [
+        22.7,
+        36.04
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "U2",
+      "xy_mm": [
+        2.92,
+        52.6
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "Q1",
+      "xy_mm": [
+        23.0,
+        56.660000000000004
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "Q2",
+      "xy_mm": [
+        18.5,
+        53.44
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "Q3",
+      "xy_mm": [
+        22.0,
+        49.56
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "Q4",
+      "xy_mm": [
+        17.8,
+        47.54
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "D1",
+      "xy_mm": [
+        26.1,
+        48.0
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "C9",
+      "xy_mm": [
+        19.0,
+        25.335000000000004
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "C8",
+      "xy_mm": [
+        8.0,
+        21.964999999999996
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "C6",
+      "xy_mm": [
+        25.0,
+        30.264999999999997
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "C3",
+      "xy_mm": [
+        5.5,
+        47.465
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "C5",
+      "xy_mm": [
+        27.0,
+        36.235
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "C4",
+      "xy_mm": [
+        3.4,
+        42.965
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "C7",
+      "xy_mm": [
+        14.5,
+        37.235
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "C1",
+      "xy_mm": [
+        13.539999999999997,
+        53.3
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "C2",
+      "xy_mm": [
+        13.729999999999999,
+        54.8
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "R13",
+      "xy_mm": [
+        21.5,
+        25.764999999999997
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "R14",
+      "xy_mm": [
+        26.0,
+        26.764999999999997
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "R12",
+      "xy_mm": [
+        8.0,
+        26.264999999999997
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "R3",
+      "xy_mm": [
+        27.0,
+        56.265
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "R4",
+      "xy_mm": [
+        23.3,
+        61.235
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "R6",
+      "xy_mm": [
+        26.0,
+        60.265
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "R7",
+      "xy_mm": [
+        18.2,
+        41.265
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "R8",
+      "xy_mm": [
+        28.1,
+        48.035
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "R15",
+      "xy_mm": [
+        18.0,
+        37.235
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "R5",
+      "xy_mm": [
+        16.0,
+        61.235
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "R1",
+      "xy_mm": [
+        11.0,
+        38.265
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "R2",
+      "xy_mm": [
+        7.295000000000001,
+        61.2
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "R10",
+      "xy_mm": [
+        13.0,
+        59.735
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "R9",
+      "xy_mm": [
+        16.304999999999996,
+        52.9
+      ],
+      "size_mm": 1.0,
+      "layer": "F.SilkS",
+      "role": "reference"
+    },
+    {
+      "text": "Buzzer Rev B0.10",
+      "xy_mm": [
+        15,
+        7.2
+      ],
+      "size_mm": 1.1,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "ID: ______",
+      "xy_mm": [
+        15,
+        10.3
+      ],
+      "size_mm": 1.15,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "RUECKSEITE - ANT oben",
+      "xy_mm": [
+        15,
+        13
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "Pin 1 = markierte Ecke",
+      "xy_mm": [
+        15,
+        15
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "U2/U3: 3,4 NC",
+      "xy_mm": [
+        15,
+        16.5
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "J1 AKKU: 1 +9V / 2 GND",
+      "xy_mm": [
+        15,
+        18
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "J2 TASTER: 1 NO / 2 GND",
+      "xy_mm": [
+        15,
+        20
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "J3: ANT / 433 MHz",
+      "xy_mm": [
+        15,
+        22
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "J4 UPDI: 1 UPDI",
+      "xy_mm": [
+        15,
+        24
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "2 CTRL3V3 / 3 GND",
+      "xy_mm": [
+        15,
+        25.7
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "J5: 1 MISO / 2 TX3V3",
+      "xy_mm": [
+        15,
+        27.4
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "3 SCK / 4 MOSI",
+      "xy_mm": [
+        15,
+        29.1
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "5 RESET / 6 GND",
+      "xy_mm": [
+        15,
+        30.8
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "U5: 1 GND / 2 TX3V3",
+      "xy_mm": [
+        15,
+        32.5
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "3 DATA / 4 ANT",
+      "xy_mm": [
+        15,
+        34.2
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "U2/U3: 1IN 2GND 5OUT",
+      "xy_mm": [
+        19,
+        35.9
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "Q1/Q3: 1G 2S 3D",
+      "xy_mm": [
+        19,
+        37.6
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "Q2/Q4: 1B 2E 3C",
+      "xy_mm": [
+        19,
+        39.3
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "D1/D2: K links (von oben)",
+      "xy_mm": [
+        19,
+        41.0
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "U1 ATtiny402",
+      "xy_mm": [
+        8,
+        43.0
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "U4 ATtiny13A",
+      "xy_mm": [
+        22,
+        43.0
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "Keine 5V an J4/J5!",
+      "xy_mm": [
+        15,
+        60.5
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "legend"
+    },
+    {
+      "text": "1 CTRL3V3",
+      "xy_mm": [
+        8,
+        45.3
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "controller_pin"
+    },
+    {
+      "text": "2 NC",
+      "xy_mm": [
+        8,
+        47.0
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "controller_pin"
+    },
+    {
+      "text": "3 NC",
+      "xy_mm": [
+        8,
+        48.699999999999996
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "controller_pin"
+    },
+    {
+      "text": "4 POWER",
+      "xy_mm": [
+        8,
+        50.4
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "controller_pin"
+    },
+    {
+      "text": "5 BUTTON",
+      "xy_mm": [
+        8,
+        52.099999999999994
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "controller_pin"
+    },
+    {
+      "text": "6 UPDI",
+      "xy_mm": [
+        8,
+        53.8
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "controller_pin"
+    },
+    {
+      "text": "7 DISCH",
+      "xy_mm": [
+        8,
+        55.5
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "controller_pin"
+    },
+    {
+      "text": "8 GND",
+      "xy_mm": [
+        8,
+        57.199999999999996
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "controller_pin"
+    },
+    {
+      "text": "1 RESET",
+      "xy_mm": [
+        22,
+        45.3
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "controller_pin"
+    },
+    {
+      "text": "2 DATA",
+      "xy_mm": [
+        22,
+        47.0
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "controller_pin"
+    },
+    {
+      "text": "3 NC",
+      "xy_mm": [
+        22,
+        48.699999999999996
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "controller_pin"
+    },
+    {
+      "text": "4 GND",
+      "xy_mm": [
+        22,
+        50.4
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "controller_pin"
+    },
+    {
+      "text": "5 MOSI",
+      "xy_mm": [
+        22,
+        52.099999999999994
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "controller_pin"
+    },
+    {
+      "text": "6 MISO",
+      "xy_mm": [
+        22,
+        53.8
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "controller_pin"
+    },
+    {
+      "text": "7 SCK",
+      "xy_mm": [
+        22,
+        55.5
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "controller_pin"
+    },
+    {
+      "text": "8 TX3V3",
+      "xy_mm": [
+        22,
+        57.199999999999996
+      ],
+      "size_mm": 1.0,
+      "layer": "B.SilkS",
+      "role": "controller_pin"
+    }
+  ]
+}

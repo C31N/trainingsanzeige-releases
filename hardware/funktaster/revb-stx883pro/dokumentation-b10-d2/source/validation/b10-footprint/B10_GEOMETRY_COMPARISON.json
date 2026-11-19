@@ -1,0 +1,83 @@
+{
+  "revision": "B0.10",
+  "source": "JLCEDA/EasyEDA Official Library",
+  "source_sha256": "e8cd56807da3faa64c29bf804f4b9cf5a7ddbab7180704956427b433fce09242",
+  "board_sha256": "e86107416d817fb2096fcf9927339d3cfc62aa177a71d1e55a6b054bfc1ee001",
+  "max_allowed_geometry_error_mm": 5e-05,
+  "pads": [
+    {
+      "pin": "1",
+      "net": "/GND",
+      "pcb_local_xy_mm": [
+        -2.54,
+        7.1
+      ],
+      "pcb_size_mm": [
+        1.9,
+        2.7
+      ],
+      "source_error_mm": [
+        0.0,
+        0.0,
+        3.7999999999982492e-06,
+        5.4000000004883475e-06
+      ]
+    },
+    {
+      "pin": "2",
+      "net": "/TX3V3",
+      "pcb_local_xy_mm": [
+        0.0,
+        7.1
+      ],
+      "pcb_size_mm": [
+        1.9,
+        2.7
+      ],
+      "source_error_mm": [
+        0.0,
+        0.0,
+        3.7999999999982492e-06,
+        5.4000000004883475e-06
+      ]
+    },
+    {
+      "pin": "3",
+      "net": "/RF_DATA",
+      "pcb_local_xy_mm": [
+        2.54,
+        7.1
+      ],
+      "pcb_size_mm": [
+        1.9,
+        2.7
+      ],
+      "source_error_mm": [
+        0.0,
+        0.0,
+        3.7999999999982492e-06,
+        5.4000000004883475e-06
+      ]
+    },
+    {
+      "pin": "4",
+      "net": "/ANT",
+      "pcb_local_xy_mm": [
+        4.72999,
+        -6.05517
+      ],
+      "pcb_size_mm": [
+        2.0,
+        2.5
+      ],
+      "source_error_mm": [
+        2.0000000393594064e-06,
+        -1.9999999061326434e-06,
+        4.000000000115023e-06,
+        5.000000000254801e-06
+      ]
+    }
+  ],
+  "live_placement_verified": false,
+  "fabrication_release": false
+}

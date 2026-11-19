@@ -1,0 +1,187 @@
+name: Rev B0.10 official lands - native KiCad preflight (no fab release)
+on:
+  push:
+    branches: [codex/buzzer-revb-stx883pro-layout-2026-11-18]
+    paths:
+      - hardware/funktaster/revb-stx883pro/validation/b10-footprint/C3001517_EasyEDA_Official_Library.json
+      - hardware/funktaster/revb-stx883pro/tools/add_b10_silkscreen.py
+      - hardware/funktaster/revb-stx883pro/tools/apply_b10_official_landpattern.py
+      - hardware/funktaster/revb-stx883pro/tools/export_jlcpcb_b10_prototype.py
+      - .github/workflows/revb-native-kicad-preflight.yml
+      - hardware/funktaster/revb-stx883pro/tools/apply_b04_fixes.py
+      - hardware/funktaster/revb-stx883pro/tools/apply_b05_schematic_fix.py
+      - hardware/funktaster/revb-stx883pro/tools/apply_b06_parity_fix.py
+      - hardware/funktaster/revb-stx883pro/tools/apply_b07_nc_nets.py
+      - hardware/funktaster/revb-stx883pro/tools/apply_b08_rf_module_pitch.py
+      - hardware/funktaster/revb-stx883pro/tools/apply_b09_short_ant.py
+      - hardware/funktaster/revb-stx883pro/tools/export_jlcpcb_b09_prototype.py
+  pull_request:
+    paths:
+      - hardware/funktaster/revb-stx883pro/validation/b10-footprint/C3001517_EasyEDA_Official_Library.json
+      - hardware/funktaster/revb-stx883pro/tools/add_b10_silkscreen.py
+      - hardware/funktaster/revb-stx883pro/tools/apply_b10_official_landpattern.py
+      - hardware/funktaster/revb-stx883pro/tools/export_jlcpcb_b10_prototype.py
+      - .github/workflows/revb-native-kicad-preflight.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-kicad8:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    # Official image: https://www.kicad.org/download/docker/
+    container:
+      image: kicad/kicad:8.0.9
+      options: --user 0
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install archive utilities from Debian repositories
+        shell: bash
+        run: |
+          apt-get -o Acquire::Retries=3 update -qq
+          apt-get -o Acquire::Retries=3 install -y -qq --no-install-recommends zip unzip librsvg2-bin
+      - name: Unpack exact B0.4 candidate and check manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p out src
+          unzip -q hardware/funktaster/revb-stx883pro/Buzzer_RevB_STX883PRO_Entwurf_B0.3.zip -d src
+          mv src/Buzzer_RevB_STX883PRO_B0.3 src/Buzzer_RevB_STX883PRO_B0.4
+          cd src/Buzzer_RevB_STX883PRO_B0.4/firmware
+          sha256sum -c SHA256SUMS.txt
+          cd ../../../
+          python3 hardware/funktaster/revb-stx883pro/tools/apply_b04_fixes.py src/Buzzer_RevB_STX883PRO_B0.4
+          python3 hardware/funktaster/revb-stx883pro/tools/apply_b05_schematic_fix.py src/Buzzer_RevB_STX883PRO_B0.4
+          mv src/Buzzer_RevB_STX883PRO_B0.4 src/Buzzer_RevB_STX883PRO_B0.5
+          python3 hardware/funktaster/revb-stx883pro/tools/apply_b06_parity_fix.py src/Buzzer_RevB_STX883PRO_B0.5
+          mv src/Buzzer_RevB_STX883PRO_B0.5 src/Buzzer_RevB_STX883PRO_B0.6
+          python3 hardware/funktaster/revb-stx883pro/tools/apply_b07_nc_nets.py src/Buzzer_RevB_STX883PRO_B0.6
+          mv src/Buzzer_RevB_STX883PRO_B0.6 src/Buzzer_RevB_STX883PRO_B0.7
+          python3 hardware/funktaster/revb-stx883pro/tools/apply_b08_rf_module_pitch.py src/Buzzer_RevB_STX883PRO_B0.7
+          mv src/Buzzer_RevB_STX883PRO_B0.7 src/Buzzer_RevB_STX883PRO_B0.8
+          python3 hardware/funktaster/revb-stx883pro/tools/apply_b09_short_ant.py src/Buzzer_RevB_STX883PRO_B0.8
+          mv src/Buzzer_RevB_STX883PRO_B0.8 src/Buzzer_RevB_STX883PRO_B0.9
+          python3 hardware/funktaster/revb-stx883pro/tools/apply_b10_official_landpattern.py src/Buzzer_RevB_STX883PRO_B0.9
+          mv src/Buzzer_RevB_STX883PRO_B0.9 src/Buzzer_RevB_STX883PRO_B0.10
+          python3 hardware/funktaster/revb-stx883pro/tools/add_b10_silkscreen.py src/Buzzer_RevB_STX883PRO_B0.10
+          # Preserve design artifact even when DRC fails; prototype only.
+          (cd src && zip -qr ../out/Buzzer_RevB_STX883PRO_Entwurf_B0.10.zip Buzzer_RevB_STX883PRO_B0.10)
+      - name: Verify pinned official KiCad 8.0.9 and Python bindings
+        shell: bash
+        run: |
+          set -euo pipefail
+          kicad-cli version | tee out/kicad-version.txt
+          grep -q '^8[.]0[.]9' out/kicad-version.txt
+          /usr/bin/python3 -c 'import pcbnew; print(pcbnew.GetBuildVersion())'
+      - name: Fill GND zones and execute independent DRC/ERC
+        shell: bash
+        run: |
+          set +e
+          set -uo pipefail
+          PCB=src/Buzzer_RevB_STX883PRO_B0.10/kicad/buzzer-revb-stx883pro-ROUTED-V3-EXPERIMENT.kicad_pcb
+          SCH=src/Buzzer_RevB_STX883PRO_B0.10/kicad/buzzer-revb-stx883pro.kicad_sch
+          # pcbnew is necessary for zone connectivity; DRC on unfilled zones would be misleading
+          /usr/bin/python3 - "$PCB" src/Buzzer_RevB_STX883PRO_B0.10/kicad/buzzer-revb-stx883pro.kicad_pcb <<'PY'
+          import sys
+          import pcbnew
+          src, dst = sys.argv[1:]
+          board=pcbnew.LoadBoard(src)
+          filler=pcbnew.ZONE_FILLER(board)
+          filler.Fill(board.Zones())
+          pcbnew.SaveBoard(dst,board)
+          print("Native KiCad zone fill performed")
+          PY
+          fill_rc=$?
+          if [ "$fill_rc" -eq 0 ]; then
+            kicad-cli pcb drc --format json --severity-error --severity-warning --schematic-parity --exit-code-violations --output out/native-drc.json src/Buzzer_RevB_STX883PRO_B0.10/kicad/buzzer-revb-stx883pro.kicad_pcb
+            drc_rc=$?
+          else
+            printf 'pcbnew zone fill failed with rc=%s\n' "$fill_rc" | tee out/zone-fill-error.txt
+            drc_rc=1
+          fi
+          kicad-cli sch erc --format json --severity-error --severity-warning --exit-code-violations --output out/native-erc.json "$SCH"
+          erc_rc=$?
+          printf 'ZONE_FILL=%s\nDRC=%s\nERC=%s\n' "$fill_rc" "$drc_rc" "$erc_rc" | tee out/native-cli-exit-codes.txt
+          /usr/bin/python3 - <<'PY'
+          import json
+          from pathlib import Path
+          for p in sorted(Path("out").glob("native-*.json")):
+              try:
+                  j=json.loads(p.read_text())
+                  print(p.name, "top-level keys", list(j))
+                  for key in ("violations","unconnected_items","schematic_parity"):
+                      if key in j:
+                          a=j[key]
+                          print(" ", key, len(a) if isinstance(a,list) else a)
+              except Exception as e:print("Could not parse",p,e)
+          PY
+          # CLI must succeed, and native JSON must contain no DRC/ERC/parity issue.
+          /usr/bin/python3 - <<'PY'
+          import json
+          from pathlib import Path
+          board = json.loads(Path("out/native-drc.json").read_text())
+          for key in ("violations", "unconnected_items", "schematic_parity"):
+              assert isinstance(board.get(key),list), (key, board.keys())
+              assert len(board[key]) == 0, (key, len(board[key]))
+          sch = json.loads(Path("out/native-erc.json").read_text())
+          assert sch.get("sheets")
+          assert all(not sheet.get("violations") for sheet in sch["sheets"])
+          print("B0.6 native KiCad DRC/ERC, unconnected and schematic parity: zero")
+          PY
+          json_rc=$?
+          printf 'JSON_GATE=%s\n' "$json_rc" | tee -a out/native-cli-exit-codes.txt
+          test "$fill_rc" -eq 0 && test "$drc_rc" -eq 0 && test "$erc_rc" -eq 0 && test "$json_rc" -eq 0
+      - name: Export 6x JLCPCB prototype fabrication preview after zero DRC/ERC
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT=src/Buzzer_RevB_STX883PRO_B0.10
+          BOARD="$ROOT/kicad/buzzer-revb-stx883pro.kicad_pcb"
+          DEST=out/revb-b10-jlcpcb-prototype-preview
+          mkdir -p "$DEST/gerbers"
+          kicad-cli pcb export gerbers --layers F.Cu,B.Cu,F.Mask,B.Mask,F.Paste,F.Silkscreen,B.Silkscreen,Edge.Cuts --output "$DEST/gerbers/" "$BOARD"
+          kicad-cli pcb export drill --format excellon --output "$DEST/gerbers/" "$BOARD"
+          /usr/bin/python3 hardware/funktaster/revb-stx883pro/tools/export_jlcpcb_b10_prototype.py "$ROOT" "$DEST"
+          cp "$ROOT/firmware/"*.hex "$DEST/"
+          python3 - "$DEST" <<'PY'
+          from pathlib import Path
+          import hashlib,sys,zipfile
+          dest=Path(sys.argv[1])
+          with zipfile.ZipFile('hardware/funktaster/DIAMEX_Funktaster.zip') as z:
+              raw=z.read('firmware/v2/buzzer6.hex')
+          assert hashlib.sha256(raw).hexdigest()=='29a7d7cde53f10005cb8a15c76119f053ca43760c4b189599b2ddfacd8799742'
+          (dest/'ATtiny13A_V2_ID6.hex').write_bytes(raw)
+          (dest/'FIRMWARE_SHA256SUMS.txt').write_text(''.join(f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.name}\n' for p in sorted(dest.glob('*.hex'))))
+          PY
+          cp out/native-drc.json out/native-erc.json "$DEST/"
+          cp "$ROOT/validation/B10_SILKSCREEN.json" "$DEST/"
+          kicad-cli pcb export svg --layers F.Silkscreen,F.Mask,Edge.Cuts --black-and-white --page-size-mode 2 --exclude-drawing-sheet --output "$DEST/silkscreen-front.svg" "$BOARD"
+          kicad-cli pcb export svg --layers B.Silkscreen,B.Mask,Edge.Cuts --mirror --black-and-white --page-size-mode 2 --exclude-drawing-sheet --output "$DEST/silkscreen-back.svg" "$BOARD"
+          rsvg-convert -w 1200 "$DEST/silkscreen-front.svg" -o "$DEST/silkscreen-front.png"
+          rsvg-convert -w 1200 "$DEST/silkscreen-back.svg" -o "$DEST/silkscreen-back.png"
+          echo 'PROTOTYPE ONLY. C3001517 lands matched to official library; machine placement, RF, installed ERP, battery under load and MCU programming NOT validated. DO NOT ASSUME SERIES RELEASE.' > "$DEST/00_README_NICHT_SERIENREIF.txt"
+          (cd "$DEST" && find . -type f ! -name SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS.txt)
+          (cd "$DEST" && zip -qr ../RevB_B10_S2_6x_JLCPCB_PROTOTYPEN_UNFREIGEGEBEN.zip .)
+      - name: Upload JLCPCB prototype files (NOT production approval)
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: revb-b10-s2-jlcpcb-prototype-preview-not-approved
+          path: out/RevB_B10_S2_6x_JLCPCB_PROTOTYPEN_UNFREIGEGEBEN.zip
+          retention-days: 14
+          if-no-files-found: error
+      - name: Upload actual validation evidence (NOT fabrication files)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: revb-b10-s2-native-kicad8-preflight
+          path: |
+            out/kicad-version.txt
+            out/native-drc.json
+            out/native-erc.json
+            out/native-cli-exit-codes.txt
+            out/zone-fill-error.txt
+            out/Buzzer_RevB_STX883PRO_Entwurf_B0.10.zip
+          retention-days: 14
+          if-no-files-found: warn

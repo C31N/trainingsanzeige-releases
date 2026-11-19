@@ -2,3 +2,6 @@ dokumentation-b09-d1/** -text whitespace=cr-at-eol
 *.zip -text
 *.pdf binary
 validation/b10-footprint/** -text whitespace=cr-at-eol
+
+dokumentation-b10-d2/** -text whitespace=cr-at-eol
+dokumentation-b10-d2/evidence/*.svg binary

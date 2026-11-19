@@ -1,3 +1,9 @@
+# Aktueller Bestellstand: B0.10-S2, neun PCBA
+
+Am 19.11.2026 wurde der Bestellverlauf geprüft: zehn Leiterplatten, davon neun Standard-PCBA, aktuelle S2-Beschriftung und finale B010-CPL. [PDF, Firmware IDs 1-9 und exakte Fertigungsdateien](dokumentation-b10-d2/README.md). Die folgenden älteren Fünferangaben sind historisch und keine neue Bestellgrundlage. Musterabnahme bleibt offen.
+
+---
+
 # JLCPCB: Bestellpaket für fünf Rev-B0.9-Prototypen
 
 **Nur Prototypenfertigung – keine Serien- oder Funkfreigabe.** Dieses Dokument ist der dauerhafte Verweis auf den reproduzierbaren Fertigungsdatenexport.

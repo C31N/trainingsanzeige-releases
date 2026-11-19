@@ -1,25 +1,17 @@
-# Wasserfreunde Dalum - Buzzer Rev B0.9
+# Wasserfreunde Dalum - Buzzer Rev B0.10
 
-**Prototyp / keine Fertigungs- oder Einsatzfreigabe.** Aktueller Dokumentationsstand: B0.9-D1, 18.11.2026.
+Aktueller Stand **B0.10-S2 / Dokumentation D2**, 19.11.2026. Beschriftung: **Buzzer Rev B0.10** mit kleinem v, Komponentenreferenzen, Pinmarkierungen und ausführlicher Rückseitenlegende.
 
-Rev B integriert ATtiny402-Impulsverlängerung, ATtiny13A-V2-Sendersteuerung und STX883PRO auf einer 30 x70-mm-Zweilagenplatine. Fünf identische PCBA sind vorbereitet; die Sender unterscheiden sich nach Programmierung durch IDs1-5. Beide Controller werden unprogrammiert geliefert.
+Laut geprüftem Bestellverlauf sind **zehn Leiterplatten, davon neun Standard-PCBA**, bestellt. Beide Controller werden unprogrammiert geliefert. Eine Platine zuerst elektrisch, mechanisch und im Funkbetrieb abnehmen.
 
-## Aktuelles Paket
-- [Eigene PDF: Anschluss, Programmierung, Erstprüfung](dokumentation-b09-d1/documents/Buzzer_RevB_B09_Anleitung_Programmierung.pdf)
-- [Archivübersicht und Änderungen](dokumentation-b09-d1/README.md)
-- [Vollständiges Dokumentationsarchiv](Buzzer_RevB_B09_Dokumentation_D1_NICHT_FERTIGUNGSFREIGEGEBEN.zip)
-- [Prüfstatus](dokumentation-b09-d1/validation/RELEASE_GATES.json)
+- [PDF: Anschluss, Programmierung und Erstprüfung](dokumentation-b10-d2/documents/Buzzer_RevB_B010_Anleitung_Programmierung.pdf)
+- [Vollständiges Paket und Herkunft](dokumentation-b10-d2/README.md)
+- [Download: CAD, Fertigung, Firmware IDs 1-9 und Anleitung](Buzzer_RevB_B010_S2_9x_Dokumentation.zip)
+- [Prüfstatus](dokumentation-b10-d2/validation/RELEASE_GATES.json)
+- [Gesicherter Bestellstand ohne private Kundendaten](dokumentation-b10-d2/evidence/BESTELLSTAND.json)
 
-## Was belegt ist
-Native KiCad8.0.9: DRC0 / ERC0 / Unconnected0 / Parität0, CI-Lauf44295672022. 35 SMD-Referenzen und19 LCSC-Gruppen abgeglichen. Die drei genehmigten Ersatztypen sowie ein JLCPCB-Bildexport und35 visuelle Prüfvermerke sind gesichert. D1/D2 wurden im Viewer um180 Grad korrigiert; Kathoden links.
+Rev B integriert ATtiny402-Impulsverlängerung, ATtiny13A-V2-Sendersteuerung und STX883PRO auf 30 x 70 mm. Native KiCad8.0.9: DRC0/ERC0/Unconnected0/Parität0, CI44374130631. U5-Lands sind mit der offiziellen JLCEDA/EasyEDA-Bibliothek abgeglichen. Die tatsächlich importierte finale CPL ist reproduzierbar archiviert; der frühere B0.9-CPL-Blocker ist für diesen Stand behoben. Keine manuellen Viewer-Änderungen nach dem finalen Import.
 
-## Was vor der Bestellung noch fehlt
-Die finale numerische Live-CPL nach manuellen Viewer-Korrekturen ließ sich über die verfügbare Oberfläche nicht exportieren. Die archivierten Original- und Y-negativ-CPLs sind **keine reproduzierbare finale Bestückung**. Erst finale numerische Koordinaten/Winkel sichern und gegen Gerberpads und Hersteller-Landpatterns, besonders STX883PRO, abgleichen. Das Projekt bleibt bis dahin `fabrication_release=false`.
+Programmierung: U1 an J4/UPDI mit Controller3V3; U4 an J5/ISP mit TX3V3. Getrennte Schienen nicht verbinden. Akku und jeweils anderen Programmer entfernen; extern geregelte 3,3 V, DIAMEX-Targetversorgung aus. Gedrückthalten des Buzzers genügt wegen der Abschaltung nach etwa 1 s nicht. Pro physischem Sender eine eindeutige ID verwenden; IDs 6-9 neu anlernen.
 
-Hardware-, Akku-, Programmier-, Gehäuse- und Funkabnahmen sind weiterhin offen. Erst ein Muster prüfen. Die visuelle Vorschau garantiert weder die tatsächliche Bestückung noch die Funktion.
-
-## Programmierung beachten
-ATtiny402: J4/UPDI, Controller3V3. ATtiny13A: J5/ISP, TX3V3. Diese Versorgungsschienen nicht verbinden. Für den neuen integrierten Aufbau genügt Gedrückthalten des Buzzers nicht; die Impulsverlängerung schaltet nach etwa1 s ab. Die PDF beschreibt die getrennte3,3-V-Programmierversorgung und die Fuse-Rücklesung.
-
-## Historische Dateien
-B0.2/B0.3-ZIPs, ältere BOM/CPL-Entwürfe und frühere Abnahmedokumente bleiben als Verlauf erhalten. Ihr früherer Status kann veraltet sein. Für den aktuellen Freigabestand gelten ausschließlich diese Übersicht und dokumentation-b09-d1/validation/RELEASE_GATES.json. Keine ältere Gerber-/CPL-Datei ungeprüft für eine neue Bestellung verwenden.
+Hardware-, Akku-, Programmier-, Gehäuse- und Funkabnahmen bleiben offen. Die Dateiprüfung ist keine Funktionsgarantie oder Serienfreigabe. Historische B0.2-B0.9-Dateien bleiben als Verlauf erhalten; aktuelle Bestellgrundlage ist ausschließlich dokumentation-b10-d2/manufacturing.

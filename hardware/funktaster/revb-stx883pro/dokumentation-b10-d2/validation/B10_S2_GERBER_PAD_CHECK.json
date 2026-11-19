@@ -1,0 +1,52 @@
+{
+  "ci_run": 44374130631,
+  "gerber_zip_sha256": "66108eb23568b4d7c5525f8f6681b32ccc0e0322a528d25e99a4caed35ca641e",
+  "member": "buzzer-revb-stx883pro-F_Cu.gtl",
+  "U5_gerber_pads": {
+    "1": {
+      "xy_mm": [
+        12.46,
+        19.6
+      ],
+      "size_mm": [
+        1.9,
+        2.7
+      ],
+      "net": "/GND"
+    },
+    "2": {
+      "xy_mm": [
+        15.0,
+        19.6
+      ],
+      "size_mm": [
+        1.9,
+        2.7
+      ],
+      "net": "/TX3V3"
+    },
+    "3": {
+      "xy_mm": [
+        17.54,
+        19.6
+      ],
+      "size_mm": [
+        1.9,
+        2.7
+      ],
+      "net": "/RF_DATA"
+    },
+    "4": {
+      "xy_mm": [
+        19.72999,
+        6.44483
+      ],
+      "size_mm": [
+        2.0,
+        2.5
+      ],
+      "net": "/ANT"
+    }
+  },
+  "result": "4 pads match independently verified official geometry"
+}
