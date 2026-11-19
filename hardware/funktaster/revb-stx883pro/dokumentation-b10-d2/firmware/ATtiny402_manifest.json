@@ -1,0 +1,16 @@
+{
+  "firmware": "1.0.0-prototype",
+  "device": "ATtiny402",
+  "cpu_hz": 5000000,
+  "dfp": "Microchip.ATtiny_DFP.3.4.278",
+  "compiler": "avr-gcc.exe (GCC) 7.3.0",
+  "size": "   text\t   data\t    bss\t    dec\t    hex\tfilename\n    738\t      0\t      3\t    741\t    2e5\tbuzzer-hold.elf\n",
+  "hashes": {
+    "main.c": "fa114b4508ab712c29fd0082eaae5ce219c214f1f3b35e59122a70abc9ab6cb5",
+    "controller.h": "a62261b7dadfe26d9a5ac9bfa759adfb47dcb6663d031b4792db5dd6cc1d7529",
+    "fuses.json": "613e933fa285e64794c5d268a2265badb78a84a5cf33ff76a753860db75b9069",
+    "buzzer-hold.hex": "63e557235adffdc2c65c94177741f8966084850d9d334701b7bd607a773e47a8",
+    "buzzer-hold.bin": "bb61212758364b28ad5b17e124b7a64d9fcd2584c1b6098542be55fabba7c46c"
+  },
+  "physical_validation": false
+}

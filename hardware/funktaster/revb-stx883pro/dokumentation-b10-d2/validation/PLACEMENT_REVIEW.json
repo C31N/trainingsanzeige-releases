@@ -1,0 +1,285 @@
+{
+  "basis": "Exakte archivierte CPL neu importiert; sichtbarer JLCPCB-Bildexport vom 18.11.2026. Keine manuellen Drehungen/Positionsänderungen danach.",
+  "references": [
+    {
+      "Designator": "C1",
+      "Mid X": "10.0000mm",
+      "Mid Y": "-51.8000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "C2",
+      "Mid X": "11.0000mm",
+      "Mid Y": "-54.8000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "C3",
+      "Mid X": "5.5000mm",
+      "Mid Y": "-49.2000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "C4",
+      "Mid X": "3.4000mm",
+      "Mid Y": "-44.7000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "C5",
+      "Mid X": "27.0000mm",
+      "Mid Y": "-34.5000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "C6",
+      "Mid X": "25.0000mm",
+      "Mid Y": "-32.0000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "C7",
+      "Mid X": "14.5000mm",
+      "Mid Y": "-35.5000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "C8",
+      "Mid X": "8.0000mm",
+      "Mid Y": "-23.7000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "C9",
+      "Mid X": "19.0000mm",
+      "Mid Y": "-23.6000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "D1",
+      "Mid X": "26.1000mm",
+      "Mid Y": "-50.0000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "D2",
+      "Mid X": "4.5000mm",
+      "Mid Y": "-57.0000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "Q1",
+      "Mid X": "23.0000mm",
+      "Mid Y": "-54.1000mm",
+      "Layer": "Top",
+      "Rotation": "180",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "Q2",
+      "Mid X": "18.5000mm",
+      "Mid Y": "-56.0000mm",
+      "Layer": "Top",
+      "Rotation": "180",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "Q3",
+      "Mid X": "22.0000mm",
+      "Mid Y": "-47.0000mm",
+      "Layer": "Top",
+      "Rotation": "180",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "Q4",
+      "Mid X": "17.8000mm",
+      "Mid Y": "-50.1000mm",
+      "Layer": "Top",
+      "Rotation": "180",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "R1",
+      "Mid X": "11.0000mm",
+      "Mid Y": "-40.0000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "R10",
+      "Mid X": "12.5000mm",
+      "Mid Y": "-58.0000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "R11",
+      "Mid X": "25.0000mm",
+      "Mid Y": "-43.0000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "R12",
+      "Mid X": "8.0000mm",
+      "Mid Y": "-28.0000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "R13",
+      "Mid X": "21.5000mm",
+      "Mid Y": "-27.5000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "R14",
+      "Mid X": "26.0000mm",
+      "Mid Y": "-28.5000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "R15",
+      "Mid X": "18.0000mm",
+      "Mid Y": "-35.5000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "R2",
+      "Mid X": "10.0000mm",
+      "Mid Y": "-61.2000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "R3",
+      "Mid X": "27.0000mm",
+      "Mid Y": "-58.0000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "R4",
+      "Mid X": "23.3000mm",
+      "Mid Y": "-59.5000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "R5",
+      "Mid X": "16.0000mm",
+      "Mid Y": "-59.5000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "R6",
+      "Mid X": "26.0000mm",
+      "Mid Y": "-62.0000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "R7",
+      "Mid X": "18.2000mm",
+      "Mid Y": "-43.0000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "R8",
+      "Mid X": "26.1000mm",
+      "Mid Y": "-46.3000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "R9",
+      "Mid X": "13.6000mm",
+      "Mid Y": "-51.4000mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "U1",
+      "Mid X": "12.0000mm",
+      "Mid Y": "-47.3000mm",
+      "Layer": "Top",
+      "Rotation": "270",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "U2",
+      "Mid X": "6.0000mm",
+      "Mid Y": "-52.6000mm",
+      "Layer": "Top",
+      "Rotation": "180",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "U3",
+      "Mid X": "22.7000mm",
+      "Mid Y": "-38.6000mm",
+      "Layer": "Top",
+      "Rotation": "180",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "U4",
+      "Mid X": "14.0000mm",
+      "Mid Y": "-31.2000mm",
+      "Layer": "Top",
+      "Rotation": "270",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    },
+    {
+      "Designator": "U5",
+      "Mid X": "16.095019mm",
+      "Mid Y": "-13.022416mm",
+      "Layer": "Top",
+      "Rotation": "0",
+      "visual_check": "Pads und sichtbare Orientierung im vollständigen Bildexport kontrolliert"
+    }
+  ]
+}

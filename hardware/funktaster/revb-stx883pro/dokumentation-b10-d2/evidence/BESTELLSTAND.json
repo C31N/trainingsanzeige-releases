@@ -1,0 +1,16 @@
+{
+  "checked_date": "2026-11-19",
+  "source": "sichtbarer JLCPCB-Bestellverlauf",
+  "gerber_name": "01_JLCPCB_REVB_B010_S2_30x70_2L_Y4",
+  "bom_name": "02_JLCPCB_BOM_35_SMD.csv",
+  "cpl_name": "03_JLCPCB_REVB_B010_FINAL.csv",
+  "pcb_qty": 10,
+  "pcba_qty": 9,
+  "assembly": "Standard, Oberseite",
+  "goods_usd": "143.13",
+  "shipping_usd": "18.41",
+  "duties_taxes_usd": "30.68",
+  "total_usd": "192.22",
+  "status_displayed": "In Produktion / Einzelpositionen Datenaufbereitung",
+  "note": "Vom Nutzer bestellt. Kein weiterer Auftrag ausgelöst. Rabatt-Aufschlüsselung nicht sichtbar. Der separate BOM-Beleg dokumentiert die zuvor geprüfte Sechserkonfiguration, nicht den finalen Materialaufschlag für neun."
+}

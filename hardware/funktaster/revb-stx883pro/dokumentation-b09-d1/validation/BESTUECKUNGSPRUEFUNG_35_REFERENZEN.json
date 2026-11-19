@@ -1,0 +1,317 @@
+[
+  {
+    "ref": "C1",
+    "lcsc": "C1711",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "C2",
+    "lcsc": "C77080",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "C3",
+    "lcsc": "C76639",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "C4",
+    "lcsc": "C1711",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "C5",
+    "lcsc": "C77080",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "C6",
+    "lcsc": "C76639",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "C7",
+    "lcsc": "C1711",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "C8",
+    "lcsc": "C6119932",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "C9",
+    "lcsc": "C1711",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "D1",
+    "lcsc": "C2103",
+    "review": "visual_only",
+    "note": "Live um180 Grad korrigiert; Kathodenstreifen links; Gerber-Pad1 links",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "D2",
+    "lcsc": "C2480",
+    "review": "visual_only",
+    "note": "Live um180 Grad korrigiert; Kathodenstreifen links; Gerber-Pad1 links",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "Q1",
+    "lcsc": "C15155",
+    "review": "visual_only",
+    "note": "Pin-1-Orientierung / Anschlussueberdeckung visuell geprueft",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "Q2",
+    "lcsc": "C7422625",
+    "review": "visual_only",
+    "note": "Pin-1-Orientierung / Anschlussueberdeckung visuell geprueft",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "Q3",
+    "lcsc": "C20917",
+    "review": "visual_only",
+    "note": "Pin-1-Orientierung / Anschlussueberdeckung visuell geprueft",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "Q4",
+    "lcsc": "C7422625",
+    "review": "visual_only",
+    "note": "Pin-1-Orientierung / Anschlussueberdeckung visuell geprueft",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "R1",
+    "lcsc": "C84376",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "R2",
+    "lcsc": "C95781",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "R3",
+    "lcsc": "C96346",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "R4",
+    "lcsc": "C84376",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "R5",
+    "lcsc": "C84376",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "R6",
+    "lcsc": "C96346",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "R7",
+    "lcsc": "C84376",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "R8",
+    "lcsc": "C96346",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "R9",
+    "lcsc": "C84376",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "R10",
+    "lcsc": "C96346",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "R11",
+    "lcsc": "C844884",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "R12",
+    "lcsc": "C84376",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "R13",
+    "lcsc": "C114523",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "R14",
+    "lcsc": "C84376",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "R15",
+    "lcsc": "C105878",
+    "review": "visual_only",
+    "note": "Ungepolt; Anschlussueberdeckung visuell plausibel",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "U1",
+    "lcsc": "C1339884",
+    "review": "visual_only",
+    "note": "Pin-1-Orientierung / Anschlussueberdeckung visuell geprueft",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "U2",
+    "lcsc": "C89347",
+    "review": "visual_only",
+    "note": "Pin-1-Orientierung / Anschlussueberdeckung visuell geprueft",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "U3",
+    "lcsc": "C89347",
+    "review": "visual_only",
+    "note": "Pin-1-Orientierung / Anschlussueberdeckung visuell geprueft",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "U4",
+    "lcsc": "C14075",
+    "review": "visual_only",
+    "note": "Pin-1-Orientierung / Anschlussueberdeckung visuell geprueft",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  },
+  {
+    "ref": "U5",
+    "lcsc": "C3001517",
+    "review": "visual_only",
+    "note": "Castellations und ANT visuell plausibel; metrischer Landpattern-Abgleich offen",
+    "final_numeric_x_mm": null,
+    "final_numeric_y_mm": null,
+    "final_numeric_rotation_deg": null
+  }
+]

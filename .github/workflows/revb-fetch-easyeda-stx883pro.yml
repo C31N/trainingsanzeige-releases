@@ -1,0 +1,40 @@
+name: STX883PRO C3001517 official footprint comparison (research only)
+on:
+  push:
+    branches: [codex/buzzer-revb-stx883pro-layout-2026-11-18]
+    paths:
+      - .github/workflows/revb-fetch-easyeda-stx883pro.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fetch-component:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Retrieve public EasyEDA/LCSC component CAD JSON
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p component-evidence
+          curl -fLSs --max-time 30 -H 'User-Agent: Mozilla/5.0' \
+            https://easyeda.com/api/products/C3001517/components \
+            -o component-evidence/C3001517_easyeda_components.json
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,hashlib
+          p=Path("component-evidence/C3001517_easyeda_components.json")
+          d=json.loads(p.read_text())
+          assert d.get("success") is True or d.get("result"),list(d)
+          print("EasyEDA C3001517 response SHA256",hashlib.sha256(p.read_bytes()).hexdigest())
+          print("Root keys:",list(d))
+          print("Package names/keys:",str(d.get("result",{}))[:200].replace("\n"," "))
+          PY
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: revb-stx883pro-easyeda-c3001517
+          path: component-evidence/
+          if-no-files-found: warn
+          retention-days: 7

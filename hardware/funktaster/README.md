@@ -1,3 +1,5 @@
+> Integrierte Platine Buzzer Rev B0.10-S2: [aktuelle Anleitung D3 mit Adafruit Friend5893 und Federantenne](revb-stx883pro/README.md). Die folgenden Angaben zum alten Aufbau bleiben dessen Anleitung.
+
 # Funktaster: bauen, programmieren und zuordnen
 
 Das vollständige [DIAMEX-Downloadpaket](DIAMEX_Funktaster.zip) enthält den

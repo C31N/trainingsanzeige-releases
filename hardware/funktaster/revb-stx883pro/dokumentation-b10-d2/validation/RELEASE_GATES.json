@@ -1,0 +1,18 @@
+{
+  "revision": "B0.10-S2",
+  "ci_run": 44374130631,
+  "cad_commit": "c532ec9238da2f731311e68708b58bdad810f738",
+  "native_drc": 0,
+  "native_erc": 0,
+  "unconnected": 0,
+  "schematic_parity": 0,
+  "pcb_qty_ordered": 10,
+  "pcba_qty_ordered": 9,
+  "placement_from_archived_input": true,
+  "manual_viewer_changes_after_import": [],
+  "visual_review_ref_count": 35,
+  "prototype_only": true,
+  "hardware_tested": false,
+  "firmware_preprogrammed": false,
+  "series_fabrication_release": false
+}
