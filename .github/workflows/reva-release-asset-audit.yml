@@ -1,0 +1,79 @@
+name: Rev A release assets verification (preflight only)
+on:
+  push:
+    branches:
+      - codex/jlcpcb-buzzer-hold-reva-orderprep-2026-11-18
+    paths:
+      - .github/workflows/reva-release-asset-audit.yml
+  pull_request:
+    paths:
+      - .github/workflows/reva-release-asset-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  download-hardware-release:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Inspect published hardware release and download ZIP assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p release-files
+          gh api "repos/C31N/trainingsanzeige-releases/releases/tags/buzzer-hold-revA-0.1.0" > release-manifest.json
+          jq -r '.assets[] | [.name, .size, .content_type] | @tsv' release-manifest.json
+          test "$(jq '.assets | length' release-manifest.json)" -gt 0
+          gh release download buzzer-hold-revA-0.1.0 -R C31N/trainingsanzeige-releases --dir release-files --pattern '*.zip' --clobber
+          find release-files -maxdepth 1 -type f -printf '%f (%s bytes)\n'
+      - name: Independently run KiCad 8 ERC and DRC against original released design
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq software-properties-common
+          # Ubuntu 24.04's default KiCad is 7.0.11; the v8 DRC/ERC CLI
+          # used by this board is available from the KiCad project's PPA.
+          sudo add-apt-repository -y ppa:kicad/kicad-8.0-releases
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq kicad
+          mkdir -p hardware-src validation-results
+          unzip -q release-files/WFD_Buzzer_Impulsverlaengerung_RevA_Prototyp.zip -d hardware-src
+          kicad-cli version | tee validation-results/kicad-version.txt
+          grep -Eq '^8[.]' validation-results/kicad-version.txt || {
+            echo "::error::Expected KiCad 8.x, found $(cat validation-results/kicad-version.txt)"
+            exit 1
+          }
+          kicad-cli pcb drc --format json --severity-error --severity-warning --schematic-parity --exit-code-violations --output validation-results/board-drc.json hardware-src/kicad/buzzer-hold.kicad_pcb
+          kicad-cli sch erc --format json --severity-error --severity-warning --exit-code-violations --output validation-results/schematic-erc.json hardware-src/kicad/buzzer-hold.kicad_sch
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          for f in Path('validation-results').glob('*-*.json'):
+              obj=json.loads(f.read_text())
+              for key in ('violations','unconnected_items','schematic_parity'):
+                  if obj.get(key):raise RuntimeError(f'{f}: {key} = {len(obj[key])}')
+              print('INDEPENDENT DRC/ERC PASS:',f)
+          PY
+      - name: Upload independent native check reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reva-kicad-8-native-preflight
+          path: validation-results/
+          if-no-files-found: warn
+          retention-days: 1
+      - name: Upload originals for isolated pre-order inspection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reva-original-release-files-precheck
+          path: |
+            release-manifest.json
+            release-files/*.zip
+          if-no-files-found: warn
+          retention-days: 1
