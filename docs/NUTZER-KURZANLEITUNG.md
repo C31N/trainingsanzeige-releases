@@ -21,7 +21,7 @@ beendet Inhalte und archiviert ein Training. Danach erscheint die Uhr; erst der
 nächste Druck schaltet den Bildschirm in Standby.
 
 
-## Trainingsblöcke und Gesamtübersicht ab 2.20.43
+## Trainingsblöcke und Gesamtübersicht ab 2.21.0
 
 Beim Bearbeiten sind die Blöcke je Bahn von oben nach unten nummeriert. Das **+**
 links neben **×** fügt direkt unter diesem Block einen neuen ein. Der bisherige

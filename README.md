@@ -1,8 +1,10 @@
 # Trainingsanzeige – Downloads und Anleitungen
 
-**Aktueller Stand: 2.20.43.** Die Software ist für die Installation und Abnahme
+**Aktueller Stand: 2.21.0.** Die Software ist für die Installation und Abnahme
 in der Schwimmhalle vorbereitet. Die tatsächliche Hardwareprüfung am Standort
 ist noch durchzuführen.
+
+Neu in **2.21.0**: Manueller Drei-Bahnen-Wettkampf mit lokaler Laufsteuerung, Stoppuhrwerten, Hallenanzeige, Ergebnisfreigabe und CSV. [Bedienung](docs/WETTKAMPF.md)
 
 Neu in **2.20.43**: Nummerierte Trainingsblöcke, direktes Einfügen per Pluszeichen und eine manuell blätterbare Übersicht des gesamten Trainings auf Handy und Hallenanzeige.
 
@@ -92,7 +94,7 @@ Die getrennten Zugänge für Medien und Lernen vergeben keine Trainer- oder Admi
 Unter [Releases](https://github.com/C31N/trainingsanzeige-releases/releases) liegen
 je Version die vier zusammengehörenden Dateien `trainingsanzeige.tar.gz`,
 `trainingsanzeige-web.json`, `trainingsanzeige.json` und `trainingsanzeige.sig`.
-Für eine Neuinstallation das vollständige `trainingsanzeige-installation-2.20.33.zip`
+Für eine Neuinstallation das vollständige `trainingsanzeige-installation-2.21.0.zip`
 mit `installation.json`, `installation.sig`, `release-signing.pub` und dem separaten
 `trainingsanzeige-media-swim-eule-20261112-1.zip` verwenden. Die zusätzliche Signatur schützt
 auch die Einrichtungsskripte. Das Websetup ist bereits darin enthalten.
@@ -110,7 +112,6 @@ Die Lernvideobibliothek ist ein eigener Download im Adminbereich.
 
 Geräteschlüssel, WLAN-Kennwörter, Datenbanken, private Medien, PIN-Hashes und
 private Signierschlüssel sind keine öffentlichen Downloadinhalte.
-
 
 ## Zusatzplatine für kurze Buzzerdrücke
 
